@@ -1,1 +1,46 @@
-# Construído na Parte 1.
+bairro_origem, bairro_destino, logradouro, observacao, peso
+Cohab, Ibura, Rua Brejo da Cruz, , 1
+Cohab, Jordão, Rua Jaguaretama, , 1
+Cohab, Barro, Avenida Doze de Junho, , 1
+Barro, Jardim São Paulo, Rua Real, , 1
+Barro, Ibura, Avenida Dois Rios, , 1
+Barro, Tejipió, Rua do Sancho, , 1
+Barro, Areias, Avenida Recife, , 1
+Jordão, Ibura, Rua Elesbão Veloso, , 1
+Jordão, Boa Viagem, Rua Remígio, , 1
+Ibura, Ipsep, Avenida Recife, , 1
+Ibura, Imbiribeira, Avenida Recife, , 1
+Ibura, Boa Viagem, Avenida Marechal Mascarenhas de Morais, , 1
+Ibura, Caçote, Avenida Recife, , 1
+Jardim São Paulo, Tejipió, Avenida Liberdade, , 1
+Jardim São Paulo, Curado, Rua da Capela, , 1
+Jardim São Paulo, San Martin, Avenida Recife, , 1
+Jardim São Paulo, Estância, Avenida Recife, , 1
+Jardim São Paulo, Areias, Avenida Central, , 1
+Tejipió, Coqueiral, Rua Quinze de Novembro, , 1
+Tejipió, Sancho, Rua Matoso da Câmara, , 1
+Tejipió, Curado, Avenida Liberdade, , 1
+Areias, Estância, Avenida Recife, , 1
+Areias, Jiquiá, Avenida Tapajós, , 1
+Areias, Caçote, Rua Aurora Caçote, , 1
+Boa Viagem, Imbiribeira, Rua Ribeiro de Brito, , 1
+Boa Viagem, Pina, Avenida Boa Viagem, , 1
+Ipsep, Imbiribeira, Rua Pampulha, , 1
+Imbiribeira, Afogados, Rua Arquiteto Luiz Nunes, , 1
+Imbiribeira, Pina, Viaduto Dom João VI, , 1
+Curado, Sancho, Avenida Liberdade, , 1
+Curado, Várzea, Rua Dr George William Butler, , 1
+Curado, Cidade Universitária, Avenida Professor Luiz Freire, , 1
+Curado, Engenho do Meio, Avenida Recife, , 1
+Curado, Torrões, Avenida Engenheiro Abdias de Carvalho, , 1
+Curado, San Martin, Rua Vinte e Um de Abril, , 1
+San Martin, Torrões, Rua Delmiro Gouveia, , 1
+San Martin, Cordeiro, Avenida Engenheiro Abdias de Carvalho, , 1
+San Martin, Jiquiá, Avenida General San Martin, , 1
+San Martin, Mustardinha, Rua Natalino Teixeira, , 1
+San Martin, Mangueira, Rua Vinte e Um de Abril, , 1
+San Martin, Bongi, Rua Isaac Markman, , 1
+Estância, Jiquiá, Avenida João Cabral de Melo Neto, , 1
+Coqueiral, Sancho, Rua Paulino de Farias, , 1
+Coqueiral, Totó, Rua da Encosta, , 1
+
