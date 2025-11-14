@@ -5,7 +5,7 @@ Cohab, Barro, Avenida Doze de Junho, , 1
 Barro, Jardim São Paulo, Rua Real, , 1
 Barro, Ibura, Avenida Dois Rios, , 1
 Barro, Tejipió, Rua do Sancho, , 1
-Barro, Areias, Rua José Natário, , 1
+Barro, Areias, Rua Alheiros Maia, , 1
 Jordão, Ibura, Rua Elesbão Veloso, , 1
 Jordão, Boa Viagem, Rua Remígio, , 1
 Ibura, Ipsep, Rua São Nicolau, , 1
@@ -16,7 +16,7 @@ Jardim São Paulo, Tejipió, Rua Professor Henrique de Lucena, , 1
 Jardim São Paulo, Curado, Rua da Capela, , 1
 Jardim São Paulo, San Martin, 1A Travessa Bezinha, , 1
 Jardim São Paulo, Estância, Rua Senador Alberto Pasqualini, , 1
-Jardim São Paulo, Areias, Avenida Central, , 1
+Jardim São Paulo, Areias, Rua José Natário, , 1
 Tejipió, Coqueiral, Rua Quinze de Novembro, , 1
 Tejipió, Sancho, Rua Matoso da Câmara, , 1
 Tejipió, Curado, Avenida Padre Ibiapina, , 1
@@ -44,7 +44,7 @@ Estância, Jiquiá, Avenida João Cabral de Melo Neto, , 1
 Coqueiral, Sancho, Rua Paulino de Farias, , 1
 Coqueiral, Totó, Rua da Encosta, , 1
 Caxangá, Sítio dos Pintos, Rua Ribeiro Pessoa, , 1
-Caxangá, Dois Irmãos, Avenida da Recuperação, , 1
+Caxangá, Dois Irmãos, Rua Manuel de Medeiros, , 1
 Caxangá, Iputinga, Avenida Caxangá, , 1
 Caxangá, Várzea, Avenida Afonso Olindense, , 1
 Caxangá, Apipucos, Rua Zuleide Moura, , 1
@@ -150,7 +150,7 @@ Encruzilhada, Hipódromo, Rua Professor Miranda Curió, , 1
 Encruzilhada, Campo Grande, Rua Inhamuns, , 1 
 Rosarinho, Tamarineira, Rua Caio Pereira, , 1
 Rosarinho, Ponto de Parada, Rua Almirante Noronha de Carvalho, , 1
-Tamarineira, Casa Amarela, Rua Guimarães Peixoto, , 1
+Tamarineira, Casa Amarela, Rua Albino Meira, , 1
 Tamarineira, Jaqueira, Rua Simão Mendes, , 1
 Tamarineira, Parnamirim, Rua Sebastião Alves, , 1
 Tamarineira, Mangabeira, Rua da Mangabeira, , 1
@@ -186,8 +186,7 @@ Mangabeira, Arruda, Rua Jacob, , 1
 # checar se estão no bairros
 Alto José do Pinho, Bomba do Hemetério, Rua Arlindo Cisneiros, , 1
 Alto José do Pinho, Morro da Conceição, Rua Córrego do Bartolomeu, , 1
-Alto José do Pinho, Alto de Santa Teresinha, R. Mário de Andrade, 1
-#Casa amarela
+Alto José do Pinho, Alto de Santa Teresinha, R. Mário de Andrade, ,1
 Vasco Da Gama, Morro da Conceição, Rua Itacoatiara, , 1
 Vasco Da Gama, Alto José Bonifácio, Rua Baulanadia, , 1
 Vasco Da Gama, Brejo de Beberibe, Rua da Paz, , 1
