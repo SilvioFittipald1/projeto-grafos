@@ -91,9 +91,9 @@ def load_adjacencias(filepath=os.path.join("data", "adjacencias_bairros.csv")):
         origem = normalize_name(origem)
         destino = normalize_name(destino)
         if origem.lower() in ("setúbal", "setubal"):
-            origem = "Boa Viagem (Setúbal)"
+            origem = "Boa Viagem"
         if destino.lower() in ("setúbal", "setubal"):
-            destino = "Boa Viagem (Setúbal)"
+            destino = "Boa Viagem"
         try:
             peso_val = float(peso) if peso != '' and pd.notna(peso) else 1.0
         except Exception:

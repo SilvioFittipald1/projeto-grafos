@@ -36,7 +36,7 @@ def plot_graph(graph):
         grau = int(grau_row.iloc[0]['grau']) if not grau_row.empty else 0
         ego_row = df_ego[df_ego['bairro'] == b]
         dens_ego = float(ego_row.iloc[0]['densidade_ego']) if not ego_row.empty else 0.0
-    G.add_node(b, microrregiao=mic, grau=grau, densidade_ego=dens_ego)
+        G.add_node(b, microrregiao=mic, grau=grau, densidade_ego=dens_ego)
 
     # tenta carregar adjacencias (se houver) para desenhar arestas
     try:
