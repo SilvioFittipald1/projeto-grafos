@@ -28,6 +28,39 @@ def normalizar_bairro(nome: str) -> str:
     nome = " ".join(nome.split())
     return nome
 
+def tratar_setubal(nome: str):
+    """
+    Aplica a regra especial para o bairro Setúbal.
+
+    Retorna uma tupla (rotulo_saida, nome_no_grafo):
+
+    - Se o nome se referir a Setúbal, então:
+        rotulo_saida = "Boa Viagem (Setúbal)"
+        nome_no_grafo = "Boa Viagem"
+
+    - Caso contrário:
+        rotulo_saida = nome normalizado
+        nome_no_grafo = nome normalizado
+    """
+    if not isinstance(nome, str):
+        # Se não for string, só devolve como está
+        return nome, nome
+
+    # Primeiro normaliza espaços
+    nome_norm = normalizar_bairro(nome)
+    # Compara em minúsculas para ser mais robusto
+    nome_lower = nome_norm.lower()
+
+    # Regra especial para Setúbal (com ou sem acento, com nome solto)
+    if nome_lower == "setúbal" or nome_lower == "setubal":
+        rotulo_saida = "Boa Viagem (Setúbal)"
+        nome_no_grafo = "Boa Viagem"
+        return rotulo_saida, nome_no_grafo
+
+    # Caso geral: não é Setúbal
+    return nome_norm, nome_norm
+
+
 def carregar_grafo_bairros(caminho_bairros_unique: str) -> Graph:
     """
     Lê o arquivo bairros_unique.csv e cria um grafo

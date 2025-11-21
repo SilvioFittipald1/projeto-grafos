@@ -1,262 +1,62 @@
-import networkx as nx
+# src/graphs/algorithms.py
+import heapq
+from math import inf
+from .graph import Graph
 
 
-def bfs(graph, start):
-    """Breadth-first search: retorna lista de nós na ordem de visitação.
-
-    `graph` deve expor método `neighbors(node)`.
+def dijkstra(grafo: Graph, origem: str, destino: str):
     """
-    from collections import deque
+    Algoritmo de Dijkstra para encontrar o caminho mínimo entre dois bairros.
 
-    start = start
-    visited = set()
-    order = []
-    q = deque()
-    q.append(start)
-    visited.add(start)
+    Retorna:
+        custo_total (float) e caminho (lista de bairros, da origem ao destino).
 
-    while q:
-        v = q.popleft()
-        order.append(v)
-        for w in graph.neighbors(v):
-            if w not in visited:
-                visited.add(w)
-                q.append(w)
+    Se não houver caminho, retorna (inf, []).
+    """
+    # Se origem ou destino não estiverem no grafo, já falha
+    if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
+        return inf, []
 
-    return order
+    # Distâncias iniciais: infinito pra todo mundo, 0 pra origem
+    dist = {no: inf for no in grafo.obter_nos()}
+    dist[origem] = 0.0
 
-def dfs(graph, start):
-    """Depth-first search (iterativo). Retorna lista de nós na ordem de visitação."""
-    visited = set()
-    order = []
-    stack = [start]
+    # Predecessor para reconstruir o caminho depois
+    anterior = {}
 
-    while stack:
-        v = stack.pop()
-        if v in visited:
+    # Fila de prioridade (min-heap) com (distância, nó)
+    fila = [(0.0, origem)]
+
+    while fila:
+        dist_atual, u = heapq.heappop(fila)
+
+        # Se pegamos uma entrada desatualizada, pula
+        if dist_atual > dist[u]:
             continue
-        visited.add(v)
-        order.append(v)
-        # empilha vizinhos em ordem (não garantida); invert para comportamento mais natural
-        nbrs = list(graph.neighbors(v))
-        for w in reversed(nbrs):
-            if w not in visited:
-                stack.append(w)
 
-    return order
-
-def dijkstra(graph, start):
-    """Dijkstra: retorna (dist, prev) onde dist[node]=custo mínimo de start e
-    prev[node]=predecessor no caminho mínimo (ou None). Usa 'peso' nas arestas.
-
-    `graph` deve expor atributo `adj` ou método `neighbors` e fornecer peso.
-    """
-    import heapq
-
-    dist = {}
-    prev = {}
-    # inicializa dist com infinito para todos os nós conhecidos
-    for n in graph.nodes():
-        dist[n] = float('inf')
-        prev[n] = None
-
-    if start not in dist:
-        return dist, prev
-
-    dist[start] = 0.0
-    heap = [(0.0, start)]
-
-    while heap:
-        d, u = heapq.heappop(heap)
-        if d > dist[u]:
-            continue
-        for v, edata in graph.adj.get(u, {}).items():
-            w = edata.get('peso', 1.0)
-            alt = dist[u] + float(w)
-            if alt < dist[v]:
-                dist[v] = alt
-                prev[v] = u
-                heapq.heappush(heap, (alt, v))
-
-    return dist, prev
-
-def bellman_ford(graph, start):
-    """Bellman-Ford: retorna (dist, prev, has_negative_cycle)
-
-    Útil para arestas com pesos possivelmente negativos (não usado na Parte 1).
-    """
-    dist = {}
-    prev = {}
-    for n in graph.nodes():
-        dist[n] = float('inf')
-        prev[n] = None
-
-    if start not in dist:
-        return dist, prev, False
-
-    dist[start] = 0.0
-    nodes = graph.nodes()
-    # relaxa |V|-1 vezes
-    for _ in range(len(nodes) - 1):
-        changed = False
-        for u, v, edata in graph.edges():
-            w = edata.get('peso', 1.0)
-            if dist[u] + w < dist[v]:
-                dist[v] = dist[u] + w
-                prev[v] = u
-                changed = True
-            if dist[v] + w < dist[u]:
-                dist[u] = dist[v] + w
-                prev[u] = v
-                changed = True
-        if not changed:
+        # Se chegamos no destino, podemos parar
+        if u == destino:
             break
 
-    # checa ciclo negativo
-    has_neg = False
-    for u, v, edata in graph.edges():
-        w = edata.get('peso', 1.0)
-        if dist[u] + w < dist[v]:
-            has_neg = True
-            break
+        # Relaxa as arestas a partir de u
+        for v, peso in grafo.vizinhos(u):
+            novo_custo = dist[u] + float(peso)
+            if novo_custo < dist[v]:
+                dist[v] = novo_custo
+                anterior[v] = u
+                heapq.heappush(fila, (novo_custo, v))
 
-    return dist, prev, has_neg
+    # Se destino não foi alcançado
+    if dist[destino] == inf:
+        return inf, []
 
+    # Reconstrói o caminho de trás pra frente: destino -> ... -> origem
+    caminho = []
+    atual = destino
+    while atual != origem:
+        caminho.append(atual)
+        atual = anterior[atual]
+    caminho.append(origem)
+    caminho.reverse()  # agora origem -> ... -> destino
 
-def bfs_using_networkx(graph, start):
-    """Usa networkx.bfs_tree convertendo o grafo se necessário."""
-    Gnx = graph.to_networkx() if hasattr(graph, 'to_networkx') else None
-    if Gnx is None:
-        Gnx = nx.Graph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, _ in graph.edges():
-            Gnx.add_edge(u, v)
-    tree = nx.bfs_tree(Gnx, start)
-    return list(tree.nodes())
-
-
-def dijkstra_using_networkx(graph, start):
-    """Usa nx.single_source_dijkstra quando possível."""
-    Gnx = graph.to_networkx() if hasattr(graph, 'to_networkx') else None
-    if Gnx is None:
-        Gnx = nx.Graph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, data in graph.edges():
-            Gnx.add_edge(u, v, **(data or {}))
-    dist_map, paths = nx.single_source_dijkstra(Gnx, start, weight='peso')
-    prev = {n: None for n in Gnx.nodes()}
-    for dest, path in paths.items():
-        if len(path) >= 2:
-            prev[dest] = path[-2]
-    dist = {n: float('inf') for n in Gnx.nodes()}
-    for k, v in dist_map.items():
-        dist[k] = v
-    return dist, prev
-
-
-def bellman_ford_using_networkx(graph, start):
-    """Usa nx.single_source_bellman_ford quando possível."""
-    Gnx = graph.to_networkx() if hasattr(graph, 'to_networkx') else None
-    if Gnx is None:
-        Gnx = nx.DiGraph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, data in graph.edges():
-            Gnx.add_edge(u, v, **(data or {}))
-    length, path = nx.single_source_bellman_ford(Gnx, start, weight='peso')
-    prev = {n: None for n in Gnx.nodes()}
-    for dest, p in path.items():
-        if len(p) >= 2:
-            prev[dest] = p[-2]
-    dist = {n: float('inf') for n in Gnx.nodes()}
-    for k, v in length.items():
-        dist[k] = v
-    return dist, prev, False
-
-
-# Se networkx estiver disponível, expõe funções que usam suas rotinas otimizadas.
-try:
-    import networkx as nx  # type: ignore
-    NX_AVAILABLE = True
-except Exception:
-    nx = None
-    NX_AVAILABLE = False
-
-
-def bfs_using_networkx(graph, start):
-    if not NX_AVAILABLE:
-        return bfs(graph, start)
-    # obtém uma representação networkx do grafo
-    Gnx = None
-    if hasattr(graph, 'to_networkx'):
-        Gnx = graph.to_networkx()
-    if Gnx is None:
-        Gnx = nx.Graph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, _ in graph.edges():
-            Gnx.add_edge(u, v)
-    # usa bfs_tree para garantir ordem de níveis
-    try:
-        tree = nx.bfs_tree(Gnx, start)
-        return list(tree.nodes())
-    except Exception:
-        return bfs(graph, start)
-
-
-def dijkstra_using_networkx(graph, start):
-    if not NX_AVAILABLE:
-        return dijkstra(graph, start)
-    Gnx = None
-    if hasattr(graph, 'to_networkx'):
-        Gnx = graph.to_networkx()
-    if Gnx is None:
-        Gnx = nx.Graph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, data in graph.edges():
-            Gnx.add_edge(u, v, **(data or {}))
-    try:
-        dist_map, paths = nx.single_source_dijkstra(Gnx, start, weight='peso')
-    except Exception:
-        return dijkstra(graph, start)
-    # constrói prev a partir de paths
-    prev = {n: None for n in Gnx.nodes()}
-    for dest, path in paths.items():
-        if len(path) >= 2:
-            prev[dest] = path[-2]
-    dist = {n: float('inf') for n in Gnx.nodes()}
-    for k, v in dist_map.items():
-        dist[k] = v
-    return dist, prev
-
-
-def bellman_ford_using_networkx(graph, start):
-    if not NX_AVAILABLE:
-        return bellman_ford(graph, start)
-    Gnx = None
-    if hasattr(graph, 'to_networkx'):
-        Gnx = graph.to_networkx()
-    if Gnx is None:
-        Gnx = nx.DiGraph()
-        for n in graph.nodes():
-            Gnx.add_node(n)
-        for u, v, data in graph.edges():
-            # para Bellman-Ford usaremos direção arbitrária (u->v)
-            Gnx.add_edge(u, v, **(data or {}))
-    try:
-        length, path = nx.single_source_bellman_ford(Gnx, start, weight='peso')
-        # length is a dict of distances, path is dict of paths
-        prev = {n: None for n in Gnx.nodes()}
-        for dest, p in path.items():
-            if len(p) >= 2:
-                prev[dest] = p[-2]
-        dist = {n: float('inf') for n in Gnx.nodes()}
-        for k, v in length.items():
-            dist[k] = v
-        # networkx raises if negative cycle reachable; here assume no
-        return dist, prev, False
-    except Exception:
-        return bellman_ford(graph, start)
+    return dist[destino], caminho
