@@ -1,109 +1,179 @@
-import csv
-import os
-import unicodedata
+# src/graphs/io.py
+"""
+Módulo de IO para a PARTE 1 (versão simples):
+- Derreter o arquivo bairros_recife.csv em uma lista de bairros únicos,
+  com a microrregião correspondente.
+
+Saída esperada: um CSV com duas colunas:
+    bairro, microrregiao
+
+Observação importante sobre Setúbal:
+- "Setúbal" não aparece como bairro no CSV (é sub-bairro de Boa Viagem).
+- Para todas as tarefas que citam Setúbal, deve-se tratar como
+  "Boa Viagem (Setúbal)" e considerar o nó "Boa Viagem" no grafo.
+  (Esta função apenas derrete o CSV de microrregiões, então não
+   faz nenhum tratamento especial aqui.)
+"""
+
 import pandas as pd
+from .graph import Graph
 
-def load_csv(filepath):
-    """Lê o arquivo CSV original e retorna cabeçalho e matriz de dados."""
-    df = pd.read_csv(filepath, encoding='utf-8')
-    cabecalho = list(df.columns)
-    # transforma DataFrame em lista de listas (linhas)
-    matriz = df.fillna("").astype(str).values.tolist()
-    return cabecalho, matriz
 
-def normalize_name(name):
-    """Padroniza o nome: remove espaços extras e aplica Title Case mantendo acentuação.
+def normalizar_bairro(nome: str) -> str:
+   
+    if not isinstance(nome, str):
+        return nome
 
-    Observação: não removemos acentuação para preservar nomes reais (ex.: "Boa Viagem").
+    nome = nome.strip()
+    nome = " ".join(nome.split())
+    return nome
+
+def carregar_grafo_bairros(caminho_bairros_unique: str) -> Graph:
     """
-    if name is None:
-        return ""
-    name = name.strip()
-    # Normaliza para forma composta (NFC) para manter acentos consistentes
-    name = unicodedata.normalize("NFC", name)
-    # Converte múltiplos espaços em um só
-    name = " ".join(name.split())
-    return name.title()
+    Lê o arquivo bairros_unique.csv e cria um grafo
+    onde cada nó é um bairro.
 
-def validate_csv(cabecalho, matriz):
+    Nesta etapa:
+    - Não criamos arestas ainda, apenas os nós.
+    - Cada nó é rotulado pelo nome do bairro (string).
+
+    Retorna:
+        grafo: instância de Graph com todos os bairros adicionados.
     """
-    'Derrete' o CSV: transforma colunas (microrregiões) em linhas únicas de bairros.
-    Retorna um dicionário {bairro_normalizado: microrregiao}.
+    # 1) Lê o CSV com os bairros únicos
+    df = pd.read_csv(caminho_bairros_unique)
+
+    # 2) Garante que o arquivo tem as colunas esperadas
+    colunas_necessarias = {"bairro", "microrregiao"}
+    if not colunas_necessarias.issubset(df.columns):
+        raise ValueError(
+            "O arquivo bairros_unique.csv deve ter as colunas 'bairro' e 'microrregiao'."
+        )
+
+    # 3) Normaliza nomes de bairros
+    df["bairro"] = df["bairro"].map(normalizar_bairro)
+
+    # 4) Cria o grafo (não dirigido)
+    grafo = Graph()  # seu grafo já é não dirigido
+
+    # 5) Adiciona cada bairro como nó
+    for bairro in df["bairro"]:
+        grafo.adicionar_no(bairro)
+
+    return grafo
+
+def carregar_mapa_bairro_microrregiao(caminho_bairros_unique: str) -> dict:
     """
-    bairros_dict = {}
-
-    for col_idx, microrregiao in enumerate(cabecalho):
-        for linha in matriz:
-            if len(linha) <= col_idx:
-                continue
-            bairro = linha[col_idx].strip()
-            if not bairro:
-                continue
-
-            bairro_norm = normalize_name(bairro)
-            # Evita duplicatas: mantém apenas a primeira microrregião encontrada
-            if bairro_norm not in bairros_dict:
-                bairros_dict[bairro_norm] = microrregiao
-
-    return bairros_dict
-
-def salvar_bairros(bairros_dict, saida=os.path.join("data", "bairros_unique.csv")):
-    """Salva o resultado (bairro, microrregiao) em CSV na pasta data.
-
-    A especificação da Parte 1 exige que `bairros_unique.csv` fique dentro da
-    pasta `data/`.
+    Lê o arquivo bairros_unique.csv e devolve um dicionário:
+        bairro -> microrregiao
     """
-    # Garante que o diretório de saída existe
-    os.makedirs(os.path.dirname(saida), exist_ok=True)
-    with open(saida, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["bairro", "microrregiao"])
-        for bairro, microrregiao in sorted(bairros_dict.items()):
-            writer.writerow([bairro, microrregiao])
+    df = pd.read_csv(caminho_bairros_unique)
 
-    print(f"✅ Arquivo '{saida}' gerado com {len(bairros_dict)} bairros únicos.")
+    colunas_necessarias = {"bairro", "microrregiao"}
+    if not colunas_necessarias.issubset(df.columns):
+        raise ValueError(
+            "O arquivo bairros_unique.csv deve ter as colunas 'bairro' e 'microrregiao'."
+        )
 
+    df["bairro"] = df["bairro"].map(normalizar_bairro)
 
-def load_adjacencias(filepath=os.path.join("data", "adjacencias_bairros.csv")):
-    """Carrega o CSV de adjacências (arestas).
+    return dict(zip(df["bairro"], df["microrregiao"]))
 
-    Formato esperado (com cabeçalho ou sem):
-    bairro_origem,bairro_destino,logradouro,observacao,peso
-
-    Linhas vazias ou que comecem com '#' são ignoradas.
-    Retorna lista de tuplas: (origem, destino, logradouro, observacao, peso)
+def carregar_grafo_recife(
+    caminho_bairros_unique: str,
+    caminho_adjacencias: str
+):
     """
-    arestas = []
-    if not os.path.exists(filepath):
-        print(f"⚠️  Arquivo de adjacências não encontrado: {filepath}")
-        return arestas
+    Monta o grafo completo dos bairros do Recife.
 
-    df = pd.read_csv(filepath, comment='#', encoding='utf-8')
-    cols = [c for c in df.columns]
-    for _, row in df.iterrows():
-        origem = str(row.get(cols[0], '')).strip() if len(cols) > 0 else ''
-        destino = str(row.get(cols[1], '')).strip() if len(cols) > 1 else ''
-        logradouro = str(row.get(cols[2], '')).strip() if len(cols) > 2 else ''
-        observacao = str(row.get(cols[3], '')).strip() if len(cols) > 3 else ''
-        peso = row.get(cols[4], '') if len(cols) > 4 else ''
-        if not origem or not destino:
+    - Usa bairros_unique.csv para saber quais são os bairros e suas microrregiões.
+    - Usa o CSV de adjacências (montado por você) para adicionar as arestas.
+
+    Retorna:
+        grafo: Graph com nós + arestas
+        bairro_para_microrregiao: dicionário bairro -> microrregiao
+    """
+    # 1) Carrega mapa bairro -> microrregiao
+    bairro_para_microrregiao = carregar_mapa_bairro_microrregiao(caminho_bairros_unique)
+
+    # 2) Cria o grafo e adiciona todos os bairros como nós
+    grafo = Graph()
+    for bairro in bairro_para_microrregiao.keys():
+        grafo.adicionar_no(bairro)
+
+    # 3) Lê o CSV de adjacências
+    df_adj = pd.read_csv(caminho_adjacencias)
+    
+    df_adj.columns = df_adj.columns.str.strip()
+
+    colunas_necessarias = {"bairro_origem", "bairro_destino", "peso"}
+    if not colunas_necessarias.issubset(df_adj.columns):
+        raise ValueError(
+
+            f"O arquivo de adjacências deve ter as colunas "
+            f"'bairro_origem', 'bairro_destino' e 'peso'. "
+            f"Colunas encontradas: {list(df_adj.columns)}"
+        )
+
+    # 4) Normaliza nomes de bairros no CSV de adjacência
+    df_adj["bairro_origem"] = df_adj["bairro_origem"].map(normalizar_bairro)
+    df_adj["bairro_destino"] = df_adj["bairro_destino"].map(normalizar_bairro)
+
+    # 5) Percorre as linhas e adiciona arestas
+    for _, linha in df_adj.iterrows():
+        origem = linha["bairro_origem"]
+        destino = linha["bairro_destino"]
+
+        # ignora linhas com bairros desconhecidos (por segurança)
+        if origem not in bairro_para_microrregiao or destino not in bairro_para_microrregiao:
             continue
-        origem = normalize_name(origem)
-        destino = normalize_name(destino)
-        if origem.lower() in ("setúbal", "setubal"):
-            origem = "Boa Viagem"
-        if destino.lower() in ("setúbal", "setubal"):
-            destino = "Boa Viagem"
-        try:
-            peso_val = float(peso) if peso != '' and pd.notna(peso) else 1.0
-        except Exception:
-            peso_val = 1.0
-        arestas.append((origem, destino, logradouro, observacao, peso_val))
 
-    return arestas
+        peso = float(linha["peso"])
+
+        grafo.adicionar_aresta(origem, destino, peso)
+
+    return grafo, bairro_para_microrregiao
+
+
+def derreter_bairros(caminho_entrada: str, caminho_saida: str) -> None:
+ 
+
+    
+    df = pd.read_csv(caminho_entrada)
+
+   
+    df_derretido = df.melt(
+        var_name="microrregiao_coluna",
+        value_name="bairro"
+    )
+
+   
+    df_derretido = df_derretido.dropna(subset=["bairro"])
+
+   
+    df_derretido["microrregiao"] = (
+        df_derretido["microrregiao_coluna"]
+        .astype(str)
+        .str.split(".")
+        .str[0]
+    )
+
+    
+    df_derretido["bairro"] = df_derretido["bairro"].map(normalizar_bairro)
+
+   
+    df_bairros_unicos = (
+        df_derretido[["bairro", "microrregiao"]]
+        .drop_duplicates()
+        .sort_values(["microrregiao", "bairro"])
+        .reset_index(drop=True)
+    )
+
+    df_bairros_unicos.to_csv(caminho_saida, index=False)
 
 if __name__ == "__main__":
-    entrada = os.path.join("data", "bairros_recife.csv")
-    cabecalho, matriz = load_csv(entrada)
-    bairros_dict = validate_csv(cabecalho, matriz)
-    salvar_bairros(bairros_dict)
+    derreter_bairros(
+        "data/bairros_recife.csv",
+        "data/bairros_unique.csv"
+    )
+

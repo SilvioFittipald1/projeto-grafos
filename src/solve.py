@@ -1,187 +1,148 @@
-def solve():
-    """Gera as saídas da Parte 1 usando apenas os nós (bairros).
+# src/solve.py
+import os
+import json
+import pandas as pd
 
-    Se `data/adjacencias_bairros.csv` não estiver disponível, o grafo será
-    construído apenas com nós e todas as métricas que dependem de arestas
-    serão calculadas considerando 0 arestas.
+from .graphs.io import carregar_grafo_recife, carregar_mapa_bairro_microrregiao
+from .graphs.graph import Graph
+
+# Pastas e caminhos padrão
+DATA_DIR = "data"
+OUT_DIR = "out"
+
+CAMINHO_BAIRROS_UNIQUE = os.path.join(DATA_DIR, "bairros_unique.csv")
+CAMINHO_ADJACENCIAS = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
+
+os.makedirs(OUT_DIR, exist_ok=True)
+
+
+def calcular_metricas_globais(grafo: Graph) -> dict:
     """
-    import os
-    import csv
-    import json
-    from graphs import io as io_mod
-    from graphs import graph as graph_mod
+    Calcula ordem, tamanho e densidade do grafo completo.
+    """
+    return {
+        "ordem": grafo.ordem(),
+        "tamanho": grafo.tamanho(),
+        "densidade": grafo.densidade()
+    }
 
-    os.makedirs("out", exist_ok=True)
 
-    # Carrega bairros únicos
-    bairros_path = os.path.join("data", "bairros_unique.csv")
-    bairros = {}
-    if os.path.exists(bairros_path):
-        with open(bairros_path, encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for r in reader:
-                b = r.get("bairro", "").strip()
-                m = r.get("microrregiao", "").strip()
-                if b:
-                    bairros[b] = m
-    else:
-        print(f"⚠️  Arquivo {bairros_path} não encontrado. Rode src/graphs/io.py primeiro.")
-        return
+def calcular_metricas_microrregioes(grafo: Graph, bairro_para_micro: dict):
+    """
+    Para cada microrregião, calcula:
+        - ordem
+        - tamanho
+        - densidade
+    no subgrafo induzido apenas com seus bairros.
+    """
+    microrregioes = sorted(set(bairro_para_micro.values()))
+    resultados = []
 
-    # Monta grafo com nós apenas
-    G = graph_mod.Graph()
-    for b, m in bairros.items():
-        G.add_node(b, microrregiao=m)
+    for micro in microrregioes:
+        # bairros dessa microrregião
+        bairros_micro = [b for b, m in bairro_para_micro.items() if m == micro]
 
-    # Tenta carregar adjacências (pode estar ausente)
-    arestas = io_mod.load_adjacencias(os.path.join("data", "adjacencias_bairros.csv"))
-    for o, d, log, obs, peso in arestas:
-        G.add_edge(o, d, peso=peso, logradouro=log, observacao=obs)
+        # subgrafo induzido
+        sub = grafo.subgrafo_induzido(bairros_micro)
 
-    # Métricas globais
-    ordem = G.number_of_nodes()
-    tamanho = G.number_of_edges()
+        resultados.append({
+            "microrregiao": micro,
+            "ordem": sub.ordem(),
+            "tamanho": sub.tamanho(),
+            "densidade": sub.densidade()
+        })
 
-    def densidade(n_nodes, n_edges):
-        if n_nodes < 2:
-            return 0.0
-        return (2.0 * n_edges) / (n_nodes * (n_nodes - 1))
+    return resultados
 
-    dens = densidade(ordem, tamanho)
 
-    recife_global = {"ordem": ordem, "tamanho": tamanho, "densidade": dens}
-    with open(os.path.join("out", "recife_global.json"), "w", encoding="utf-8") as f:
-        json.dump(recife_global, f, indent=2, ensure_ascii=False)
+def calcular_ego_por_bairro(grafo: Graph):
+    """
+    Para cada bairro v, considera a ego-subrede v ∪ N(v) e calcula:
+        - grau (em G)
+        - ordem_ego
+        - tamanho_ego
+        - densidade_ego
+    """
+    linhas = []
 
-    # Métricas por microrregião
-    micros = {}
-    for b, m in bairros.items():
-        micros.setdefault(m, set()).add(b)
+    for bairro in grafo.obter_nos():
+        # vizinhos diretos de v
+        vizinhos = [v for (v, _) in grafo.vizinhos(bairro)]
 
-    micror_list = []
-    for m, nodes in micros.items():
-        nodes = set(nodes)
-        n_nodes = len(nodes)
-        # conta arestas cujo ambos extremos estão em `nodes`
-        n_edges = 0
-        for u, v, _ in G.edges():
-            if u in nodes and v in nodes:
-                n_edges += 1
-        micr = {"microrregiao": m, "ordem": n_nodes, "tamanho": n_edges, "densidade": densidade(n_nodes, n_edges)}
-        micror_list.append(micr)
+        # nós da ego-subrede: v + vizinhos
+        nos_ego = [bairro] + vizinhos
 
-    with open(os.path.join("out", "microrregioes.json"), "w", encoding="utf-8") as f:
-        json.dump(micror_list, f, indent=2, ensure_ascii=False)
+        ego = grafo.subgrafo_induzido(nos_ego)
 
-    # Ego-networks e graus
-    ego_rows = []
-    graus = []
-    for v in sorted(G.nodes()):
-        grau = G.degree(v)
-        viz = set(G.neighbors(v))
-        ego_nodes = set(viz) | {v}
-        ordem_ego = len(ego_nodes)
-        # conta arestas no subgrafo induzido por ego_nodes
-        ecount = 0
-        for a in ego_nodes:
-            for b in G.neighbors(a):
-                if b in ego_nodes:
-                    # cada aresta contada duas vezes
-                    ecount += 1
-        tamanho_ego = ecount // 2
-        dens_ego = densidade(ordem_ego, tamanho_ego)
-        ego_rows.append({"bairro": v, "grau": grau, "ordem_ego": ordem_ego, "tamanho_ego": tamanho_ego, "densidade_ego": dens_ego})
-        graus.append((v, grau))
+        linha = {
+            "bairro": bairro,
+            "grau": grafo.grau(bairro),
+            "ordem_ego": ego.ordem(),
+            "tamanho_ego": ego.tamanho(),
+            "densidade_ego": ego.densidade()
+        }
+        linhas.append(linha)
 
-    # salva ego_bairro.csv
-    with open(os.path.join("out", "ego_bairro.csv"), "w", newline='', encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["bairro", "grau", "ordem_ego", "tamanho_ego", "densidade_ego"])
-        for r in ego_rows:
-            writer.writerow([r['bairro'], r['grau'], r['ordem_ego'], r['tamanho_ego'], r['densidade_ego']])
+    return linhas
 
-    # salva graus.csv
-    with open(os.path.join("out", "graus.csv"), "w", newline='', encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["bairro", "grau"])
-        for b, g in sorted(graus, key=lambda x: (-x[1], x[0])):
-            writer.writerow([b, g])
 
-    # Determina bairro com maior densidade_ego e maior grau
-    bairro_mais_denso = max(ego_rows, key=lambda x: x['densidade_ego'])['bairro'] if ego_rows else None
-    bairro_maior_grau = max(graus, key=lambda x: x[1])[0] if graus else None
+def passo_3():
+    """
+    Orquestra o PASSO 3:
 
-    print("Resumo:")
-    print(f"Ordem: {ordem}, Tamanho: {tamanho}, Densidade: {dens:.6f}")
-    print(f"Bairro com maior densidade_ego: {bairro_mais_denso}")
-    print(f"Bairro com maior grau: {bairro_maior_grau}")
+    - Carrega o grafo completo dos bairros (nós + arestas).
+    - Calcula métricas globais -> out/recife_global.json
+    - Calcula métricas por microrregião -> out/microrregioes.json
+    - Calcula ego-subrede por bairro -> out/ego_bairro.csv
+    """
+    # 1) Carrega grafo completo e mapa bairro -> microrregiao
+    grafo, bairro_para_micro = carregar_grafo_recife(
+        CAMINHO_BAIRROS_UNIQUE,
+        CAMINHO_ADJACENCIAS
+    )
 
-    # Endereços e distâncias
-    enderecos_path = os.path.join("data", "enderecos.csv")
-    if not os.path.exists(enderecos_path):
-        # cria um CSV com 5 pares exemplo (bairros conhecidos no arquivo gerado)
-        sample = [
-            ("Avenida Conselheiro Aguiar, Boa Viagem", "Rua Real, Nova Descoberta", "Boa Viagem", "Nova Descoberta"),
-            ("Rua do Sol, Boa Vista", "Rua X, Coelhos", "Boa Vista", "Coelhos"),
-            ("Praça Y, Pina", "Rua Z, Ipsep", "Pina", "Ipsep"),
-            ("Av. Domingos Ferreira, Imbiribeira", "Rua W, Ipsep", "Imbiribeira", "Ipsep"),
-            ("Rua A, Nova Descoberta", "Rua B, Setúbal", "Nova Descoberta", "Setúbal"),
-        ]
-        os.makedirs(os.path.dirname(enderecos_path), exist_ok=True)
-        with open(enderecos_path, "w", newline='', encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow(["X", "Y", "bairro_X", "bairro_Y"])
-            for x, y, bx, by in sample:
-                writer.writerow([x, y, bx, by])
+    # 2) Métricas globais
+    metricas_globais = calcular_metricas_globais(grafo)
+    with open(os.path.join(OUT_DIR, "recife_global.json"), "w", encoding="utf-8") as f:
+        json.dump(metricas_globais, f, ensure_ascii=False, indent=2)
 
-    # lê endereços e calcula Dijkstra pelos bairros
-    dist_out_rows = []
-    with open(os.path.join("data", "enderecos.csv"), encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for r in reader:
-            X = r.get("X", "")
-            Y = r.get("Y", "")
-            bX = r.get("bairro_X", "").strip()
-            bY = r.get("bairro_Y", "").strip()
-            # normaliza Setúbal para Boa Viagem
-            if bX.lower() in ("setúbal", "setubal"):
-                bX = "Boa Viagem"
-            if bY.lower() in ("setúbal", "setubal"):
-                bY = "Boa Viagem"
+    # 3) Métricas por microrregião
+    metricas_micros = calcular_metricas_microrregioes(grafo, bairro_para_micro)
+    with open(os.path.join(OUT_DIR, "microrregioes.json"), "w", encoding="utf-8") as f:
+        json.dump(metricas_micros, f, ensure_ascii=False, indent=2)
 
-            dist, prev = __import__("graphs.algorithms", fromlist=["dijkstra"]).dijkstra(G, bX)
-            custo = dist.get(bY, float('inf'))
-            # reconstrói caminho
-            path = []
-            if custo != float('inf'):
-                cur = bY
-                while cur is not None:
-                    path.append(cur)
-                    cur = prev.get(cur)
-                path = list(reversed(path))
-            dist_out_rows.append({"X": X, "Y": Y, "bairro_X": bX, "bairro_Y": bY, "custo": custo, "caminho": path})
+    # 4) Ego-subrede por bairro
+    ego_linhas = calcular_ego_por_bairro(grafo)
+    df_ego = pd.DataFrame(ego_linhas)
+    df_ego.to_csv(os.path.join(OUT_DIR, "ego_bairro.csv"), index=False)
 
-    # salva distancias_enderecos.csv
-    with open(os.path.join("out", "distancias_enderecos.csv"), "w", newline='', encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["X", "Y", "bairro_X", "bairro_Y", "custo", "caminho"])
-        for r in dist_out_rows:
-            writer.writerow([r['X'], r['Y'], r['bairro_X'], r['bairro_Y'], r['custo'], ";".join(r['caminho'])])
+def passo_4():
+    """
+    PASSO 4:
+    - Lê out/ego_bairro.csv (gerado no passo 3).
+    - Gera out/graus.csv com (bairro, grau), ordenado do maior para o menor.
+    - Gera out/densidades.csv com (bairro, densidade_ego), ordenado do maior para o menor.
+    """
+    caminho_ego = os.path.join(OUT_DIR, "ego_bairro.csv")
+    caminho_graus = os.path.join(OUT_DIR, "graus.csv")
+    caminho_densidades = os.path.join(OUT_DIR, "densidades.csv")
 
-    # salva percurso obrigatório Nova Descoberta -> Setúbal
-    target_path = os.path.join("out", "percurso_nova_descoberta_setubal.json")
-    # tenta reconstruir o caminho que calculamos (pode ser vazio)
-    for r in dist_out_rows:
-        if r['bairro_X'].lower() == 'nova descoberta' and r['bairro_Y'].lower() in ('setúbal', 'setubal', 'boa viagem'):
-            with open(target_path, "w", encoding="utf-8") as f:
-                json.dump(r, f, ensure_ascii=False, indent=2)
-            break
+    # Lê a tabela completa de ego-subrede
+    df = pd.read_csv(caminho_ego)
 
-    print(f"Arquivos gerados em 'out/' (recife_global.json, microrregioes.json, ego_bairro.csv, graus.csv, distancias_enderecos.csv, percurso_nova_descoberta_setubal.json se aplicável).")
+    # ----------------- graus.csv -----------------
+    df_graus = df[["bairro", "grau"]].copy()
+    df_graus = df_graus.sort_values(by="grau", ascending=False)
+    df_graus.to_csv(caminho_graus, index=False)
+
+    # --------------- densidades.csv --------------
+    df_den = df[["bairro", "densidade_ego"]].copy()
+    df_den = df_den.sort_values(by="densidade_ego", ascending=False)
+    df_den.to_csv(caminho_densidades, index=False)
+
+
 
 
 if __name__ == "__main__":
-    solve()
-
-if __name__ == "__main__":
-    solve()
+    passo_3()
+    passo_4()
