@@ -2,7 +2,6 @@
 import os
 import json
 import pandas as pd
-
 from .graphs.io import carregar_grafo_recife, tratar_setubal 
 from .graphs.graph import Graph
 from .graphs.algorithms import dijkstra

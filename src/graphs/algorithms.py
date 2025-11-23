@@ -2,6 +2,8 @@
 import heapq
 from math import inf
 from .graph import Graph
+from collections import deque
+
 
 
 def dijkstra(grafo: Graph, origem: str, destino: str):
@@ -60,3 +62,36 @@ def dijkstra(grafo: Graph, origem: str, destino: str):
     caminho.reverse()  # agora origem -> ... -> destino
 
     return dist[destino], caminho
+
+def bfs_arvore(grafo: Graph, origem: str):
+    """
+    Busca em Largura (BFS) a partir de 'origem', construindo a ÁRVORE BFS.
+
+    Retorna:
+        pai   -> dict[bairro] = bairro_pai (origem tem pai = None)
+        nivel -> dict[bairro] = nível (0 para origem, 1 para vizinhos diretos, ...)
+    """
+    if origem not in grafo.adjacencia:
+        raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
+
+    visitado = set()
+    pai = {}
+    nivel = {}
+
+    fila = deque()
+
+    visitado.add(origem)
+    pai[origem] = None
+    nivel[origem] = 0
+    fila.append(origem)
+
+    while fila:
+        atual = fila.popleft()
+        for vizinho, _peso in grafo.vizinhos(atual):
+            if vizinho not in visitado:
+                visitado.add(vizinho)
+                pai[vizinho] = atual
+                nivel[vizinho] = nivel[atual] + 1
+                fila.append(vizinho)
+
+    return pai, nivel
