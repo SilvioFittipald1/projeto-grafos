@@ -1,3 +1,5 @@
-networkx
+pytest
 pandas
 matplotlib
+pyvis
+
