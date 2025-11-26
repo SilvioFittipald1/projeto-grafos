@@ -4,6 +4,13 @@ from .graph import Graph
 from collections import deque
 
 
+def _validar_pesos_nao_negativos(grafo: Graph):
+    for u in grafo.obter_nos():
+        for _v, peso in grafo.vizinhos(u):
+            if float(peso) < 0:
+                raise ValueError("Dijkstra não aceita pesos negativos.")
+
+
 def dijkstra(grafo: Graph, origem: str, destino: str):
     """
     Algoritmo de Dijkstra para encontrar o caminho mínimo entre dois bairros.
@@ -11,6 +18,8 @@ def dijkstra(grafo: Graph, origem: str, destino: str):
     # Se origem ou destino não estiverem no grafo, já falha
     if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
         return inf, []
+
+    _validar_pesos_nao_negativos(grafo)
 
     # Distâncias iniciais: infinito pra todo mundo, 0 pra origem
     dist = {no: inf for no in grafo.obter_nos()}
@@ -203,6 +212,61 @@ def dfs_caminho(grafo: Graph, origem: str, destino: str):
     
     dfs_recursivo(origem)
     return resultado
+
+
+def dfs_detectar_ciclo(grafo: Graph) -> bool:
+    visitado = set()
+
+    def dfs(u, pai):
+        visitado.add(u)
+        for v, _ in grafo.vizinhos(u):
+            if v == pai:
+                continue
+            if v not in visitado:
+                if dfs(v, u):
+                    return True
+            else:
+                return True
+        return False
+
+    for no in grafo.obter_nos():
+        if no not in visitado and dfs(no, None):
+            return True
+    return False
+
+
+def dfs_classificar_arestas(grafo: Graph):
+    visitado = set()
+    em_processamento = set()
+    classificacao = {}
+
+    def registrar(u, v, tipo):
+        chave = tuple(sorted((u, v)))
+        if chave not in classificacao:
+            classificacao[chave] = tipo
+
+    def dfs(u, pai):
+        visitado.add(u)
+        em_processamento.add(u)
+
+        for v, _ in grafo.vizinhos(u):
+            if v == pai:
+                continue
+            if v not in visitado:
+                registrar(u, v, "tree")
+                dfs(v, u)
+            elif v in em_processamento:
+                registrar(u, v, "back")
+            else:
+                registrar(u, v, "cross")
+
+        em_processamento.remove(u)
+
+    for no in grafo.obter_nos():
+        if no not in visitado:
+            dfs(no, None)
+
+    return classificacao
 
 
 def bellman_ford(grafo: Graph, origem: str):
