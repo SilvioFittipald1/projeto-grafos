@@ -8,7 +8,7 @@ from .graphs.algorithms import dijkstra
 
 # Pastas e caminhos padrão
 DATA_DIR = "data"
-OUT_DIR = "out"
+OUT_DIR = "out/parte1"
 
 CAMINHO_BAIRROS_UNIQUE = os.path.join(DATA_DIR, "bairros_unique.csv")
 CAMINHO_ADJACENCIAS = os.path.join(DATA_DIR, "adjacencias_bairros.csv")

@@ -54,7 +54,7 @@ def arvore_percurso_html(
     Gera uma visualização INTERATIVA da árvore de percurso
     (Nova Descoberta -> Boa Viagem (Setúbal)) usando pyvis.
 
-    Salva o resultado em out/arvore_percurso.html.
+    Salva o resultado em out/parte1/arvore_percurso.html.
     """
 
     # 1) Carrega origem, destino e caminho a partir do JSON do PASSO 6
@@ -132,7 +132,7 @@ def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
 
 
 
-DATA_DIR = "parte1/data"
+DATA_DIR = "data/"
 OUT_DIR = "out/parte1"
 
 
@@ -142,9 +142,9 @@ def mapa_graus_html():
     - cada nó é um bairro
     - a cor do nó varia com o grau (mais conexões = cor mais intensa)
 
-    Usa o arquivo out/graus.csv já gerado no passo 4.
+    Usa o arquivo out/parte1/graus.csv já gerado no passo 4.
 
-    Saída: out/mapa_graus.html
+    Saída: out/parte1/mapa_graus.html
     """
     if Network is None:
         print("Pyvis não está disponível (Network é None). Verifique pyvis/jinja2 no ambiente.")
@@ -312,13 +312,13 @@ def mapa_graus_html():
 def ranking_densidade_ego_microrregiao_png():
     """
     Lê:
-      - out/ego_bairro.csv  (densidade_ego por bairro)
+      - out/parte1/ego_bairro.csv  (densidade_ego por bairro)
       - data/bairros_unique.csv (bairro -> microrregiao)
 
     Calcula, para cada microrregiao, a média de densidade_ego
     e gera um gráfico de barras:
 
-        out/ranking_densidade_ego_microrregiao.png
+        out/parte1/ranking_densidade_ego_microrregiao.png
     """
     caminho_ego = os.path.join(OUT_DIR, "ego_bairro.csv")
     caminho_bairros = os.path.join(DATA_DIR, "bairros_unique.csv")
@@ -470,7 +470,7 @@ def arvore_bfs_boaviagem_html():
 
     Cada nível da BFS é exibido como uma camada hierárquica:
 
-        out/arvore_bfs_boaviagem.html
+        out/parte1/arvore_bfs_boaviagem.html
     """
     if Network is None:
         print("Pyvis (Network) não está disponível. Verifique a instalação de pyvis/jinja2.")
@@ -565,7 +565,7 @@ def grafo_interativo_html():
         - Caixa de busca por bairro
         - Botao para destacar o caminho 'Nova Descoberta -> Boa Viagem (Setubal)'
 
-    Saida: out/grafo_interativo.html
+    Saida: out/parte1/grafo_interativo.html
     """
     if Network is None:
         print("Pyvis (Network) nao esta disponivel. Verifique a instalacao de pyvis/jinja2.")
@@ -632,7 +632,7 @@ def grafo_interativo_html():
 
     graus = {row["bairro"]: int(row["grau"]) for _, row in df_graus.iterrows()}
 
-    # --- 3) Carrega densidade_ego por bairro (out/ego_bairro.csv) ---
+    # --- 3) Carrega densidade_ego por bairro (out/parte1/ego_bairro.csv) ---
     caminho_ego = os.path.join(OUT_DIR, "ego_bairro.csv")
     if not os.path.exists(caminho_ego):
         raise FileNotFoundError(
