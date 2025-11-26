@@ -52,8 +52,7 @@
     <body>
 
 <style>
-    /* Caixa de controles fixa e elegante */
-    .gp-controls-box {
+    .controls-box {
         position: fixed;
         top: 16px;
         left: 16px;
@@ -63,11 +62,24 @@
         padding: 12px;
         border-radius: 10px;
         box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-        min-width: 220px;
-        max-width: 320px;
+        min-width: 240px;
+        max-width: 340px;
+        max-height: 90vh;
+        overflow-y: auto;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .gp-controls-box .gp-issue {
+    .controls-box::-webkit-scrollbar {
+        width: 6px;
+    }
+    .controls-box::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.1);
+        border-radius: 3px;
+    }
+    .controls-box::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.3);
+        border-radius: 3px;
+    }
+    .controls-box .issue {
         background: rgba(255,80,80,0.08);
         border: 1px solid rgba(255,80,80,0.18);
         color: #ffdede;
@@ -76,12 +88,37 @@
         border-radius: 6px;
         font-size: 12px;
     }
-    .gp-controls-vertical {
+    .controls-vertical {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
-    .gp-controls-vertical select {
+    .section-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #aaa;
+        margin-top: 8px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .controls-vertical input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 2px solid rgba(255,255,255,0.2);
+        background: rgba(30, 30, 30, 0.95);
+        color: #ffffff;
+        outline: none;
+        font-size: 14px;
+        box-sizing: border-box;
+        margin-bottom: 4px;
+    }
+    .controls-vertical input[type="text"]:focus {
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    }
+    .controls-vertical select {
         width: 100%;
         padding: 10px 12px;
         border-radius: 8px;
@@ -91,24 +128,25 @@
         outline: none;
         font-size: 14px;
         font-weight: 500;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
         cursor: pointer;
         transition: all 0.3s ease;
+        box-sizing: border-box;
     }
-    .gp-controls-vertical select:hover {
+    .controls-vertical select:hover {
         border-color: rgba(255,255,255,0.4);
         background: rgba(40, 40, 40, 0.95);
     }
-    .gp-controls-vertical select:focus {
+    .controls-vertical select:focus {
         border-color: #4CAF50;
         box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
     }
-    .gp-controls-vertical select option {
+    .controls-vertical select option {
         background: #2a2a2a;
         color: #ffffff;
         padding: 8px;
     }
-    .gp-controls-vertical button {
+    .controls-vertical button {
         background: linear-gradient(180deg, #222 0%, #111 100%);
         color: #fff;
         border: 1px solid rgba(255,255,255,0.06);
@@ -119,20 +157,157 @@
         box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         transition: transform 0.08s ease, box-shadow 0.08s ease;
         font-size: 14px;
+        margin-bottom: 4px;
     }
-    .gp-controls-vertical button:hover {
+    .controls-vertical button:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(0,0,0,0.6);
     }
-    /* Ajuste para telas pequenas */
+    .controls-vertical button:active {
+        transform: translateY(0);
+    }
+    .stats-box {
+        background: rgba(40, 40, 40, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .stats-box div {
+        margin: 4px 0;
+    }
+    .legend-box {
+        background: rgba(40, 40, 40, 0.6);
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 4px;
+        font-size: 12px;
+    }
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+    }
+    .legend-color {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        margin-right: 8px;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    .filter-item {
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+        cursor: pointer;
+        font-size: 12px;
+        user-select: none;
+    }
+    .filter-item input[type="checkbox"] {
+        margin-right: 8px;
+        cursor: pointer;
+    }
+    .filter-color {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        margin-right: 6px;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+    .path-info {
+        background: rgba(76, 175, 80, 0.15);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 8px;
+        font-size: 12px;
+        display: none;
+    }
+    .path-info.show {
+        display: block;
+    }
+    .path-info-title {
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #4CAF50;
+    }
+    .path-info-content {
+        line-height: 1.6;
+    }
+    .loading {
+        display: none;
+        text-align: center;
+        padding: 8px;
+        font-size: 12px;
+        color: #4CAF50;
+    }
+    .loading.show {
+        display: block;
+    }
+    .zoom-controls {
+        display: flex;
+        gap: 4px;
+        margin-top: 4px;
+    }
+    .zoom-controls button {
+        flex: 1;
+        padding: 6px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .navigation-controls {
+        margin-top: 4px;
+    }
+    .nav-btn {
+        background: linear-gradient(180deg, #222 0%, #111 100%);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.06);
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        font-size: 16px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    .nav-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+    }
+    .nav-btn:active {
+        transform: translateY(0);
+    }
     @media (max-width: 480px) {
-        .gp-controls-box { left: 8px; top: 8px; padding: 10px; min-width: 180px; }
+        .controls-box { left: 8px; top: 8px; padding: 10px; min-width: 200px; max-width: 280px; }
     }
 </style>
 
-<div class="gp-controls-box">
+<div class="controls-box">
     
-    <div class="gp-controls-vertical">
+    <div class="controls-vertical">
+        <div class="section-title">📊 Estatísticas</div>
+        <div class="stats-box">
+            <div><strong>Bairros:</strong> 94</div>
+            <div><strong>Conexões:</strong> 218</div>
+            <div><strong>Densidade:</strong> 0.0499</div>
+        </div>
+        
+        <div class="section-title">🔍 Busca</div>
+        <input type="text" id="busca-bairro" placeholder="Digite o nome do bairro..." onkeypress="if(event.key==='Enter') buscarBairro()">
+        <div style="display: flex; gap: 4px;">
+            <button onclick="buscarBairro()" style="flex: 1;">Buscar Bairro</button>
+            <button onclick="limparBusca()" style="flex: 1;">Limpar Busca</button>
+        </div>
+        
+        <div class="section-title">🗺️ Caminhos</div>
+        <select id="algoritmo-select">
+            <option value="dijkstra">Dijkstra</option>
+            <option value="bfs">BFS (Busca em Largura)</option>
+            <option value="bellman-ford">Bellman-Ford</option>
+        </select>
         <select id="origem-select">
             <option value="">Selecione a origem...</option>
                 <option value='Aflitos'>Aflitos</option>
@@ -327,9 +502,60 @@
                 <option value='Zumbi'>Zumbi</option>
                 <option value='Água Fria'>Água Fria</option>
         </select>
-        <button onclick="calcularMenorCaminho()">Calcular Menor Caminho</button>
+        <div class="loading" id="loading-indicator">Calculando caminho...</div>
+        <button onclick="calcularCaminho()">Calcular Caminho</button>
         <button onclick="highlightPath()">Destacar Nova Descoberta → Boa Viagem</button>
         <button onclick="resetHighlight()">Limpar Destaques</button>
+        <div class="path-info" id="path-info">
+            <div class="path-info-title">📍 Informações do Caminho</div>
+            <div class="path-info-content" id="path-info-content"></div>
+        </div>
+        
+        <div class="section-title">🎨 Legenda</div>
+        <div class="legend-box">
+            <div class="legend-item"><span class="legend-color" style="background-color: #1f77b4"></span> Microrregião 1</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #ff7f0e"></span> Microrregião 2</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #2ca02c"></span> Microrregião 3</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #d62728"></span> Microrregião 4</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #9467bd"></span> Microrregião 5</div>
+            <div class="legend-item"><span class="legend-color" style="background-color: #8c564b"></span> Microrregião 6</div>
+        </div>
+        
+        <div class="gp-section-title">🔲 Filtros</div>
+        <div class="gp-legend-box">
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="1" checked onchange="toggleMicrorregiao('1')"><span class="filter-color" style="background-color: #1f77b4"></span> Microrregião 1</label>
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="2" checked onchange="toggleMicrorregiao('2')"><span class="filter-color" style="background-color: #ff7f0e"></span> Microrregião 2</label>
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="3" checked onchange="toggleMicrorregiao('3')"><span class="filter-color" style="background-color: #2ca02c"></span> Microrregião 3</label>
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="4" checked onchange="toggleMicrorregiao('4')"><span class="filter-color" style="background-color: #d62728"></span> Microrregião 4</label>
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="5" checked onchange="toggleMicrorregiao('5')"><span class="filter-color" style="background-color: #9467bd"></span> Microrregião 5</label>
+            <label class="filter-item"><input type="checkbox" class="micro-filter" value="6" checked onchange="toggleMicrorregiao('6')"><span class="filter-color" style="background-color: #8c564b"></span> Microrregião 6</label>
+            <div style="margin-top: 8px;">
+                <button onclick="showAllMicrorregioes()" style="font-size: 11px; padding: 6px;">Mostrar Todas</button>
+                <button onclick="hideAllMicrorregioes()" style="font-size: 11px; padding: 6px;">Ocultar Todas</button>
+            </div>
+        </div>
+        
+        <div class="section-title">🔍 Zoom</div>
+        <div class="zoom-controls">
+            <button onclick="zoomIn()">➕</button>
+            <button onclick="zoomOut()">➖</button>
+            <button onclick="resetView()">🔄</button>
+        </div>
+        
+        <div class="section-title">🧭 Navegação</div>
+        <div class="navigation-controls">
+            <div style="display: flex; justify-content: center; margin-bottom: 4px;">
+                <button onclick="moveView('up')" class="nav-btn">⬆️</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 4px;">
+                <button onclick="moveView('left')" class="nav-btn">⬅️</button>
+                <button onclick="moveView('center')" class="nav-btn" style="font-size: 10px;">🎯</button>
+                <button onclick="moveView('right')" class="nav-btn">➡️</button>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 4px;">
+                <button onclick="moveView('down')" class="nav-btn">⬇️</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -383,7 +609,7 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"nodes": {"font": {"size": 14, "face": "Arial"}}, "edges": {"smooth": false}, "physics": {"stabilization": {"enabled": true, "iterations": 1000}}};
+                  var options = {"nodes": {"font": {"size": 14, "face": "Arial"}}, "edges": {"smooth": false}, "physics": {"stabilization": {"enabled": true, "iterations": 1000}}, "interaction": {"dragNodes": true, "dragView": true, "zoomView": true, "navigationButtons": false, "keyboard": true}};
 
                   
 
@@ -411,6 +637,8 @@
     // Nos e arestas do caminho minimo Nova Descoberta -> Boa Viagem (Setubal)
     var pathNodes = ["Nova Descoberta", "Alto do Mandu", "Casa Amarela", "Tamarineira", "Jaqueira", "Torre", "Cordeiro", "Prado", "Afogados", "Imbiribeira", "Boa Viagem"];
     var pathEdges = [["Nova Descoberta", "Alto do Mandu"], ["Alto do Mandu", "Casa Amarela"], ["Casa Amarela", "Tamarineira"], ["Tamarineira", "Jaqueira"], ["Jaqueira", "Torre"], ["Torre", "Cordeiro"], ["Cordeiro", "Prado"], ["Prado", "Afogados"], ["Afogados", "Imbiribeira"], ["Imbiribeira", "Boa Viagem"]];
+    var microToColor = {"1": "#1f77b4", "2": "#ff7f0e", "3": "#2ca02c", "4": "#d62728", "5": "#9467bd", "6": "#8c564b"};
+    var bairroToMicro = {"Boa Vista": "1", "Cabanga": "1", "Coelhos": "1", "Ilha Joana Bezerra": "1", "Ilha do Leite": "1", "Paissandu": "1", "Recife": "1", "Santo Amaro": "1", "Santo Antônio": "1", "Soledade": "1", "São José": "1", "Alto Santa Teresinha": "2", "Arruda": "2", "Beberibe": "2", "Bomba do Hemetério": "2", "Cajueiro": "2", "Campina do Barreto": "2", "Campo Grande": "2", "Dois Unidos": "2", "Encruzilhada": "2", "Fundão": "2", "Hipódromo": "2", "Linha do Tiro": "2", "Peixinhos": "2", "Ponto de Parada": "2", "Porto da Madeira": "2", "Rosarinho": "2", "Torreão": "2", "Água Fria": "2", "Aflitos": "3", "Alto José Bonifácio": "3", "Alto José do Pinho": "3", "Alto do Mandu": "3", "Apipucos": "3", "Brejo da Guabiraba": "3", "Brejo de Beberibe": "3", "Casa Amarela": "3", "Casa Forte": "3", "Córrego do Jenipapo": "3", "Derby": "3", "Dois Irmãos": "3", "Espinheiro": "3", "Graças": "3", "Guabiraba": "3", "Jaqueira": "3", "Macaxeira": "3", "Mangabeira": "3", "Monteiro": "3", "Morro da Conceição": "3", "Nova Descoberta": "3", "Parnamirim": "3", "Passarinho": "3", "Pau-Ferro": "3", "Poço": "3", "Santana": "3", "Sítio dos Pintos": "3", "Tamarineira": "3", "Vasco da Gama": "3", "Caxangá": "4", "Cidade Universitária": "4", "Cordeiro": "4", "Engenho do Meio": "4", "Ilha do Retiro": "4", "Iputinga": "4", "Madalena": "4", "Prado": "4", "Torre": "4", "Torrões": "4", "Várzea": "4", "Zumbi": "4", "Afogados": "5", "Areias": "5", "Barro": "5", "Bongi": "5", "Caçote": "5", "Coqueiral": "5", "Curado": "5", "Estância": "5", "Jardim São Paulo": "5", "Jiquiá": "5", "Mangueira": "5", "Mustardinha": "5", "San Martin": "5", "Sancho": "5", "Tejipió": "5", "Totó": "5", "Boa Viagem": "6", "Brasília Teimosa": "6", "Cohab": "6", "Ibura": "6", "Imbiribeira": "6", "Ipsep": "6", "Jordão": "6", "Pina": "6"};
 
     // Conjunto com as arestas do caminho (chave canonica "u||v")
     var pathEdgeSet = {};
@@ -429,19 +657,38 @@
     var allNodes = nodes.get();
     var nomeLower = nome.toLowerCase();
     var found = null;
+    var matches = [];
 
+    // Busca exata primeiro
     for (var i = 0; i < allNodes.length; i++) {
         var n = allNodes[i];
         if (n.id === nome || (n.label && n.label.toLowerCase() === nomeLower)) {
         found = n;
         break;
         }
+        // Também coleta correspondências parciais
+        if (n.label && n.label.toLowerCase().includes(nomeLower)) {
+            matches.push(n);
+        }
     }
 
-        if (!found) {
+    if (!found) {
+        if (matches.length === 0) {
             alert("Bairro não encontrado: " + nome);
             return;
+        } else if (matches.length === 1) {
+            found = matches[0];
+        } else {
+            // Múltiplas correspondências - destaca todas
+            var matchIds = matches.map(function(n) { return n.id; });
+            network.selectNodes(matchIds);
+            network.fit({
+                nodes: matchIds,
+                animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+            });
+            return;
         }
+    }
 
     network.selectNodes([found.id]);
     network.focus(found.id, {
@@ -450,15 +697,203 @@
     });
     }
     
-    function calcularMenorCaminho() {
+    function limparBusca() {
+        // Limpa o campo de input
+        var input = document.getElementById('busca-bairro');
+        if (input) {
+            input.value = '';
+        }
+        
+        // Desseleciona todos os nós
+        network.unselectAll();
+        
+        // Reseta a visualização para o estado padrão
+        network.fit({
+            animation: { duration: 600, easingFunction: 'easeInOutQuad' }
+        });
+    }
+    
+    function showPathInfo(path, distance, algoritmo) {
+        var pathInfo = document.getElementById('path-info');
+        var pathInfoContent = document.getElementById('path-info-content');
+        if (!pathInfo || !pathInfoContent) return;
+        
+        var steps = path.length - 1;
+        var pathList = path.join(' → ');
+        var algoritmoNome = algoritmo || 'Algoritmo';
+        
+        pathInfoContent.innerHTML = 
+            '<div><strong>Algoritmo:</strong> ' + algoritmoNome + '</div>' +
+            '<div><strong>Distância:</strong> ' + distance + ' conexões</div>' +
+            '<div><strong>Passos:</strong> ' + steps + '</div>' +
+            '<div style="margin-top: 6px; font-size: 11px; color: #aaa; max-height: 100px; overflow-y: auto;">' +
+            '<strong>Rota:</strong><br>' + pathList +
+            '</div>';
+        
+        pathInfo.classList.add('show');
+    }
+    
+    function hidePathInfo() {
+        var pathInfo = document.getElementById('path-info');
+        if (pathInfo) {
+            pathInfo.classList.remove('show');
+        }
+    }
+    
+    function showLoading() {
+        var loading = document.getElementById('loading-indicator');
+        if (loading) loading.classList.add('show');
+    }
+    
+    function hideLoading() {
+        var loading = document.getElementById('loading-indicator');
+        if (loading) loading.classList.remove('show');
+    }
+    
+    function toggleMicrorregiao(micro) {
+        var checkbox = document.querySelector('.micro-filter[value="' + micro + '"]');
+        if (!checkbox) return;
+        
+        var allNodes = nodes.get();
+        var color = microToColor[micro] || '#97c2fc';
+        var show = checkbox.checked;
+        
+        for (var i = 0; i < allNodes.length; i++) {
+            var n = allNodes[i];
+            var nodeMicro = bairroToMicro[n.id];
+            if (nodeMicro === micro) {
+                if (show) {
+                    // Restaurar cor original
+                    if (n._originalColor) {
+                        n.color = n._originalColor;
+                    } else {
+                        n.color = { background: color, border: '#222222' };
+                    }
+                } else {
+                    // Ocultar nó
+                    if (!n._originalColor) {
+                        n._originalColor = n.color;
+                    }
+                    n.color = { background: 'rgba(0,0,0,0)', border: 'rgba(0,0,0,0)' };
+                }
+            }
+        }
+        nodes.update(allNodes);
+        
+        // Também oculta/mostra arestas relacionadas
+        var allEdges = edges.get();
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            var fromMicro = bairroToMicro[e.from];
+            var toMicro = bairroToMicro[e.to];
+            if (fromMicro === micro || toMicro === micro) {
+                if (show) {
+                    if (e._originalColor) {
+                        e.color = e._originalColor;
+                    }
+                } else {
+                    if (!e._originalColor) {
+                        e._originalColor = e.color;
+                    }
+                    e.color = { color: 'rgba(0,0,0,0)' };
+                }
+            }
+        }
+        edges.update(allEdges);
+    }
+    
+    function showAllMicrorregioes() {
+        var checkboxes = document.querySelectorAll('.micro-filter');
+        checkboxes.forEach(function(cb) {
+            if (!cb.checked) {
+                cb.checked = true;
+                toggleMicrorregiao(cb.value);
+            }
+        });
+    }
+    
+    function hideAllMicrorregioes() {
+        var checkboxes = document.querySelectorAll('.micro-filter');
+        checkboxes.forEach(function(cb) {
+            if (cb.checked) {
+                cb.checked = false;
+                toggleMicrorregiao(cb.value);
+            }
+        });
+    }
+    
+    function zoomIn() {
+        var scale = network.getScale();
+        network.moveTo({
+            scale: Math.min(scale * 1.3, 5),
+            animation: { duration: 300 }
+        });
+    }
+    
+    function zoomOut() {
+        var scale = network.getScale();
+        network.moveTo({
+            scale: Math.max(scale / 1.3, 0.1),
+            animation: { duration: 300 }
+        });
+    }
+    
+    function resetView() {
+        network.fit({
+            animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+        });
+    }
+    
+    function moveView(direction) {
+        var moveAmount = 100; // pixels a mover
+        var position = network.getViewPosition();
+        var scale = network.getScale();
+        
+        if (!position) {
+            position = { x: 0, y: 0 };
+        }
+        
+        var newPosition = { x: position.x, y: position.y };
+        
+        switch(direction) {
+            case 'up':
+                newPosition.y -= moveAmount;
+                break;
+            case 'down':
+                newPosition.y += moveAmount;
+                break;
+            case 'left':
+                newPosition.x -= moveAmount;
+                break;
+            case 'right':
+                newPosition.x += moveAmount;
+                break;
+            case 'center':
+                // Centraliza a visualização
+                network.fit({
+                    animation: { duration: 400, easingFunction: 'easeInOutQuad' }
+                });
+                return;
+        }
+        
+        network.moveTo({
+            position: newPosition,
+            scale: scale,
+            animation: { duration: 300, easingFunction: 'easeInOutQuad' }
+        });
+    }
+    
+    function calcularCaminho() {
+        var algoritmoSelect = document.getElementById('algoritmo-select');
         var origemSelect = document.getElementById('origem-select');
         var destinoSelect = document.getElementById('destino-select');
         
-        if (!origemSelect || !destinoSelect) {
-            alert('Select elements not found');
+        if (!algoritmoSelect || !origemSelect || !destinoSelect) {
+            alert('Elementos não encontrados');
             return;
         }
         
+        var algoritmo = algoritmoSelect.value;
         var origem = origemSelect.value;
         var destino = destinoSelect.value;
         
@@ -472,16 +907,30 @@
             return;
         }
         
-        // Chama a função Python para calcular o menor caminho
-        // Como não podemos chamar Python diretamente do JavaScript, vamos usar uma abordagem alternativa
-        // Vamos destacar o caminho usando uma implementação JavaScript simples de BFS
-        highlightCustomPath(origem, destino);
+        hidePathInfo();
+        showLoading();
+        
+        // Usa setTimeout para permitir que o loading apareça antes do cálculo pesado
+        setTimeout(function() {
+            switch(algoritmo) {
+                case 'dijkstra':
+                    calcularCaminhoDijkstra(origem, destino);
+                    break;
+                case 'bfs':
+                    calcularCaminhoBFS(origem, destino);
+                    break;
+                case 'bellman-ford':
+                    calcularCaminhoBellmanFord(origem, destino);
+                    break;
+                default:
+                    calcularCaminhoDijkstra(origem, destino);
+            }
+            hideLoading();
+        }, 50);
     }
     
-    function highlightCustomPath(origem, destino) {
+    function calcularCaminhoDijkstra(origem, destino) {
         // Implementação de Dijkstra para encontrar o menor caminho
-        var allNodes = nodes.get();
-        var allEdges = edges.get();
         var graphData = {"nodes": ["Boa Vista", "Cabanga", "Coelhos", "Ilha Joana Bezerra", "Ilha do Leite", "Paissandu", "Recife", "Santo Amaro", "Santo Antônio", "Soledade", "São José", "Alto Santa Teresinha", "Arruda", "Beberibe", "Bomba do Hemetério", "Cajueiro", "Campina do Barreto", "Campo Grande", "Dois Unidos", "Encruzilhada", "Fundão", "Hipódromo", "Linha do Tiro", "Peixinhos", "Ponto de Parada", "Porto da Madeira", "Rosarinho", "Torreão", "Água Fria", "Aflitos", "Alto José Bonifácio", "Alto José do Pinho", "Alto do Mandu", "Apipucos", "Brejo da Guabiraba", "Brejo de Beberibe", "Casa Amarela", "Casa Forte", "Córrego do Jenipapo", "Derby", "Dois Irmãos", "Espinheiro", "Graças", "Guabiraba", "Jaqueira", "Macaxeira", "Mangabeira", "Monteiro", "Morro da Conceição", "Nova Descoberta", "Parnamirim", "Passarinho", "Pau-Ferro", "Poço", "Santana", "Sítio dos Pintos", "Tamarineira", "Vasco da Gama", "Caxangá", "Cidade Universitária", "Cordeiro", "Engenho do Meio", "Ilha do Retiro", "Iputinga", "Madalena", "Prado", "Torre", "Torrões", "Várzea", "Zumbi", "Afogados", "Areias", "Barro", "Bongi", "Caçote", "Coqueiral", "Curado", "Estância", "Jardim São Paulo", "Jiquiá", "Mangueira", "Mustardinha", "San Martin", "Sancho", "Tejipió", "Totó", "Boa Viagem", "Brasília Teimosa", "Cohab", "Ibura", "Imbiribeira", "Ipsep", "Jordão", "Pina"], "edges": [["Boa Vista", "Santo Antônio"], ["Boa Vista", "São José"], ["Boa Vista", "Santo Amaro"], ["Boa Vista", "Soledade"], ["Boa Vista", "Espinheiro"], ["Boa Vista", "Graças"], ["Boa Vista", "Coelhos"], ["Boa Vista", "Paissandu"], ["Boa Vista", "Derby"], ["Boa Vista", "Ilha do Leite"], ["Cabanga", "São José"], ["Afogados", "Cabanga"], ["Cabanga", "Pina"], ["Coelhos", "Santo Antônio"], ["Coelhos", "São José"], ["Coelhos", "Ilha do Leite"], ["Coelhos", "Ilha Joana Bezerra"], ["Ilha Joana Bezerra", "São José"], ["Ilha Joana Bezerra", "Ilha do Retiro"], ["Ilha Joana Bezerra", "Paissandu"], ["Ilha do Leite", "Paissandu"], ["Madalena", "Paissandu"], ["Ilha do Retiro", "Paissandu"], ["Derby", "Paissandu"], ["Recife", "Santo Amaro"], ["Recife", "São José"], ["Recife", "Santo Antônio"], ["Campo Grande", "Santo Amaro"], ["Santo Amaro", "Soledade"], ["Espinheiro", "Santo Amaro"], ["Santo Amaro", "Torreão"], ["Santo Antônio", "São José"], ["Afogados", "São José"], ["Alto José Bonifácio", "Alto Santa Teresinha"], ["Alto Santa Teresinha", "Bomba do Hemetério"], ["Arruda", "Campo Grande"], ["Arruda", "Tamarineira"], ["Arruda", "Ponto de Parada"], ["Arruda", "Mangabeira"], ["Arruda", "Água Fria"], ["Arruda", "Campina do Barreto"], ["Arruda", "Bomba do Hemetério"], ["Beberibe", "Água Fria"], ["Beberibe", "Linha do Tiro"], ["Beberibe", "Dois Unidos"], ["Beberibe", "Porto da Madeira"], ["Bomba do Hemetério", "Mangabeira"], ["Alto José do Pinho", "Bomba do Hemetério"], ["Bomba do Hemetério", "Água Fria"], ["Cajueiro", "Campina do Barreto"], ["Cajueiro", "Porto da Madeira"], ["Campina do Barreto", "Água Fria"], ["Campina do Barreto", "Peixinhos"], ["Campo Grande", "Torreão"], ["Campo Grande", "Ponto de Parada"], ["Campo Grande", "Peixinhos"], ["Campo Grande", "Hipódromo"], ["Campo Grande", "Encruzilhada"], ["Dois Unidos", "Linha do Tiro"], ["Brejo de Beberibe", "Dois Unidos"], ["Dois Unidos", "Passarinho"], ["Brejo da Guabiraba", "Dois Unidos"], ["Encruzilhada", "Graças"], ["Aflitos", "Encruzilhada"], ["Encruzilhada", "Torreão"], ["Encruzilhada", "Espinheiro"], ["Encruzilhada", "Rosarinho"], ["Encruzilhada", "Ponto de Parada"], ["Encruzilhada", "Hipódromo"], ["Fundão", "Água Fria"], ["Hipódromo", "Ponto de Parada"], ["Linha do Tiro", "Água Fria"], ["Alto José Bonifácio", "Linha do Tiro"], ["Brejo de Beberibe", "Linha do Tiro"], ["Ponto de Parada", "Rosarinho"], ["Ponto de Parada", "Tamarineira"], ["Porto da Madeira", "Água Fria"], ["Graças", "Rosarinho"], ["Rosarinho", "Tamarineira"], ["Espinheiro", "Torreão"], ["Aflitos", "Graças"], ["Aflitos", "Espinheiro"], ["Alto José Bonifácio", "Morro da Conceição"], ["Alto José Bonifácio", "Brejo de Beberibe"], ["Alto José do Pinho", "Casa Amarela"], ["Alto José do Pinho", "Mangabeira"], ["Alto José do Pinho", "Morro da Conceição"], ["Alto do Mandu", "Apipucos"], ["Alto do Mandu", "Monteiro"], ["Alto do Mandu", "Casa Amarela"], ["Alto do Mandu", "Nova Descoberta"], ["Apipucos", "Caxangá"], ["Apipucos", "Dois Irmãos"], ["Apipucos", "Córrego do Jenipapo"], ["Apipucos", "Macaxeira"], ["Apipucos", "Monteiro"], ["Brejo da Guabiraba", "Passarinho"], ["Brejo de Beberibe", "Nova Descoberta"], ["Brejo de Beberibe", "Passarinho"], ["Casa Amarela", "Tamarineira"], ["Casa Amarela", "Monteiro"], ["Casa Amarela", "Parnamirim"], ["Casa Amarela", "Casa Forte"], ["Casa Amarela", "Poço"], ["Casa Amarela", "Vasco da Gama"], ["Casa Amarela", "Mangabeira"], ["Casa Amarela", "Morro da Conceição"], ["Casa Forte", "Poço"], ["Casa Forte", "Santana"], ["Casa Forte", "Parnamirim"], ["Córrego do Jenipapo", "Macaxeira"], ["Córrego do Jenipapo", "Guabiraba"], ["Derby", "Graças"], ["Derby", "Madalena"], ["Caxangá", "Dois Irmãos"], ["Dois Irmãos", "Sítio dos Pintos"], ["Dois Irmãos", "Guabiraba"], ["Espinheiro", "Graças"], ["Graças", "Madalena"], ["Graças", "Torre"], ["Graças", "Tamarineira"], ["Graças", "Jaqueira"], ["Guabiraba", "Passarinho"], ["Guabiraba", "Pau-Ferro"], ["Jaqueira", "Tamarineira"], ["Jaqueira", "Parnamirim"], ["Jaqueira", "Torre"], ["Macaxeira", "Nova Descoberta"], ["Mangabeira", "Tamarineira"], ["Iputinga", "Monteiro"], ["Monteiro", "Poço"], ["Parnamirim", "Tamarineira"], ["Parnamirim", "Santana"], ["Parnamirim", "Torre"], ["Poço", "Santana"], ["Santana", "Torre"], ["Cordeiro", "Santana"], ["Caxangá", "Sítio dos Pintos"], ["Caxangá", "Iputinga"], ["Caxangá", "Várzea"], ["Cidade Universitária", "Curado"], ["Cidade Universitária", "Várzea"], ["Cidade Universitária", "Iputinga"], ["Cidade Universitária", "Engenho do Meio"], ["Cordeiro", "San Martin"], ["Cordeiro", "Engenho do Meio"], ["Cordeiro", "Torrões"], ["Cordeiro", "Prado"], ["Cordeiro", "Zumbi"], ["Cordeiro", "Iputinga"], ["Cordeiro", "Torre"], ["Bongi", "Cordeiro"], ["Curado", "Engenho do Meio"], ["Engenho do Meio", "Iputinga"], ["Engenho do Meio", "Torrões"], ["Ilha do Retiro", "Madalena"], ["Afogados", "Ilha do Retiro"], ["Ilha do Retiro", "Prado"], ["Iputinga", "Várzea"], ["Madalena", "Torre"], ["Madalena", "Prado"], ["Madalena", "Zumbi"], ["Afogados", "Prado"], ["Bongi", "Prado"], ["Prado", "Zumbi"], ["Torre", "Zumbi"], ["Curado", "Torrões"], ["San Martin", "Torrões"], ["Curado", "Várzea"], ["Afogados", "Imbiribeira"], ["Afogados", "Jiquiá"], ["Afogados", "Mangueira"], ["Afogados", "Mustardinha"], ["Afogados", "Bongi"], ["Areias", "Barro"], ["Areias", "Jardim São Paulo"], ["Areias", "Estância"], ["Areias", "Jiquiá"], ["Areias", "Caçote"], ["Barro", "Cohab"], ["Barro", "Jardim São Paulo"], ["Barro", "Ibura"], ["Barro", "Tejipió"], ["Bongi", "San Martin"], ["Bongi", "Mustardinha"], ["Caçote", "Ibura"], ["Caçote", "Ipsep"], ["Coqueiral", "Tejipió"], ["Coqueiral", "Sancho"], ["Coqueiral", "Totó"], ["Curado", "Jardim São Paulo"], ["Curado", "Tejipió"], ["Curado", "Sancho"], ["Curado", "San Martin"], ["Curado", "Totó"], ["Estância", "Jardim São Paulo"], ["Estância", "Jiquiá"], ["Jardim São Paulo", "Tejipió"], ["Jardim São Paulo", "San Martin"], ["Jiquiá", "San Martin"], ["Jiquiá", "Mangueira"], ["Mangueira", "San Martin"], ["Mangueira", "Mustardinha"], ["Mustardinha", "San Martin"], ["Sancho", "Tejipió"], ["Sancho", "Totó"], ["Boa Viagem", "Jordão"], ["Boa Viagem", "Ibura"], ["Boa Viagem", "Imbiribeira"], ["Boa Viagem", "Pina"], ["Brasília Teimosa", "Pina"], ["Cohab", "Ibura"], ["Cohab", "Jordão"], ["Ibura", "Jordão"], ["Ibura", "Ipsep"], ["Ibura", "Imbiribeira"], ["Imbiribeira", "Ipsep"], ["Imbiribeira", "Pina"]]};
         
         // Construir mapa de adjacência com pesos
@@ -550,6 +999,153 @@
             current = parent[current];
         }
         
+        // Destacar caminho
+        destacarCaminho(path, dist[destino]);
+        
+        // Mostrar informações do caminho
+        showPathInfo(path, dist[destino], 'Dijkstra');
+    }
+    
+    function calcularCaminhoBFS(origem, destino) {
+        // Implementação de BFS para encontrar o menor caminho em número de arestas
+        var allNodes = nodes.get();
+        var allEdges = edges.get();
+        var graphData = {"nodes": ["Boa Vista", "Cabanga", "Coelhos", "Ilha Joana Bezerra", "Ilha do Leite", "Paissandu", "Recife", "Santo Amaro", "Santo Antônio", "Soledade", "São José", "Alto Santa Teresinha", "Arruda", "Beberibe", "Bomba do Hemetério", "Cajueiro", "Campina do Barreto", "Campo Grande", "Dois Unidos", "Encruzilhada", "Fundão", "Hipódromo", "Linha do Tiro", "Peixinhos", "Ponto de Parada", "Porto da Madeira", "Rosarinho", "Torreão", "Água Fria", "Aflitos", "Alto José Bonifácio", "Alto José do Pinho", "Alto do Mandu", "Apipucos", "Brejo da Guabiraba", "Brejo de Beberibe", "Casa Amarela", "Casa Forte", "Córrego do Jenipapo", "Derby", "Dois Irmãos", "Espinheiro", "Graças", "Guabiraba", "Jaqueira", "Macaxeira", "Mangabeira", "Monteiro", "Morro da Conceição", "Nova Descoberta", "Parnamirim", "Passarinho", "Pau-Ferro", "Poço", "Santana", "Sítio dos Pintos", "Tamarineira", "Vasco da Gama", "Caxangá", "Cidade Universitária", "Cordeiro", "Engenho do Meio", "Ilha do Retiro", "Iputinga", "Madalena", "Prado", "Torre", "Torrões", "Várzea", "Zumbi", "Afogados", "Areias", "Barro", "Bongi", "Caçote", "Coqueiral", "Curado", "Estância", "Jardim São Paulo", "Jiquiá", "Mangueira", "Mustardinha", "San Martin", "Sancho", "Tejipió", "Totó", "Boa Viagem", "Brasília Teimosa", "Cohab", "Ibura", "Imbiribeira", "Ipsep", "Jordão", "Pina"], "edges": [["Boa Vista", "Santo Antônio"], ["Boa Vista", "São José"], ["Boa Vista", "Santo Amaro"], ["Boa Vista", "Soledade"], ["Boa Vista", "Espinheiro"], ["Boa Vista", "Graças"], ["Boa Vista", "Coelhos"], ["Boa Vista", "Paissandu"], ["Boa Vista", "Derby"], ["Boa Vista", "Ilha do Leite"], ["Cabanga", "São José"], ["Afogados", "Cabanga"], ["Cabanga", "Pina"], ["Coelhos", "Santo Antônio"], ["Coelhos", "São José"], ["Coelhos", "Ilha do Leite"], ["Coelhos", "Ilha Joana Bezerra"], ["Ilha Joana Bezerra", "São José"], ["Ilha Joana Bezerra", "Ilha do Retiro"], ["Ilha Joana Bezerra", "Paissandu"], ["Ilha do Leite", "Paissandu"], ["Madalena", "Paissandu"], ["Ilha do Retiro", "Paissandu"], ["Derby", "Paissandu"], ["Recife", "Santo Amaro"], ["Recife", "São José"], ["Recife", "Santo Antônio"], ["Campo Grande", "Santo Amaro"], ["Santo Amaro", "Soledade"], ["Espinheiro", "Santo Amaro"], ["Santo Amaro", "Torreão"], ["Santo Antônio", "São José"], ["Afogados", "São José"], ["Alto José Bonifácio", "Alto Santa Teresinha"], ["Alto Santa Teresinha", "Bomba do Hemetério"], ["Arruda", "Campo Grande"], ["Arruda", "Tamarineira"], ["Arruda", "Ponto de Parada"], ["Arruda", "Mangabeira"], ["Arruda", "Água Fria"], ["Arruda", "Campina do Barreto"], ["Arruda", "Bomba do Hemetério"], ["Beberibe", "Água Fria"], ["Beberibe", "Linha do Tiro"], ["Beberibe", "Dois Unidos"], ["Beberibe", "Porto da Madeira"], ["Bomba do Hemetério", "Mangabeira"], ["Alto José do Pinho", "Bomba do Hemetério"], ["Bomba do Hemetério", "Água Fria"], ["Cajueiro", "Campina do Barreto"], ["Cajueiro", "Porto da Madeira"], ["Campina do Barreto", "Água Fria"], ["Campina do Barreto", "Peixinhos"], ["Campo Grande", "Torreão"], ["Campo Grande", "Ponto de Parada"], ["Campo Grande", "Peixinhos"], ["Campo Grande", "Hipódromo"], ["Campo Grande", "Encruzilhada"], ["Dois Unidos", "Linha do Tiro"], ["Brejo de Beberibe", "Dois Unidos"], ["Dois Unidos", "Passarinho"], ["Brejo da Guabiraba", "Dois Unidos"], ["Encruzilhada", "Graças"], ["Aflitos", "Encruzilhada"], ["Encruzilhada", "Torreão"], ["Encruzilhada", "Espinheiro"], ["Encruzilhada", "Rosarinho"], ["Encruzilhada", "Ponto de Parada"], ["Encruzilhada", "Hipódromo"], ["Fundão", "Água Fria"], ["Hipódromo", "Ponto de Parada"], ["Linha do Tiro", "Água Fria"], ["Alto José Bonifácio", "Linha do Tiro"], ["Brejo de Beberibe", "Linha do Tiro"], ["Ponto de Parada", "Rosarinho"], ["Ponto de Parada", "Tamarineira"], ["Porto da Madeira", "Água Fria"], ["Graças", "Rosarinho"], ["Rosarinho", "Tamarineira"], ["Espinheiro", "Torreão"], ["Aflitos", "Graças"], ["Aflitos", "Espinheiro"], ["Alto José Bonifácio", "Morro da Conceição"], ["Alto José Bonifácio", "Brejo de Beberibe"], ["Alto José do Pinho", "Casa Amarela"], ["Alto José do Pinho", "Mangabeira"], ["Alto José do Pinho", "Morro da Conceição"], ["Alto do Mandu", "Apipucos"], ["Alto do Mandu", "Monteiro"], ["Alto do Mandu", "Casa Amarela"], ["Alto do Mandu", "Nova Descoberta"], ["Apipucos", "Caxangá"], ["Apipucos", "Dois Irmãos"], ["Apipucos", "Córrego do Jenipapo"], ["Apipucos", "Macaxeira"], ["Apipucos", "Monteiro"], ["Brejo da Guabiraba", "Passarinho"], ["Brejo de Beberibe", "Nova Descoberta"], ["Brejo de Beberibe", "Passarinho"], ["Casa Amarela", "Tamarineira"], ["Casa Amarela", "Monteiro"], ["Casa Amarela", "Parnamirim"], ["Casa Amarela", "Casa Forte"], ["Casa Amarela", "Poço"], ["Casa Amarela", "Vasco da Gama"], ["Casa Amarela", "Mangabeira"], ["Casa Amarela", "Morro da Conceição"], ["Casa Forte", "Poço"], ["Casa Forte", "Santana"], ["Casa Forte", "Parnamirim"], ["Córrego do Jenipapo", "Macaxeira"], ["Córrego do Jenipapo", "Guabiraba"], ["Derby", "Graças"], ["Derby", "Madalena"], ["Caxangá", "Dois Irmãos"], ["Dois Irmãos", "Sítio dos Pintos"], ["Dois Irmãos", "Guabiraba"], ["Espinheiro", "Graças"], ["Graças", "Madalena"], ["Graças", "Torre"], ["Graças", "Tamarineira"], ["Graças", "Jaqueira"], ["Guabiraba", "Passarinho"], ["Guabiraba", "Pau-Ferro"], ["Jaqueira", "Tamarineira"], ["Jaqueira", "Parnamirim"], ["Jaqueira", "Torre"], ["Macaxeira", "Nova Descoberta"], ["Mangabeira", "Tamarineira"], ["Iputinga", "Monteiro"], ["Monteiro", "Poço"], ["Parnamirim", "Tamarineira"], ["Parnamirim", "Santana"], ["Parnamirim", "Torre"], ["Poço", "Santana"], ["Santana", "Torre"], ["Cordeiro", "Santana"], ["Caxangá", "Sítio dos Pintos"], ["Caxangá", "Iputinga"], ["Caxangá", "Várzea"], ["Cidade Universitária", "Curado"], ["Cidade Universitária", "Várzea"], ["Cidade Universitária", "Iputinga"], ["Cidade Universitária", "Engenho do Meio"], ["Cordeiro", "San Martin"], ["Cordeiro", "Engenho do Meio"], ["Cordeiro", "Torrões"], ["Cordeiro", "Prado"], ["Cordeiro", "Zumbi"], ["Cordeiro", "Iputinga"], ["Cordeiro", "Torre"], ["Bongi", "Cordeiro"], ["Curado", "Engenho do Meio"], ["Engenho do Meio", "Iputinga"], ["Engenho do Meio", "Torrões"], ["Ilha do Retiro", "Madalena"], ["Afogados", "Ilha do Retiro"], ["Ilha do Retiro", "Prado"], ["Iputinga", "Várzea"], ["Madalena", "Torre"], ["Madalena", "Prado"], ["Madalena", "Zumbi"], ["Afogados", "Prado"], ["Bongi", "Prado"], ["Prado", "Zumbi"], ["Torre", "Zumbi"], ["Curado", "Torrões"], ["San Martin", "Torrões"], ["Curado", "Várzea"], ["Afogados", "Imbiribeira"], ["Afogados", "Jiquiá"], ["Afogados", "Mangueira"], ["Afogados", "Mustardinha"], ["Afogados", "Bongi"], ["Areias", "Barro"], ["Areias", "Jardim São Paulo"], ["Areias", "Estância"], ["Areias", "Jiquiá"], ["Areias", "Caçote"], ["Barro", "Cohab"], ["Barro", "Jardim São Paulo"], ["Barro", "Ibura"], ["Barro", "Tejipió"], ["Bongi", "San Martin"], ["Bongi", "Mustardinha"], ["Caçote", "Ibura"], ["Caçote", "Ipsep"], ["Coqueiral", "Tejipió"], ["Coqueiral", "Sancho"], ["Coqueiral", "Totó"], ["Curado", "Jardim São Paulo"], ["Curado", "Tejipió"], ["Curado", "Sancho"], ["Curado", "San Martin"], ["Curado", "Totó"], ["Estância", "Jardim São Paulo"], ["Estância", "Jiquiá"], ["Jardim São Paulo", "Tejipió"], ["Jardim São Paulo", "San Martin"], ["Jiquiá", "San Martin"], ["Jiquiá", "Mangueira"], ["Mangueira", "San Martin"], ["Mangueira", "Mustardinha"], ["Mustardinha", "San Martin"], ["Sancho", "Tejipió"], ["Sancho", "Totó"], ["Boa Viagem", "Jordão"], ["Boa Viagem", "Ibura"], ["Boa Viagem", "Imbiribeira"], ["Boa Viagem", "Pina"], ["Brasília Teimosa", "Pina"], ["Cohab", "Ibura"], ["Cohab", "Jordão"], ["Ibura", "Jordão"], ["Ibura", "Ipsep"], ["Ibura", "Imbiribeira"], ["Imbiribeira", "Ipsep"], ["Imbiribeira", "Pina"]]};
+        
+        // Construir mapa de adjacência
+        var adjMap = {};
+        for (var i = 0; i < graphData.edges.length; i++) {
+            var edge = graphData.edges[i];
+            var u = edge[0];
+            var v = edge[1];
+            if (!adjMap[u]) adjMap[u] = [];
+            if (!adjMap[v]) adjMap[v] = [];
+            adjMap[u].push(v);
+            adjMap[v].push(u);
+        }
+        
+        // BFS
+        var visitado = {};
+        var anterior = {};
+        var fila = [];
+        
+        visitado[origem] = true;
+        anterior[origem] = null;
+        fila.push(origem);
+        
+        var encontrou = false;
+        
+        while (fila.length > 0 && !encontrou) {
+            var atual = fila.shift();
+            
+            var vizinhos = adjMap[atual] || [];
+            for (var i = 0; i < vizinhos.length; i++) {
+                var vizinho = vizinhos[i];
+                if (!visitado[vizinho]) {
+                    visitado[vizinho] = true;
+                    anterior[vizinho] = atual;
+                    fila.push(vizinho);
+                    
+                    if (vizinho === destino) {
+                        encontrou = true;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (!encontrou) {
+            alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
+            return;
+        }
+        
+        // Reconstruir o caminho
+        var path = [];
+        var current = destino;
+        var distancia = 0;
+        while (current !== null) {
+            path.unshift(current);
+            current = anterior[current];
+            if (current !== null) distancia++;
+        }
+        
+        // Destacar caminho
+        destacarCaminho(path, distancia);
+        
+        // Mostrar informações do caminho
+        showPathInfo(path, distancia, 'BFS');
+    }
+    
+    function calcularCaminhoBellmanFord(origem, destino) {
+        // Implementação de Bellman-Ford para encontrar o menor caminho
+        var allNodes = nodes.get();
+        var allEdges = edges.get();
+        var graphData = {"nodes": ["Boa Vista", "Cabanga", "Coelhos", "Ilha Joana Bezerra", "Ilha do Leite", "Paissandu", "Recife", "Santo Amaro", "Santo Antônio", "Soledade", "São José", "Alto Santa Teresinha", "Arruda", "Beberibe", "Bomba do Hemetério", "Cajueiro", "Campina do Barreto", "Campo Grande", "Dois Unidos", "Encruzilhada", "Fundão", "Hipódromo", "Linha do Tiro", "Peixinhos", "Ponto de Parada", "Porto da Madeira", "Rosarinho", "Torreão", "Água Fria", "Aflitos", "Alto José Bonifácio", "Alto José do Pinho", "Alto do Mandu", "Apipucos", "Brejo da Guabiraba", "Brejo de Beberibe", "Casa Amarela", "Casa Forte", "Córrego do Jenipapo", "Derby", "Dois Irmãos", "Espinheiro", "Graças", "Guabiraba", "Jaqueira", "Macaxeira", "Mangabeira", "Monteiro", "Morro da Conceição", "Nova Descoberta", "Parnamirim", "Passarinho", "Pau-Ferro", "Poço", "Santana", "Sítio dos Pintos", "Tamarineira", "Vasco da Gama", "Caxangá", "Cidade Universitária", "Cordeiro", "Engenho do Meio", "Ilha do Retiro", "Iputinga", "Madalena", "Prado", "Torre", "Torrões", "Várzea", "Zumbi", "Afogados", "Areias", "Barro", "Bongi", "Caçote", "Coqueiral", "Curado", "Estância", "Jardim São Paulo", "Jiquiá", "Mangueira", "Mustardinha", "San Martin", "Sancho", "Tejipió", "Totó", "Boa Viagem", "Brasília Teimosa", "Cohab", "Ibura", "Imbiribeira", "Ipsep", "Jordão", "Pina"], "edges": [["Boa Vista", "Santo Antônio"], ["Boa Vista", "São José"], ["Boa Vista", "Santo Amaro"], ["Boa Vista", "Soledade"], ["Boa Vista", "Espinheiro"], ["Boa Vista", "Graças"], ["Boa Vista", "Coelhos"], ["Boa Vista", "Paissandu"], ["Boa Vista", "Derby"], ["Boa Vista", "Ilha do Leite"], ["Cabanga", "São José"], ["Afogados", "Cabanga"], ["Cabanga", "Pina"], ["Coelhos", "Santo Antônio"], ["Coelhos", "São José"], ["Coelhos", "Ilha do Leite"], ["Coelhos", "Ilha Joana Bezerra"], ["Ilha Joana Bezerra", "São José"], ["Ilha Joana Bezerra", "Ilha do Retiro"], ["Ilha Joana Bezerra", "Paissandu"], ["Ilha do Leite", "Paissandu"], ["Madalena", "Paissandu"], ["Ilha do Retiro", "Paissandu"], ["Derby", "Paissandu"], ["Recife", "Santo Amaro"], ["Recife", "São José"], ["Recife", "Santo Antônio"], ["Campo Grande", "Santo Amaro"], ["Santo Amaro", "Soledade"], ["Espinheiro", "Santo Amaro"], ["Santo Amaro", "Torreão"], ["Santo Antônio", "São José"], ["Afogados", "São José"], ["Alto José Bonifácio", "Alto Santa Teresinha"], ["Alto Santa Teresinha", "Bomba do Hemetério"], ["Arruda", "Campo Grande"], ["Arruda", "Tamarineira"], ["Arruda", "Ponto de Parada"], ["Arruda", "Mangabeira"], ["Arruda", "Água Fria"], ["Arruda", "Campina do Barreto"], ["Arruda", "Bomba do Hemetério"], ["Beberibe", "Água Fria"], ["Beberibe", "Linha do Tiro"], ["Beberibe", "Dois Unidos"], ["Beberibe", "Porto da Madeira"], ["Bomba do Hemetério", "Mangabeira"], ["Alto José do Pinho", "Bomba do Hemetério"], ["Bomba do Hemetério", "Água Fria"], ["Cajueiro", "Campina do Barreto"], ["Cajueiro", "Porto da Madeira"], ["Campina do Barreto", "Água Fria"], ["Campina do Barreto", "Peixinhos"], ["Campo Grande", "Torreão"], ["Campo Grande", "Ponto de Parada"], ["Campo Grande", "Peixinhos"], ["Campo Grande", "Hipódromo"], ["Campo Grande", "Encruzilhada"], ["Dois Unidos", "Linha do Tiro"], ["Brejo de Beberibe", "Dois Unidos"], ["Dois Unidos", "Passarinho"], ["Brejo da Guabiraba", "Dois Unidos"], ["Encruzilhada", "Graças"], ["Aflitos", "Encruzilhada"], ["Encruzilhada", "Torreão"], ["Encruzilhada", "Espinheiro"], ["Encruzilhada", "Rosarinho"], ["Encruzilhada", "Ponto de Parada"], ["Encruzilhada", "Hipódromo"], ["Fundão", "Água Fria"], ["Hipódromo", "Ponto de Parada"], ["Linha do Tiro", "Água Fria"], ["Alto José Bonifácio", "Linha do Tiro"], ["Brejo de Beberibe", "Linha do Tiro"], ["Ponto de Parada", "Rosarinho"], ["Ponto de Parada", "Tamarineira"], ["Porto da Madeira", "Água Fria"], ["Graças", "Rosarinho"], ["Rosarinho", "Tamarineira"], ["Espinheiro", "Torreão"], ["Aflitos", "Graças"], ["Aflitos", "Espinheiro"], ["Alto José Bonifácio", "Morro da Conceição"], ["Alto José Bonifácio", "Brejo de Beberibe"], ["Alto José do Pinho", "Casa Amarela"], ["Alto José do Pinho", "Mangabeira"], ["Alto José do Pinho", "Morro da Conceição"], ["Alto do Mandu", "Apipucos"], ["Alto do Mandu", "Monteiro"], ["Alto do Mandu", "Casa Amarela"], ["Alto do Mandu", "Nova Descoberta"], ["Apipucos", "Caxangá"], ["Apipucos", "Dois Irmãos"], ["Apipucos", "Córrego do Jenipapo"], ["Apipucos", "Macaxeira"], ["Apipucos", "Monteiro"], ["Brejo da Guabiraba", "Passarinho"], ["Brejo de Beberibe", "Nova Descoberta"], ["Brejo de Beberibe", "Passarinho"], ["Casa Amarela", "Tamarineira"], ["Casa Amarela", "Monteiro"], ["Casa Amarela", "Parnamirim"], ["Casa Amarela", "Casa Forte"], ["Casa Amarela", "Poço"], ["Casa Amarela", "Vasco da Gama"], ["Casa Amarela", "Mangabeira"], ["Casa Amarela", "Morro da Conceição"], ["Casa Forte", "Poço"], ["Casa Forte", "Santana"], ["Casa Forte", "Parnamirim"], ["Córrego do Jenipapo", "Macaxeira"], ["Córrego do Jenipapo", "Guabiraba"], ["Derby", "Graças"], ["Derby", "Madalena"], ["Caxangá", "Dois Irmãos"], ["Dois Irmãos", "Sítio dos Pintos"], ["Dois Irmãos", "Guabiraba"], ["Espinheiro", "Graças"], ["Graças", "Madalena"], ["Graças", "Torre"], ["Graças", "Tamarineira"], ["Graças", "Jaqueira"], ["Guabiraba", "Passarinho"], ["Guabiraba", "Pau-Ferro"], ["Jaqueira", "Tamarineira"], ["Jaqueira", "Parnamirim"], ["Jaqueira", "Torre"], ["Macaxeira", "Nova Descoberta"], ["Mangabeira", "Tamarineira"], ["Iputinga", "Monteiro"], ["Monteiro", "Poço"], ["Parnamirim", "Tamarineira"], ["Parnamirim", "Santana"], ["Parnamirim", "Torre"], ["Poço", "Santana"], ["Santana", "Torre"], ["Cordeiro", "Santana"], ["Caxangá", "Sítio dos Pintos"], ["Caxangá", "Iputinga"], ["Caxangá", "Várzea"], ["Cidade Universitária", "Curado"], ["Cidade Universitária", "Várzea"], ["Cidade Universitária", "Iputinga"], ["Cidade Universitária", "Engenho do Meio"], ["Cordeiro", "San Martin"], ["Cordeiro", "Engenho do Meio"], ["Cordeiro", "Torrões"], ["Cordeiro", "Prado"], ["Cordeiro", "Zumbi"], ["Cordeiro", "Iputinga"], ["Cordeiro", "Torre"], ["Bongi", "Cordeiro"], ["Curado", "Engenho do Meio"], ["Engenho do Meio", "Iputinga"], ["Engenho do Meio", "Torrões"], ["Ilha do Retiro", "Madalena"], ["Afogados", "Ilha do Retiro"], ["Ilha do Retiro", "Prado"], ["Iputinga", "Várzea"], ["Madalena", "Torre"], ["Madalena", "Prado"], ["Madalena", "Zumbi"], ["Afogados", "Prado"], ["Bongi", "Prado"], ["Prado", "Zumbi"], ["Torre", "Zumbi"], ["Curado", "Torrões"], ["San Martin", "Torrões"], ["Curado", "Várzea"], ["Afogados", "Imbiribeira"], ["Afogados", "Jiquiá"], ["Afogados", "Mangueira"], ["Afogados", "Mustardinha"], ["Afogados", "Bongi"], ["Areias", "Barro"], ["Areias", "Jardim São Paulo"], ["Areias", "Estância"], ["Areias", "Jiquiá"], ["Areias", "Caçote"], ["Barro", "Cohab"], ["Barro", "Jardim São Paulo"], ["Barro", "Ibura"], ["Barro", "Tejipió"], ["Bongi", "San Martin"], ["Bongi", "Mustardinha"], ["Caçote", "Ibura"], ["Caçote", "Ipsep"], ["Coqueiral", "Tejipió"], ["Coqueiral", "Sancho"], ["Coqueiral", "Totó"], ["Curado", "Jardim São Paulo"], ["Curado", "Tejipió"], ["Curado", "Sancho"], ["Curado", "San Martin"], ["Curado", "Totó"], ["Estância", "Jardim São Paulo"], ["Estância", "Jiquiá"], ["Jardim São Paulo", "Tejipió"], ["Jardim São Paulo", "San Martin"], ["Jiquiá", "San Martin"], ["Jiquiá", "Mangueira"], ["Mangueira", "San Martin"], ["Mangueira", "Mustardinha"], ["Mustardinha", "San Martin"], ["Sancho", "Tejipió"], ["Sancho", "Totó"], ["Boa Viagem", "Jordão"], ["Boa Viagem", "Ibura"], ["Boa Viagem", "Imbiribeira"], ["Boa Viagem", "Pina"], ["Brasília Teimosa", "Pina"], ["Cohab", "Ibura"], ["Cohab", "Jordão"], ["Ibura", "Jordão"], ["Ibura", "Ipsep"], ["Ibura", "Imbiribeira"], ["Imbiribeira", "Ipsep"], ["Imbiribeira", "Pina"]]};
+        
+        // Construir lista de arestas com pesos
+        var edgesList = [];
+        for (var i = 0; i < graphData.edges.length; i++) {
+            var edge = graphData.edges[i];
+            var u = edge[0];
+            var v = edge[1];
+            // Assumindo peso 1 para todas as arestas
+            edgesList.push({from: u, to: v, weight: 1});
+            edgesList.push({from: v, to: u, weight: 1});
+        }
+        
+        // Inicialização
+        var dist = {};
+        var anterior = {};
+        for (var j = 0; j < graphData.nodes.length; j++) {
+            var node = graphData.nodes[j];
+            dist[node] = Infinity;
+            anterior[node] = null;
+        }
+        dist[origem] = 0;
+        
+        // Relaxamento |V| - 1 vezes
+        var numNodes = graphData.nodes.length;
+        for (var k = 0; k < numNodes - 1; k++) {
+            var houveMudanca = false;
+            for (var i = 0; i < edgesList.length; i++) {
+                var e = edgesList[i];
+                if (dist[e.from] !== Infinity) {
+                    var novoCusto = dist[e.from] + e.weight;
+                    if (novoCusto < dist[e.to]) {
+                        dist[e.to] = novoCusto;
+                        anterior[e.to] = e.from;
+                        houveMudanca = true;
+                    }
+                }
+            }
+            if (!houveMudanca) break;
+        }
+        
+        // Verificação de ciclos negativos (não aplicável aqui pois pesos são 1)
+        if (dist[destino] === Infinity) {
+            alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
+            return;
+        }
+        
+        // Reconstruir o caminho
+        var path = [];
+        var current = destino;
+        while (current !== null) {
+            path.unshift(current);
+            current = anterior[current];
+        }
+        
+        // Destacar caminho
+        destacarCaminho(path, dist[destino]);
+        
+        // Mostrar informações do caminho
+        showPathInfo(path, dist[destino], 'Bellman-Ford');
+    }
+    
+    function destacarCaminho(path, distancia) {
+        // Limpa destaques anteriores (apenas cores, sem resetar visualização)
+        resetHighlightColors();
+        
         // Criar conjunto de arestas do caminho
         var pathEdgeSet = {};
         for (var k = 0; k < path.length - 1; k++) {
@@ -557,8 +1153,8 @@
             pathEdgeSet[key] = true;
         }
         
-        // Limpa destaques anteriores
-        resetHighlight();
+        var allEdges = edges.get();
+        var allNodes = nodes.get();
         
         // Destacar arestas do caminho
         for (var i = 0; i < allEdges.length; i++) {
@@ -566,7 +1162,7 @@
             var key = [e.from, e.to].sort().join("||");
             if (pathEdgeSet[key]) {
                 if (e._originalColor === undefined) e._originalColor = e.color;
-                e.color = { color: '#FF69B4' };  // rosa para o novo caminho
+                e.color = { color: '#FF69B4' };  // rosa para o caminho
             } else {
                 if (e._originalColor === undefined) e._originalColor = e.color;
                 e.color = { color: '#e6e6e6' };
@@ -582,41 +1178,51 @@
                 n.color = { background: '#FFB6C1', border: '#FF1493' }; // rosa claro para os nós
             } else {
                 if (n._originalColor === undefined) n._originalColor = n.color;
-                // podemos deixar o restante igual (sem alterar tamanho)
             }
         }
         nodes.update(allNodes);
         
-        // Centralizar no caminho
+        // Centralizar no caminho (com pequeno delay para garantir que as atualizações sejam processadas)
+        setTimeout(function() {
+            network.fit({
+                nodes: path,
+                animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+            });
+        }, 100);
+    }
+
+    function resetHighlightColors() {
+        // Reset apenas das cores (sem resetar visualização)
+        var allEdges = edges.get();
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            if (e._originalColor !== undefined) {
+                e.color = e._originalColor;
+            }
+        }
+        edges.update(allEdges);
+
+        var allNodes = nodes.get();
+        for (var i = 0; i < allNodes.length; i++) {
+            var n = allNodes[i];
+            if (n._originalColor !== undefined) {
+                n.color = n._originalColor;
+            }
+        }
+        nodes.update(allNodes);
+    }
+    
+    function resetHighlight() {
+        // Reset completo: cores + visualização + informações
+        resetHighlightColors();
+        
+        // Ocultar informações do caminho
+        hidePathInfo();
+        
+        // Resetar visualização para o padrão (igual ao botão de reset)
         network.fit({
-            nodes: path,
             animation: { duration: 800, easingFunction: 'easeInOutQuad' }
         });
-        
-        console.log('Menor caminho encontrado:', path);
-        console.log('Distância total:', dist[destino]);
-    }
-
-    function resetHighlight() {
-    // reset das arestas
-    var allEdges = edges.get();
-    for (var i = 0; i < allEdges.length; i++) {
-        var e = allEdges[i];
-        if (e._originalColor !== undefined) {
-        e.color = e._originalColor;
-        }
-    }
-    edges.update(allEdges);
-
-    // reset dos nos
-    var allNodes = nodes.get();
-    for (var i = 0; i < allNodes.length; i++) {
-        var n = allNodes[i];
-        if (n._originalColor !== undefined) {
-        n.color = n._originalColor;
-        }
-    }
-    nodes.update(allNodes);
     }
 
     function highlightPath() {
@@ -625,8 +1231,8 @@
         return;
     }
 
-    // Limpa quaisquer destaques anteriores
-    resetHighlight();
+    // Limpa quaisquer destaques anteriores (apenas cores, sem resetar visualização)
+    resetHighlightColors();
 
     // 1) DESTACAR APENAS AS ARESTAS QUE ESTAO EM pathEdgeSet (Muda apenas a cor)
     var allEdges = edges.get();
@@ -657,11 +1263,13 @@
     }
     nodes.update(allNodes);
 
-    // 3) Centraliza o grafo em torno dos nos do caminho
-    network.fit({
-        nodes: pathNodes,
-        animation: { duration: 800, easingFunction: 'easeInOutQuad' }
-    });
+    // 3) Centraliza o grafo em torno dos nos do caminho (com pequeno delay)
+    setTimeout(function() {
+        network.fit({
+            nodes: pathNodes,
+            animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+        });
+    }, 100);
     }
 </script>
 

@@ -50,6 +50,283 @@
 
 
     <body>
+
+<style>
+  .info-panel {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 9998;
+    background: rgba(255,255,255,0.96);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #111;
+    min-width: 200px;
+    max-width: 280px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .info-panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  .info-section {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  .info-section:last-child {
+    border-bottom: none;
+  }
+  .info-item {
+    margin: 6px 0;
+    font-size: 11px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    font-size: 11px;
+  }
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    margin-right: 8px;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+  .level-select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .level-select:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  .zoom-section {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .zoom-section button {
+    flex: 1;
+    padding: 6px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: background 0.2s;
+  }
+  .zoom-section button:hover {
+    background: #e0e0e0;
+  }
+  .nav-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  .nav-row {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+  }
+  .nav-btn {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .nav-btn:hover {
+    background: #e0e0e0;
+  }
+  .nav-btn.center {
+    font-size: 10px;
+  }
+</style>
+<div class="info-panel">
+  <h3>🌳 Árvore BFS - Boa Viagem</h3>
+  
+  <div class="info-section">
+    <strong>Estatísticas:</strong>
+    <div class="info-item">Total de bairros: 94</div>
+    <div class="info-item">Profundidade máxima: 10</div>
+  </div>
+  
+  <div class="info-section">
+    <strong>Legenda:</strong>
+    <div class="legend-item">
+      <span class="legend-color" style="background-color: #ffb703;"></span>
+      Origem (Boa Viagem)
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background-color: #8ecae6;"></span>
+      Outros bairros
+    </div>
+  </div>
+  
+  <div class="info-section">
+    <strong>Bairros por nível:</strong>
+    <div>Nível 0: 1 bairro(s)</div><div>Nível 1: 4 bairro(s)</div><div>Nível 2: 7 bairro(s)</div><div>Nível 3: 10 bairro(s)</div><div>Nível 4: 14 bairro(s)</div><div>Nível 5: 14 bairro(s)</div><div>Nível 6: 12 bairro(s)</div><div>Nível 7: 10 bairro(s)</div><div>Nível 8: 10 bairro(s)</div><div>Nível 9: 10 bairro(s)</div><div>Nível 10: 2 bairro(s)</div>
+  </div>
+  
+  <div class="info-section">
+    <strong>Destacar nível:</strong>
+    <select id="level-select" class="level-select" onchange="highlightLevel()">
+      <option value="">Selecione um nível...</option>
+      <option value="0">Nível 0</option><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option><option value="4">Nível 4</option><option value="5">Nível 5</option><option value="6">Nível 6</option><option value="7">Nível 7</option><option value="8">Nível 8</option><option value="9">Nível 9</option><option value="10">Nível 10</option>
+    </select>
+    <button onclick="resetHighlight()" style="width: 100%; margin-top: 6px; padding: 6px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 11px;">Limpar Destaque</button>
+  </div>
+  
+  <div class="info-section">
+    <strong>Zoom:</strong>
+    <div class="zoom-section">
+      <button onclick="zoomIn()">+</button>
+      <button onclick="zoomOut()">-</button>
+      <button onclick="resetZoom()">Reset</button>
+    </div>
+  </div>
+  
+  <div class="info-section">
+    <strong>Navegação:</strong>
+    <div class="nav-section">
+      <div class="nav-row">
+        <button onclick="moveView('up')" class="nav-btn">⬆️</button>
+      </div>
+      <div class="nav-row">
+        <button onclick="moveView('left')" class="nav-btn">⬅️</button>
+        <button onclick="moveView('center')" class="nav-btn center">🎯</button>
+        <button onclick="moveView('right')" class="nav-btn">➡️</button>
+      </div>
+      <div class="nav-row">
+        <button onclick="moveView('down')" class="nav-btn">⬇️</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var nivelData = {"Boa Viagem": 0, "Jordão": 1, "Ibura": 1, "Imbiribeira": 1, "Pina": 1, "Cohab": 2, "Barro": 2, "Ipsep": 2, "Caçote": 2, "Afogados": 2, "Cabanga": 2, "Brasília Teimosa": 2, "Jardim São Paulo": 3, "Tejipió": 3, "Areias": 3, "São José": 3, "Jiquiá": 3, "Mangueira": 3, "Mustardinha": 3, "Bongi": 3, "Prado": 3, "Ilha do Retiro": 3, "Curado": 4, "San Martin": 4, "Estância": 4, "Coqueiral": 4, "Sancho": 4, "Recife": 4, "Santo Antônio": 4, "Coelhos": 4, "Boa Vista": 4, "Ilha Joana Bezerra": 4, "Cordeiro": 4, "Madalena": 4, "Zumbi": 4, "Paissandu": 4, "Várzea": 5, "Cidade Universitária": 5, "Engenho do Meio": 5, "Torrões": 5, "Totó": 5, "Santo Amaro": 5, "Ilha do Leite": 5, "Soledade": 5, "Espinheiro": 5, "Graças": 5, "Derby": 5, "Iputinga": 5, "Torre": 5, "Santana": 5, "Caxangá": 6, "Campo Grande": 6, "Torreão": 6, "Aflitos": 6, "Encruzilhada": 6, "Rosarinho": 6, "Tamarineira": 6, "Jaqueira": 6, "Monteiro": 6, "Parnamirim": 6, "Casa Forte": 6, "Poço": 6, "Sítio dos Pintos": 7, "Dois Irmãos": 7, "Apipucos": 7, "Ponto de Parada": 7, "Arruda": 7, "Peixinhos": 7, "Hipódromo": 7, "Casa Amarela": 7, "Mangabeira": 7, "Alto do Mandu": 7, "Guabiraba": 8, "Córrego do Jenipapo": 8, "Macaxeira": 8, "Água Fria": 8, "Campina do Barreto": 8, "Bomba do Hemetério": 8, "Vasco da Gama": 8, "Alto José do Pinho": 8, "Morro da Conceição": 8, "Nova Descoberta": 8, "Passarinho": 9, "Pau-Ferro": 9, "Linha do Tiro": 9, "Beberibe": 9, "Porto da Madeira": 9, "Fundão": 9, "Cajueiro": 9, "Alto Santa Teresinha": 9, "Alto José Bonifácio": 9, "Brejo de Beberibe": 9, "Brejo da Guabiraba": 10, "Dois Unidos": 10};
+var originalColors = {};
+
+function highlightLevel() {
+    var select = document.getElementById('level-select');
+    var selectedLevel = select.value;
+    
+    if (!selectedLevel) return;
+    
+    var level = parseInt(selectedLevel);
+    var allNodes = nodes.get();
+    
+    // Salva cores originais se ainda não salvou
+    for (var i = 0; i < allNodes.length; i++) {
+        var n = allNodes[i];
+        if (!originalColors[n.id]) {
+            originalColors[n.id] = n.color;
+        }
+    }
+    
+    // Destaca nós do nível selecionado
+    for (var i = 0; i < allNodes.length; i++) {
+        var n = allNodes[i];
+        var nodeLevel = nivelData[n.id];
+        if (nodeLevel === level) {
+            n.color = { background: '#ff6b6b', border: '#c92a2a' };
+        } else {
+            n.color = originalColors[n.id];
+        }
+    }
+    nodes.update(allNodes);
+}
+
+function resetHighlight() {
+    var allNodes = nodes.get();
+    for (var i = 0; i < allNodes.length; i++) {
+        var n = allNodes[i];
+        if (originalColors[n.id]) {
+            n.color = originalColors[n.id];
+        }
+    }
+    nodes.update(allNodes);
+    document.getElementById('level-select').value = '';
+}
+
+function zoomIn() {
+    var scale = network.getScale();
+    network.moveTo({
+        scale: Math.min(scale * 1.3, 5),
+        animation: { duration: 300 }
+    });
+}
+function zoomOut() {
+    var scale = network.getScale();
+    network.moveTo({
+        scale: Math.max(scale / 1.3, 0.1),
+        animation: { duration: 300 }
+    });
+}
+function resetZoom() {
+    network.fit({
+        animation: { duration: 600, easingFunction: 'easeInOutQuad' }
+    });
+}
+function moveView(direction) {
+    var moveAmount = 100;
+    var position = network.getViewPosition();
+    var scale = network.getScale();
+    
+    if (!position) {
+        position = { x: 0, y: 0 };
+    }
+    
+    var newPosition = { x: position.x, y: position.y };
+    
+    switch(direction) {
+        case 'up':
+            newPosition.y -= moveAmount;
+            break;
+        case 'down':
+            newPosition.y += moveAmount;
+            break;
+        case 'left':
+            newPosition.x -= moveAmount;
+            break;
+        case 'right':
+            newPosition.x += moveAmount;
+            break;
+        case 'center':
+            network.fit({
+                animation: { duration: 400, easingFunction: 'easeInOutQuad' }
+            });
+            return;
+    }
+    
+    network.moveTo({
+        position: newPosition,
+        scale: scale,
+        animation: { duration: 300, easingFunction: 'easeInOutQuad' }
+    });
+}
+</script>
+
         <div class="card" style="width: 100%">
             
             
