@@ -4,8 +4,8 @@ import os
 import json
 import pandas as pd
 from pyvis.network import Network
-from .graphs.io import carregar_grafo_recife
-from .graphs.algorithms import bfs_arvore, dijkstra
+from graphs.io import carregar_grafo_recife
+from graphs.algorithms import bfs_arvore, dijkstra
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
@@ -478,149 +478,84 @@ def ranking_densidade_ego_microrregiao_png():
 
         out/parte1/ranking_densidade_ego_microrregiao.png
     """
-    caminho_ego = os.path.join(OUT_DIR, "ego_bairro.csv")
-    caminho_bairros = os.path.join(DATA_DIR, "bairros_unique.csv")
-
-    if not os.path.exists(caminho_ego):
-        raise FileNotFoundError(
-            f"Arquivo não encontrado: {caminho_ego}. "
-            f"Certifique-se de ter gerado ego_bairro.csv antes."
-        )
-
-    if not os.path.exists(caminho_bairros):
-        raise FileNotFoundError(
-            f"Arquivo não encontrado: {caminho_bairros}."
-        )
-
-    # 1) Lê ego_bairro.csv
-    df_ego = pd.read_csv(caminho_ego)
-    df_ego.columns = df_ego.columns.str.strip().str.lower()
-
-    # Aqui esperamos algo como: bairro, grau, ordem_ego, tamanho_ego, densidade_ego
-    if not {"bairro", "densidade_ego"}.issubset(df_ego.columns):
-        raise ValueError(
-            "ego_bairro.csv deve ter as colunas 'bairro' e 'densidade_ego'."
-        )
-
-    # 2) Lê bairros_unique.csv para obter a microrregiao de cada bairro
-    df_bairros = pd.read_csv(caminho_bairros)
-    df_bairros.columns = df_bairros.columns.str.strip().str.lower()
-
-    if not {"bairro", "microrregiao"}.issubset(df_bairros.columns):
-        raise ValueError(
-            "bairros_unique.csv deve ter as colunas 'bairro' e 'microrregiao'."
-        )
-
-    # 3) Junta as informações pelo nome do bairro
-    df_join = pd.merge(
-        df_ego[["bairro", "densidade_ego"]],
-        df_bairros[["bairro", "microrregiao"]],
-        on="bairro",
-        how="inner"
-    )
-
-    # 4) Agrupa por microrregiao e calcula a média da densidade_ego
-    df_rank = (
-        df_join
-        .groupby("microrregiao", as_index=False)["densidade_ego"]
-        .mean()
-        .rename(columns={"densidade_ego": "densidade_ego_media"})
-        .sort_values("densidade_ego_media", ascending=False)
-    )
-
-    # 5) Prepara dados para o gráfico de barras
-    microrregioes = df_rank["microrregiao"].astype(str).tolist()
-    densidades_medias = df_rank["densidade_ego_media"].tolist()
-
-    if plt is None:
-        print("matplotlib (plt) não está disponível, não dá pra gerar o PNG.")
-        return
-
-    # 6) Cria o gráfico de barras (estético e ordenado: microrregião 1..6)
-    # Força a exibição das microrregiões 1..6 nesta ordem; se faltar, mostra 0.0
-    ordem = [str(i) for i in range(1, 7)]
-
-    # Normaliza as chaves de microrregiao no dataframe para strings '1'..'6'
-    df_map = {}
-    for _, r in df_rank.iterrows():
-        mr = r.get('microrregiao', None)
-        val = r.get('densidade_ego_media', None)
-        if pd.isna(mr) or val is None:
-            continue
-        # trata valores numéricos (floats) que representem inteiros
-        try:
-            if isinstance(mr, (int, float)):
-                mr_norm = str(int(mr))
-            else:
-                # remove espaços e pontos decimais estranhos
-                mr_str = str(mr).strip()
-                # tenta converter para float->int quando possível
-                try:
-                    mf = float(mr_str)
-                    if mf.is_integer():
-                        mr_norm = str(int(mf))
-                    else:
-                        mr_norm = mr_str
-                except Exception:
-                    mr_norm = mr_str
-        except Exception:
-            mr_norm = str(mr)
-
-        try:
-            df_map[mr_norm] = float(val)
-        except Exception:
-            # ignora valores inválidos
-            continue
-
-    microrregioes_ord = ordem
-    densidades_ord = [df_map.get(m, 0.0) for m in microrregioes_ord]
-
-    # Palette: usa colormap 'inferno' para visual intenso e agradável
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    
+    # Configurações iniciais
+    sns.set_theme(style="whitegrid")
+    plt.rcParams['font.family'] = 'sans-serif'
+    plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
+    
     try:
-        cmap = plt.get_cmap('inferno')
-        colors = [matplotlib.colors.to_hex(cmap(i / max(1, len(microrregioes_ord) - 1))) for i in range(len(microrregioes_ord))]
-    except Exception:
-        base = ['#fde725', '#ffa600', '#f97306', '#d72728', '#9e0142', '#49006a']
-        colors = [base[i % len(base)] for i in range(len(microrregioes_ord))]
-
-    # Cria figura maior e mais elegante
-    fig, ax = plt.subplots(figsize=(10, 6))
-    bars = ax.bar(microrregioes_ord, densidades_ord, color=colors, edgecolor='#444444', linewidth=0.8)
-
-    # Estética: grade horizontal leve, título, e remoção do rótulo X (desnecessário)
-    ax.set_title('Ranking — Densidade média da ego-subrede por Microrregião', fontsize=16, weight='bold')
-    # ax.set_xlabel('Microrregião', fontsize=12)  # removido conforme solicitado
-    ax.set_ylabel('Densidade média da ego-subrede', fontsize=12)
-    ax.tick_params(axis='x', labelsize=11)
-    ax.tick_params(axis='y', labelsize=11)
-    ax.grid(axis='y', color='#eeeeee')
-    ax.set_axisbelow(True)
-
-    # Ajusta limite superior para evitar que os valores fiquem cortados
-    ymax = max(densidades_ord) if densidades_ord else 0
-    if ymax <= 0:
-        ax.set_ylim(0, 1)
-    else:
-        ax.set_ylim(0, ymax * 1.12)
-
-    # Valores sobre as barras (formatados)
-    ypad = ymax * 0.04 if ymax > 0 else 0.02
-    for bar, val in zip(bars, densidades_ord):
-        h = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, h + ypad, f"{val:.3f}", ha='center', va='bottom', fontsize=10, fontweight='semibold')
-
-    # Legenda compacta à direita
-    handles = [matplotlib.patches.Patch(color=colors[i], label=f"Microrregião {microrregioes_ord[i]}") for i in range(len(microrregioes_ord))]
-    ax.legend(handles=handles, title='Microrregiões', bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False, fontsize=10, title_fontsize=11)
-
-    plt.tight_layout()
-    plt.subplots_adjust(right=0.78, top=0.88)
-
-    caminho_saida = os.path.join("out/parte1", "ranking_densidade_ego_microrregiao.png")
-    plt.savefig(caminho_saida, bbox_inches='tight', dpi=200)
-    plt.close(fig)
-
-    print(caminho_saida)
+        # 1) Lê os dados
+        df_ego = pd.read_csv(os.path.join(OUT_DIR, 'ego_bairro.csv'))
+        df_bairros = pd.read_csv(os.path.join(DATA_DIR, 'bairros_unique.csv'))
+        
+        # 2) Mescla os dados
+        df = pd.merge(
+            df_ego[['bairro', 'densidade_ego']],
+            df_bairros[['bairro', 'microrregiao']],
+            on='bairro',
+            how='inner'
+        )
+        
+        # 3) Calcula a média por microrregião
+        df_media = (df.groupby('microrregiao', as_index=False)['densidade_ego']
+                   .mean()
+                   .sort_values('densidade_ego', ascending=False))
+        
+        # 4) Cria a figura
+        plt.figure(figsize=(10, 6))
+        
+        # 5) Gera o gráfico de barras
+        ax = sns.barplot(
+            data=df_media,
+            x='microrregiao',
+            y='densidade_ego',
+            palette='viridis',
+            edgecolor='0.3',
+            linewidth=0.5
+        )
+        
+        # 6) Adiciona os valores nas barras
+        for p in ax.patches:
+            ax.annotate(
+                f"{p.get_height():.2f}",
+                (p.get_x() + p.get_width() / 2., p.get_height()),
+                ha='center',
+                va='center',
+                xytext=(0, 5),
+                textcoords='offset points',
+                fontweight='bold'
+            )
+        
+        # 7) Configurações do gráfico
+        plt.title('Densidade Média das Redes Ego por Microrregião', 
+                 fontsize=14, 
+                 pad=20,
+                 fontweight='bold')
+        
+        plt.xlabel('Microrregião', fontsize=12)
+        plt.ylabel('Densidade Média', fontsize=12)
+        
+        # Rotaciona os rótulos do eixo x para melhor legibilidade
+        plt.xticks(rotation=45, ha='right')
+        
+        # 8) Ajusta o layout e salva
+        plt.tight_layout()
+        
+        caminho_saida = os.path.join(OUT_DIR, 'ranking_densidade_ego_microrregiao.png')
+        plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
+        plt.close()
+        
+        print(f"Gráfico salvo em: {caminho_saida}")
+        return caminho_saida
+        
+    except Exception as e:
+        print(f"Erro ao gerar o gráfico: {str(e)}")
+        return None
 
 def arvore_bfs_boaviagem_html():
     """
@@ -2265,9 +2200,85 @@ def grafo_interativo_html():
     print("Grafo interativo salvo em:", caminho_saida)
 
 
-
-
-
+def gerar_histograma_graus():
+    """
+    Gera um histograma da distribuição dos graus dos bairros.
+    
+    Usa o arquivo out/parte1/graus.csv já gerado no passo 4.
+    
+    Saída: out/parte1/distribuicao_graus.png
+    """
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import seaborn as sns
+    import os
+    
+    # Garante que o diretório de saída existe
+    os.makedirs(OUT_DIR, exist_ok=True)
+    
+    # Lê os dados de grau
+    df_graus = pd.read_csv(os.path.join(OUT_DIR, 'graus.csv'))
+    
+    # Configura o estilo do gráfico
+    plt.figure(figsize=(12, 6))
+    sns.set_style("whitegrid")
+    
+    # Cria o histograma com KDE
+    ax = sns.histplot(data=df_graus, x='grau', bins=15, kde=True, color='#1f77b4')
+    
+    # Configurações do gráfico
+    plt.title('Distribuição dos Graus dos Bairros', fontsize=16, pad=20)
+    plt.xlabel('Grau do Vértice (Número de Coneexões)', fontsize=12)
+    plt.ylabel('Frequência', fontsize=12)
+    
+    # Adiciona linhas de grade para melhor leitura
+    plt.grid(True, linestyle='--', alpha=0.7)
+    
+    # Ajusta o layout
+    plt.tight_layout()
+    
+    # Salva a figura
+    caminho_saida = os.path.join(OUT_DIR, 'distribuicao_graus.png')
+    plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    # Gera um arquivo de notas explicativas
+    notas = """
+    NOTAS EXPLICATIVAS DAS VISUALIZAÇÕES
+    
+    1. MAPA DE GRAUS (mapa_graus.html)
+       - Visualização interativa onde cada nó representa um bairro
+       - A intensidade da cor azul indica o grau do vértice (número de conexões)
+       - Bairros mais conectados aparecem em azul mais escuro
+       
+    2. RANKING DE DENSIDADE POR MICRORREGIÃO (ranking_densidade_ego_microrregiao.png)
+       - Gráfico de barras mostrando a densidade média das redes ego por microrregião
+       - Ajuda a identificar quais regiões têm bairros com redes mais coesas
+       
+    3. SUBGRAFO DOS BAIRROS MAIS CONECTADOS (grafo_interativo.html)
+       - Visualização interativa dos 10 bairros com maior grau
+       - Permite explorar as conexões entre os bairros mais centrais da rede
+       
+    4. DISTRIBUIÇÃO DOS GRAUS (distribuicao_graus.png)
+       - Histograma mostrando a frequência de cada grau na rede
+       - A linha azul suave (KDE) ajuda a visualizar a distribuição
+       - Revela se a rede segue uma distribuição livre de escala ou se há uma concentração em determinados graus
+       
+    5. ÁRVORE BFS A PARTIR DE BOA VIAGEM (arvore_bfs_boaviagem.html)
+       - Mostra os níveis de distância (em saltos) a partir de Boa Viagem
+       - Cada camada representa um nível de distância
+       - Útil para entender a conectividade e acessibilidade dos bairros
+       
+    6. PERCURSO NOVA DESCOBERTA -> SETÚBAL (arvore_percurso.html)
+       - Visualização do caminho mínimo entre Nova Descoberta e Setúbal
+       - Destaque para o percurso encontrado pelo algoritmo
+    """
+    
+    with open(os.path.join(OUT_DIR, 'notas_visuais.txt'), 'w', encoding='utf-8') as f:
+        f.write(notas)
+    
+    print("Notas explicativas salvas em:", os.path.join(OUT_DIR, 'notas_visuais.txt'))
+    return caminho_saida
 
 if __name__ == "__main__":
     arvore_percurso_html()
@@ -2275,3 +2286,4 @@ if __name__ == "__main__":
     ranking_densidade_ego_microrregiao_png()
     arvore_bfs_boaviagem_html()
     grafo_interativo_html()
+    gerar_histograma_graus()

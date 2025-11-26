@@ -2,4 +2,5 @@ pytest
 pandas
 matplotlib
 pyvis
+seaborn
 
