@@ -57,7 +57,7 @@ def arvore_percurso_html(
     Salva o resultado em out/parte1/arvore_percurso.html.
     """
 
-    # 1) Carrega origem, destino e caminho a partir do JSON do PASSO 6
+    # carrega o caminho do arquivo json que tem o percurso
     origem, destino_rotulo, caminho = percurso_nova_descoberta_setubal(
         caminho_json
     )
@@ -67,46 +67,48 @@ def arvore_percurso_html(
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    # 2) Monta os rótulos dos nós
+    # prepara os nomes que vão aparecer nos nós
     labels = list(caminho)
     if destino_rotulo and len(labels) > 0:
         labels[-1] = destino_rotulo  # exibe "Boa Viagem (Setúbal)" no último nó
 
-    # 3) Cria a rede pyvis (usar tamanhos e fontes consistentes com o grafo interativo)
+    # configura o tamanho da fonte e dos nós
     NODE_SIZE = 14
     FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
 
+    # cria a rede e usa o algoritmo de barnes hut pra ficar mais rápido
     net = Network(height="600px", width="100%", directed=False)
     net.barnes_hut()
 
-    # garante fonte/legibilidade
+    # ajusta as opções de visualização
     net.set_options('''{
       "nodes": { "font": { "size": 14, "face": "Arial" } },
       "edges": { "smooth": false },
       "physics": { "stabilization": { "enabled": true, "iterations": 800 } }
     }''')
 
-    # Adiciona nós com tamanho uniforme; destaca origem e destino em rosa
+    # adiciona cada ponto do caminho, destacando o começo e o fim
     for i, label in enumerate(labels):
         titulo = label
         if i == 0:
-            # origem (Nova Descoberta) em rosa forte
+            # pinta o ponto de partida de rosa
             color = {"background": "#ff66c4", "border": "#c0428f"}
         elif i == len(labels) - 1:
-            # destino (Boa Viagem) em rosa
+            # pinta o ponto de chegada de rosa também
             color = {"background": "#ff66c4", "border": "#c0428f"}
         else:
+            # os pontos do meio ficam azuis
             color = {"background": "#8ecae6", "border": "#2b7f9e"}
 
         net.add_node(label, label=label, title=titulo, color=color, size=NODE_SIZE, font=FONT)
 
-    # Adiciona arestas entre nós consecutivos (largura uniforme)
+    # liga os pontos com linhas
     for i in range(len(labels) - 1):
         u = labels[i]
         v = labels[i + 1]
         net.add_edge(u, v, color="#dcdcdc", width=2)
 
-    # 4) Gera o HTML
+    # salva o arquivo html com o grafo
     net.show(caminho_saida, notebook=False)
 
 def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
@@ -223,7 +225,7 @@ def _controles_zoom_navegacao():
   </div>
   <div class="nav-row">
     <button onclick="moveView('left')" class="nav-btn">⬅️</button>
-    <button onclick="moveView('center')" class="nav-btn center">🎯</button>
+    <button onclick="moveView('center')" class="nav-btn center"></button>
     <button onclick="moveView('right')" class="nav-btn">➡️</button>
   </div>
   <div class="nav-row">
@@ -413,8 +415,8 @@ def mapa_graus_html():
             gradient_css = ", ".join([f"{c} {i*25}%" for i, c in enumerate(colors_stops)])
         except Exception:
             gradient_css = f"{map_color(gmin)} 0%, {map_color(gmax)} 100%"
-
-        controles = _controles_zoom_navegacao()
+        
+        # Removido controles de zoom e navegação
         
         legenda_html = f"""
 <style>
@@ -455,7 +457,6 @@ def mapa_graus_html():
   </div>
   <div style="font-size:11px; color:#666; margin-top:6px;">Min — Median — Max</div>
 </div>
-{controles}
 """
 
         if "<body>" in html:
@@ -778,74 +779,121 @@ def arvore_bfs_boaviagem_html():
     justify-content: center;
     transition: background 0.2s;
   }}
+  .controls-box {{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    max-height: 90vh;
+    overflow-y: auto;
+  }}
+  .controls-vertical {{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }}
+  .section-title {{
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+  }}
+  .stats-box {{
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }}
+  .legend-box {{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+  }}
+  .legend-item {{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }}
+  .legend-color {{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid #999;
+  }}
+  .zoom-controls {{
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+  }}
+  .zoom-controls button {{
+    flex: 1;
+    padding: 6px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }}
+  .navigation-controls {{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }}
+  .nav-btn {{
+    width: 30px;
+    height: 30px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }}
   .nav-btn:hover {{
     background: #e0e0e0;
   }}
   .nav-btn.center {{
     font-size: 10px;
   }}
+  .nav-row {{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+  }}
+  select, button {{
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+  }}
+  button {{
+    background: #f0f0f0;
+    cursor: pointer;
+  }}
+  button:hover {{
+    background: #e0e0e0;
+  }}
 </style>
-<div class="info-panel">
-  <h3>🌳 Árvore BFS - Boa Viagem</h3>
-  
-  <div class="info-section">
-    <strong>Estatísticas:</strong>
-    <div class="info-item">Total de bairros: {total_nos}</div>
-    <div class="info-item">Profundidade máxima: {profundidade_max}</div>
-  </div>
-  
-  <div class="info-section">
-    <strong>Legenda:</strong>
-    <div class="legend-item">
-      <span class="legend-color" style="background-color: #ffb703;"></span>
-      Origem (Boa Viagem)
-    </div>
-    <div class="legend-item">
-      <span class="legend-color" style="background-color: #8ecae6;"></span>
-      Outros bairros
-    </div>
-  </div>
-  
-  <div class="info-section">
-    <strong>Bairros por nível:</strong>
-    {nos_por_nivel_html}
-  </div>
-  
-  <div class="info-section">
-    <strong>Destacar nível:</strong>
-    <select id="level-select" class="level-select" onchange="highlightLevel()">
-      <option value="">Selecione um nível...</option>
-      {opcoes_nivel}
-    </select>
-    <button onclick="resetHighlight()" style="width: 100%; margin-top: 6px; padding: 6px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 11px;">Limpar Destaque</button>
-  </div>
-  
-  <div class="info-section">
-    <strong>Zoom:</strong>
-    <div class="zoom-section">
-      <button onclick="zoomIn()">+</button>
-      <button onclick="zoomOut()">-</button>
-      <button onclick="resetZoom()">Reset</button>
-    </div>
-  </div>
-  
-  <div class="info-section">
-    <strong>Navegação:</strong>
-    <div class="nav-section">
-      <div class="nav-row">
-        <button onclick="moveView('up')" class="nav-btn">⬆️</button>
-      </div>
-      <div class="nav-row">
-        <button onclick="moveView('left')" class="nav-btn">⬅️</button>
-        <button onclick="moveView('center')" class="nav-btn center">🎯</button>
-        <button onclick="moveView('right')" class="nav-btn">➡️</button>
-      </div>
-      <div class="nav-row">
-        <button onclick="moveView('down')" class="nav-btn">⬇️</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 <script>
 var nivelData = __NIVEL_DATA__;
 var originalColors = {{}};
@@ -1444,26 +1492,21 @@ def grafo_interativo_html():
 <div class="controls-box">
     {f"<div class='issue'>{issues_html}</div>" if issues_html else ""}
     <div class="controls-vertical">
-        <div class="section-title">📊 Estatísticas</div>
+        <div class="section-title">Estatísticas</div>
         <div class="stats-box">
             <div><strong>Bairros:</strong> {total_bairros}</div>
             <div><strong>Conexões:</strong> {total_conexoes}</div>
             <div><strong>Densidade:</strong> {densidade_media:.4f}</div>
         </div>
         
-        <div class="section-title">🔍 Busca</div>
+        <div class="section-title">Busca</div>
         <input type="text" id="busca-bairro" placeholder="Digite o nome do bairro..." onkeypress="if(event.key==='Enter') buscarBairro()">
         <div style="display: flex; gap: 4px;">
             <button onclick="buscarBairro()" style="flex: 1;">Buscar Bairro</button>
             <button onclick="limparBusca()" style="flex: 1;">Limpar Busca</button>
         </div>
         
-        <div class="section-title">🗺️ Caminhos</div>
-        <select id="algoritmo-select">
-            <option value="dijkstra">Dijkstra</option>
-            <option value="bfs">BFS (Busca em Largura)</option>
-            <option value="bellman-ford">Bellman-Ford</option>
-        </select>
+        <div class="section-title">Caminhos</div>
         <select id="origem-select">
             <option value="">Selecione a origem...</option>
 {bairros_options}
@@ -1477,16 +1520,13 @@ def grafo_interativo_html():
         <button onclick="highlightPath()">Destacar Nova Descoberta → Boa Viagem</button>
         <button onclick="resetHighlight()">Limpar Destaques</button>
         <div class="path-info" id="path-info">
-            <div class="path-info-title">📍 Informações do Caminho</div>
+            <div class="path-info-title">Informações do Caminho</div>
             <div class="path-info-content" id="path-info-content"></div>
         </div>
         
-        <div class="section-title">🎨 Legenda</div>
-        <div class="legend-box">
-{legend_items}
-        </div>
+        <div class="section-title">Legenda</div>
         
-        <div class="gp-section-title">🔲 Filtros</div>
+        <div class="gp-section-title">Filtros</div>
         <div class="gp-legend-box">
 {filter_checkboxes}
             <div style="margin-top: 8px;">
@@ -1495,21 +1535,21 @@ def grafo_interativo_html():
             </div>
         </div>
         
-        <div class="section-title">🔍 Zoom</div>
+        <div class="section-title">Zoom</div>
         <div class="zoom-controls">
             <button onclick="zoomIn()">➕</button>
             <button onclick="zoomOut()">➖</button>
-            <button onclick="resetView()">🔄</button>
+            <button onclick="resetView()">Reverter</button>
         </div>
         
-        <div class="section-title">🧭 Navegação</div>
+        <div class="section-title">Navegação</div>
         <div class="navigation-controls">
             <div style="display: flex; justify-content: center; margin-bottom: 4px;">
                 <button onclick="moveView('up')" class="nav-btn">⬆️</button>
             </div>
             <div style="display: flex; justify-content: space-between; gap: 4px;">
                 <button onclick="moveView('left')" class="nav-btn">⬅️</button>
-                <button onclick="moveView('center')" class="nav-btn" style="font-size: 10px;">🎯</button>
+                <button onclick="moveView('center')" class="nav-btn" style="font-size: 10px;"></button>
                 <button onclick="moveView('right')" class="nav-btn">➡️</button>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 4px;">
@@ -1681,17 +1721,21 @@ def grafo_interativo_html():
                         n.color = { background: color, border: '#222222' };
                     }
                 } else {
-                    // Ocultar nó
+                    // Define a cor como cinza-claro
                     if (!n._originalColor) {
                         n._originalColor = n.color;
                     }
-                    n.color = { background: 'rgba(0,0,0,0)', border: 'rgba(0,0,0,0)' };
+                    n.color = { 
+                        background: '#D3D3D3',  // Cinza claro
+                        border: '#A9A9A9',      // Cinza mais escuro para a borda
+                        highlight: { background: '#C0C0C0', border: '#808080' }
+                    };
                 }
             }
         }
         nodes.update(allNodes);
         
-        // Também oculta/mostra arestas relacionadas
+        // Atualiza as arestas para ficarem mais claras quando a região estiver desmarcada
         var allEdges = edges.get();
         for (var i = 0; i < allEdges.length; i++) {
             var e = allEdges[i];
@@ -1706,7 +1750,12 @@ def grafo_interativo_html():
                     if (!e._originalColor) {
                         e._originalColor = e.color;
                     }
-                    e.color = { color: 'rgba(0,0,0,0)' };
+                    e.color = { 
+                        color: '#D3D3D3',  // Cinza claro
+                        highlight: '#A9A9A9',
+                        hover: '#C0C0C0',
+                        opacity: 0.5
+                    };
                 }
             }
         }
@@ -1795,47 +1844,31 @@ def grafo_interativo_html():
     }
     
     function calcularCaminho() {
-        var algoritmoSelect = document.getElementById('algoritmo-select');
         var origemSelect = document.getElementById('origem-select');
         var destinoSelect = document.getElementById('destino-select');
         
-        if (!algoritmoSelect || !origemSelect || !destinoSelect) {
+        if (!origemSelect || !destinoSelect) {
             alert('Elementos não encontrados');
             return;
         }
         
-        var algoritmo = algoritmoSelect.value;
         var origem = origemSelect.value;
         var destino = destinoSelect.value;
         
         if (!origem || !destino) {
-            alert('Por favor, selecione a origem e o destino');
+            alert('Selecione origem e destino');
             return;
         }
         
-        if (origem === destino) {
-            alert('Origem e destino devem ser diferentes');
-            return;
-        }
-        
-        hidePathInfo();
+        // Mostra o indicador de carregamento
         showLoading();
+        
+        // Reseta o destaque atual
+        resetHighlight();
         
         // Usa setTimeout para permitir que o loading apareça antes do cálculo pesado
         setTimeout(function() {
-            switch(algoritmo) {
-                case 'dijkstra':
-                    calcularCaminhoDijkstra(origem, destino);
-                    break;
-                case 'bfs':
-                    calcularCaminhoBFS(origem, destino);
-                    break;
-                case 'bellman-ford':
-                    calcularCaminhoBellmanFord(origem, destino);
-                    break;
-                default:
-                    calcularCaminhoDijkstra(origem, destino);
-            }
+            calcularCaminhoDijkstra(origem, destino);
             hideLoading();
         }, 50);
     }
@@ -1852,7 +1885,7 @@ def grafo_interativo_html():
             var v = edge[1];
             if (!adjMap[u]) adjMap[u] = [];
             if (!adjMap[v]) adjMap[v] = [];
-            // Assumindo peso 1 para todas as arestas (pode ser modificado se houver pesos)
+            // Assumindo peso 1 para todas as arestas
             adjMap[u].push({node: v, weight: 1});
             adjMap[v].push({node: u, weight: 1});
         }
@@ -1915,142 +1948,6 @@ def grafo_interativo_html():
         
         // Mostrar informações do caminho
         showPathInfo(path, dist[destino], 'Dijkstra');
-    }
-    
-    function calcularCaminhoBFS(origem, destino) {
-        // Implementação de BFS para encontrar o menor caminho em número de arestas
-        var allNodes = nodes.get();
-        var allEdges = edges.get();
-        var graphData = __GRAPH_DATA__;
-        
-        // Construir mapa de adjacência
-        var adjMap = {};
-        for (var i = 0; i < graphData.edges.length; i++) {
-            var edge = graphData.edges[i];
-            var u = edge[0];
-            var v = edge[1];
-            if (!adjMap[u]) adjMap[u] = [];
-            if (!adjMap[v]) adjMap[v] = [];
-            adjMap[u].push(v);
-            adjMap[v].push(u);
-        }
-        
-        // BFS
-        var visitado = {};
-        var anterior = {};
-        var fila = [];
-        
-        visitado[origem] = true;
-        anterior[origem] = null;
-        fila.push(origem);
-        
-        var encontrou = false;
-        
-        while (fila.length > 0 && !encontrou) {
-            var atual = fila.shift();
-            
-            var vizinhos = adjMap[atual] || [];
-            for (var i = 0; i < vizinhos.length; i++) {
-                var vizinho = vizinhos[i];
-                if (!visitado[vizinho]) {
-                    visitado[vizinho] = true;
-                    anterior[vizinho] = atual;
-                    fila.push(vizinho);
-                    
-                    if (vizinho === destino) {
-                        encontrou = true;
-                        break;
-                    }
-                }
-            }
-        }
-        
-        if (!encontrou) {
-            alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
-            return;
-        }
-        
-        // Reconstruir o caminho
-        var path = [];
-        var current = destino;
-        var distancia = 0;
-        while (current !== null) {
-            path.unshift(current);
-            current = anterior[current];
-            if (current !== null) distancia++;
-        }
-        
-        // Destacar caminho
-        destacarCaminho(path, distancia);
-        
-        // Mostrar informações do caminho
-        showPathInfo(path, distancia, 'BFS');
-    }
-    
-    function calcularCaminhoBellmanFord(origem, destino) {
-        // Implementação de Bellman-Ford para encontrar o menor caminho
-        var allNodes = nodes.get();
-        var allEdges = edges.get();
-        var graphData = __GRAPH_DATA__;
-        
-        // Construir lista de arestas com pesos
-        var edgesList = [];
-        for (var i = 0; i < graphData.edges.length; i++) {
-            var edge = graphData.edges[i];
-            var u = edge[0];
-            var v = edge[1];
-            // Assumindo peso 1 para todas as arestas
-            edgesList.push({from: u, to: v, weight: 1});
-            edgesList.push({from: v, to: u, weight: 1});
-        }
-        
-        // Inicialização
-        var dist = {};
-        var anterior = {};
-        for (var j = 0; j < graphData.nodes.length; j++) {
-            var node = graphData.nodes[j];
-            dist[node] = Infinity;
-            anterior[node] = null;
-        }
-        dist[origem] = 0;
-        
-        // Relaxamento |V| - 1 vezes
-        var numNodes = graphData.nodes.length;
-        for (var k = 0; k < numNodes - 1; k++) {
-            var houveMudanca = false;
-            for (var i = 0; i < edgesList.length; i++) {
-                var e = edgesList[i];
-                if (dist[e.from] !== Infinity) {
-                    var novoCusto = dist[e.from] + e.weight;
-                    if (novoCusto < dist[e.to]) {
-                        dist[e.to] = novoCusto;
-                        anterior[e.to] = e.from;
-                        houveMudanca = true;
-                    }
-                }
-            }
-            if (!houveMudanca) break;
-        }
-        
-        // Verificação de ciclos negativos (não aplicável aqui pois pesos são 1)
-        if (dist[destino] === Infinity) {
-            alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
-            return;
-        }
-        
-        // Reconstruir o caminho
-        var path = [];
-        var current = destino;
-        while (current !== null) {
-            path.unshift(current);
-            current = anterior[current];
-        }
-        
-        // Destacar caminho
-        destacarCaminho(path, dist[destino]);
-        
-        // Mostrar informações do caminho
-        showPathInfo(path, dist[destino], 'Bellman-Ford');
     }
     
     function destacarCaminho(path, distancia) {
