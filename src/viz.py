@@ -13,14 +13,7 @@ OUT_DIR = "out/parte1"
 
 
 def percurso_nova_descoberta_setubal(caminho_json: str | None = None):
-    """
-    Lê o arquivo JSON gerado no PASSO 6 (percurso Nova Descoberta -> Setúbal)
-    e devolve (origem, destino_rotulo, caminho).
-
-    - origem: string (ex.: "Nova Descoberta")
-    - destino_rotulo: string para exibição (ex.: "Boa Viagem (Setúbal)")
-    - caminho: lista de bairros (como usados no grafo, ex.: ["Nova Descoberta", ..., "Boa Viagem"])
-    """
+    """Lê JSON do percurso Nova Descoberta -> Setúbal e retorna (origem, destino, caminho)."""
     if caminho_json is None:
         caminho_json = os.path.join(OUT_DIR, "percurso_nova_descoberta_setubal.json")
 
@@ -49,12 +42,7 @@ def arvore_percurso_html(
     caminho_json: str | None = None,
     caminho_saida: str | None = None
 ):
-    """
-    Gera uma visualização INTERATIVA da árvore de percurso
-    (Nova Descoberta -> Boa Viagem (Setúbal)) usando pyvis.
-
-    Salva o resultado em out/parte1/arvore_percurso.html.
-    """
+    """Gera HTML interativo mostrando o caminho de Nova Descoberta até Setúbal."""
 
     # carrega o grafo completo e calcula o percurso com Dijkstra
     caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
@@ -80,62 +68,97 @@ def arvore_percurso_html(
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    # prepara os nomes que vão aparecer nos nós
     labels = list(caminho)
     if destino_rotulo and len(labels) > 0:
-        labels[-1] = destino_rotulo  # exibe "Boa Viagem (Setúbal)" no último nó
+        labels[-1] = destino_rotulo
 
-    # configura o tamanho da fonte e dos nós
-    NODE_SIZE = 14
-    FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
+    NODE_SIZE = 25
+    FONT = {"size": 12, "face": "Arial", "color": "#2d3436"}
 
-    # cria a rede e usa o algoritmo de barnes hut pra ficar mais rápido
-    net = Network(height="600px", width="100%", directed=False)
+    net = Network(height="700px", width="100%", directed=False, bgcolor="#ffffff", font_color="#000000")
     net.barnes_hut()
+    net.set_options("""{
+        "physics": {
+            "stabilization": {
+                "enabled": true,
+                "iterations": 1000
+            },
+            "barnesHut": {
+                "gravitationalConstant": -8000,
+                "springLength": 150,
+                "springConstant": 0.04
+            }
+        },
+        "interaction": {
+            "hover": true,
+            "tooltipDelay": 100,
+            "zoomView": true,
+            "dragView": true
+        },
+        "nodes": {
+            "shape": "dot",
+            "font": {
+                "size": 12,
+                "face": "Arial"
+            },
+            "borderWidth": 2,
+            "shadow": {
+                "enabled": true,
+                "color": "rgba(0,0,0,0.2)",
+                "size": 5,
+                "x": 2,
+                "y": 2
+            }
+        },
+        "edges": {
+            "smooth": {
+                "type": "continuous",
+                "roundness": 0.5
+            }
+        }
+    }""")
 
-    # ajusta as opções de visualização
-    net.set_options('''{
-      "nodes": { "font": { "size": 14, "face": "Arial" } },
-      "edges": { "smooth": false },
-      "physics": { "stabilization": { "enabled": true, "iterations": 800 } }
-    }''')
-
-    # adiciona cada ponto do caminho, destacando o começo e o fim
+    # adiciona cada ponto do caminho
     for i, label in enumerate(labels):
-        titulo = label
+        titulo = f"<b>{label}</b><br>Posição no caminho: {i + 1}/{len(labels)}"
+        
         if i == 0:
-            # pinta o ponto de partida de rosa
-            color = {"background": "#ff66c4", "border": "#c0428f"}
+            color = {"background": "#ff6b6b", "border": "#ee5a52"}
         elif i == len(labels) - 1:
-            # pinta o ponto de chegada de rosa também
-            color = {"background": "#ff66c4", "border": "#c0428f"}
+            color = {"background": "#ff6b6b", "border": "#ee5a52"}
         else:
-            # os pontos do meio ficam azuis
-            color = {"background": "#8ecae6", "border": "#2b7f9e"}
+            color = {"background": "#4ecdc4", "border": "#2d3436"}
 
-        net.add_node(label, label=label, title=titulo, color=color, size=NODE_SIZE, font=FONT)
+        net.add_node(
+            label, 
+            label=label, 
+            title=titulo, 
+            color=color, 
+            size=NODE_SIZE, 
+            font=FONT
+        )
 
-    # liga os pontos com linhas
     for i in range(len(labels) - 1):
         u = labels[i]
         v = labels[i + 1]
-        net.add_edge(u, v, color="#dcdcdc", width=2)
+        net.add_edge(
+            u, 
+            v, 
+            color={"color": "#95a5a6", "highlight": "#3498db"},
+            width=3,
+            smooth={"type": "continuous"}
+        )
 
-    # salva o arquivo html com o grafo
     net.show(caminho_saida, notebook=False)
 
-def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
-    """
-    Converte o grau de um bairro em uma cor (hex) mais ou menos intensa.
 
-    Usamos um gradiente de azul claro -> azul escuro.
-    """
+def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
+    """Converte grau em cor usando gradiente azul claro -> azul escuro."""
     if gmax <= gmin:
         t = 0.5
     else:
-        t = (grau - gmin) / (gmax - gmin)  # normaliza para [0, 1]
+        t = (grau - gmin) / (gmax - gmin)
 
-    # Azul claro -> azul escuro
     r1, g1, b1 = (198, 219, 239)
     r2, g2, b2 = (8, 48, 107)
 
@@ -146,10 +169,13 @@ def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
+def _estilo_global_dark():
+    """Retorna CSS vazio (compatibilidade)."""
+    return ""
+
+
 def _controles_zoom_navegacao():
-    """
-    Retorna HTML e JavaScript para controles de zoom e navegação reutilizáveis.
-    """
+    """Retorna HTML e JavaScript para controles de zoom e navegação."""
     return """
 <style>
   .zoom-controls {
@@ -220,6 +246,12 @@ def _controles_zoom_navegacao():
   }
   .nav-btn.center {
     font-size: 12px;
+  }
+  .nav-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
   }
 </style>
 <div class="zoom-controls">
@@ -302,15 +334,7 @@ function moveView(direction) {
 
 
 def mapa_graus_html():
-    """
-    Gera um HTML interativo (pyvis) onde:
-    - cada nó é um bairro
-    - a cor do nó varia com o grau (mais conexões = cor mais intensa)
-
-    Usa o arquivo out/parte1/graus.csv já gerado no passo 4.
-
-    Saída: out/parte1/mapa_graus.html
-    """
+    """Gera HTML interativo com heatmap de graus dos bairros."""
     if Network is None:
         print("Pyvis não está disponível (Network é None). Verifique pyvis/jinja2 no ambiente.")
         return
@@ -427,34 +451,66 @@ def mapa_graus_html():
         # Removido controles de zoom e navegação
         
         legenda_html = f"""
+{_estilo_global_dark()}
 <style>
   .legend {{
     position: fixed;
-    right: 16px;
-    top: 16px;
+    right: 20px;
+    top: 20px;
     z-index: 9998;
-    background: rgba(255,255,255,0.96);
-    padding: 10px 12px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 12px;
-    color: #111;
-    min-width: 160px;
+    min-width: 200px;
+    backdrop-filter: blur(10px);
+  }}
+  .legend-title {{
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #4fc3f7;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+  }}
+  .legend-subtitle {{
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+    line-height: 1.4;
   }}
   .legend .bar {{
-    height: 14px;
+    height: 16px;
     border-radius: 8px;
     background: linear-gradient(90deg, {gradient_css});
-    margin: 8px 0 6px 0;
+    margin: 12px 0 8px 0;
+    border: 1px solid rgba(255,255,255,0.1);
   }}
   .legend .ticks {{
-    display:flex; justify-content:space-between; font-size:11px; color:#444; margin-top:4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 6px;
+    font-weight: 600;
+  }}
+  .legend-footer {{
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }}
 </style>
 <div class="legend">
-  <div style="font-weight:600; margin-bottom:4px;">Legenda — Grau (conexões)</div>
-  <div style="font-size:11px; color:#555;">Escala de calor: mais conexões = cor mais quente</div>
+  <div class="legend-title">Grau (Conexões)</div>
+  <div class="legend-subtitle">Escala de calor: mais conexões = cor mais quente</div>
   <div class="bar"></div>
   <div class="ticks">
     <div>{stops[0]:.0f}</div>
@@ -463,7 +519,7 @@ def mapa_graus_html():
     <div>{stops[3]:.0f}</div>
     <div>{stops[4]:.0f}</div>
   </div>
-  <div style="font-size:11px; color:#666; margin-top:6px;">Min — Median — Max</div>
+  <div class="legend-footer">Min — Mediana — Max</div>
 </div>
 """
 
@@ -477,16 +533,7 @@ def mapa_graus_html():
         pass
 
 def ranking_densidade_ego_microrregiao_png():
-    """
-    Lê:
-      - out/parte1/ego_bairro.csv  (densidade_ego por bairro)
-      - data/bairros_unique.csv (bairro -> microrregiao)
-
-    Calcula, para cada microrregiao, a média de densidade_ego
-    e gera um gráfico de barras:
-
-        out/parte1/ranking_densidade_ego_microrregiao.png
-    """
+    """Gera gráfico de barras com ranking de densidade ego por microrregião."""
     import pandas as pd
     import matplotlib.pyplot as plt
     import seaborn as sns
@@ -567,13 +614,7 @@ def ranking_densidade_ego_microrregiao_png():
         return None
 
 def arvore_bfs_boaviagem_html():
-    """
-    Gera uma ÁRVORE BFS a partir do bairro 'Boa Viagem' em HTML interativo (pyvis).
-
-    Cada nível da BFS é exibido como uma camada hierárquica:
-
-        out/parte1/arvore_bfs_boaviagem.html
-    """
+    """Gera árvore BFS hierárquica a partir de Boa Viagem."""
     if Network is None:
         print("Pyvis (Network) não está disponível. Verifique a instalação de pyvis/jinja2.")
         return
@@ -620,14 +661,28 @@ def arvore_bfs_boaviagem_html():
     # Vamos usar as microrregiões como tooltip extra (se quiser pegar depois),
     # mas o essencial aqui é nível + conexões.
 
-    # 4) Adiciona nós com cor diferente para a origem
+    # 4) Adiciona nós com cores por nível (gradiente)
+    # Define paleta de cores profissional por nível
+    cores_nivel = [
+        "#ff6b6b",  # Vermelho (nível 0 - origem)
+        "#4ecdc4",  # Turquesa (nível 1)
+        "#45b7d1",  # Azul claro (nível 2)
+        "#96ceb4",  # Verde água (nível 3)
+        "#ffeaa7",  # Amarelo claro (nível 4)
+        "#dfe6e9",  # Cinza claro (nível 5)
+        "#a29bfe",  # Roxo claro (nível 6+)
+    ]
+    
     for bairro, nv in nivel.items():
+        # Escolhe cor baseada no nível
         if bairro == origem:
-            cor = "#ffb703"  # destaque (amarelo/laranja)
+            cor = {"background": "#ff6b6b", "border": "#ee5a52"}
         else:
-            cor = "#8ecae6"  # azul clarinho
+            cor_idx = min(nv, len(cores_nivel) - 1)
+            cor_bg = cores_nivel[cor_idx]
+            cor = {"background": cor_bg, "border": "#2d3436"}
 
-        titulo = f"{bairro}<br>Nível BFS: {nv}"
+        titulo = f"<b>{bairro}</b><br>Nível BFS: {nv}"
         if pai[bairro] is not None:
             titulo += f"<br>Pai: {pai[bairro]}"
 
@@ -636,16 +691,25 @@ def arvore_bfs_boaviagem_html():
             label=bairro,
             title=titulo,
             level=nv,   # nível da BFS para layout hierárquico
-            color=cor
+            color=cor,
+            size=25,  # Todos os vértices com o mesmo tamanho
+            font={"size": 12, "face": "Arial", "color": "#2d3436"}
         )
 
-    # 5) Adiciona arestas pai -> filho
+    # 5) Adiciona arestas pai -> filho com estilo
     for bairro, p in pai.items():
         if p is None:
             continue  # origem não tem pai
-        net.add_edge(p, bairro)
+        net.add_edge(
+            p, 
+            bairro,
+            color={"color": "#95a5a6", "highlight": "#3498db"},
+            width=2,
+            arrows={"to": {"enabled": True, "scaleFactor": 0.5}},
+            smooth={"type": "cubicBezier", "forceDirection": "vertical"}
+        )
 
-    # 6) Configura layout hierárquico no vis.js
+    # 6) Configura layout hierárquico no vis.js com opções melhoradas
     net.set_options("""
     {
     "layout": {
@@ -653,12 +717,41 @@ def arvore_bfs_boaviagem_html():
         "enabled": true,
         "sortMethod": "directed",
         "direction": "UD",
-        "nodeSpacing": 150,
-        "levelSeparation": 120
+        "nodeSpacing": 180,
+        "levelSeparation": 150,
+        "treeSpacing": 200
         }
     },
     "physics": {
         "enabled": false
+    },
+    "interaction": {
+        "hover": true,
+        "tooltipDelay": 100,
+        "zoomView": true,
+        "dragView": true
+    },
+    "nodes": {
+        "shape": "dot",
+        "font": {
+            "size": 12,
+            "face": "Arial"
+        },
+        "borderWidth": 2,
+        "shadow": {
+            "enabled": true,
+            "color": "rgba(0,0,0,0.2)",
+            "size": 5,
+            "x": 2,
+            "y": 2
+        }
+    },
+    "edges": {
+        "smooth": {
+            "type": "cubicBezier",
+            "forceDirection": "vertical",
+            "roundness": 0.4
+        }
     }
     }
     """)
@@ -683,40 +776,48 @@ def arvore_bfs_boaviagem_html():
         opcoes_nivel += f'<option value="{nv}">Nível {nv}</option>'
     
     info_html = f"""
+{_estilo_global_dark()}
 <style>
   .info-panel {{
     position: fixed;
-    top: 16px;
-    left: 16px;
+    top: 20px;
+    left: 20px;
     z-index: 9998;
-    background: rgba(255,255,255,0.96);
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 12px;
-    color: #111;
-    min-width: 200px;
-    max-width: 280px;
+    min-width: 240px;
+    max-width: 320px;
     max-height: 85vh;
     overflow-y: auto;
+    backdrop-filter: blur(10px);
   }}
   .info-panel h3 {{
-    margin: 0 0 10px 0;
-    font-size: 14px;
-    color: #333;
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #4fc3f7;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(79, 195, 247, 0.3);
   }}
   .info-section {{
-    margin-bottom: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }}
   .info-section:last-child {{
     border-bottom: none;
   }}
   .info-item {{
-    margin: 6px 0;
+    margin: 8px 0;
     font-size: 11px;
+    color: rgba(255,255,255,0.9);
   }}
   .legend-item {{
     display: flex;
@@ -787,92 +888,6 @@ def arvore_bfs_boaviagem_html():
     justify-content: center;
     transition: background 0.2s;
   }}
-  .controls-box {{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 300px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    max-height: 90vh;
-    overflow-y: auto;
-  }}
-  .controls-vertical {{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px;
-  }}
-  .section-title {{
-    font-weight: bold;
-    color: #333;
-    font-size: 14px;
-    margin-top: 8px;
-    margin-bottom: 4px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #eee;
-  }}
-  .stats-box {{
-    background: #f9f9f9;
-    border-radius: 4px;
-    padding: 8px;
-    font-size: 13px;
-    margin-bottom: 8px;
-  }}
-  .legend-box {{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 8px;
-  }}
-  .legend-item {{
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-  }}
-  .legend-color {{
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
-    border: 1px solid #999;
-  }}
-  .zoom-controls {{
-    display: flex;
-    gap: 4px;
-    margin-bottom: 8px;
-  }}
-  .zoom-controls button {{
-    flex: 1;
-    padding: 6px;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }}
-  .navigation-controls {{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }}
-  .nav-btn {{
-    width: 30px;
-    height: 30px;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-  }}
   .nav-btn:hover {{
     background: #e0e0e0;
   }}
@@ -901,7 +916,6 @@ def arvore_bfs_boaviagem_html():
     background: #e0e0e0;
   }}
 </style>
-
 <script>
 var nivelData = __NIVEL_DATA__;
 var originalColors = {{}};
@@ -1019,21 +1033,13 @@ function moveView(direction) {{
 
 
 def grafo_interativo_html():
-    """
-    Gera um HTML interativo com:
-        - Tooltip por bairro: grau, microrregiao, densidade_ego
-        - Caixa de busca por bairro
-        - Botao para destacar o caminho 'Nova Descoberta -> Boa Viagem (Setubal)'
-
-    Saida: out/parte1/grafo_interativo.html
-    """
+    """Gera grafo interativo completo com busca, filtros e cálculo de caminhos."""
     if Network is None:
         print("Pyvis (Network) nao esta disponivel. Verifique a instalacao de pyvis/jinja2.")
         return
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    # --- 1) Carrega o grafo completo de bairros + microrregiao ---
     caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
     caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
 
@@ -1578,6 +1584,133 @@ def grafo_interativo_html():
             max-height: 88vh;
         }}
     }}
+    
+    /* Modal de informações do bairro */
+    .bairro-modal {{
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10000;
+        background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        min-width: 400px;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: modalFadeIn 0.3s ease;
+    }}
+    .bairro-modal.show {{
+        display: block;
+    }}
+    .modal-overlay {{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 9999;
+        backdrop-filter: blur(4px);
+    }}
+    .modal-overlay.show {{
+        display: block;
+    }}
+    .modal-header {{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+    }}
+    .modal-title {{
+        font-size: 20px;
+        font-weight: 700;
+        color: #4fc3f7;
+    }}
+    .modal-close {{
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s;
+    }}
+    .modal-close:hover {{
+        background: rgba(255,255,255,0.1);
+    }}
+    .modal-info-item {{
+        margin: 12px 0;
+        padding: 10px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        border-left: 3px solid #4fc3f7;
+    }}
+    .modal-info-label {{
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 4px;
+    }}
+    .modal-info-value {{
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+    }}
+    .modal-vizinhos {{
+        margin-top: 16px;
+        padding: 12px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+    }}
+    .modal-vizinhos-title {{
+        font-size: 13px;
+        font-weight: 700;
+        color: #4fc3f7;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }}
+    .modal-vizinhos-list {{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }}
+    .vizinho-tag {{
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba(79, 195, 247, 0.2);
+        border: 1px solid rgba(79, 195, 247, 0.4);
+        border-radius: 12px;
+        font-size: 11px;
+        color: #4fc3f7;
+    }}
+    @keyframes modalFadeIn {{
+        from {{
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }}
+        to {{
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }}
+    }}
 </style>
 
 <div class="controls-box">
@@ -1649,7 +1782,18 @@ def grafo_interativo_html():
         </div>
     </div>
 </div>
+
+<!-- Modal de informações do bairro -->
+<div class="modal-overlay" id="modal-overlay" onclick="fecharModalBairro()"></div>
+<div class="bairro-modal" id="bairro-modal">
+    <div class="modal-header">
+        <div class="modal-title" id="modal-bairro-nome">Informações do Bairro</div>
+        <button class="modal-close" onclick="fecharModalBairro()">×</button>
+    </div>
+    <div id="modal-bairro-content"></div>
+</div>
 """
+    
     if "<body>" in html:
         html = html.replace("<body>", "<body>\n" + controls_html, 1)
 
@@ -1689,6 +1833,72 @@ def grafo_interativo_html():
     var pe = pathEdges[i]; // pe = [u, v]
     var key = [pe[0], pe[1]].sort().join("||");
     pathEdgeSet[key] = true;
+    }
+    
+    // Evento de clique em nós para mostrar informações detalhadas
+    network.on("click", function(params) {
+        if (params.nodes.length > 0) {
+            var nodeId = params.nodes[0];
+            mostrarInfoBairro(nodeId);
+        }
+    });
+    
+    function mostrarInfoBairro(bairroId) {
+        // Busca o nó completo
+        var node = nodes.get(bairroId);
+        if (!node) return;
+        
+        // Extrai informações do tooltip (que já tem grau, microrregião, densidade_ego)
+        var info = node.title || '';
+        
+        // Cria um modal/alerta com as informações
+        var microrregiao = bairroToMicro[bairroId] || 'N/A';
+        var corMicro = microToColor[microrregiao] || '#97c2fc';
+        
+        // Conta vizinhos
+        var vizinhos = [];
+        var allEdges = edges.get();
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            if (e.from === bairroId) vizinhos.push(e.to);
+            if (e.to === bairroId) vizinhos.push(e.from);
+        }
+        
+        vizinhos.sort();
+        
+        // Atualiza o título do modal
+        document.getElementById('modal-bairro-nome').textContent = bairroId;
+        
+        // Monta o conteúdo do modal
+        var vizinhosHtml = '';
+        for (var i = 0; i < vizinhos.length; i++) {
+            vizinhosHtml += '<span class="vizinho-tag">' + vizinhos[i] + '</span>';
+        }
+        
+        var conteudo = 
+            '<div class="modal-info-item">' +
+            '  <div class="modal-info-label">Microrregião</div>' +
+            '  <div class="modal-info-value">' + microrregiao + '</div>' +
+            '</div>' +
+            '<div class="modal-info-item">' +
+            '  <div class="modal-info-label">Grau (Conexões)</div>' +
+            '  <div class="modal-info-value">' + vizinhos.length + '</div>' +
+            '</div>' +
+            '<div class="modal-vizinhos">' +
+            '  <div class="modal-vizinhos-title">Bairros Vizinhos (' + vizinhos.length + ')</div>' +
+            '  <div class="modal-vizinhos-list">' + vizinhosHtml + '</div>' +
+            '</div>';
+        
+        document.getElementById('modal-bairro-content').innerHTML = conteudo;
+        
+        // Mostra o modal
+        document.getElementById('modal-overlay').classList.add('show');
+        document.getElementById('bairro-modal').classList.add('show');
+    }
+    
+    function fecharModalBairro() {
+        document.getElementById('modal-overlay').classList.remove('show');
+        document.getElementById('bairro-modal').classList.remove('show');
     }
 
     function buscarBairro() {
@@ -2031,7 +2241,7 @@ def grafo_interativo_html():
     }
     
     function destacarCaminho(path, distancia) {
-        // Limpa destaques anteriores (apenas cores, sem resetar visualização)
+        // Limpa quaisquer destaques anteriores (apenas cores, sem resetar visualização)
         resetHighlightColors();
         
         // Criar conjunto de arestas do caminho
@@ -2115,7 +2325,7 @@ def grafo_interativo_html():
 
     function highlightPath() {
     if (!pathNodes || pathNodes.length === 0) {
-        alert("Caminho Nova Descoberta → Boa Viagem (Setúbal) não encontrado nos dados.");
+ não encontrado nos dados.";
         return;
     }
 

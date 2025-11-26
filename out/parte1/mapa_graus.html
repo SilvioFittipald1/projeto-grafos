@@ -51,34 +51,66 @@
 
     <body>
 
+
 <style>
   .legend {
     position: fixed;
-    right: 16px;
-    top: 16px;
+    right: 20px;
+    top: 20px;
     z-index: 9998;
-    background: rgba(255,255,255,0.96);
-    padding: 10px 12px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 12px;
-    color: #111;
-    min-width: 160px;
+    min-width: 200px;
+    backdrop-filter: blur(10px);
+  }
+  .legend-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #4fc3f7;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+  }
+  .legend-subtitle {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+    line-height: 1.4;
   }
   .legend .bar {
-    height: 14px;
+    height: 16px;
     border-radius: 8px;
     background: linear-gradient(90deg, #ffffcc 0%, #fed976 25%, #fd8c3c 50%, #e2191c 75%, #800026 100%);
-    margin: 8px 0 6px 0;
+    margin: 12px 0 8px 0;
+    border: 1px solid rgba(255,255,255,0.1);
   }
   .legend .ticks {
-    display:flex; justify-content:space-between; font-size:11px; color:#444; margin-top:4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .legend-footer {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 </style>
 <div class="legend">
-  <div style="font-weight:600; margin-bottom:4px;">Legenda — Grau (conexões)</div>
-  <div style="font-size:11px; color:#555;">Escala de calor: mais conexões = cor mais quente</div>
+  <div class="legend-title">Grau (Conexões)</div>
+  <div class="legend-subtitle">Escala de calor: mais conexões = cor mais quente</div>
   <div class="bar"></div>
   <div class="ticks">
     <div>1</div>
@@ -87,7 +119,7 @@
     <div>8</div>
     <div>10</div>
   </div>
-  <div style="font-size:11px; color:#666; margin-top:6px;">Min — Median — Max</div>
+  <div class="legend-footer">Min — Mediana — Max</div>
 </div>
 
         <div class="card" style="width: 100%">

@@ -5,6 +5,7 @@ from collections import deque
 
 
 def _validar_pesos_nao_negativos(grafo: Graph):
+    """Valida se todos os pesos do grafo são não-negativos."""
     for u in grafo.obter_nos():
         for _v, peso in grafo.vizinhos(u):
             if float(peso) < 0:
@@ -12,37 +13,26 @@ def _validar_pesos_nao_negativos(grafo: Graph):
 
 
 def dijkstra(grafo: Graph, origem: str, destino: str):
-    """
-    Algoritmo de Dijkstra para encontrar o caminho mínimo entre dois bairros.
-    """
-    # Se origem ou destino não estiverem no grafo, já falha
+    """Encontra o caminho mínimo entre origem e destino usando Dijkstra."""
     if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
         return inf, []
 
     _validar_pesos_nao_negativos(grafo)
 
-    # Distâncias iniciais: infinito pra todo mundo, 0 pra origem
     dist = {no: inf for no in grafo.obter_nos()}
     dist[origem] = 0.0
-
-    # Predecessor para reconstruir o caminho depois
     anterior = {}
-
-    # Fila de prioridade (min-heap) com (distância, nó)
     fila = [(0.0, origem)]
 
     while fila:
         dist_atual, u = heapq.heappop(fila)
 
-        # Se pegarmos uma entrada desatualizada, pula
         if dist_atual > dist[u]:
             continue
 
-        # Se chegarmos no destino, podemos parar
         if u == destino:
             break
 
-        # Relaxa as arestas a partir de u
         for v, peso in grafo.vizinhos(u):
             novo_custo = dist[u] + float(peso)
             if novo_custo < dist[v]:
@@ -50,26 +40,22 @@ def dijkstra(grafo: Graph, origem: str, destino: str):
                 anterior[v] = u
                 heapq.heappush(fila, (novo_custo, v))
 
-    # Se destino não foi alcançado
     if dist[destino] == inf:
         return inf, []
 
-    # Reconstrói o caminho de trás pra frente: destino > ... > origem
     caminho = []
     atual = destino
     while atual != origem:
         caminho.append(atual)
         atual = anterior[atual]
     caminho.append(origem)
-    caminho.reverse()  # agora origem > ... > destino
+    caminho.reverse()
 
     return dist[destino], caminho
 
 
 def bfs_arvore(grafo: Graph, origem: str):
-    """
-    Busca em Largura (BFS) a partir de 'origem', construindo a ÁRVORE BFS.
-    """
+    """Constrói a árvore BFS a partir da origem."""
     if origem not in grafo.adjacencia:
         raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
 
@@ -97,9 +83,7 @@ def bfs_arvore(grafo: Graph, origem: str):
 
 
 def bfs_caminho(grafo: Graph, origem: str, destino: str):
-    """
-    BFS para encontrar o menor caminho (em número de arestas) entre origem e destino.
-    """
+    """Encontra o menor caminho entre origem e destino usando BFS."""
     if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
         return []
     
@@ -130,7 +114,6 @@ def bfs_caminho(grafo: Graph, origem: str, destino: str):
     if not encontrou:
         return []
     
-    # Reconstrói o caminho
     caminho = []
     no_atual = destino
     while no_atual is not None:
@@ -142,9 +125,7 @@ def bfs_caminho(grafo: Graph, origem: str, destino: str):
 
 
 def dfs_arvore(grafo: Graph, origem: str):
-    """
-    Busca em Profundidade (DFS) a partir de 'origem', construindo a ÁRVORE DFS.
-    """
+    """Constrói a árvore DFS a partir da origem."""
     if origem not in grafo.adjacencia:
         raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
     
@@ -162,7 +143,6 @@ def dfs_arvore(grafo: Graph, origem: str):
     while pilha:
         atual = pilha.pop()
         
-        # Visita vizinhos em ordem reversa
         vizinhos = list(grafo.vizinhos(atual))
         for vizinho, _ in reversed(vizinhos):
             if vizinho not in visitado:
@@ -176,10 +156,7 @@ def dfs_arvore(grafo: Graph, origem: str):
 
 
 def dfs_caminho(grafo: Graph, origem: str, destino: str):
-    """
-    DFS para encontrar UM caminho qualquer entre origem e destino.
-    Não garante ser o menor caminho.
-    """
+    """Encontra um caminho entre origem e destino usando DFS."""
     if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
         return []
     
@@ -192,7 +169,7 @@ def dfs_caminho(grafo: Graph, origem: str, destino: str):
     
     def dfs_recursivo(no_atual):
         nonlocal resultado
-        if resultado:  
+        if resultado:
             return
             
         visitado.add(no_atual)
@@ -205,7 +182,7 @@ def dfs_caminho(grafo: Graph, origem: str, destino: str):
         for vizinho, _ in grafo.vizinhos(no_atual):
             if vizinho not in visitado:
                 dfs_recursivo(vizinho)
-                if resultado:  
+                if resultado:
                     return
 
         caminho_atual.pop()
@@ -215,6 +192,7 @@ def dfs_caminho(grafo: Graph, origem: str, destino: str):
 
 
 def dfs_detectar_ciclo(grafo: Graph) -> bool:
+    """Detecta se o grafo possui ciclos."""
     visitado = set()
 
     def dfs(u, pai):
@@ -236,6 +214,7 @@ def dfs_detectar_ciclo(grafo: Graph) -> bool:
 
 
 def dfs_classificar_arestas(grafo: Graph):
+    """Classifica as arestas do grafo em tree, back ou cross."""
     visitado = set()
     em_processamento = set()
     classificacao = {}
@@ -270,10 +249,7 @@ def dfs_classificar_arestas(grafo: Graph):
 
 
 def bellman_ford(grafo: Graph, origem: str):
-    """
-    Algoritmo de Bellman-Ford para encontrar caminhos mínimos a partir da origem.
-    Detecta ciclos negativos.
-    """
+    """Encontra caminhos mínimos a partir da origem e detecta ciclos negativos."""
     if origem not in grafo.adjacencia:
         raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
     
@@ -282,7 +258,6 @@ def bellman_ford(grafo: Graph, origem: str):
     anterior = {no: None for no in nos}
     dist[origem] = 0.0
     
-    # Relaxamento das arestas |V| - 1 vezes
     for _ in range(len(nos) - 1):
         houve_mudanca = False
         
@@ -297,11 +272,9 @@ def bellman_ford(grafo: Graph, origem: str):
                     anterior[v] = u
                     houve_mudanca = True
         
-        # Otimização: se não houve mudança, pode parar antes
         if not houve_mudanca:
             break
     
-    # Verificação de ciclos negativos
     tem_ciclo_negativo = False
     for u in nos:
         if dist[u] == inf:
@@ -319,9 +292,7 @@ def bellman_ford(grafo: Graph, origem: str):
 
 
 def bellman_ford_caminho(grafo: Graph, origem: str, destino: str):
-    """
-    Bellman-Ford para encontrar caminho mínimo entre origem e destino.
-    """
+    """Encontra o caminho mínimo entre origem e destino usando Bellman-Ford."""
     if origem not in grafo.adjacencia or destino not in grafo.adjacencia:
         return inf, [], False
     
@@ -333,7 +304,6 @@ def bellman_ford_caminho(grafo: Graph, origem: str, destino: str):
     if dist[destino] == inf:
         return inf, [], False
     
-    # Reconstrói o caminho
     caminho = []
     atual = destino
     while atual is not None:

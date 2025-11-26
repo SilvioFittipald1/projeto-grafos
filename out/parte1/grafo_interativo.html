@@ -354,6 +354,133 @@
             max-height: 88vh;
         }
     }
+    
+    /* Modal de informações do bairro */
+    .bairro-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10000;
+        background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+        color: #ffffff;
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        min-width: 400px;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: modalFadeIn 0.3s ease;
+    }
+    .bairro-modal.show {
+        display: block;
+    }
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 9999;
+        backdrop-filter: blur(4px);
+    }
+    .modal-overlay.show {
+        display: block;
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+    }
+    .modal-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #4fc3f7;
+    }
+    .modal-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s;
+    }
+    .modal-close:hover {
+        background: rgba(255,255,255,0.1);
+    }
+    .modal-info-item {
+        margin: 12px 0;
+        padding: 10px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        border-left: 3px solid #4fc3f7;
+    }
+    .modal-info-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 4px;
+    }
+    .modal-info-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+    }
+    .modal-vizinhos {
+        margin-top: 16px;
+        padding: 12px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    .modal-vizinhos-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #4fc3f7;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    .modal-vizinhos-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .vizinho-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        background: rgba(79, 195, 247, 0.2);
+        border: 1px solid rgba(79, 195, 247, 0.4);
+        border-radius: 12px;
+        font-size: 11px;
+        color: #4fc3f7;
+    }
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
 </style>
 
 <div class="controls-box">
@@ -617,6 +744,16 @@
     </div>
 </div>
 
+<!-- Modal de informações do bairro -->
+<div class="modal-overlay" id="modal-overlay" onclick="fecharModalBairro()"></div>
+<div class="bairro-modal" id="bairro-modal">
+    <div class="modal-header">
+        <div class="modal-title" id="modal-bairro-nome">Informações do Bairro</div>
+        <button class="modal-close" onclick="fecharModalBairro()">×</button>
+    </div>
+    <div id="modal-bairro-content"></div>
+</div>
+
         <div class="card" style="width: 100%">
             
             
@@ -705,6 +842,72 @@
     var pe = pathEdges[i]; // pe = [u, v]
     var key = [pe[0], pe[1]].sort().join("||");
     pathEdgeSet[key] = true;
+    }
+    
+    // Evento de clique em nós para mostrar informações detalhadas
+    network.on("click", function(params) {
+        if (params.nodes.length > 0) {
+            var nodeId = params.nodes[0];
+            mostrarInfoBairro(nodeId);
+        }
+    });
+    
+    function mostrarInfoBairro(bairroId) {
+        // Busca o nó completo
+        var node = nodes.get(bairroId);
+        if (!node) return;
+        
+        // Extrai informações do tooltip (que já tem grau, microrregião, densidade_ego)
+        var info = node.title || '';
+        
+        // Cria um modal/alerta com as informações
+        var microrregiao = bairroToMicro[bairroId] || 'N/A';
+        var corMicro = microToColor[microrregiao] || '#97c2fc';
+        
+        // Conta vizinhos
+        var vizinhos = [];
+        var allEdges = edges.get();
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            if (e.from === bairroId) vizinhos.push(e.to);
+            if (e.to === bairroId) vizinhos.push(e.from);
+        }
+        
+        vizinhos.sort();
+        
+        // Atualiza o título do modal
+        document.getElementById('modal-bairro-nome').textContent = bairroId;
+        
+        // Monta o conteúdo do modal
+        var vizinhosHtml = '';
+        for (var i = 0; i < vizinhos.length; i++) {
+            vizinhosHtml += '<span class="vizinho-tag">' + vizinhos[i] + '</span>';
+        }
+        
+        var conteudo = 
+            '<div class="modal-info-item">' +
+            '  <div class="modal-info-label">Microrregião</div>' +
+            '  <div class="modal-info-value">' + microrregiao + '</div>' +
+            '</div>' +
+            '<div class="modal-info-item">' +
+            '  <div class="modal-info-label">Grau (Conexões)</div>' +
+            '  <div class="modal-info-value">' + vizinhos.length + '</div>' +
+            '</div>' +
+            '<div class="modal-vizinhos">' +
+            '  <div class="modal-vizinhos-title">Bairros Vizinhos (' + vizinhos.length + ')</div>' +
+            '  <div class="modal-vizinhos-list">' + vizinhosHtml + '</div>' +
+            '</div>';
+        
+        document.getElementById('modal-bairro-content').innerHTML = conteudo;
+        
+        // Mostra o modal
+        document.getElementById('modal-overlay').classList.add('show');
+        document.getElementById('bairro-modal').classList.add('show');
+    }
+    
+    function fecharModalBairro() {
+        document.getElementById('modal-overlay').classList.remove('show');
+        document.getElementById('bairro-modal').classList.remove('show');
     }
 
     function buscarBairro() {
