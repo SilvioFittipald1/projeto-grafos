@@ -46,73 +46,6 @@ def percurso_nova_descoberta_setubal(caminho_json: str | None = None):
     return origem, destino_rotulo, caminho
 
 
-def arvore_percurso_png(
-    caminho_json: str | None = None,
-    caminho_saida: str | None = None
-):
-    """
-    PASSO 7:
-
-    - Lê o percurso Nova Descoberta -> Boa Viagem (Setúbal) do JSON.
-    - Constrói a "árvore de caminho" (subgrafo apenas com os nós e arestas do percurso).
-    - Gera uma visualização simples em linha e salva em out/arvore_percurso.png.
-
-    A visualização é uma linha de nós igualmente espaçados, conectados na ordem do caminho.
-    """
-
-    # 1) Carrega origem, destino e caminho a partir do JSON do PASSO 6
-    origem, destino_rotulo, caminho = percurso_nova_descoberta_setubal(
-        caminho_json
-    )
-
-    # Define o arquivo de saída
-    if caminho_saida is None:
-        caminho_saida = os.path.join(OUT_DIR, "arvore_percurso.png")
-
-    os.makedirs(OUT_DIR, exist_ok=True)
-
-    # 2) Prepara os rótulos dos nós para exibição
-    #    - usamos os nomes do caminho
-    #    - mas substituímos o último pela string de destino (ex.: "Boa Viagem (Setúbal)")
-    labels = list(caminho)
-    if destino_rotulo and len(labels) > 0:
-        labels[-1] = destino_rotulo
-
-    n = len(labels)
-    x_coords = list(range(n))
-    y_coords = [0] * n  # todos na mesma linha horizontal
-
-    # 3) Cria a figura
-    plt.figure(figsize=(max(6, n * 1.5), 4))
-
-    # Desenha as arestas (linhas entre nós consecutivos)
-    for i in range(n - 1):
-        x1, y1 = x_coords[i], y_coords[i]
-        x2, y2 = x_coords[i + 1], y_coords[i + 1]
-        plt.plot([x1, x2], [y1, y2], linewidth=2)
-
-    # Desenha os nós como pontos
-    plt.scatter(x_coords, y_coords, s=200)
-
-    # 4) Adiciona os rótulos dos nós
-    for x, y, label in zip(x_coords, y_coords, labels):
-        plt.text(
-            x,
-            y + 0.05,   # desloca um pouco pra cima do ponto
-            label,
-            ha="center",
-            va="bottom",
-            rotation=15  # leve inclinação pra caber melhor
-        )
-
-    # Remove eixos para ficar mais "clean"
-    plt.axis("off")
-    plt.tight_layout()
-
-    # 5) Salva a figura
-    plt.savefig(caminho_saida, bbox_inches="tight")
-    plt.close()
-
 def arvore_percurso_html(
     caminho_json: str | None = None,
     caminho_saida: str | None = None
@@ -139,28 +72,39 @@ def arvore_percurso_html(
     if destino_rotulo and len(labels) > 0:
         labels[-1] = destino_rotulo  # exibe "Boa Viagem (Setúbal)" no último nó
 
-    # 3) Cria a rede pyvis
-    net = Network(height="600px", width="100%", directed=False)
-    net.barnes_hut()  # layout físico bonitinho
+    # 3) Cria a rede pyvis (usar tamanhos e fontes consistentes com o grafo interativo)
+    NODE_SIZE = 14
+    FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
 
-    # Adiciona nós
+    net = Network(height="600px", width="100%", directed=False)
+    net.barnes_hut()
+
+    # garante fonte/legibilidade
+    net.set_options('''{
+      "nodes": { "font": { "size": 14, "face": "Arial" } },
+      "edges": { "smooth": false },
+      "physics": { "stabilization": { "enabled": true, "iterations": 800 } }
+    }''')
+
+    # Adiciona nós com tamanho uniforme; destaca origem e destino em rosa
     for i, label in enumerate(labels):
         titulo = label
-        # Destacar origem e destino (opcional)
         if i == 0:
-            # origem
-            net.add_node(label, label=label, title=titulo, color="#8ecae6")
+            # origem (Nova Descoberta) em rosa forte
+            color = {"background": "#ff66c4", "border": "#c0428f"}
         elif i == len(labels) - 1:
-            # destino
-            net.add_node(label, label=label, title=titulo, color="#ffb703")
+            # destino (Boa Viagem) em rosa
+            color = {"background": "#ff66c4", "border": "#c0428f"}
         else:
-            net.add_node(label, label=label, title=titulo)
+            color = {"background": "#8ecae6", "border": "#2b7f9e"}
 
-    # Adiciona arestas entre nós consecutivos
+        net.add_node(label, label=label, title=titulo, color=color, size=NODE_SIZE, font=FONT)
+
+    # Adiciona arestas entre nós consecutivos (largura uniforme)
     for i in range(len(labels) - 1):
         u = labels[i]
         v = labels[i + 1]
-        net.add_edge(u, v)
+        net.add_edge(u, v, color="#dcdcdc", width=2)
 
     # 4) Gera o HTML
     net.show(caminho_saida, notebook=False)
@@ -240,7 +184,10 @@ def mapa_graus_html():
     gmin = min(graus.values())
     gmax = max(graus.values())
 
-    # 3) Cria a rede pyvis
+    # 3) Cria a rede pyvis (usar tamanhos e fontes consistentes com o grafo interativo)
+    NODE_SIZE = 14
+    FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
+
     net = Network(
         height="700px",
         width="100%",
@@ -249,36 +196,118 @@ def mapa_graus_html():
     )
     net.barnes_hut()
 
-    # 4) Adiciona nós com cor baseada no grau
+    # aplica opções de vis.js para uniformidade e legibilidade
+    net.set_options('''{
+        "nodes": { "font": { "size": 14, "face": "Arial" } },
+        "edges": { "smooth": false },
+        "physics": { "stabilization": { "enabled": true, "iterations": 1000 } }
+    }''')
+
+    # usa um colormap tipo 'YlOrRd' para representar calor (mais conexoes = mais quente)
+    try:
+        cmap = plt.get_cmap('YlOrRd')
+        norm = matplotlib.colors.Normalize(vmin=gmin, vmax=gmax)
+        def map_color(v):
+            return matplotlib.colors.to_hex(cmap(norm(v)))
+    except Exception:
+        # fallback para a paleta antiga
+        def map_color(v):
+            return cor_por_grau(v, gmin, gmax)
+
+    # 4) Adiciona nós com cor baseada no grau (heatmap) e tamanho uniforme
     for bairro in bairros:
         grau = graus[bairro]
-        cor = cor_por_grau(grau, gmin, gmax)
+        cor = map_color(grau)
         title = f"{bairro}<br>Grau: {grau}"
 
         net.add_node(
             bairro,
             label=bairro,
             title=title,
-            color=cor
+            color={"background": cor, "border": "#222222"},
+            size=NODE_SIZE,
+            font=FONT
         )
 
-    # 5) Adiciona arestas (sem duplicar, grafo não dirigido)
+    # 5) Adiciona arestas (sem duplicar, grafo não dirigido) com largura uniforme
     arestas_adicionadas = set()
     for b in bairros:
         for vizinho, peso in grafo.vizinhos(b):
             if vizinho not in graus:
-                # caso raro: bairro exista no grafo mas não em graus.csv
                 continue
             aresta = tuple(sorted((b, vizinho)))
             if aresta in arestas_adicionadas:
                 continue
-            net.add_edge(b, vizinho, value=peso)
+            net.add_edge(b, vizinho, color="#dcdcdc", width=2)
             arestas_adicionadas.add(aresta)
 
     # 6) Salva o HTML
     caminho_saida = os.path.join(OUT_DIR, "mapa_graus.html")
     net.show(caminho_saida, notebook=False)  # notebook=False para evitar o bug do template
     print(caminho_saida)
+
+    # 7) Pos-processa HTML para adicionar uma legenda de cores (heatmap) no canto superior direito
+    try:
+        with open(caminho_saida, "r", encoding="utf-8") as f:
+            html = f.read()
+
+        # cria gradiente com varios pontos (0%,25%,50%,75%,100%) usando o colormap
+        try:
+            stops = [gmin, gmin + 0.25 * (gmax - gmin), gmin + 0.5 * (gmax - gmin), gmin + 0.75 * (gmax - gmin), gmax]
+            colors_stops = [map_color(s) for s in stops]
+            gradient_css = ", ".join([f"{c} {i*25}%" for i, c in enumerate(colors_stops)])
+        except Exception:
+            gradient_css = f"{map_color(gmin)} 0%, {map_color(gmax)} 100%"
+
+        legenda_html = f"""
+<style>
+  .gp-legend {{
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    z-index: 9998;
+    background: rgba(255,255,255,0.96);
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #111;
+    min-width: 160px;
+  }}
+  .gp-legend .bar {{
+    height: 14px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, {gradient_css});
+    margin: 8px 0 6px 0;
+  }}
+  .gp-legend .ticks {{
+    display:flex; justify-content:space-between; font-size:11px; color:#444; margin-top:4px;
+  }}
+</style>
+<div class="gp-legend">
+  <div style="font-weight:600; margin-bottom:4px;">Legenda — Grau (conexões)</div>
+  <div style="font-size:11px; color:#555;">Escala de calor: mais conexões = cor mais quente</div>
+  <div class="bar"></div>
+  <div class="ticks">
+    <div>{stops[0]:.0f}</div>
+    <div>{stops[1]:.0f}</div>
+    <div>{stops[2]:.0f}</div>
+    <div>{stops[3]:.0f}</div>
+    <div>{stops[4]:.0f}</div>
+  </div>
+  <div style="font-size:11px; color:#666; margin-top:6px;">Min — Median — Max</div>
+</div>
+"""
+
+        if "<body>" in html:
+            html = html.replace("<body>", "<body>\n" + legenda_html, 1)
+
+        with open(caminho_saida, "w", encoding="utf-8") as f:
+            f.write(html)
+    except Exception:
+        # não interrompe caso falhe a inserção da legenda
+        pass
 
 def ranking_densidade_ego_microrregiao_png():
     """
@@ -349,17 +378,89 @@ def ranking_densidade_ego_microrregiao_png():
         print("matplotlib (plt) não está disponível, não dá pra gerar o PNG.")
         return
 
-    # 6) Cria o gráfico de barras
-    plt.figure(figsize=(8, 5))
-    plt.bar(microrregioes, densidades_medias)
-    plt.xlabel("Microrregião")
-    plt.ylabel("Densidade média da ego-subrede")
-    plt.title("Ranking de densidade de ego-subrede por microrregião")
+    # 6) Cria o gráfico de barras (estético e ordenado: microrregião 1..6)
+    # Força a exibição das microrregiões 1..6 nesta ordem; se faltar, mostra 0.0
+    ordem = [str(i) for i in range(1, 7)]
+
+    # Normaliza as chaves de microrregiao no dataframe para strings '1'..'6'
+    df_map = {}
+    for _, r in df_rank.iterrows():
+        mr = r.get('microrregiao', None)
+        val = r.get('densidade_ego_media', None)
+        if pd.isna(mr) or val is None:
+            continue
+        # trata valores numéricos (floats) que representem inteiros
+        try:
+            if isinstance(mr, (int, float)):
+                mr_norm = str(int(mr))
+            else:
+                # remove espaços e pontos decimais estranhos
+                mr_str = str(mr).strip()
+                # tenta converter para float->int quando possível
+                try:
+                    mf = float(mr_str)
+                    if mf.is_integer():
+                        mr_norm = str(int(mf))
+                    else:
+                        mr_norm = mr_str
+                except Exception:
+                    mr_norm = mr_str
+        except Exception:
+            mr_norm = str(mr)
+
+        try:
+            df_map[mr_norm] = float(val)
+        except Exception:
+            # ignora valores inválidos
+            continue
+
+    microrregioes_ord = ordem
+    densidades_ord = [df_map.get(m, 0.0) for m in microrregioes_ord]
+
+    # Palette: usa colormap 'inferno' para visual intenso e agradável
+    try:
+        cmap = plt.get_cmap('inferno')
+        colors = [matplotlib.colors.to_hex(cmap(i / max(1, len(microrregioes_ord) - 1))) for i in range(len(microrregioes_ord))]
+    except Exception:
+        base = ['#fde725', '#ffa600', '#f97306', '#d72728', '#9e0142', '#49006a']
+        colors = [base[i % len(base)] for i in range(len(microrregioes_ord))]
+
+    # Cria figura maior e mais elegante
+    fig, ax = plt.subplots(figsize=(10, 6))
+    bars = ax.bar(microrregioes_ord, densidades_ord, color=colors, edgecolor='#444444', linewidth=0.8)
+
+    # Estética: grade horizontal leve, título, e remoção do rótulo X (desnecessário)
+    ax.set_title('Ranking — Densidade média da ego-subrede por Microrregião', fontsize=16, weight='bold')
+    # ax.set_xlabel('Microrregião', fontsize=12)  # removido conforme solicitado
+    ax.set_ylabel('Densidade média da ego-subrede', fontsize=12)
+    ax.tick_params(axis='x', labelsize=11)
+    ax.tick_params(axis='y', labelsize=11)
+    ax.grid(axis='y', color='#eeeeee')
+    ax.set_axisbelow(True)
+
+    # Ajusta limite superior para evitar que os valores fiquem cortados
+    ymax = max(densidades_ord) if densidades_ord else 0
+    if ymax <= 0:
+        ax.set_ylim(0, 1)
+    else:
+        ax.set_ylim(0, ymax * 1.12)
+
+    # Valores sobre as barras (formatados)
+    ypad = ymax * 0.04 if ymax > 0 else 0.02
+    for bar, val in zip(bars, densidades_ord):
+        h = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, h + ypad, f"{val:.3f}", ha='center', va='bottom', fontsize=10, fontweight='semibold')
+
+    # Legenda compacta à direita
+    handles = [matplotlib.patches.Patch(color=colors[i], label=f"Microrregião {microrregioes_ord[i]}") for i in range(len(microrregioes_ord))]
+    ax.legend(handles=handles, title='Microrregiões', bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False, fontsize=10, title_fontsize=11)
+
     plt.tight_layout()
+    plt.subplots_adjust(right=0.78, top=0.88)
 
     caminho_saida = os.path.join(OUT_DIR, "ranking_densidade_ego_microrregiao.png")
-    plt.savefig(caminho_saida, bbox_inches="tight")
-    plt.close()
+    plt.savefig(caminho_saida, bbox_inches='tight', dpi=200)
+    plt.close(fig)
 
     print(caminho_saida)
 
@@ -460,9 +561,9 @@ def arvore_bfs_boaviagem_html():
 def grafo_interativo_html():
     """
     Gera um HTML interativo com:
-      - Tooltip por bairro: grau, microrregiao, densidade_ego
-      - Caixa de busca por bairro
-      - Botao para destacar o caminho 'Nova Descoberta -> Boa Viagem (Setubal)'
+        - Tooltip por bairro: grau, microrregiao, densidade_ego
+        - Caixa de busca por bairro
+        - Botao para destacar o caminho 'Nova Descoberta -> Boa Viagem (Setubal)'
 
     Saida: out/grafo_interativo.html
     """
@@ -483,7 +584,40 @@ def grafo_interativo_html():
 
     bairros = grafo.obter_nos()
 
-    # --- 2) Carrega grau por bairro (out/graus.csv) ---
+    # --- Verificação: leia data/bairros_unique.csv e compare com o mapeamento do grafo
+    issues = []
+    try:
+        if os.path.exists(caminho_bairros_unique):
+            df_bairros_unique = pd.read_csv(caminho_bairros_unique)
+            df_bairros_unique.columns = df_bairros_unique.columns.str.strip().str.lower()
+            if {"bairro", "microrregiao"}.issubset(df_bairros_unique.columns):
+                csv_map = {row["bairro"]: str(row["microrregiao"]) for _, row in df_bairros_unique.iterrows()}
+                # bairros no grafo que nao estao no csv
+                missing_in_csv = [b for b in bairros if b not in csv_map]
+                if missing_in_csv:
+                    issues.append(f"Bairros no grafo ausentes em bairros_unique.csv: {missing_in_csv}")
+                # bairros no csv que nao estao no grafo (informativo)
+                missing_in_graph = [b for b in csv_map.keys() if b not in bairros]
+                if missing_in_graph:
+                    issues.append(f"Bairros no CSV ausentes no grafo: {missing_in_graph[:10]}{'...' if len(missing_in_graph)>10 else ''}")
+                # divergências de microrregiao
+                mismatches = []
+                for b in bairros:
+                    if b in csv_map:
+                        gmic = str(bairro_para_micro.get(b, "NA"))
+                        cmic = csv_map[b]
+                        if gmic != cmic:
+                            mismatches.append((b, gmic, cmic))
+                if mismatches:
+                    issues.append(f"Divergencias microrregiao (bairro, grafo, csv): {mismatches}")
+            else:
+                issues.append("Arquivo bairros_unique.csv nao tem colunas 'bairro' e 'microrregiao'.")
+        else:
+            issues.append(f"Arquivo de referencia {caminho_bairros_unique} nao encontrado.")
+    except Exception as e:
+        issues.append(f"Erro ao validar bairros_unique.csv: {e}")
+
+    # --- 2) Carrega grau por bairro (mantemos apenas para tooltip, mas nao usaremos para tamanho) ---
     caminho_graus = os.path.join(OUT_DIR, "graus.csv")
     if not os.path.exists(caminho_graus):
         raise FileNotFoundError(
@@ -524,24 +658,37 @@ def grafo_interativo_html():
         with open(caminho_json, "r", encoding="utf-8") as f:
             dados = json.load(f)
 
-        # Tentamos ler chave "caminho" (como foi definido no passo 6)
         caminho = dados.get("caminho") or dados.get("caminho_bairros") or []
         if isinstance(caminho, list) and len(caminho) >= 2:
             path_nodes = caminho
-            # Cria arestas entre consecutivos do caminho
             for i in range(len(caminho) - 1):
                 u = caminho[i]
                 v = caminho[i + 1]
                 path_edges.append([u, v])
     else:
         print("Aviso: JSON do percurso Nova Descoberta -> Setubal nao encontrado. "
-              "Botoes de destaque do caminho ainda serao gerados, mas nao terao efeito.")
+                "Botoes de destaque do caminho ainda serao gerados, mas nao terao efeito.")
 
-    # --- 5) Descobre min/max grau para gradiente de cores ---
-    gmin = min(graus.values())
-    gmax = max(graus.values())
+    # --- 5) Paleta por microrregiao (até 6 esperadas) ---
+    palette = [
+        "#1f77b4",  # azul
+        "#ff7f0e",  # laranja
+        "#2ca02c",  # verde
+        "#d62728",  # vermelho
+        "#9467bd",  # roxo
+        "#8c564b"   # marrom
+    ]
 
-    # --- 6) Cria a rede pyvis ---
+    unique_micros = []
+    for b, m in bairro_para_micro.items():
+        ms = str(m)
+        if ms not in unique_micros:
+            unique_micros.append(ms)
+
+    micro_to_color = {m: palette[i % len(palette)] for i, m in enumerate(unique_micros)}
+    default_node_color = "#97c2fc"
+
+    # --- 6) Cria a rede pyvis com opções para rótulos maiores ---
     net = Network(
         height="800px",
         width="100%",
@@ -550,46 +697,63 @@ def grafo_interativo_html():
     )
     net.barnes_hut()
 
-    # --- 7) Adiciona nos com tooltip (grau, microrregiao, densidade_ego) ---
+    # força fonte e tamanho de nó padrão via opções do vis.js para legibilidade
+    net.set_options('''{
+        "nodes": { "font": { "size": 14, "face": "Arial" } },
+        "edges": { "smooth": false },
+        "physics": { "stabilization": { "enabled": true, "iterations": 1000 } }
+    }''')
+
+    # --- 7) Adiciona nos com tooltip (GRAU apenas no tooltip; tamanho UNIFORME) ---
+    NODE_SIZE = 14
     for bairro in bairros:
         grau = graus.get(bairro, grafo.grau(bairro))
         microrregiao = bairro_para_micro.get(bairro, "NA")
+        microrregiao_key = str(microrregiao)
         dens = dens_ego.get(bairro, None)
         if dens is None or pd.isna(dens):
             dens_str = "-"
         else:
             dens_str = f"{dens:.4f}"
 
-        # Tooltip HTML
         title = (
             f"Bairro: {bairro}<br>"
             f"Grau: {grau}<br>"
-            f"Microrregiao: {microrregiao}<br>"
+            f"Microrregiao: {microrregiao_key}<br>"
             f"Densidade ego: {dens_str}"
         )
 
-        # Cor base pela funcao cor_por_grau (reaproveitada do mapa de graus)
-        try:
-            cor = cor_por_grau(grau, gmin, gmax)
-        except NameError:
-            # Se por acaso cor_por_grau nao existir, usa cor padrao
-            cor = "#97c2fc"
+        cor = micro_to_color.get(microrregiao_key, default_node_color)
+
+        font = {"size": 14, "face": "Arial", "strokeWidth": 0}
 
         net.add_node(
             bairro,
             label=bairro,
             title=title,
-            color=cor
+            color={"background": cor, "border": "#222222"},
+            size=NODE_SIZE,
+            font=font
         )
 
-    # --- 8) Adiciona arestas do grafo (sem duplicar) ---
+    # --- 8) Adiciona arestas do grafo (sem duplicar), coloridas por microrregiao quando possível ---
     arestas_adicionadas = set()
     for b in bairros:
         for vizinho, peso in grafo.vizinhos(b):
             aresta = tuple(sorted((b, vizinho)))
             if aresta in arestas_adicionadas:
                 continue
-            net.add_edge(b, vizinho, value=float(peso))
+
+            m1 = str(bairro_para_micro.get(b, "NA"))
+            m2 = str(bairro_para_micro.get(vizinho, "NA"))
+            if m1 == m2 and m1 in micro_to_color:
+                edge_color = micro_to_color[m1]
+            else:
+                edge_color = "#cfcfcf"
+
+            # largura uniforme para todas as arestas
+            # removemos 'value' para evitar que o vis.js escale larguras
+            net.add_edge(b, vizinho, color=edge_color, width=2)
             arestas_adicionadas.add(aresta)
 
     # --- 9) Gera o HTML base com pyvis ---
@@ -597,20 +761,89 @@ def grafo_interativo_html():
     net.show(caminho_saida, notebook=False)
     print(caminho_saida)
 
-        # --- 10) Pos-processa o HTML para adicionar busca + botoes + JS de destaque ---
+    # --- 10) Pos-processa o HTML para adicionar busca + botoes + JS de destaque ---
     with open(caminho_saida, "r", encoding="utf-8") as f:
         html = f.read()
 
     # 10.1) Caixa de busca + botoes (logo apos <body>)
-    controls_html = """
-<h3>Grafo interativo de bairros do Recife</h3>
-<div style="margin-bottom:10px;">
-  <input id="busca-bairro" type="text"
-         placeholder="Digite o nome do bairro..."
-         style="width:260px; padding:4px;" />
-  <button onclick="buscarBairro()">Buscar bairro</button>
-  <button onclick="highlightPath()">Destacar caminho Nova Descoberta &rarr; Boa Viagem (Setubal)</button>
-  <button onclick="resetHighlight()">Limpar destaque</button>
+    issues_html = ""
+    if issues:
+        # Pequena mensagem visível no HTML para o usuário
+        items = "<br>".join([f"- {i}" for i in issues])
+        issues_html = f"<div style='padding:8px;border:1px solid #faa; background:#fff0f0;margin-bottom:8px;'><strong>Atenção:</strong><br>{items}</div>"
+
+    # caixa fixa preta no canto superior-esquerdo com botões dispostos verticalmente (sempre criado)
+    controls_html = f"""
+<style>
+    /* Caixa de controles fixa e elegante */
+    .gp-controls-box {{
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 9999;
+        background: linear-gradient(180deg, #0b0b0b 0%, #1a1a1a 100%);
+        color: #ffffff;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        min-width: 220px;
+        max-width: 320px;
+        font-family: Arial, Helvetica, sans-serif;
+    }}
+    .gp-controls-box .gp-issue {{
+        background: rgba(255,80,80,0.08);
+        border: 1px solid rgba(255,80,80,0.18);
+        color: #ffdede;
+        padding: 6px 8px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        font-size: 12px;
+    }}
+    .gp-controls-vertical {{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }}
+    .gp-controls-vertical input[type="text"] {{
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        color: #fff;
+        outline: none;
+        font-size: 14px;
+    }}
+    .gp-controls-vertical button {{
+        background: linear-gradient(180deg, #222 0%, #111 100%);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.06);
+        padding: 8px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: left;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        font-size: 14px;
+    }}
+    .gp-controls-vertical button:hover {{
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+    }}
+    /* Ajuste para telas pequenas */
+    @media (max-width: 480px) {{
+        .gp-controls-box {{ left: 8px; top: 8px; padding: 10px; min-width: 180px; }}
+    }}
+</style>
+
+<div class="gp-controls-box">
+    {f"<div class='gp-issue'>{issues_html}</div>" if issues_html else ""}
+    <div class="gp-controls-vertical">
+        <input id="busca-bairro" type="text" placeholder="Pesquisar bairro..." />
+        <button onclick="buscarBairro()">🔎 Buscar bairro</button>
+        <button onclick="highlightPath()">➡️ Destacar caminho (Nova Descoberta → Boa Viagem)</button>
+        <button onclick="resetHighlight()">✖ Limpar destaque</button>
+    </div>
 </div>
 """
     if "<body>" in html:
@@ -622,19 +855,19 @@ def grafo_interativo_html():
 
     extra_js = """
 <script type="text/javascript">
-  // Nos e arestas do caminho minimo Nova Descoberta -> Boa Viagem (Setubal)
-  var pathNodes = __PATH_NODES__;
-  var pathEdges = __PATH_EDGES__;
+    // Nos e arestas do caminho minimo Nova Descoberta -> Boa Viagem (Setubal)
+    var pathNodes = __PATH_NODES__;
+    var pathEdges = __PATH_EDGES__;
 
-  // Conjunto com as arestas do caminho (chave canonica "u||v")
-  var pathEdgeSet = {};
-  for (var i = 0; i < pathEdges.length; i++) {
+    // Conjunto com as arestas do caminho (chave canonica "u||v")
+    var pathEdgeSet = {};
+    for (var i = 0; i < pathEdges.length; i++) {
     var pe = pathEdges[i]; // pe = [u, v]
     var key = [pe[0], pe[1]].sort().join("||");
     pathEdgeSet[key] = true;
-  }
+    }
 
-  function buscarBairro() {
+    function buscarBairro() {
     var input = document.getElementById('busca-bairro');
     if (!input) return;
     var nome = input.value.trim();
@@ -645,100 +878,91 @@ def grafo_interativo_html():
     var found = null;
 
     for (var i = 0; i < allNodes.length; i++) {
-      var n = allNodes[i];
-      if (n.id === nome || (n.label && n.label.toLowerCase() === nomeLower)) {
+        var n = allNodes[i];
+        if (n.id === nome || (n.label && n.label.toLowerCase() === nomeLower)) {
         found = n;
         break;
-      }
+        }
     }
 
     if (!found) {
-      alert("Bairro nao encontrado: " + nome);
-      return;
+        alert("Bairro nao encontrado: " + nome);
+        return;
     }
 
     network.selectNodes([found.id]);
     network.focus(found.id, {
-      scale: 1.6,
-      animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+        scale: 1.6,
+        animation: { duration: 800, easingFunction: 'easeInOutQuad' }
     });
-  }
+    }
 
-  function resetHighlight() {
+    function resetHighlight() {
     // reset das arestas
     var allEdges = edges.get();
     for (var i = 0; i < allEdges.length; i++) {
-      var e = allEdges[i];
-      if (e.originalColor) {
-        e.color = e.originalColor;
-      } else {
-        e.color = undefined;
-      }
-      e.width = 1;
+        var e = allEdges[i];
+        if (e._originalColor !== undefined) {
+        e.color = e._originalColor;
+        }
     }
     edges.update(allEdges);
 
     // reset dos nos
     var allNodes = nodes.get();
     for (var i = 0; i < allNodes.length; i++) {
-      var n = allNodes[i];
-      if (n.originalColor) {
-        n.color = n.originalColor;
-      }
+        var n = allNodes[i];
+        if (n._originalColor !== undefined) {
+        n.color = n._originalColor;
+        }
     }
     nodes.update(allNodes);
-  }
+    }
 
-  function highlightPath() {
+    function highlightPath() {
     if (!pathNodes || pathNodes.length === 0) {
-      alert("Caminho Nova Descoberta -> Boa Viagem (Setubal) nao encontrado nos dados.");
-      return;
+        alert("Caminho Nova Descoberta -> Boa Viagem (Setubal) nao encontrado nos dados.");
+        return;
     }
 
     // Limpa quaisquer destaques anteriores
     resetHighlight();
 
-    // 1) DESTACAR APENAS AS ARESTAS QUE ESTAO EM pathEdgeSet
+    // 1) DESTACAR APENAS AS ARESTAS QUE ESTAO EM pathEdgeSet (Muda apenas a cor)
     var allEdges = edges.get();
     for (var i = 0; i < allEdges.length; i++) {
-      var e = allEdges[i];
-
-      // chave canonica da aresta atual
-      var key = [e.from, e.to].sort().join("||");
-
-      if (pathEdgeSet[key]) {
-        // Guarda a cor original se ainda nao guardou
-        if (!e.originalColor) {
-          e.originalColor = e.color;
+        var e = allEdges[i];
+        var key = [e.from, e.to].sort().join("||");
+        if (pathEdgeSet[key]) {
+        if (e._originalColor === undefined) e._originalColor = e.color;
+        e.color = { color: '#ff0000' };  // vermelho forte
+        } else {
+        if (e._originalColor === undefined) e._originalColor = e.color;
+        e.color = { color: '#e6e6e6' };
         }
-        // Destaca a aresta do caminho
-        e.color = { color: '#ff0000' };  // vermelho
-        e.width = 4;                     // mais grossa
-      }
     }
     edges.update(allEdges);
 
-    // 2) DESTACAR OS NOS QUE ESTAO EM pathNodes
+    // 2) DESTACAR OS NOS QUE ESTAO EM pathNodes (Muda apenas a cor, NAO o tamanho)
     var allNodes = nodes.get();
     for (var i = 0; i < allNodes.length; i++) {
-      var n = allNodes[i];
-      if (pathNodes.indexOf(n.id) !== -1) {
-        // Guarda cor original se ainda nao guardou
-        if (!n.originalColor) {
-          n.originalColor = n.color;
+        var n = allNodes[i];
+        if (pathNodes.indexOf(n.id) !== -1) {
+        if (n._originalColor === undefined) n._originalColor = n.color;
+        n.color = { background: '#ff00aa', border: '#880055' }; // cor bem distinta
+        } else {
+        if (n._originalColor === undefined) n._originalColor = n.color;
+        // podemos deixar o restante igual (sem alterar tamanho)
         }
-        // Destaca o no (borda vermelha, fundo mais claro)
-        n.color = { background: '#ffcccc', border: '#ff0000' };
-      }
     }
     nodes.update(allNodes);
 
     // 3) Centraliza o grafo em torno dos nos do caminho
     network.fit({
-      nodes: pathNodes,
-      animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+        nodes: pathNodes,
+        animation: { duration: 800, easingFunction: 'easeInOutQuad' }
     });
-  }
+    }
 </script>
 """
 
@@ -759,7 +983,6 @@ def grafo_interativo_html():
 
 
 if __name__ == "__main__":
-    arvore_percurso_png()
     arvore_percurso_html()
     mapa_graus_html()
     ranking_densidade_ego_microrregiao_png()
