@@ -1,5 +1,3 @@
-# src/viz.py
-
 import os
 import json
 import pandas as pd
@@ -10,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
 
+DATA_DIR = "data/"
 OUT_DIR = "out/parte1"
 
 
@@ -57,10 +56,24 @@ def arvore_percurso_html(
     Salva o resultado em out/parte1/arvore_percurso.html.
     """
 
-    # carrega o caminho do arquivo json que tem o percurso
-    origem, destino_rotulo, caminho = percurso_nova_descoberta_setubal(
-        caminho_json
+    # carrega o grafo completo e calcula o percurso com Dijkstra
+    caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
+    caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
+
+    grafo, _ = carregar_grafo_recife(
+        caminho_bairros_unique,
+        caminho_adjacencias
     )
+
+    origem = "Nova Descoberta"
+    destino = "Boa Viagem"
+    destino_rotulo = "Boa Viagem (Setúbal)"
+
+    _dist, caminho = dijkstra(grafo, origem, destino)
+    if not caminho:
+        raise ValueError(
+            f"Não foi possível encontrar um caminho entre '{origem}' e '{destino}' usando Dijkstra."
+        )
 
     if caminho_saida is None:
         caminho_saida = os.path.join("out/parte1", "arvore_percurso.html")
@@ -131,11 +144,6 @@ def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
     b = int(b1 + t * (b2 - b1))
 
     return f"#{r:02x}{g:02x}{b:02x}"
-
-
-
-DATA_DIR = "data/"
-OUT_DIR = "out/parte1"
 
 
 def _controles_zoom_navegacao():
@@ -1101,25 +1109,27 @@ def grafo_interativo_html():
 
     dens_ego = {row["bairro"]: float(row["densidade_ego"]) for _, row in df_ego.iterrows()}
 
-    # --- 4) Carrega o caminho Nova Descoberta -> Boa Viagem (Setubal) (passo 6) ---
-    caminho_json = os.path.join(OUT_DIR, "percurso_nova_descoberta_setubal.json")
+    # --- 4) Prepara variáveis para armazenar o caminho calculado ---
     path_nodes = []
     path_edges = []
 
-    if os.path.exists(caminho_json):
-        with open(caminho_json, "r", encoding="utf-8") as f:
-            dados = json.load(f)
+    # Caminho específico solicitado: Nova Descoberta -> Boa Viagem (via Dijkstra no grafo Python)
+    origem_especial = "Nova Descoberta"
+    destino_especial = "Boa Viagem"
 
-        caminho = dados.get("caminho") or dados.get("caminho_bairros") or []
-        if isinstance(caminho, list) and len(caminho) >= 2:
-            path_nodes = caminho
-            for i in range(len(caminho) - 1):
-                u = caminho[i]
-                v = caminho[i + 1]
-                path_edges.append([u, v])
-    else:
-        print("Aviso: JSON do percurso Nova Descoberta -> Setubal nao encontrado. "
-                "Botoes de destaque do caminho ainda serao gerados, mas nao terao efeito.")
+    try:
+        if origem_especial in bairros and destino_especial in bairros:
+            dist_especial, caminho_especial = dijkstra(grafo, origem_especial, destino_especial)
+            if caminho_especial:
+                path_nodes = list(caminho_especial)
+                for i in range(len(caminho_especial) - 1):
+                    u = caminho_especial[i]
+                    v = caminho_especial[i + 1]
+                    path_edges.append((u, v))
+    except Exception:
+        # Se der qualquer erro, mantemos path_nodes/path_edges vazios para o JS tratar
+        path_nodes = []
+        path_edges = []
 
     # --- 5) Paleta por microrregiao (até 6 esperadas) ---
     palette = [
@@ -1242,6 +1252,16 @@ def grafo_interativo_html():
     bairros_sorted = sorted(bairros)
     bairros_options = "\n".join([f"                <option value='{b}'>{b}</option>" for b in bairros_sorted])
     
+    # Prepara os dados do grafo para o JavaScript
+    graph_data = {}
+    for bairro in bairros:
+        graph_data[bairro] = {}
+        for vizinho, peso in grafo.vizinhos(bairro):
+            graph_data[bairro][vizinho] = float(peso)
+    
+    # Converte para JSON
+    graph_data_js = json.dumps(graph_data, ensure_ascii=False)
+    
     # Legenda de cores por microrregião
     legend_items = "\n".join([
         f'            <div class="legend-item"><span class="legend-color" style="background-color: {micro_to_color.get(m, default_node_color)}"></span> Microrregião {m}</div>'
@@ -1258,134 +1278,146 @@ def grafo_interativo_html():
 <style>
     .controls-box {{
         position: fixed;
-        top: 16px;
-        left: 16px;
+        top: 20px;
+        left: 20px;
         z-index: 9999;
-        background: linear-gradient(180deg, #0b0b0b 0%, #1a1a1a 100%);
+        background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
         color: #ffffff;
-        padding: 12px;
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-        min-width: 240px;
-        max-width: 340px;
-        max-height: 90vh;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+        min-width: 320px;
+        max-width: 380px;
+        max-height: 92vh;
         overflow-y: auto;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        backdrop-filter: blur(10px);
     }}
+    
+    /* Scrollbar customizada */
     .controls-box::-webkit-scrollbar {{
-        width: 6px;
+        width: 8px;
     }}
     .controls-box::-webkit-scrollbar-track {{
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 10px;
     }}
     .controls-box::-webkit-scrollbar-thumb {{
+        background: rgba(255,255,255,0.2);
+        border-radius: 10px;
+        transition: background 0.3s;
+    }}
+    .controls-box::-webkit-scrollbar-thumb:hover {{
         background: rgba(255,255,255,0.3);
-        border-radius: 3px;
     }}
-    .controls-box .issue {{
-        background: rgba(255,80,80,0.08);
-        border: 1px solid rgba(255,80,80,0.18);
-        color: #ffdede;
-        padding: 6px 8px;
-        margin-bottom: 8px;
-        border-radius: 6px;
-        font-size: 12px;
-    }}
+    
     .controls-vertical {{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }}
+    
+    /* Títulos de seção */
     .section-title {{
         font-size: 13px;
-        font-weight: 600;
-        color: #aaa;
-        margin-top: 8px;
-        margin-bottom: 6px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1.2px;
+        color: #4fc3f7;
+        margin: 16px 0 12px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+        position: relative;
     }}
-    .controls-vertical input[type="text"] {{
-        width: 100%;
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid rgba(255,255,255,0.2);
-        background: rgba(30, 30, 30, 0.95);
-        color: #ffffff;
-        outline: none;
-        font-size: 14px;
-        box-sizing: border-box;
-        margin-bottom: 4px;
+    .section-title:first-child {{
+        margin-top: 0;
     }}
-    .controls-vertical input[type="text"]:focus {{
-        border-color: #4CAF50;
-        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-    }}
+    
+    /* Inputs e Selects */
+    .controls-vertical input[type="text"],
     .controls-vertical select {{
         width: 100%;
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid rgba(255,255,255,0.2);
-        background: rgba(30, 30, 30, 0.95);
+        padding: 12px 14px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 10px;
         color: #ffffff;
-        outline: none;
         font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 4px;
-        cursor: pointer;
+        font-family: inherit;
         transition: all 0.3s ease;
         box-sizing: border-box;
+        margin-bottom: 10px;
     }}
+    .controls-vertical input[type="text"]:hover,
     .controls-vertical select:hover {{
-        border-color: rgba(255,255,255,0.4);
-        background: rgba(40, 40, 40, 0.95);
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(79, 195, 247, 0.4);
     }}
+    .controls-vertical input[type="text"]:focus,
     .controls-vertical select:focus {{
-        border-color: #4CAF50;
-        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        outline: none;
+        background: rgba(255,255,255,0.15);
+        border-color: #4fc3f7;
+        box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
+    }}
+    .controls-vertical input[type="text"]::placeholder {{
+        color: rgba(255,255,255,0.4);
     }}
     .controls-vertical select option {{
-        background: #2a2a2a;
+        background: #1a1a2e;
         color: #ffffff;
-        padding: 8px;
+        padding: 10px;
     }}
+    
+    /* Botões */
     .controls-vertical button {{
-        background: linear-gradient(180deg, #222 0%, #111 100%);
+        width: 100%;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: #fff;
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 8px 10px;
-        border-radius: 8px;
+        border: none;
+        border-radius: 10px;
         cursor: pointer;
-        text-align: left;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
         font-size: 14px;
-        margin-bottom: 4px;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+        margin-bottom: 8px;
     }}
     .controls-vertical button:hover {{
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }}
     .controls-vertical button:active {{
         transform: translateY(0);
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
     }}
     .stats-box {{
-        background: rgba(40, 40, 40, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 4px;
-        font-size: 12px;
-        line-height: 1.6;
+        background: rgba(255,255,255,0.05);
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        font-size: 13px;
+        line-height: 1.8;
     }}
     .stats-box div {{
-        margin: 4px 0;
+        margin: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }}
-    .legend-box {{
-        background: rgba(40, 40, 40, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 4px;
+    .stats-box strong {{
+        color: #4fc3f7;
+        font-weight: 600;
+    }}
+    .legend-box,
+    .gp-legend-box {{
+        background: rgba(255,255,255,0.05);
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
         font-size: 12px;
     }}
     .legend-item {{
@@ -1403,14 +1435,23 @@ def grafo_interativo_html():
     .filter-item {{
         display: flex;
         align-items: center;
-        margin: 6px 0;
+        margin: 8px 0;
+        padding: 8px;
         cursor: pointer;
-        font-size: 12px;
+        font-size: 13px;
         user-select: none;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }}
+    .filter-item:hover {{
+        background: rgba(255,255,255,0.05);
     }}
     .filter-item input[type="checkbox"] {{
-        margin-right: 8px;
+        margin-right: 10px;
         cursor: pointer;
+        width: 18px;
+        height: 18px;
+        accent-color: #4fc3f7;
     }}
     .filter-color {{
         width: 14px;
@@ -1420,72 +1461,122 @@ def grafo_interativo_html():
         border: 1px solid rgba(255,255,255,0.2);
     }}
     .path-info {{
-        background: rgba(76, 175, 80, 0.15);
-        border: 1px solid rgba(76, 175, 80, 0.3);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 8px;
-        font-size: 12px;
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(56, 142, 60, 0.15) 100%);
+        border: 1px solid rgba(76, 175, 80, 0.4);
+        padding: 14px;
+        border-radius: 12px;
+        margin-top: 12px;
+        font-size: 13px;
         display: none;
+        animation: slideIn 0.3s ease;
     }}
     .path-info.show {{
         display: block;
     }}
     .path-info-title {{
-        font-weight: 600;
-        margin-bottom: 6px;
-        color: #4CAF50;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #66bb6a;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }}
     .path-info-content {{
-        line-height: 1.6;
+        line-height: 1.8;
+    }}
+    .path-info-content strong {{
+        color: #81c784;
+    }}
+    @keyframes slideIn {{
+        from {{
+            opacity: 0;
+            transform: translateY(-10px);
+        }}
+        to {{
+            opacity: 1;
+            transform: translateY(0);
+        }}
     }}
     .loading {{
         display: none;
         text-align: center;
-        padding: 8px;
-        font-size: 12px;
-        color: #4CAF50;
+        padding: 12px;
+        font-size: 13px;
+        color: #4fc3f7;
+        background: rgba(79, 195, 247, 0.1);
+        border-radius: 8px;
+        margin: 8px 0;
+        animation: pulse 1.5s ease-in-out infinite;
     }}
     .loading.show {{
         display: block;
     }}
+    @keyframes pulse {{
+        0%, 100% {{ opacity: 0.6; }}
+        50% {{ opacity: 1; }}
+    }}
     .zoom-controls {{
         display: flex;
-        gap: 4px;
-        margin-top: 4px;
+        gap: 8px;
+        margin-top: 8px;
     }}
     .zoom-controls button {{
         flex: 1;
-        padding: 6px;
-        font-size: 12px;
+        padding: 10px;
+        font-size: 14px;
         text-align: center;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 3px 10px rgba(240, 147, 251, 0.3);
+    }}
+    .zoom-controls button:hover {{
+        box-shadow: 0 5px 15px rgba(240, 147, 251, 0.5);
     }}
     .navigation-controls {{
         margin-top: 4px;
     }}
     .nav-btn {{
-        background: linear-gradient(180deg, #222 0%, #111 100%);
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
         color: #fff;
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 8px;
-        border-radius: 8px;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
         cursor: pointer;
         text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
-        font-size: 16px;
-        min-width: 40px;
-        min-height: 40px;
+        box-shadow: 0 3px 10px rgba(250, 112, 154, 0.3);
+        transition: all 0.3s ease;
+        font-size: 18px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }}
     .nav-btn:hover {{
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+        box-shadow: 0 5px 15px rgba(250, 112, 154, 0.5);
     }}
     .nav-btn:active {{
         transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(250, 112, 154, 0.3);
     }}
+    .gp-section-title {{
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        margin: 12px 0 8px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }}
+    
     @media (max-width: 480px) {{
-        .controls-box {{ left: 8px; top: 8px; padding: 10px; min-width: 200px; max-width: 280px; }}
+        .controls-box {{ 
+            left: 10px; 
+            top: 10px; 
+            padding: 16px; 
+            min-width: 280px; 
+            max-width: 320px;
+            max-height: 88vh;
+        }}
     }}
 </style>
 
@@ -1586,10 +1677,11 @@ def grafo_interativo_html():
     extra_js = """
 <script type="text/javascript">
     // Nos e arestas do caminho minimo Nova Descoberta -> Boa Viagem (Setubal)
-    var pathNodes = __PATH_NODES__;
-    var pathEdges = __PATH_EDGES__;
-    var microToColor = __MICRO_TO_COLOR__;
-    var bairroToMicro = __BAIRRO_TO_MICRO__;
+    var pathNodes = """ + path_nodes_js + """;
+    var pathEdges = """ + path_edges_js + """;
+    var microToColor = """ + micro_to_color_js + """;
+    var bairroToMicro = """ + bairro_to_micro_js + """;
+    var graphData = """ + graph_data_js + """;
 
     // Conjunto com as arestas do caminho (chave canonica "u||v")
     var pathEdgeSet = {};
@@ -1874,10 +1966,10 @@ def grafo_interativo_html():
     }
     
     function calcularCaminhoDijkstra(origem, destino) {
-        // Implementação de Dijkstra para encontrar o menor caminho
-        var graphData = __GRAPH_DATA__;
+        // Implementação otimizada de Dijkstra usando BFS para grafos com peso uniforme
+        // Usa a variável global graphData já definida no início do script
         
-        // Construir mapa de adjacência com pesos
+        // Construir mapa de adjacência
         var adjMap = {};
         for (var i = 0; i < graphData.edges.length; i++) {
             var edge = graphData.edges[i];
@@ -1885,52 +1977,40 @@ def grafo_interativo_html():
             var v = edge[1];
             if (!adjMap[u]) adjMap[u] = [];
             if (!adjMap[v]) adjMap[v] = [];
-            // Assumindo peso 1 para todas as arestas
-            adjMap[u].push({node: v, weight: 1});
-            adjMap[v].push({node: u, weight: 1});
+            adjMap[u].push(v);
+            adjMap[v].push(u);
         }
         
-        // Algoritmo de Dijkstra
+        // BFS para encontrar o caminho mais curto (assumindo peso 1 para todas as arestas)
         var dist = {};
         var parent = {};
-        var visited = {};
-        var queue = [];
-        
-        // Inicialização
-        for (var j = 0; j < graphData.nodes.length; j++) {
-            var node = graphData.nodes[j];
-            dist[node] = Infinity;
-            parent[node] = null;
-            visited[node] = false;
-        }
+        var queue = [origem];
         
         dist[origem] = 0;
-        queue.push({node: origem, dist: 0});
+        parent[origem] = null;
         
-        while (queue.length > 0) {
-            // Encontrar o nó com menor distância
-            queue.sort(function(a, b) { return a.dist - b.dist; });
+        var found = false;
+        while (queue.length > 0 && !found) {
             var current = queue.shift();
             
-            if (visited[current.node]) continue;
-            visited[current.node] = true;
+            if (current === destino) {
+                found = true;
+                break;
+            }
             
-            if (current.node === destino) break;
-            
-            var neighbors = adjMap[current.node] || [];
+            var neighbors = adjMap[current] || [];
             for (var k = 0; k < neighbors.length; k++) {
                 var neighbor = neighbors[k];
-                var alt = dist[current.node] + neighbor.weight;
                 
-                if (alt < dist[neighbor.node]) {
-                    dist[neighbor.node] = alt;
-                    parent[neighbor.node] = current.node;
-                    queue.push({node: neighbor.node, dist: alt});
+                if (dist[neighbor] === undefined) {
+                    dist[neighbor] = dist[current] + 1;
+                    parent[neighbor] = current;
+                    queue.push(neighbor);
                 }
             }
         }
         
-        if (dist[destino] === Infinity) {
+        if (dist[destino] === undefined) {
             alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
             return;
         }
@@ -2081,30 +2161,15 @@ def grafo_interativo_html():
     }
 </script>
 """
-
-    extra_js = extra_js.replace("__PATH_NODES__", path_nodes_js)
-    extra_js = extra_js.replace("__PATH_EDGES__", path_edges_js)
-    extra_js = extra_js.replace("__GRAPH_DATA__", graph_data_js)
-    extra_js = extra_js.replace("__MICRO_TO_COLOR__", micro_to_color_js)
-    extra_js = extra_js.replace("__BAIRRO_TO_MICRO__", bairro_to_micro_js)
-
+    
+    # Injeta o JavaScript extra antes do fechamento do body
     if "</body>" in html:
         html = html.replace("</body>", extra_js + "\n</body>", 1)
 
     with open(caminho_saida, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print("Grafo interativo salvo em:", caminho_saida)
-
-
 def gerar_histograma_graus():
-    """
-    Gera um histograma da distribuição dos graus dos bairros.
-    
-    Usa o arquivo out/parte1/graus.csv já gerado no passo 4.
-    
-    Saída: out/parte1/distribuicao_graus.png
-    """
     import matplotlib.pyplot as plt
     import pandas as pd
     import seaborn as sns
@@ -2145,20 +2210,20 @@ def gerar_histograma_graus():
     
     1. MAPA DE GRAUS (mapa_graus.html)
        - Visualização interativa onde cada nó representa um bairro
-       - A intensidade da cor azul indica o grau do vértice (número de conexões)
+       - A intensidade da cor indica o grau do vértice (número de conexões)
        - Bairros mais conectados aparecem em azul mais escuro
        
     2. RANKING DE DENSIDADE POR MICRORREGIÃO (ranking_densidade_ego_microrregiao.png)
        - Gráfico de barras mostrando a densidade média das redes ego por microrregião
        - Ajuda a identificar quais regiões têm bairros com redes mais coesas
        
-    3. SUBGRAFO DOS BAIRROS MAIS CONECTADOS (grafo_interativo.html)
-       - Visualização interativa dos 10 bairros com maior grau
-       - Permite explorar as conexões entre os bairros mais centrais da rede
+    3. GRAFO DOS BAIRROS
+       - Visualização interativa dos bairros
+       - Permite explorar as conexões entre os bairros da rede
        
     4. DISTRIBUIÇÃO DOS GRAUS (distribuicao_graus.png)
        - Histograma mostrando a frequência de cada grau na rede
-       - A linha azul suave (KDE) ajuda a visualizar a distribuição
+       - A linha azul suave ajuda a visualizar a distribuição
        - Revela se a rede segue uma distribuição livre de escala ou se há uma concentração em determinados graus
        
     5. ÁRVORE BFS A PARTIR DE BOA VIAGEM (arvore_bfs_boaviagem.html)

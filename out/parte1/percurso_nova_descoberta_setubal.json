@@ -1,7 +1,6 @@
 {
   "origem": "Nova Descoberta",
   "destino": "Boa Viagem (Setúbal)",
-  "no_destino_grafo": "Boa Viagem",
   "custo": 10.0,
   "caminho": [
     "Nova Descoberta",

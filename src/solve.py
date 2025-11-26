@@ -2,9 +2,9 @@
 import os
 import json
 import pandas as pd
-from .graphs.io import carregar_grafo_recife, tratar_setubal 
-from .graphs.graph import Graph
-from .graphs.algorithms import dijkstra
+from graphs.io import carregar_grafo_recife, tratar_setubal 
+from graphs.graph import Graph
+from graphs.algorithms import dijkstra
 
 # Pastas e caminhos padrão
 DATA_DIR = "data"
@@ -152,8 +152,6 @@ def passo_6():
     - Para o par 'Nova Descoberta' -> 'Setúbal', também salva
       out/percurso_nova_descoberta_setubal.json com o caminho.
     """
-    DATA_DIR = "data"
-    OUT_DIR = "out"
 
     caminho_enderecos = os.path.join(DATA_DIR, "enderecos.csv")
     caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
@@ -213,6 +211,15 @@ def passo_6():
             "custo": custo,
             "caminho": caminho_str
         })
+        
+        # Detecta o par Nova Descoberta -> Setúbal para salvar no JSON
+        if no_X == "Nova Descoberta" and "Setúbal" in bairro_Y_raw:
+            info_nd_setubal = {
+                "origem": rotulo_X,
+                "destino": rotulo_Y,
+                "custo": custo,
+                "caminho": caminho
+            }
 
        
     # 4) Salva o CSV de distâncias
@@ -223,9 +230,6 @@ def passo_6():
     if info_nd_setubal is not None:
         with open(caminho_saida_json_nd_setubal, "w", encoding="utf-8") as f:
             json.dump(info_nd_setubal, f, ensure_ascii=False, indent=2)
-
-
-
 
 
 if __name__ == "__main__":

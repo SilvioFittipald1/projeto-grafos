@@ -54,134 +54,146 @@
 <style>
     .controls-box {
         position: fixed;
-        top: 16px;
-        left: 16px;
+        top: 20px;
+        left: 20px;
         z-index: 9999;
-        background: linear-gradient(180deg, #0b0b0b 0%, #1a1a1a 100%);
+        background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
         color: #ffffff;
-        padding: 12px;
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-        min-width: 240px;
-        max-width: 340px;
-        max-height: 90vh;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+        min-width: 320px;
+        max-width: 380px;
+        max-height: 92vh;
         overflow-y: auto;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        backdrop-filter: blur(10px);
     }
+    
+    /* Scrollbar customizada */
     .controls-box::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
     }
     .controls-box::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 10px;
     }
     .controls-box::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.2);
+        border-radius: 10px;
+        transition: background 0.3s;
+    }
+    .controls-box::-webkit-scrollbar-thumb:hover {
         background: rgba(255,255,255,0.3);
-        border-radius: 3px;
     }
-    .controls-box .issue {
-        background: rgba(255,80,80,0.08);
-        border: 1px solid rgba(255,80,80,0.18);
-        color: #ffdede;
-        padding: 6px 8px;
-        margin-bottom: 8px;
-        border-radius: 6px;
-        font-size: 12px;
-    }
+    
     .controls-vertical {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
+    
+    /* Títulos de seção */
     .section-title {
         font-size: 13px;
-        font-weight: 600;
-        color: #aaa;
-        margin-top: 8px;
-        margin-bottom: 6px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1.2px;
+        color: #4fc3f7;
+        margin: 16px 0 12px 0;
+        padding-bottom: 8px;
+        border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+        position: relative;
     }
-    .controls-vertical input[type="text"] {
-        width: 100%;
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid rgba(255,255,255,0.2);
-        background: rgba(30, 30, 30, 0.95);
-        color: #ffffff;
-        outline: none;
-        font-size: 14px;
-        box-sizing: border-box;
-        margin-bottom: 4px;
+    .section-title:first-child {
+        margin-top: 0;
     }
-    .controls-vertical input[type="text"]:focus {
-        border-color: #4CAF50;
-        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-    }
+    
+    /* Inputs e Selects */
+    .controls-vertical input[type="text"],
     .controls-vertical select {
         width: 100%;
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid rgba(255,255,255,0.2);
-        background: rgba(30, 30, 30, 0.95);
+        padding: 12px 14px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 10px;
         color: #ffffff;
-        outline: none;
         font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 4px;
-        cursor: pointer;
+        font-family: inherit;
         transition: all 0.3s ease;
         box-sizing: border-box;
+        margin-bottom: 10px;
     }
+    .controls-vertical input[type="text"]:hover,
     .controls-vertical select:hover {
-        border-color: rgba(255,255,255,0.4);
-        background: rgba(40, 40, 40, 0.95);
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(79, 195, 247, 0.4);
     }
+    .controls-vertical input[type="text"]:focus,
     .controls-vertical select:focus {
-        border-color: #4CAF50;
-        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        outline: none;
+        background: rgba(255,255,255,0.15);
+        border-color: #4fc3f7;
+        box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
+    }
+    .controls-vertical input[type="text"]::placeholder {
+        color: rgba(255,255,255,0.4);
     }
     .controls-vertical select option {
-        background: #2a2a2a;
+        background: #1a1a2e;
         color: #ffffff;
-        padding: 8px;
+        padding: 10px;
     }
+    
+    /* Botões */
     .controls-vertical button {
-        background: linear-gradient(180deg, #222 0%, #111 100%);
+        width: 100%;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: #fff;
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 8px 10px;
-        border-radius: 8px;
+        border: none;
+        border-radius: 10px;
         cursor: pointer;
-        text-align: left;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
         font-size: 14px;
-        margin-bottom: 4px;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+        margin-bottom: 8px;
     }
     .controls-vertical button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
     .controls-vertical button:active {
         transform: translateY(0);
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
     }
     .stats-box {
-        background: rgba(40, 40, 40, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 4px;
-        font-size: 12px;
-        line-height: 1.6;
+        background: rgba(255,255,255,0.05);
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        font-size: 13px;
+        line-height: 1.8;
     }
     .stats-box div {
-        margin: 4px 0;
+        margin: 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .legend-box {
-        background: rgba(40, 40, 40, 0.6);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 4px;
+    .stats-box strong {
+        color: #4fc3f7;
+        font-weight: 600;
+    }
+    .legend-box,
+    .gp-legend-box {
+        background: rgba(255,255,255,0.05);
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
         font-size: 12px;
     }
     .legend-item {
@@ -199,14 +211,23 @@
     .filter-item {
         display: flex;
         align-items: center;
-        margin: 6px 0;
+        margin: 8px 0;
+        padding: 8px;
         cursor: pointer;
-        font-size: 12px;
+        font-size: 13px;
         user-select: none;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+    .filter-item:hover {
+        background: rgba(255,255,255,0.05);
     }
     .filter-item input[type="checkbox"] {
-        margin-right: 8px;
+        margin-right: 10px;
         cursor: pointer;
+        width: 18px;
+        height: 18px;
+        accent-color: #4fc3f7;
     }
     .filter-color {
         width: 14px;
@@ -216,72 +237,122 @@
         border: 1px solid rgba(255,255,255,0.2);
     }
     .path-info {
-        background: rgba(76, 175, 80, 0.15);
-        border: 1px solid rgba(76, 175, 80, 0.3);
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 8px;
-        font-size: 12px;
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(56, 142, 60, 0.15) 100%);
+        border: 1px solid rgba(76, 175, 80, 0.4);
+        padding: 14px;
+        border-radius: 12px;
+        margin-top: 12px;
+        font-size: 13px;
         display: none;
+        animation: slideIn 0.3s ease;
     }
     .path-info.show {
         display: block;
     }
     .path-info-title {
-        font-weight: 600;
-        margin-bottom: 6px;
-        color: #4CAF50;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #66bb6a;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     .path-info-content {
-        line-height: 1.6;
+        line-height: 1.8;
+    }
+    .path-info-content strong {
+        color: #81c784;
+    }
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     .loading {
         display: none;
         text-align: center;
-        padding: 8px;
-        font-size: 12px;
-        color: #4CAF50;
+        padding: 12px;
+        font-size: 13px;
+        color: #4fc3f7;
+        background: rgba(79, 195, 247, 0.1);
+        border-radius: 8px;
+        margin: 8px 0;
+        animation: pulse 1.5s ease-in-out infinite;
     }
     .loading.show {
         display: block;
     }
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
     .zoom-controls {
         display: flex;
-        gap: 4px;
-        margin-top: 4px;
+        gap: 8px;
+        margin-top: 8px;
     }
     .zoom-controls button {
         flex: 1;
-        padding: 6px;
-        font-size: 12px;
+        padding: 10px;
+        font-size: 14px;
         text-align: center;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 3px 10px rgba(240, 147, 251, 0.3);
+    }
+    .zoom-controls button:hover {
+        box-shadow: 0 5px 15px rgba(240, 147, 251, 0.5);
     }
     .navigation-controls {
         margin-top: 4px;
     }
     .nav-btn {
-        background: linear-gradient(180deg, #222 0%, #111 100%);
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
         color: #fff;
-        border: 1px solid rgba(255,255,255,0.06);
-        padding: 8px;
-        border-radius: 8px;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
         cursor: pointer;
         text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
-        font-size: 16px;
-        min-width: 40px;
-        min-height: 40px;
+        box-shadow: 0 3px 10px rgba(250, 112, 154, 0.3);
+        transition: all 0.3s ease;
+        font-size: 18px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .nav-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+        box-shadow: 0 5px 15px rgba(250, 112, 154, 0.5);
     }
     .nav-btn:active {
         transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(250, 112, 154, 0.3);
     }
+    .gp-section-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        margin: 12px 0 8px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    
     @media (max-width: 480px) {
-        .controls-box { left: 8px; top: 8px; padding: 10px; min-width: 200px; max-width: 280px; }
+        .controls-box { 
+            left: 10px; 
+            top: 10px; 
+            padding: 16px; 
+            min-width: 280px; 
+            max-width: 320px;
+            max-height: 88vh;
+        }
     }
 </style>
 
@@ -626,6 +697,7 @@
     var pathEdges = [["Nova Descoberta", "Alto do Mandu"], ["Alto do Mandu", "Casa Amarela"], ["Casa Amarela", "Tamarineira"], ["Tamarineira", "Jaqueira"], ["Jaqueira", "Torre"], ["Torre", "Cordeiro"], ["Cordeiro", "Prado"], ["Prado", "Afogados"], ["Afogados", "Imbiribeira"], ["Imbiribeira", "Boa Viagem"]];
     var microToColor = {"1": "#1f77b4", "2": "#ff7f0e", "3": "#2ca02c", "4": "#d62728", "5": "#9467bd", "6": "#8c564b"};
     var bairroToMicro = {"Boa Vista": "1", "Cabanga": "1", "Coelhos": "1", "Ilha Joana Bezerra": "1", "Ilha do Leite": "1", "Paissandu": "1", "Recife": "1", "Santo Amaro": "1", "Santo Antônio": "1", "Soledade": "1", "São José": "1", "Alto Santa Teresinha": "2", "Arruda": "2", "Beberibe": "2", "Bomba do Hemetério": "2", "Cajueiro": "2", "Campina do Barreto": "2", "Campo Grande": "2", "Dois Unidos": "2", "Encruzilhada": "2", "Fundão": "2", "Hipódromo": "2", "Linha do Tiro": "2", "Peixinhos": "2", "Ponto de Parada": "2", "Porto da Madeira": "2", "Rosarinho": "2", "Torreão": "2", "Água Fria": "2", "Aflitos": "3", "Alto José Bonifácio": "3", "Alto José do Pinho": "3", "Alto do Mandu": "3", "Apipucos": "3", "Brejo da Guabiraba": "3", "Brejo de Beberibe": "3", "Casa Amarela": "3", "Casa Forte": "3", "Córrego do Jenipapo": "3", "Derby": "3", "Dois Irmãos": "3", "Espinheiro": "3", "Graças": "3", "Guabiraba": "3", "Jaqueira": "3", "Macaxeira": "3", "Mangabeira": "3", "Monteiro": "3", "Morro da Conceição": "3", "Nova Descoberta": "3", "Parnamirim": "3", "Passarinho": "3", "Pau-Ferro": "3", "Poço": "3", "Santana": "3", "Sítio dos Pintos": "3", "Tamarineira": "3", "Vasco da Gama": "3", "Caxangá": "4", "Cidade Universitária": "4", "Cordeiro": "4", "Engenho do Meio": "4", "Ilha do Retiro": "4", "Iputinga": "4", "Madalena": "4", "Prado": "4", "Torre": "4", "Torrões": "4", "Várzea": "4", "Zumbi": "4", "Afogados": "5", "Areias": "5", "Barro": "5", "Bongi": "5", "Caçote": "5", "Coqueiral": "5", "Curado": "5", "Estância": "5", "Jardim São Paulo": "5", "Jiquiá": "5", "Mangueira": "5", "Mustardinha": "5", "San Martin": "5", "Sancho": "5", "Tejipió": "5", "Totó": "5", "Boa Viagem": "6", "Brasília Teimosa": "6", "Cohab": "6", "Ibura": "6", "Imbiribeira": "6", "Ipsep": "6", "Jordão": "6", "Pina": "6"};
+    var graphData = {"nodes": ["Boa Vista", "Cabanga", "Coelhos", "Ilha Joana Bezerra", "Ilha do Leite", "Paissandu", "Recife", "Santo Amaro", "Santo Antônio", "Soledade", "São José", "Alto Santa Teresinha", "Arruda", "Beberibe", "Bomba do Hemetério", "Cajueiro", "Campina do Barreto", "Campo Grande", "Dois Unidos", "Encruzilhada", "Fundão", "Hipódromo", "Linha do Tiro", "Peixinhos", "Ponto de Parada", "Porto da Madeira", "Rosarinho", "Torreão", "Água Fria", "Aflitos", "Alto José Bonifácio", "Alto José do Pinho", "Alto do Mandu", "Apipucos", "Brejo da Guabiraba", "Brejo de Beberibe", "Casa Amarela", "Casa Forte", "Córrego do Jenipapo", "Derby", "Dois Irmãos", "Espinheiro", "Graças", "Guabiraba", "Jaqueira", "Macaxeira", "Mangabeira", "Monteiro", "Morro da Conceição", "Nova Descoberta", "Parnamirim", "Passarinho", "Pau-Ferro", "Poço", "Santana", "Sítio dos Pintos", "Tamarineira", "Vasco da Gama", "Caxangá", "Cidade Universitária", "Cordeiro", "Engenho do Meio", "Ilha do Retiro", "Iputinga", "Madalena", "Prado", "Torre", "Torrões", "Várzea", "Zumbi", "Afogados", "Areias", "Barro", "Bongi", "Caçote", "Coqueiral", "Curado", "Estância", "Jardim São Paulo", "Jiquiá", "Mangueira", "Mustardinha", "San Martin", "Sancho", "Tejipió", "Totó", "Boa Viagem", "Brasília Teimosa", "Cohab", "Ibura", "Imbiribeira", "Ipsep", "Jordão", "Pina"], "edges": [["Boa Vista", "Santo Antônio"], ["Boa Vista", "São José"], ["Boa Vista", "Santo Amaro"], ["Boa Vista", "Soledade"], ["Boa Vista", "Espinheiro"], ["Boa Vista", "Graças"], ["Boa Vista", "Coelhos"], ["Boa Vista", "Paissandu"], ["Boa Vista", "Derby"], ["Boa Vista", "Ilha do Leite"], ["Cabanga", "São José"], ["Afogados", "Cabanga"], ["Cabanga", "Pina"], ["Coelhos", "Santo Antônio"], ["Coelhos", "São José"], ["Coelhos", "Ilha do Leite"], ["Coelhos", "Ilha Joana Bezerra"], ["Ilha Joana Bezerra", "São José"], ["Ilha Joana Bezerra", "Ilha do Retiro"], ["Ilha Joana Bezerra", "Paissandu"], ["Ilha do Leite", "Paissandu"], ["Madalena", "Paissandu"], ["Ilha do Retiro", "Paissandu"], ["Derby", "Paissandu"], ["Recife", "Santo Amaro"], ["Recife", "São José"], ["Recife", "Santo Antônio"], ["Campo Grande", "Santo Amaro"], ["Santo Amaro", "Soledade"], ["Espinheiro", "Santo Amaro"], ["Santo Amaro", "Torreão"], ["Santo Antônio", "São José"], ["Afogados", "São José"], ["Alto José Bonifácio", "Alto Santa Teresinha"], ["Alto Santa Teresinha", "Bomba do Hemetério"], ["Arruda", "Campo Grande"], ["Arruda", "Tamarineira"], ["Arruda", "Ponto de Parada"], ["Arruda", "Mangabeira"], ["Arruda", "Água Fria"], ["Arruda", "Campina do Barreto"], ["Arruda", "Bomba do Hemetério"], ["Beberibe", "Água Fria"], ["Beberibe", "Linha do Tiro"], ["Beberibe", "Dois Unidos"], ["Beberibe", "Porto da Madeira"], ["Bomba do Hemetério", "Mangabeira"], ["Alto José do Pinho", "Bomba do Hemetério"], ["Bomba do Hemetério", "Água Fria"], ["Cajueiro", "Campina do Barreto"], ["Cajueiro", "Porto da Madeira"], ["Campina do Barreto", "Água Fria"], ["Campina do Barreto", "Peixinhos"], ["Campo Grande", "Torreão"], ["Campo Grande", "Ponto de Parada"], ["Campo Grande", "Peixinhos"], ["Campo Grande", "Hipódromo"], ["Campo Grande", "Encruzilhada"], ["Dois Unidos", "Linha do Tiro"], ["Brejo de Beberibe", "Dois Unidos"], ["Dois Unidos", "Passarinho"], ["Brejo da Guabiraba", "Dois Unidos"], ["Encruzilhada", "Graças"], ["Aflitos", "Encruzilhada"], ["Encruzilhada", "Torreão"], ["Encruzilhada", "Espinheiro"], ["Encruzilhada", "Rosarinho"], ["Encruzilhada", "Ponto de Parada"], ["Encruzilhada", "Hipódromo"], ["Fundão", "Água Fria"], ["Hipódromo", "Ponto de Parada"], ["Linha do Tiro", "Água Fria"], ["Alto José Bonifácio", "Linha do Tiro"], ["Brejo de Beberibe", "Linha do Tiro"], ["Ponto de Parada", "Rosarinho"], ["Ponto de Parada", "Tamarineira"], ["Porto da Madeira", "Água Fria"], ["Graças", "Rosarinho"], ["Rosarinho", "Tamarineira"], ["Espinheiro", "Torreão"], ["Aflitos", "Graças"], ["Aflitos", "Espinheiro"], ["Alto José Bonifácio", "Morro da Conceição"], ["Alto José Bonifácio", "Brejo de Beberibe"], ["Alto José do Pinho", "Casa Amarela"], ["Alto José do Pinho", "Mangabeira"], ["Alto José do Pinho", "Morro da Conceição"], ["Alto do Mandu", "Apipucos"], ["Alto do Mandu", "Monteiro"], ["Alto do Mandu", "Casa Amarela"], ["Alto do Mandu", "Nova Descoberta"], ["Apipucos", "Caxangá"], ["Apipucos", "Dois Irmãos"], ["Apipucos", "Córrego do Jenipapo"], ["Apipucos", "Macaxeira"], ["Apipucos", "Monteiro"], ["Brejo da Guabiraba", "Passarinho"], ["Brejo de Beberibe", "Nova Descoberta"], ["Brejo de Beberibe", "Passarinho"], ["Casa Amarela", "Tamarineira"], ["Casa Amarela", "Monteiro"], ["Casa Amarela", "Parnamirim"], ["Casa Amarela", "Casa Forte"], ["Casa Amarela", "Poço"], ["Casa Amarela", "Vasco da Gama"], ["Casa Amarela", "Mangabeira"], ["Casa Amarela", "Morro da Conceição"], ["Casa Forte", "Poço"], ["Casa Forte", "Santana"], ["Casa Forte", "Parnamirim"], ["Córrego do Jenipapo", "Macaxeira"], ["Córrego do Jenipapo", "Guabiraba"], ["Derby", "Graças"], ["Derby", "Madalena"], ["Caxangá", "Dois Irmãos"], ["Dois Irmãos", "Sítio dos Pintos"], ["Dois Irmãos", "Guabiraba"], ["Espinheiro", "Graças"], ["Graças", "Madalena"], ["Graças", "Torre"], ["Graças", "Tamarineira"], ["Graças", "Jaqueira"], ["Guabiraba", "Passarinho"], ["Guabiraba", "Pau-Ferro"], ["Jaqueira", "Tamarineira"], ["Jaqueira", "Parnamirim"], ["Jaqueira", "Torre"], ["Macaxeira", "Nova Descoberta"], ["Mangabeira", "Tamarineira"], ["Iputinga", "Monteiro"], ["Monteiro", "Poço"], ["Parnamirim", "Tamarineira"], ["Parnamirim", "Santana"], ["Parnamirim", "Torre"], ["Poço", "Santana"], ["Santana", "Torre"], ["Cordeiro", "Santana"], ["Caxangá", "Sítio dos Pintos"], ["Caxangá", "Iputinga"], ["Caxangá", "Várzea"], ["Cidade Universitária", "Curado"], ["Cidade Universitária", "Várzea"], ["Cidade Universitária", "Iputinga"], ["Cidade Universitária", "Engenho do Meio"], ["Cordeiro", "San Martin"], ["Cordeiro", "Engenho do Meio"], ["Cordeiro", "Torrões"], ["Cordeiro", "Prado"], ["Cordeiro", "Zumbi"], ["Cordeiro", "Iputinga"], ["Cordeiro", "Torre"], ["Bongi", "Cordeiro"], ["Curado", "Engenho do Meio"], ["Engenho do Meio", "Iputinga"], ["Engenho do Meio", "Torrões"], ["Ilha do Retiro", "Madalena"], ["Afogados", "Ilha do Retiro"], ["Ilha do Retiro", "Prado"], ["Iputinga", "Várzea"], ["Madalena", "Torre"], ["Madalena", "Prado"], ["Madalena", "Zumbi"], ["Afogados", "Prado"], ["Bongi", "Prado"], ["Prado", "Zumbi"], ["Torre", "Zumbi"], ["Curado", "Torrões"], ["San Martin", "Torrões"], ["Curado", "Várzea"], ["Afogados", "Imbiribeira"], ["Afogados", "Jiquiá"], ["Afogados", "Mangueira"], ["Afogados", "Mustardinha"], ["Afogados", "Bongi"], ["Areias", "Barro"], ["Areias", "Jardim São Paulo"], ["Areias", "Estância"], ["Areias", "Jiquiá"], ["Areias", "Caçote"], ["Barro", "Cohab"], ["Barro", "Jardim São Paulo"], ["Barro", "Ibura"], ["Barro", "Tejipió"], ["Bongi", "San Martin"], ["Bongi", "Mustardinha"], ["Caçote", "Ibura"], ["Caçote", "Ipsep"], ["Coqueiral", "Tejipió"], ["Coqueiral", "Sancho"], ["Coqueiral", "Totó"], ["Curado", "Jardim São Paulo"], ["Curado", "Tejipió"], ["Curado", "Sancho"], ["Curado", "San Martin"], ["Curado", "Totó"], ["Estância", "Jardim São Paulo"], ["Estância", "Jiquiá"], ["Jardim São Paulo", "Tejipió"], ["Jardim São Paulo", "San Martin"], ["Jiquiá", "San Martin"], ["Jiquiá", "Mangueira"], ["Mangueira", "San Martin"], ["Mangueira", "Mustardinha"], ["Mustardinha", "San Martin"], ["Sancho", "Tejipió"], ["Sancho", "Totó"], ["Boa Viagem", "Jordão"], ["Boa Viagem", "Ibura"], ["Boa Viagem", "Imbiribeira"], ["Boa Viagem", "Pina"], ["Brasília Teimosa", "Pina"], ["Cohab", "Ibura"], ["Cohab", "Jordão"], ["Ibura", "Jordão"], ["Ibura", "Ipsep"], ["Ibura", "Imbiribeira"], ["Imbiribeira", "Ipsep"], ["Imbiribeira", "Pina"]]};
 
     // Conjunto com as arestas do caminho (chave canonica "u||v")
     var pathEdgeSet = {};
@@ -910,10 +982,10 @@
     }
     
     function calcularCaminhoDijkstra(origem, destino) {
-        // Implementação de Dijkstra para encontrar o menor caminho
-        var graphData = {"nodes": ["Boa Vista", "Cabanga", "Coelhos", "Ilha Joana Bezerra", "Ilha do Leite", "Paissandu", "Recife", "Santo Amaro", "Santo Antônio", "Soledade", "São José", "Alto Santa Teresinha", "Arruda", "Beberibe", "Bomba do Hemetério", "Cajueiro", "Campina do Barreto", "Campo Grande", "Dois Unidos", "Encruzilhada", "Fundão", "Hipódromo", "Linha do Tiro", "Peixinhos", "Ponto de Parada", "Porto da Madeira", "Rosarinho", "Torreão", "Água Fria", "Aflitos", "Alto José Bonifácio", "Alto José do Pinho", "Alto do Mandu", "Apipucos", "Brejo da Guabiraba", "Brejo de Beberibe", "Casa Amarela", "Casa Forte", "Córrego do Jenipapo", "Derby", "Dois Irmãos", "Espinheiro", "Graças", "Guabiraba", "Jaqueira", "Macaxeira", "Mangabeira", "Monteiro", "Morro da Conceição", "Nova Descoberta", "Parnamirim", "Passarinho", "Pau-Ferro", "Poço", "Santana", "Sítio dos Pintos", "Tamarineira", "Vasco da Gama", "Caxangá", "Cidade Universitária", "Cordeiro", "Engenho do Meio", "Ilha do Retiro", "Iputinga", "Madalena", "Prado", "Torre", "Torrões", "Várzea", "Zumbi", "Afogados", "Areias", "Barro", "Bongi", "Caçote", "Coqueiral", "Curado", "Estância", "Jardim São Paulo", "Jiquiá", "Mangueira", "Mustardinha", "San Martin", "Sancho", "Tejipió", "Totó", "Boa Viagem", "Brasília Teimosa", "Cohab", "Ibura", "Imbiribeira", "Ipsep", "Jordão", "Pina"], "edges": [["Boa Vista", "Santo Antônio"], ["Boa Vista", "São José"], ["Boa Vista", "Santo Amaro"], ["Boa Vista", "Soledade"], ["Boa Vista", "Espinheiro"], ["Boa Vista", "Graças"], ["Boa Vista", "Coelhos"], ["Boa Vista", "Paissandu"], ["Boa Vista", "Derby"], ["Boa Vista", "Ilha do Leite"], ["Cabanga", "São José"], ["Afogados", "Cabanga"], ["Cabanga", "Pina"], ["Coelhos", "Santo Antônio"], ["Coelhos", "São José"], ["Coelhos", "Ilha do Leite"], ["Coelhos", "Ilha Joana Bezerra"], ["Ilha Joana Bezerra", "São José"], ["Ilha Joana Bezerra", "Ilha do Retiro"], ["Ilha Joana Bezerra", "Paissandu"], ["Ilha do Leite", "Paissandu"], ["Madalena", "Paissandu"], ["Ilha do Retiro", "Paissandu"], ["Derby", "Paissandu"], ["Recife", "Santo Amaro"], ["Recife", "São José"], ["Recife", "Santo Antônio"], ["Campo Grande", "Santo Amaro"], ["Santo Amaro", "Soledade"], ["Espinheiro", "Santo Amaro"], ["Santo Amaro", "Torreão"], ["Santo Antônio", "São José"], ["Afogados", "São José"], ["Alto José Bonifácio", "Alto Santa Teresinha"], ["Alto Santa Teresinha", "Bomba do Hemetério"], ["Arruda", "Campo Grande"], ["Arruda", "Tamarineira"], ["Arruda", "Ponto de Parada"], ["Arruda", "Mangabeira"], ["Arruda", "Água Fria"], ["Arruda", "Campina do Barreto"], ["Arruda", "Bomba do Hemetério"], ["Beberibe", "Água Fria"], ["Beberibe", "Linha do Tiro"], ["Beberibe", "Dois Unidos"], ["Beberibe", "Porto da Madeira"], ["Bomba do Hemetério", "Mangabeira"], ["Alto José do Pinho", "Bomba do Hemetério"], ["Bomba do Hemetério", "Água Fria"], ["Cajueiro", "Campina do Barreto"], ["Cajueiro", "Porto da Madeira"], ["Campina do Barreto", "Água Fria"], ["Campina do Barreto", "Peixinhos"], ["Campo Grande", "Torreão"], ["Campo Grande", "Ponto de Parada"], ["Campo Grande", "Peixinhos"], ["Campo Grande", "Hipódromo"], ["Campo Grande", "Encruzilhada"], ["Dois Unidos", "Linha do Tiro"], ["Brejo de Beberibe", "Dois Unidos"], ["Dois Unidos", "Passarinho"], ["Brejo da Guabiraba", "Dois Unidos"], ["Encruzilhada", "Graças"], ["Aflitos", "Encruzilhada"], ["Encruzilhada", "Torreão"], ["Encruzilhada", "Espinheiro"], ["Encruzilhada", "Rosarinho"], ["Encruzilhada", "Ponto de Parada"], ["Encruzilhada", "Hipódromo"], ["Fundão", "Água Fria"], ["Hipódromo", "Ponto de Parada"], ["Linha do Tiro", "Água Fria"], ["Alto José Bonifácio", "Linha do Tiro"], ["Brejo de Beberibe", "Linha do Tiro"], ["Ponto de Parada", "Rosarinho"], ["Ponto de Parada", "Tamarineira"], ["Porto da Madeira", "Água Fria"], ["Graças", "Rosarinho"], ["Rosarinho", "Tamarineira"], ["Espinheiro", "Torreão"], ["Aflitos", "Graças"], ["Aflitos", "Espinheiro"], ["Alto José Bonifácio", "Morro da Conceição"], ["Alto José Bonifácio", "Brejo de Beberibe"], ["Alto José do Pinho", "Casa Amarela"], ["Alto José do Pinho", "Mangabeira"], ["Alto José do Pinho", "Morro da Conceição"], ["Alto do Mandu", "Apipucos"], ["Alto do Mandu", "Monteiro"], ["Alto do Mandu", "Casa Amarela"], ["Alto do Mandu", "Nova Descoberta"], ["Apipucos", "Caxangá"], ["Apipucos", "Dois Irmãos"], ["Apipucos", "Córrego do Jenipapo"], ["Apipucos", "Macaxeira"], ["Apipucos", "Monteiro"], ["Brejo da Guabiraba", "Passarinho"], ["Brejo de Beberibe", "Nova Descoberta"], ["Brejo de Beberibe", "Passarinho"], ["Casa Amarela", "Tamarineira"], ["Casa Amarela", "Monteiro"], ["Casa Amarela", "Parnamirim"], ["Casa Amarela", "Casa Forte"], ["Casa Amarela", "Poço"], ["Casa Amarela", "Vasco da Gama"], ["Casa Amarela", "Mangabeira"], ["Casa Amarela", "Morro da Conceição"], ["Casa Forte", "Poço"], ["Casa Forte", "Santana"], ["Casa Forte", "Parnamirim"], ["Córrego do Jenipapo", "Macaxeira"], ["Córrego do Jenipapo", "Guabiraba"], ["Derby", "Graças"], ["Derby", "Madalena"], ["Caxangá", "Dois Irmãos"], ["Dois Irmãos", "Sítio dos Pintos"], ["Dois Irmãos", "Guabiraba"], ["Espinheiro", "Graças"], ["Graças", "Madalena"], ["Graças", "Torre"], ["Graças", "Tamarineira"], ["Graças", "Jaqueira"], ["Guabiraba", "Passarinho"], ["Guabiraba", "Pau-Ferro"], ["Jaqueira", "Tamarineira"], ["Jaqueira", "Parnamirim"], ["Jaqueira", "Torre"], ["Macaxeira", "Nova Descoberta"], ["Mangabeira", "Tamarineira"], ["Iputinga", "Monteiro"], ["Monteiro", "Poço"], ["Parnamirim", "Tamarineira"], ["Parnamirim", "Santana"], ["Parnamirim", "Torre"], ["Poço", "Santana"], ["Santana", "Torre"], ["Cordeiro", "Santana"], ["Caxangá", "Sítio dos Pintos"], ["Caxangá", "Iputinga"], ["Caxangá", "Várzea"], ["Cidade Universitária", "Curado"], ["Cidade Universitária", "Várzea"], ["Cidade Universitária", "Iputinga"], ["Cidade Universitária", "Engenho do Meio"], ["Cordeiro", "San Martin"], ["Cordeiro", "Engenho do Meio"], ["Cordeiro", "Torrões"], ["Cordeiro", "Prado"], ["Cordeiro", "Zumbi"], ["Cordeiro", "Iputinga"], ["Cordeiro", "Torre"], ["Bongi", "Cordeiro"], ["Curado", "Engenho do Meio"], ["Engenho do Meio", "Iputinga"], ["Engenho do Meio", "Torrões"], ["Ilha do Retiro", "Madalena"], ["Afogados", "Ilha do Retiro"], ["Ilha do Retiro", "Prado"], ["Iputinga", "Várzea"], ["Madalena", "Torre"], ["Madalena", "Prado"], ["Madalena", "Zumbi"], ["Afogados", "Prado"], ["Bongi", "Prado"], ["Prado", "Zumbi"], ["Torre", "Zumbi"], ["Curado", "Torrões"], ["San Martin", "Torrões"], ["Curado", "Várzea"], ["Afogados", "Imbiribeira"], ["Afogados", "Jiquiá"], ["Afogados", "Mangueira"], ["Afogados", "Mustardinha"], ["Afogados", "Bongi"], ["Areias", "Barro"], ["Areias", "Jardim São Paulo"], ["Areias", "Estância"], ["Areias", "Jiquiá"], ["Areias", "Caçote"], ["Barro", "Cohab"], ["Barro", "Jardim São Paulo"], ["Barro", "Ibura"], ["Barro", "Tejipió"], ["Bongi", "San Martin"], ["Bongi", "Mustardinha"], ["Caçote", "Ibura"], ["Caçote", "Ipsep"], ["Coqueiral", "Tejipió"], ["Coqueiral", "Sancho"], ["Coqueiral", "Totó"], ["Curado", "Jardim São Paulo"], ["Curado", "Tejipió"], ["Curado", "Sancho"], ["Curado", "San Martin"], ["Curado", "Totó"], ["Estância", "Jardim São Paulo"], ["Estância", "Jiquiá"], ["Jardim São Paulo", "Tejipió"], ["Jardim São Paulo", "San Martin"], ["Jiquiá", "San Martin"], ["Jiquiá", "Mangueira"], ["Mangueira", "San Martin"], ["Mangueira", "Mustardinha"], ["Mustardinha", "San Martin"], ["Sancho", "Tejipió"], ["Sancho", "Totó"], ["Boa Viagem", "Jordão"], ["Boa Viagem", "Ibura"], ["Boa Viagem", "Imbiribeira"], ["Boa Viagem", "Pina"], ["Brasília Teimosa", "Pina"], ["Cohab", "Ibura"], ["Cohab", "Jordão"], ["Ibura", "Jordão"], ["Ibura", "Ipsep"], ["Ibura", "Imbiribeira"], ["Imbiribeira", "Ipsep"], ["Imbiribeira", "Pina"]]};
+        // Implementação otimizada de Dijkstra usando BFS para grafos com peso uniforme
+        // Usa a variável global graphData já definida no início do script
         
-        // Construir mapa de adjacência com pesos
+        // Construir mapa de adjacência
         var adjMap = {};
         for (var i = 0; i < graphData.edges.length; i++) {
             var edge = graphData.edges[i];
@@ -921,52 +993,40 @@
             var v = edge[1];
             if (!adjMap[u]) adjMap[u] = [];
             if (!adjMap[v]) adjMap[v] = [];
-            // Assumindo peso 1 para todas as arestas
-            adjMap[u].push({node: v, weight: 1});
-            adjMap[v].push({node: u, weight: 1});
+            adjMap[u].push(v);
+            adjMap[v].push(u);
         }
         
-        // Algoritmo de Dijkstra
+        // BFS para encontrar o caminho mais curto (assumindo peso 1 para todas as arestas)
         var dist = {};
         var parent = {};
-        var visited = {};
-        var queue = [];
-        
-        // Inicialização
-        for (var j = 0; j < graphData.nodes.length; j++) {
-            var node = graphData.nodes[j];
-            dist[node] = Infinity;
-            parent[node] = null;
-            visited[node] = false;
-        }
+        var queue = [origem];
         
         dist[origem] = 0;
-        queue.push({node: origem, dist: 0});
+        parent[origem] = null;
         
-        while (queue.length > 0) {
-            // Encontrar o nó com menor distância
-            queue.sort(function(a, b) { return a.dist - b.dist; });
+        var found = false;
+        while (queue.length > 0 && !found) {
             var current = queue.shift();
             
-            if (visited[current.node]) continue;
-            visited[current.node] = true;
+            if (current === destino) {
+                found = true;
+                break;
+            }
             
-            if (current.node === destino) break;
-            
-            var neighbors = adjMap[current.node] || [];
+            var neighbors = adjMap[current] || [];
             for (var k = 0; k < neighbors.length; k++) {
                 var neighbor = neighbors[k];
-                var alt = dist[current.node] + neighbor.weight;
                 
-                if (alt < dist[neighbor.node]) {
-                    dist[neighbor.node] = alt;
-                    parent[neighbor.node] = current.node;
-                    queue.push({node: neighbor.node, dist: alt});
+                if (dist[neighbor] === undefined) {
+                    dist[neighbor] = dist[current] + 1;
+                    parent[neighbor] = current;
+                    queue.push(neighbor);
                 }
             }
         }
         
-        if (dist[destino] === Infinity) {
+        if (dist[destino] === undefined) {
             alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
             return;
         }
