@@ -4,8 +4,8 @@ import os
 import json
 import pandas as pd
 from pyvis.network import Network
-from .graphs.io import carregar_grafo_recife
-from .graphs.algorithms import bfs_arvore
+from graphs.io import carregar_grafo_recife
+from graphs.algorithms import bfs_arvore, dijkstra
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
@@ -773,6 +773,10 @@ def grafo_interativo_html():
         issues_html = f"<div style='padding:8px;border:1px solid #faa; background:#fff0f0;margin-bottom:8px;'><strong>Atenção:</strong><br>{items}</div>"
 
     # caixa fixa preta no canto superior-esquerdo com botões dispostos verticalmente (sempre criado)
+    # Cria lista de bairros ordenada para os dropdowns
+    bairros_sorted = sorted(bairros)
+    bairros_options = "\n".join([f"                <option value='{b}'>{b}</option>" for b in bairros_sorted])
+    
     controls_html = f"""
 <style>
     /* Caixa de controles fixa e elegante */
@@ -804,15 +808,32 @@ def grafo_interativo_html():
         flex-direction: column;
         gap: 8px;
     }}
-    .gp-controls-vertical input[type="text"] {{
+    .gp-controls-vertical select {{
         width: 100%;
-        padding: 8px 10px;
-        border-radius: 6px;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.04);
-        color: #fff;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 2px solid rgba(255,255,255,0.2);
+        background: rgba(30, 30, 30, 0.95);
+        color: #ffffff;
         outline: none;
         font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }}
+    .gp-controls-vertical select:hover {{
+        border-color: rgba(255,255,255,0.4);
+        background: rgba(40, 40, 40, 0.95);
+    }}
+    .gp-controls-vertical select:focus {{
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    }}
+    .gp-controls-vertical select option {{
+        background: #2a2a2a;
+        color: #ffffff;
+        padding: 8px;
     }}
     .gp-controls-vertical button {{
         background: linear-gradient(180deg, #222 0%, #111 100%);
@@ -839,17 +860,37 @@ def grafo_interativo_html():
 <div class="gp-controls-box">
     {f"<div class='gp-issue'>{issues_html}</div>" if issues_html else ""}
     <div class="gp-controls-vertical">
-        <input id="busca-bairro" type="text" placeholder="Pesquisar bairro..." />
-        <button onclick="buscarBairro()">🔎 Buscar bairro</button>
-        <button onclick="highlightPath()">➡️ Destacar caminho (Nova Descoberta → Boa Viagem)</button>
-        <button onclick="resetHighlight()">✖ Limpar destaque</button>
+        <select id="origem-select">
+            <option value="">Selecione a origem...</option>
+{bairros_options}
+        </select>
+        <select id="destino-select">
+            <option value="">Selecione o destino...</option>
+{bairros_options}
+        </select>
+        <button onclick="calcularMenorCaminho()">Calcular Menor Caminho</button>
+        <button onclick="highlightPath()">Destacar Nova Descoberta → Boa Viagem</button>
+        <button onclick="resetHighlight()">Limpar Destaques</button>
     </div>
 </div>
 """
     if "<body>" in html:
         html = html.replace("<body>", "<body>\n" + controls_html, 1)
 
-    # 10.2) Script JS extra com busca + destaque do caminho
+    # --- 10.3) Prepara dados para cálculo de menor caminho ---
+    # Cria um dicionário com os dados do grafo para uso no JavaScript
+    graph_data = {
+        'nodes': list(bairros),
+        'edges': []
+    }
+    
+    for b in bairros:
+        for vizinho, peso in grafo.vizinhos(b):
+            edge = tuple(sorted((b, vizinho)))
+            if edge not in graph_data['edges']:
+                graph_data['edges'].append(edge)
+    
+    graph_data_js = json.dumps(graph_data, ensure_ascii=False)
     path_nodes_js = json.dumps(path_nodes, ensure_ascii=False)
     path_edges_js = json.dumps(path_edges, ensure_ascii=False)
 
@@ -885,16 +926,163 @@ def grafo_interativo_html():
         }
     }
 
-    if (!found) {
-        alert("Bairro nao encontrado: " + nome);
-        return;
-    }
+        if (!found) {
+            alert("Bairro não encontrado: " + nome);
+            return;
+        }
 
     network.selectNodes([found.id]);
     network.focus(found.id, {
         scale: 1.6,
         animation: { duration: 800, easingFunction: 'easeInOutQuad' }
     });
+    }
+    
+    function calcularMenorCaminho() {
+        var origemSelect = document.getElementById('origem-select');
+        var destinoSelect = document.getElementById('destino-select');
+        
+        if (!origemSelect || !destinoSelect) {
+            alert('Select elements not found');
+            return;
+        }
+        
+        var origem = origemSelect.value;
+        var destino = destinoSelect.value;
+        
+        if (!origem || !destino) {
+            alert('Por favor, selecione a origem e o destino');
+            return;
+        }
+        
+        if (origem === destino) {
+            alert('Origem e destino devem ser diferentes');
+            return;
+        }
+        
+        // Chama a função Python para calcular o menor caminho
+        // Como não podemos chamar Python diretamente do JavaScript, vamos usar uma abordagem alternativa
+        // Vamos destacar o caminho usando uma implementação JavaScript simples de BFS
+        highlightCustomPath(origem, destino);
+    }
+    
+    function highlightCustomPath(origem, destino) {
+        // Implementação de Dijkstra para encontrar o menor caminho
+        var allNodes = nodes.get();
+        var allEdges = edges.get();
+        var graphData = __GRAPH_DATA__;
+        
+        // Construir mapa de adjacência com pesos
+        var adjMap = {};
+        for (var i = 0; i < graphData.edges.length; i++) {
+            var edge = graphData.edges[i];
+            var u = edge[0];
+            var v = edge[1];
+            if (!adjMap[u]) adjMap[u] = [];
+            if (!adjMap[v]) adjMap[v] = [];
+            // Assumindo peso 1 para todas as arestas (pode ser modificado se houver pesos)
+            adjMap[u].push({node: v, weight: 1});
+            adjMap[v].push({node: u, weight: 1});
+        }
+        
+        // Algoritmo de Dijkstra
+        var dist = {};
+        var parent = {};
+        var visited = {};
+        var queue = [];
+        
+        // Inicialização
+        for (var j = 0; j < graphData.nodes.length; j++) {
+            var node = graphData.nodes[j];
+            dist[node] = Infinity;
+            parent[node] = null;
+            visited[node] = false;
+        }
+        
+        dist[origem] = 0;
+        queue.push({node: origem, dist: 0});
+        
+        while (queue.length > 0) {
+            // Encontrar o nó com menor distância
+            queue.sort(function(a, b) { return a.dist - b.dist; });
+            var current = queue.shift();
+            
+            if (visited[current.node]) continue;
+            visited[current.node] = true;
+            
+            if (current.node === destino) break;
+            
+            var neighbors = adjMap[current.node] || [];
+            for (var k = 0; k < neighbors.length; k++) {
+                var neighbor = neighbors[k];
+                var alt = dist[current.node] + neighbor.weight;
+                
+                if (alt < dist[neighbor.node]) {
+                    dist[neighbor.node] = alt;
+                    parent[neighbor.node] = current.node;
+                    queue.push({node: neighbor.node, dist: alt});
+                }
+            }
+        }
+        
+        if (dist[destino] === Infinity) {
+            alert('Não foi encontrado um caminho entre ' + origem + ' e ' + destino);
+            return;
+        }
+        
+        // Reconstruir o caminho
+        var path = [];
+        var current = destino;
+        while (current !== null) {
+            path.unshift(current);
+            current = parent[current];
+        }
+        
+        // Criar conjunto de arestas do caminho
+        var pathEdgeSet = {};
+        for (var k = 0; k < path.length - 1; k++) {
+            var key = [path[k], path[k+1]].sort().join("||");
+            pathEdgeSet[key] = true;
+        }
+        
+        // Limpa destaques anteriores
+        resetHighlight();
+        
+        // Destacar arestas do caminho
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            var key = [e.from, e.to].sort().join("||");
+            if (pathEdgeSet[key]) {
+                if (e._originalColor === undefined) e._originalColor = e.color;
+                e.color = { color: '#FF69B4' };  // rosa para o novo caminho
+            } else {
+                if (e._originalColor === undefined) e._originalColor = e.color;
+                e.color = { color: '#e6e6e6' };
+            }
+        }
+        edges.update(allEdges);
+        
+        // Destacar nós do caminho
+        for (var i = 0; i < allNodes.length; i++) {
+            var n = allNodes[i];
+            if (path.indexOf(n.id) !== -1) {
+                if (n._originalColor === undefined) n._originalColor = n.color;
+                n.color = { background: '#FFB6C1', border: '#FF1493' }; // rosa claro para os nós
+            } else {
+                if (n._originalColor === undefined) n._originalColor = n.color;
+                // podemos deixar o restante igual (sem alterar tamanho)
+            }
+        }
+        nodes.update(allNodes);
+        
+        // Centralizar no caminho
+        network.fit({
+            nodes: path,
+            animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+        });
+        
+        console.log('Menor caminho encontrado:', path);
+        console.log('Distância total:', dist[destino]);
     }
 
     function resetHighlight() {
@@ -921,7 +1109,7 @@ def grafo_interativo_html():
 
     function highlightPath() {
     if (!pathNodes || pathNodes.length === 0) {
-        alert("Caminho Nova Descoberta -> Boa Viagem (Setubal) nao encontrado nos dados.");
+        alert("Caminho Nova Descoberta → Boa Viagem (Setúbal) não encontrado nos dados.");
         return;
     }
 
@@ -935,7 +1123,7 @@ def grafo_interativo_html():
         var key = [e.from, e.to].sort().join("||");
         if (pathEdgeSet[key]) {
         if (e._originalColor === undefined) e._originalColor = e.color;
-        e.color = { color: '#ff0000' };  // vermelho forte
+        e.color = { color: '#FF69B4' };  // rosa
         } else {
         if (e._originalColor === undefined) e._originalColor = e.color;
         e.color = { color: '#e6e6e6' };
@@ -949,7 +1137,7 @@ def grafo_interativo_html():
         var n = allNodes[i];
         if (pathNodes.indexOf(n.id) !== -1) {
         if (n._originalColor === undefined) n._originalColor = n.color;
-        n.color = { background: '#ff00aa', border: '#880055' }; // cor bem distinta
+        n.color = { background: '#FFB6C1', border: '#FF1493' }; // rosa
         } else {
         if (n._originalColor === undefined) n._originalColor = n.color;
         // podemos deixar o restante igual (sem alterar tamanho)
@@ -968,6 +1156,7 @@ def grafo_interativo_html():
 
     extra_js = extra_js.replace("__PATH_NODES__", path_nodes_js)
     extra_js = extra_js.replace("__PATH_EDGES__", path_edges_js)
+    extra_js = extra_js.replace("__GRAPH_DATA__", graph_data_js)
 
     if "</body>" in html:
         html = html.replace("</body>", extra_js + "\n</body>", 1)
