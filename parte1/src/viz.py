@@ -10,7 +10,7 @@ import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
 
-OUT_DIR = "out"
+OUT_DIR = "out/parte1"
 
 
 def percurso_nova_descoberta_setubal(caminho_json: str | None = None):
@@ -63,7 +63,7 @@ def arvore_percurso_html(
     )
 
     if caminho_saida is None:
-        caminho_saida = os.path.join(OUT_DIR, "arvore_percurso.html")
+        caminho_saida = os.path.join("out/parte1", "arvore_percurso.html")
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -132,8 +132,8 @@ def cor_por_grau(grau: int, gmin: int, gmax: int) -> str:
 
 
 
-DATA_DIR = "data"
-OUT_DIR = "out"
+DATA_DIR = "parte1/data"
+OUT_DIR = "out/parte1"
 
 
 def mapa_graus_html():
@@ -242,7 +242,7 @@ def mapa_graus_html():
             arestas_adicionadas.add(aresta)
 
     # 6) Salva o HTML
-    caminho_saida = os.path.join(OUT_DIR, "mapa_graus.html")
+    caminho_saida = os.path.join("out/parte1", "mapa_graus.html")
     net.show(caminho_saida, notebook=False)  # notebook=False para evitar o bug do template
     print(caminho_saida)
 
@@ -458,7 +458,7 @@ def ranking_densidade_ego_microrregiao_png():
     plt.tight_layout()
     plt.subplots_adjust(right=0.78, top=0.88)
 
-    caminho_saida = os.path.join(OUT_DIR, "ranking_densidade_ego_microrregiao.png")
+    caminho_saida = os.path.join("out/parte1", "ranking_densidade_ego_microrregiao.png")
     plt.savefig(caminho_saida, bbox_inches='tight', dpi=200)
     plt.close(fig)
 
@@ -553,7 +553,7 @@ def arvore_bfs_boaviagem_html():
     """)
 
 
-    caminho_saida = os.path.join(OUT_DIR, "arvore_bfs_boaviagem.html")
+    caminho_saida = os.path.join("out/parte1", "arvore_bfs_boaviagem.html")
     net.show(caminho_saida, notebook=False)  # notebook=False para evitar bug de template
     print(caminho_saida)
 
@@ -757,7 +757,7 @@ def grafo_interativo_html():
             arestas_adicionadas.add(aresta)
 
     # --- 9) Gera o HTML base com pyvis ---
-    caminho_saida = os.path.join(OUT_DIR, "grafo_interativo.html")
+    caminho_saida = os.path.join("out/parte1", "grafo_interativo.html")
     net.show(caminho_saida, notebook=False)
     print(caminho_saida)
 
