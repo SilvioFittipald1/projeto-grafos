@@ -8,6 +8,7 @@ env/
 *.bak
 
 pycache/
+__pycache__/
 *.pyc
 *.pyo
 *.py[cod]
