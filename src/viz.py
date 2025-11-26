@@ -1835,6 +1835,11 @@ def grafo_interativo_html():
     pathEdgeSet[key] = true;
     }
     
+    // Aguarda o carregamento completo do grafo
+    network.once("stabilizationIterationsDone", function() {
+        console.log("Grafo carregado e estabilizado");
+    });
+    
     // Evento de clique em nós para mostrar informações detalhadas
     network.on("click", function(params) {
         if (params.nodes.length > 0) {
@@ -1844,6 +1849,12 @@ def grafo_interativo_html():
     });
     
     function mostrarInfoBairro(bairroId) {
+        // Verifica se nodes e edges existem
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') {
+            console.error('Nodes ou edges não estão definidos');
+            return;
+        }
+        
         // Busca o nó completo
         var node = nodes.get(bairroId);
         if (!node) return;
@@ -1906,6 +1917,11 @@ def grafo_interativo_html():
     if (!input) return;
     var nome = input.value.trim();
     if (!nome) return;
+
+    if (typeof nodes === 'undefined') {
+        alert('Grafo ainda não foi carregado. Aguarde um momento.');
+        return;
+    }
 
     var allNodes = nodes.get();
     var nomeLower = nome.toLowerCase();
@@ -2006,6 +2022,11 @@ def grafo_interativo_html():
     function toggleMicrorregiao(micro) {
         var checkbox = document.querySelector('.micro-filter[value="' + micro + '"]');
         if (!checkbox) return;
+        
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') {
+            console.error('Nodes ou edges não estão definidos');
+            return;
+        }
         
         var allNodes = nodes.get();
         var color = microToColor[micro] || '#97c2fc';
@@ -2241,6 +2262,11 @@ def grafo_interativo_html():
     }
     
     function destacarCaminho(path, distancia) {
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') {
+            console.error('Nodes ou edges não estão definidos');
+            return;
+        }
+        
         // Limpa quaisquer destaques anteriores (apenas cores, sem resetar visualização)
         resetHighlightColors();
         
@@ -2290,6 +2316,11 @@ def grafo_interativo_html():
     }
 
     function resetHighlightColors() {
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') {
+            console.error('Nodes ou edges não estão definidos');
+            return;
+        }
+        
         // Reset apenas das cores (sem resetar visualização)
         var allEdges = edges.get();
         for (var i = 0; i < allEdges.length; i++) {
@@ -2325,7 +2356,12 @@ def grafo_interativo_html():
 
     function highlightPath() {
     if (!pathNodes || pathNodes.length === 0) {
- não encontrado nos dados.";
+        alert("Caminho Nova Descoberta → Boa Viagem não encontrado nos dados.");
+        return;
+    }
+
+    if (typeof nodes === 'undefined' || typeof edges === 'undefined') {
+        alert('Grafo ainda não foi carregado. Aguarde um momento.');
         return;
     }
 
