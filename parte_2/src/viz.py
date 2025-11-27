@@ -6,9 +6,9 @@ import pandas as pd
 import webbrowser
 from collections import deque
 from pyvis.network import Network
-from .graphs.io import carregar_grafo_ufc
-from .graphs.algorithms import bfs_arvore, dfs_arvore, dfs_detectar_ciclo, dfs_classificar_arestas, dijkstra, bellman_ford, bellman_ford_caminho
-from .graphs.graph import Graph
+from graphs.io import carregar_grafo_ufc
+from graphs.algorithms import bfs_arvore, dfs_arvore, dfs_detectar_ciclo, dfs_classificar_arestas, dijkstra, bellman_ford, bellman_ford_caminho
+from graphs.graph import Graph
 from math import inf
 import matplotlib
 matplotlib.use("Agg")  

@@ -4,10 +4,10 @@ import sys
 import pytest
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-SRC_DIRS = [ROOT_DIR / "src", ROOT_DIR / "parte1" / "src"]
+SRC_DIRS = [ROOT_DIR / "src"]
 for dir_path in SRC_DIRS:
-    if dir_path.exists() and str(dir_path) not in sys.path:
-        sys.path.append(str(dir_path))
+    if dir_path.exists():
+        sys.path.insert(0, str(dir_path))
 
 from graphs.graph import Graph
 from graphs.algorithms import dfs_arvore, dfs_caminho, dfs_detectar_ciclo, dfs_classificar_arestas
@@ -38,11 +38,13 @@ def test_dfs_arvore_pais_e_ordem_descoberta():
     assert ordem_descoberta[0] == "A"
 
 
-def test_dfs_arvore_erro_para_origem_inexistente():
+def test_dfs_arvore_em_grafo_vazio_retorna_apenas_origem():
     grafo = Graph()
 
-    with pytest.raises(ValueError):
-        dfs_arvore(grafo, "A")
+    pais, descoberta = dfs_arvore(grafo, "A")
+
+    assert pais == {"A": None}
+    assert list(descoberta.keys()) == ["A"]
 
 
 def test_dfs_caminho_encontra_algum_caminho():

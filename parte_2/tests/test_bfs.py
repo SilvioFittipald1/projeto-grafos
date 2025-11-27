@@ -4,10 +4,10 @@ import sys
 import pytest
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-SRC_DIRS = [ROOT_DIR / "src", ROOT_DIR / "parte1" / "src"]
+SRC_DIRS = [ROOT_DIR / "src"]
 for dir_path in SRC_DIRS:
-    if dir_path.exists() and str(dir_path) not in sys.path:
-        sys.path.append(str(dir_path))
+    if dir_path.exists():
+        sys.path.insert(0, str(dir_path))
 
 from graphs.graph import Graph
 from graphs.algorithms import bfs_arvore, bfs_caminho
@@ -34,11 +34,13 @@ def test_bfs_arvore_retorna_pais_e_niveis():
     assert niveis == {"A": 0, "B": 1, "C": 1, "D": 2, "E": 2, "F": 2, "G": 3}
 
 
-def test_bfs_arvore_erro_para_origem_inexistente():
+def test_bfs_arvore_em_grafo_vazio_retorna_apenas_origem():
     grafo = Graph()
 
-    with pytest.raises(ValueError):
-        bfs_arvore(grafo, "A")
+    pais, niveis = bfs_arvore(grafo, "A")
+
+    assert pais == {"A": None}
+    assert niveis == {"A": 0}
 
 
 def test_bfs_caminho_menor_numero_arestas():

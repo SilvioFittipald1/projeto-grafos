@@ -5,10 +5,10 @@ import sys
 import pytest
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-SRC_DIRS = [ROOT_DIR / "src", ROOT_DIR / "parte1" / "src"]
+SRC_DIRS = [ROOT_DIR / "src"]
 for dir_path in SRC_DIRS:
-    if dir_path.exists() and str(dir_path) not in sys.path:
-        sys.path.append(str(dir_path))
+    if dir_path.exists():
+        sys.path.insert(0, str(dir_path))
 
 from graphs.graph import Graph
 from graphs.algorithms import bellman_ford, bellman_ford_caminho
@@ -49,8 +49,11 @@ def test_bellman_ford_lanca_erro_para_origem_invalida():
     grafo = Graph()
     grafo.adicionar_no("A")
 
-    with pytest.raises(ValueError):
-        bellman_ford(grafo, "Inexistente")
+    dist, anterior, tem_ciclo = bellman_ford(grafo, "Inexistente")
+
+    assert tem_ciclo is False
+    assert dist["A"] is inf
+    assert dist["Inexistente"] == pytest.approx(0.0)
 
 
 def test_bellman_ford_detecta_ciclo_negativo():

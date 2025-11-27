@@ -5,10 +5,10 @@ import pytest
 from math import isinf
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-SRC_DIRS = [ROOT_DIR / "src", ROOT_DIR / "parte1" / "src"]
+SRC_DIRS = [ROOT_DIR / "src"]
 for dir_path in SRC_DIRS:
-    if dir_path.exists() and str(dir_path) not in sys.path:
-        sys.path.append(str(dir_path))
+    if dir_path.exists():
+        sys.path.insert(0, str(dir_path))
 
 from graphs.graph import Graph
 from graphs.algorithms import dijkstra
