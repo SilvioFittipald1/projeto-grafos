@@ -642,10 +642,14 @@ def grafo_interativo_ufc_html():
             var key = [e.from, e.to].sort().join("||");
             if (pathEdgeSet[key]) {
                 if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
                 e.color = { color: '#FF6B6B' };
+                e.width = 10;
             } else {
                 if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
                 e.color = { color: '#e6e6e6' };
+                e.width = 0.5;
             }
         }
         edges.update(allEdges);
@@ -672,6 +676,9 @@ def grafo_interativo_ufc_html():
             var e = allEdges[i];
             if (e._originalColor !== undefined) {
                 e.color = e._originalColor;
+            }
+            if (e._originalWidth !== undefined) {
+                e.width = e._originalWidth;
             }
         }
         edges.update(allEdges);

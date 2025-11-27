@@ -4968,10 +4968,14 @@
             var key = [e.from, e.to].sort().join("||");
             if (pathEdgeSet[key]) {
                 if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
                 e.color = { color: '#FF6B6B' };
+                e.width = 10;
             } else {
                 if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
                 e.color = { color: '#e6e6e6' };
+                e.width = 0.5;
             }
         }
         edges.update(allEdges);
@@ -4998,6 +5002,9 @@
             var e = allEdges[i];
             if (e._originalColor !== undefined) {
                 e.color = e._originalColor;
+            }
+            if (e._originalWidth !== undefined) {
+                e.width = e._originalWidth;
             }
         }
         edges.update(allEdges);
@@ -5051,7 +5058,6 @@
                 n.color = { background: defaultColor, border: '#222222' };
             }
             
-            // Preserva cores originais se houver destaque ativo
             if (n._originalColor !== undefined) {
                 n._originalColor = n.color;
             }
@@ -5083,7 +5089,6 @@
         }
     }
     
-    // Desativa automaticamente a física após estabilização para melhorar performance
     network.once('stabilizationIterationsDone', function() {
         console.log('Grafo estabilizado!');
         setTimeout(function() {
