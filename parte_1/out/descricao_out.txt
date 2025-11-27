@@ -1,0 +1,90 @@
+arvore_bfs_boaviagem.html
+
+Essa visualização mostra a árvore de busca em largura (BFS) partindo do bairro da Boa Viagem. O BFS explora o grafo camada por camada, começando pelo bairro de origem e visitando todos os bairros vizinhos diretos primeiro, depois os vizinhos dos vizinhos, e assim por diante.
+
+A visualização permite ver claramente como os bairros estão organizados em níveis de distância a partir da Boa Viagem. Cada camada representa quantas "fronteiras de bairro" você precisa atravessar para chegar de um ponto ao outro. É uma forma de entender a estrutura da rede de bairros do Recife partindo de um dos bairros mais conhecidos da cidade.
+
+
+arvore_percurso.html
+
+Esse arquivo mostra a árvore de percurso entre dois bairros específicos: Nova Descoberta e Setúbal. A visualização exibe o caminho encontrado pelo algoritmo, destacando quais bairros foram visitados durante a busca.
+
+É útil para entender não apenas o caminho final, mas também como o algoritmo explorou a rede até encontrar o destino. Você consegue ver a estrutura da busca e quais bairros fazem parte da rota entre esses dois pontos da cidade.
+
+
+densidades.csv
+
+Esse arquivo contém o cálculo de densidade para cada microrregião do Recife. A densidade mede o quão conectada está cada região: valores mais altos indicam que os bairros daquela microrregião têm muitas conexões entre si, enquanto valores baixos indicam poucas conexões.
+
+É possível usar esse CSV para ordenar as microrregiões por densidade, identificar quais áreas são mais ou menos conectadas, e fazer análises comparativas entre diferentes partes da cidade.
+
+
+distribuicao_graus.png
+
+Esse gráfico mostra como os bairros do Recife se distribuem em termos de conexões. No eixo horizontal, você vê quantas fronteiras um bairro tem (o grau dele no grafo). No eixo vertical, quantos bairros têm aquele número de fronteiras.
+
+A visualização revela que a maioria dos bairros tem poucas conexões (entre 1 e 5 fronteiras), formando uma cauda longa. Alguns poucos bairros são muito conectados, com muitas fronteiras compartilhadas. Esses são os bairros centrais ou estratégicos na rede urbana do Recife.
+
+
+distancias_enderecos.csv
+
+Esse arquivo registra as distâncias calculadas entre pares de endereços ou bairros específicos. Cada linha mostra a origem, o destino e a distância entre eles (medida em número de arestas no grafo).
+
+É útil para consultas rápidas sobre distâncias específicas, fazer análises de acessibilidade entre diferentes pontos da cidade, ou alimentar outras ferramentas que precisem dessas informações de distância.
+
+
+ego_bairro.csv
+
+Esse arquivo contém informações sobre as redes ego de cada bairro. Uma rede ego é formada por um bairro central e todos os seus vizinhos diretos, junto com as conexões entre esses vizinhos.
+
+Para cada bairro, você encontra métricas como o número de vizinhos, o número de conexões internas na rede ego, e a densidade dessa rede. Isso ajuda a entender o papel de cada bairro na estrutura local da cidade.
+
+
+grafo_interativo.html
+
+Aqui está o grafo completo do Recife em forma visual e interativa. Cada vertice é um bairro, cada aresta é uma fronteira entre bairros. Você pode dar zoom, arrastar os nós, clicar para ver detalhes, é a forma mais direta de explorar como a cidade está organizada espacialmente.
+
+O tamanho dos nós pode representar o grau (número de fronteiras) de cada bairro. As cores podem indicar diferentes microrregiões. É uma ferramenta visual poderosa para entender a topologia urbana do Recife de forma intuitiva.
+
+
+graus.csv
+
+Esse arquivo lista todos os bairros do Recife e quantas fronteiras cada um tem. É a versão crua do gráfico de distribuição de graus.
+
+Útil para ordenar os bairros por número de fronteiras, identificar os bairros mais ou menos conectados, calcular estatísticas descritivas, ou usar como entrada para outras análises. É um dado fundamental para entender a conectividade de cada bairro.
+
+
+mapa_graus.html
+
+Essa visualização combina o mapa geográfico do Recife com informações sobre o grau de cada bairro. Os bairros são coloridos em formato de heatmap , 
+onde a cor mais forte representa o maior numero de conexões.
+
+
+
+
+microrregioes.json
+
+Esse arquivo contém a lista de todas as microrregiões do Recife e quais bairros pertencem a cada uma delas. É uma estrutura de dados que agrupa os bairros em regiões administrativas ou geográficas maiores.
+
+Útil para análises agregadas por região, comparações entre diferentes áreas da cidade, ou para colorir visualizações de acordo com a microrregião de cada bairro.
+
+
+percurso_nova_descoberta_setubal.json
+
+Esse arquivo contém os detalhes do caminho calculado entre os bairros Nova Descoberta e Setúbal. Inclui a lista ordenada de bairros que formam o percurso, a distância total, e possivelmente outras métricas do caminho.
+
+É a versão estruturada (em JSON) do percurso, ideal para processamento programático ou para alimentar visualizações como a árvore de percurso.
+
+
+ranking_densidade_ego_microrregiao.png
+
+Esse gráfico mostra o ranking das microrregiões do Recife ordenadas pela densidade média das redes ego dos bairros que as compõem. É uma forma de comparar diferentes áreas da cidade em termos de conectividade local.
+
+Microrregiões com densidade ego alta têm bairros cujos vizinhos são bem conectados entre si. Microrregiões com densidade baixa têm bairros cujos vizinhos são mais isolados uns dos outros. Isso revela padrões de organização urbana em diferentes partes da cidade.
+
+
+recife_global.json
+
+Esse é um arquivo de metadados globais do grafo do Recife. Ele contém informações gerais sobre a rede como um todo, coisas como o número total de bairros, o número total de fronteiras, a densidade do grafo, o grau médio, etc.
+
+É um resumo executivo em JSON com informações sobre o tamanho da rede e o quão conectado é o grafo da cidade.

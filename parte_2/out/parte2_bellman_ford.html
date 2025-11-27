@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização Bellman-Ford - Parte 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #ff9800;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .resumo {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .ciclo-negativo {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #c62828;
+            font-weight: bold;
+        }
+        .sem-ciclo {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualização do Algoritmo Bellman-Ford</h1>
+
+    <h2>Caso 1: Grafo com Pesos Negativos (Sem Ciclo Negativo)</h2>
+    <p><strong>Origem:</strong> A</p>
+    <p><strong>Estrutura do grafo:</strong></p>
+    <ul>
+        <li>A → B (peso 1.0)</li>
+        <li>A → C (peso 4.0)</li>
+        <li>B → C (peso -2.0) <strong>Peso negativo</strong></li>
+        <li>B → D (peso 3.0)</li>
+        <li>C → D (peso 2.0)</li>
+        <li>D → E (peso -1.0) <strong>Peso negativo</strong></li>
+    </ul>
+    <p><strong>Análise:</strong> Este grafo contém arestas com pesos negativos, mas não possui ciclos negativos. 
+    Todos os ciclos possíveis têm soma de pesos positiva ou zero.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Distância</th>
+                <th>Predecessor</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>A</td>
+                <td>-10.00</td>
+                <td>B</td>
+            </tr>
+
+            <tr>
+                <td>B</td>
+                <td>-15.00</td>
+                <td>C</td>
+            </tr>
+
+            <tr>
+                <td>C</td>
+                <td>-13.00</td>
+                <td>B</td>
+            </tr>
+
+            <tr>
+                <td>D</td>
+                <td>-13.00</td>
+                <td>E</td>
+            </tr>
+
+            <tr>
+                <td>E</td>
+                <td>-12.00</td>
+                <td>D</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ciclo-negativo">
+        <p>Ciclo negativo detectado!</p>
+    </div>
+
+    <h2>Caso 2: Grafo com Ciclo Negativo (Detectado)</h2>
+    <p><strong>Origem:</strong> X</p>
+    <p><strong>Estrutura do grafo:</strong></p>
+    <ul>
+        <li>X → Y (peso 1.0)</li>
+        <li>Y → Z (peso 2.0)</li>
+        <li>Z → X (peso -5.0) <strong>Peso negativo</strong></li>
+    </ul>
+    <p><strong>Ciclo negativo:</strong> X → Y → Z → X</p>
+    <p><strong>Soma dos pesos do ciclo:</strong> 1.0 + 2.0 + (-5.0) = <strong>-2.0</strong> (negativo!)</p>
+    <p><strong>Análise:</strong> Este grafo contém um ciclo com soma de pesos negativa. 
+    O algoritmo Bellman-Ford deve detectar este ciclo negativo após |V|-1 iterações, 
+    quando ainda é possível relaxar arestas.</p>
+
+    <div class="ciclo-negativo">
+        <p><strong>Ciclo negativo detectado!</strong></p>
+        <p>O algoritmo Bellman-Ford identificou a existência de um ciclo com soma de pesos negativa.</p>
+        <p>Neste caso, as distâncias calculadas podem não ser confiáveis, pois é possível reduzir infinitamente o custo do caminho percorrendo o ciclo negativo repetidamente.</p>
+    </div>
+
+    <h2>Caso 3: Grafo Grande da Parte 2 (Pesos Positivos)</h2>
+    <p><strong>Origem:</strong> Donald Cerrone</p>
+    <p><strong>Total de vértices no grafo:</strong> 2139</p>
+    <p><em>Mostrando os 20 vértices mais próximos da origem:</em></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Distância</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Donald Cerrone</td>
+                <td>0.00</td>
+            </tr>
+
+            <tr>
+                <td>Tony Ferguson</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>John Makdessi</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Adriano Martins</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Jorge Masvidal</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Patrick Cote</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Mike Perry</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Anthony Pettis</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Alex Oliveira</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Yancy Medeiros</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Jim Miller</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Alexander Hernandez</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Dennis Siver</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Charles Oliveira</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Edson Barboza</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Rafael Dos Anjos</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Matt Brown</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Evan Dunham</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Darren Till</td>
+                <td>0.50</td>
+            </tr>
+
+            <tr>
+                <td>Rick Story</td>
+                <td>0.50</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="sem-ciclo">
+        <p>Nao foi detectado ciclo negativo.</p>
+        <p>O algoritmo Bellman-Ford funcionou corretamente no grafo grande com pesos positivos.</p>
+        <p><strong>Vértices alcançáveis:</strong> 1909</p>
+    </div>
+
+</body>
+</html>

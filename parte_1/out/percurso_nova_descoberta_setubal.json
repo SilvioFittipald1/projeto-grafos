@@ -1,0 +1,18 @@
+{
+  "origem": "Nova Descoberta",
+  "destino": "Boa Viagem (Setúbal)",
+  "custo": 10.0,
+  "caminho": [
+    "Nova Descoberta",
+    "Alto do Mandu",
+    "Casa Amarela",
+    "Tamarineira",
+    "Jaqueira",
+    "Torre",
+    "Cordeiro",
+    "Prado",
+    "Afogados",
+    "Imbiribeira",
+    "Boa Viagem"
+  ]
+}
