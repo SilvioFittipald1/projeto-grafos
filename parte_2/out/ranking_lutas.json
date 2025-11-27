@@ -1,0 +1,8558 @@
+[
+  {
+    "lutador": "Donald Cerrone",
+    "numero_lutas": 34
+  },
+  {
+    "lutador": "Jim Miller",
+    "numero_lutas": 34
+  },
+  {
+    "lutador": "Andrei Arlovski",
+    "numero_lutas": 32
+  },
+  {
+    "lutador": "Diego Sanchez",
+    "numero_lutas": 32
+  },
+  {
+    "lutador": "Demian Maia",
+    "numero_lutas": 32
+  },
+  {
+    "lutador": "Jeremy Stephens",
+    "numero_lutas": 32
+  },
+  {
+    "lutador": "Clay Guida",
+    "numero_lutas": 30
+  },
+  {
+    "lutador": "Rafael Dos Anjos",
+    "numero_lutas": 29
+  },
+  {
+    "lutador": "Gleison Tibau",
+    "numero_lutas": 28
+  },
+  {
+    "lutador": "Michael Bisping",
+    "numero_lutas": 27
+  },
+  {
+    "lutador": "Matt Brown",
+    "numero_lutas": 27
+  },
+  {
+    "lutador": "Ross Pearson",
+    "numero_lutas": 26
+  },
+  {
+    "lutador": "Joe Lauzon",
+    "numero_lutas": 26
+  },
+  {
+    "lutador": "Thiago Alves",
+    "numero_lutas": 26
+  },
+  {
+    "lutador": "Nate Marquardt",
+    "numero_lutas": 25
+  },
+  {
+    "lutador": "Ed Herman",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Alex Caceres",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Neil Magny",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Stefan Struve",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Frank Mir",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Michael Johnson",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Charles Oliveira",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Josh Koscheck",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Tim Boetsch",
+    "numero_lutas": 24
+  },
+  {
+    "lutador": "Darren Elkins",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Nate Diaz",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Vitor Belfort",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Nik Lentz",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Edson Barboza",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Lyoto Machida",
+    "numero_lutas": 23
+  },
+  {
+    "lutador": "Chris Leben",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Francisco Trinaldo",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Dustin Poirier",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Tim Means",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Ovince Saint Preux",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Anderson Silva",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Rashad Evans",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Melvin Guillard",
+    "numero_lutas": 22
+  },
+  {
+    "lutador": "Yves Edwards",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Max Holloway",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Patrick Cote",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Thiago Santos",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Derrick Lewis",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Thales Leites",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Dennis Siver",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Frankie Edgar",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Gabriel Gonzaga",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Jake Ellenberger",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Evan Dunham",
+    "numero_lutas": 21
+  },
+  {
+    "lutador": "Robbie Lawler",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Yushin Okami",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Alistair Overeem",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Cole Miller",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Sam Alvey",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Glover Teixeira",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Jon Jones",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Junior Dos Santos",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "CB Dollaway",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Johny Hendricks",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "BJ Penn",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Tito Ortiz",
+    "numero_lutas": 20
+  },
+  {
+    "lutador": "Brad Tavares",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Jorge Masvidal",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Ben Saunders",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Mike Pyle",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Anthony Pettis",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Joshua Burkman",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Roy Nelson",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Ryan Bader",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Randy Couture",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Matt Hughes",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Chris Lytle",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Rick Story",
+    "numero_lutas": 19
+  },
+  {
+    "lutador": "Tony Ferguson",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Iuri Alcantara",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Alex Oliveira",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Beneil Dariush",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Chuck Liddell",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Dong Hyun Kim",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Derek Brunson",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Cheick Kongo",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Cub Swanson",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Kelvin Gastelum",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Thiago Tavares",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Chris Camozzi",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "David Abbott",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "Sam Stout",
+    "numero_lutas": 18
+  },
+  {
+    "lutador": "John Makdessi",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Jon Fitch",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Fabricio Werdum",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Mark Hunt",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Court McGee",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Kenny Florian",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Carlos Condit",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Joseph Benavidez",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Anthony Johnson",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Mauricio Rua",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Gray Maynard",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Rich Franklin",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Dennis Bermudez",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Rafael Natal",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Gian Villante",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Georges St-Pierre",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Ricardo Lamas",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Matt Wiman",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Rani Yahya",
+    "numero_lutas": 17
+  },
+  {
+    "lutador": "Randa Markos",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Dan Hooker",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Kevin Lee",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Gilbert Burns",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Travis Browne",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Urijah Faber",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Alexander Gustafsson",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Drew Dober",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Martin Kampmann",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "John Lineker",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Marlon Vera",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Andre Fili",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Angela Hill",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Jessica Andrade",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Brandon Vera",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Joe Stevenson",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "John Dodson",
+    "numero_lutas": 16
+  },
+  {
+    "lutador": "Spencer Fisher",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Mark Munoz",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Jake Matthews",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Michael Chiesa",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Eddie Wineland",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Anthony Smith",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Walt Harris",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Alessio Sakara",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Chris Weidman",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Mike Swick",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Jussier Formiga",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Anthony Rocco Martin",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Matt Hamill",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Tim Elliott",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Ben Rothwell",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Aljamain Sterling",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Renan Barao",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Dan Henderson",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Louis Smolka",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Uriah Hall",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Cezar Ferreira",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Stephen Thompson",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Marcus Davis",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Robert Whittaker",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Erick Silva",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Evan Tanner",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Jorge Rivera",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Manvel Gamburyan",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Josh Neer",
+    "numero_lutas": 15
+  },
+  {
+    "lutador": "Mike Pierce",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Omari Akhmedov",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "James Vick",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Alan Belcher",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Jason MacDonald",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Mike Perry",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Bobby Green",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Aleksei Oleinik",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Sergio Pettis",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Yancy Medeiros",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Paul Felder",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Jan Blachowicz",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Jose Aldo",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Jessica Eye",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Demetrious Johnson",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Stipe Miocic",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Pedro Munhoz",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Raphael Assuncao",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Takeya Mizugaki",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Vicente Luque",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Nick Diaz",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Danny Castillo",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Sergio Moraes",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Li Jingliang",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "John Moraga",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Tyson Griffin",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Matt Mitrione",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Brad Pickett",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "John Howard",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Tyron Woodley",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Jacare Souza",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Corey Anderson",
+    "numero_lutas": 14
+  },
+  {
+    "lutador": "Khabib Nurmagomedov",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Daron Cruickshank",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Rustam Khabilov",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Al Iaquinta",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Kendall Grove",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Alan Jouban",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Belal Muhammad",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Gunnar Nelson",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Leon Edwards",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Krzysztof Jotko",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Zak Cummings",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "James Krause",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Chad Mendes",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Kamaru Usman",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Dustin Ortiz",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Wilson Reis",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Mark Bocek",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Amanda Nunes",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Chael Sonnen",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Stephan Bonnar",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Marcin Tybura",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Cortney Casey",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Tecia Torres",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Benson Henderson",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Antonio Carlos Junior",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Patrick Cummins",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Colby Covington",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Michel Prazeres",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Paulo Thiago",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Keith Jardine",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "George Roop",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Dan Miller",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Chris Cariaso",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Ilir Latifi",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Karo Parisyan",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Quinton Jackson",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Takanori Gomi",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Nikita Krylov",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "TJ Dillashaw",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Igor Pokrajac",
+    "numero_lutas": 13
+  },
+  {
+    "lutador": "Sam Sicilia",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Curtis Blaydes",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Rousimar Palhares",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Warlley Alves",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Kurt Pellegrino",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Scott Jorgensen",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Sean Strickland",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Alex Morono",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Kyle Noke",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Jack Hermansson",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Carla Esparza",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Phil Davis",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Thiago Silva",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Vladimir Matyushenko",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Olivier Aubin-Mercier",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Katlyn Chookagian",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Sara McMann",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Marion Reneau",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Felipe Arantes",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Myles Jury",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Joanne Calderwood",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Santiago Ponzinibbio",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Pedro Rizzo",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Trevor Smith",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Anthony Perosh",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Hector Lombard",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Pat Barry",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Cain Velasquez",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Matt Serra",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Rory MacDonald",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Sean Sherk",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Joe Riggs",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Yoel Romero",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Mark Coleman",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Joanna Jedrzejczyk",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Ray Borg",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Jeremy Horn",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Efrain Escudero",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Matthew Riddle",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Nordine Taleb",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Mac Danzig",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Gerald Meerschaert",
+    "numero_lutas": 12
+  },
+  {
+    "lutador": "Aaron Simpson",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Tom Lawlor",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Niko Price",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Marcos Rogerio de Lima",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Seth Baczynski",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Scott Holtzman",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Stevie Ray",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Alejandro Perez",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Devin Clark",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Jimi Manuwa",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Elizeu Zaleski dos Santos",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Kevin Holland",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Brian Stann",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Francisco Rivera",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Keita Nakamura",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Max Griffin",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Karolina Kowalkiewicz",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Daniel Cormier",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Alexis Davis",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Francis Ngannou",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Holly Holm",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Raquel Pennington",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Charlie Brenneman",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Amir Sadollah",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Forrest Griffin",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Jared Cannonier",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Godofredo Pepey",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Brendan Schaub",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Tim Sylvia",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Ricardo Almeida",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Claudia Gadelha",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Bryan Barberena",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Rogerio Nogueira",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Dan Severn",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Bethe Correia",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Darren Stewart",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "George Sotiropoulos",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Chas Skelly",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Elias Theodorou",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Terry Etim",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Brian Kelleher",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Wanderlei Silva",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Hermes Franca",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "TJ Grant",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Conor McGregor",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Henry Cejudo",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Gegard Mousasi",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Fabio Maldonado",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Eryk Anders",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "Rob Font",
+    "numero_lutas": 11
+  },
+  {
+    "lutador": "James Te Huna",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Joey Beltran",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Abel Trujillo",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Anthony Hamilton",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Dan Hardy",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Wilson Gouveia",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Lorenz Larkin",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "James Irvin",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Alex Garcia",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Ryan LaFlare",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Misha Cirkunov",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Peter Sobotta",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Deiveson Figueiredo",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Alex White",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Alexandre Pantoja",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Brandon Moreno",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Bryan Caraway",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Jimmie Rivera",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Paul Craig",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Valentina Shevchenko",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "DaMarques Johnson",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Israel Adesanya",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Gabriel Benitez",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Pat Miletich",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Lauren Murphy",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Roxanne Modafferi",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Josh Barnett",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Ramsey Nijem",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Khalil Rountree Jr.",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Michelle Waterson",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Rich Clementi",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Mirko Filipovic",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Diego Ferreira",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Daniel Kelly",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Jacob Volkmann",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Antonio Rodrigo Nogueira",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Frankie Saenz",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Dhiego Lima",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Randy Brown",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Erik Koch",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Enrique Barzola",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Danny Roberts",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Darren Till",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Yves Jabouin",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Chad Laprise",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Diego Brandao",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Renato Moicano",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Mirsad Bektic",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Shawn Jordan",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Constantinos Philippou",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Royce Gracie",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Matt Lindland",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Dustin Hazelett",
+    "numero_lutas": 10
+  },
+  {
+    "lutador": "Eric Schafer",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Kenny Robertson",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jamie Varner",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Islam Makhachev",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Leonardo Santos",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Tamdan McCrory",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Maximo Blanco",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Mairbek Taisumov",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Thomas Almeida",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Marvin Vettori",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jose Quinonez",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Volkan Oezdemir",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Daniel Omielanczuk",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Alessio Di Chirico",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Drew McFedries",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jason Knight",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Kyung Ho Kang",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Yair Rodriguez",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Paige VanZant",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Alexander Yakovlev",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jordan Mein",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Michael McDonald",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Felice Herrig",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Alexander Volkov",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Yuta Sasaki",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Liz Carmouche",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Sarah Moras",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Antonio Silva",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Cynthia Calvillo",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Miesha Tate",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Duane Ludwig",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Calvin Kattar",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Andrew Sanchez",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Makwan Amirkhani",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Luigi Fioravanti",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Daniel Pineda",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Teruto Ishihara",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Cody Garbrandt",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Ivan Menjivar",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Caol Uno",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Din Thomas",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Dennis Hallman",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Irene Aldana",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Lando Vannata",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Ken Shamrock",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Brian Ortega",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Chan Sung Jung",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Erik Perez",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Charles Rosa",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Francis Carmont",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Joe Doerksen",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Dan Ige",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Renato Sobral",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "David Loiseau",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Luiz Cane",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Paul Taylor",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Luke Rockhold",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Steven Siler",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Norman Parke",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Gillian Robertson",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jon Tuck",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Rony Jason",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Marc Diakiese",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "David Branch",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Nate Quarry",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Paul Kelly",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Roan Carneiro",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Josh Emmett",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "John Hathaway",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Jonathan Goulet",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Justin Scoggins",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Kyle Kingsbury",
+    "numero_lutas": 9
+  },
+  {
+    "lutador": "Aaron Riley",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "TJ Waldburger",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Robert Peralta",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Albert Tumenov",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Alan Patrick",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Roger Huerta",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jake Collier",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Cody Stamann",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Francimar Barroso",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jared Rosholt",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Sean Spencer",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Zak Ottow",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Alex Perez",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Alexa Grasso",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Cyrille Diabate",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Alexander Volkanovski",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Greg Hardy",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Matt Schnell",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ronda Rousey",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jens Pulver",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Kyoji Horiguchi",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Cory Sandhagen",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Marlon Moraes",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Petr Yan",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Leonard Garcia",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ashley Yoder",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Germaine de Randamie",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Phil Baroni",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Don Frye",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Hacran Dias",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Krzysztof Soszynski",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Anthony Njokuani",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Rafaello Oliveira",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ashlee Evans-Smith",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Shamil Abdurakhimov",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Tai Tuivasa",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Maryna Moroz",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Rose Namajunas",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Joe Soto",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Vinc Pichel",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Antoni Hardonk",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jack Marshman",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ryan Benoit",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Lina Lansberg",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Sijara Eubanks",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Chase Sherman",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Hatsu Hioki",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Chico Camus",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Brad Scott",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jason Lambert",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Siyar Bahadurzada",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Tom Breese",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Dong Hyun Ma",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Brian Ebersole",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ricky Simon",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Joe Proctor",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Sage Northcutt",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Mitch Gagnon",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Mickey Gall",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Paul Varelans",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Shane Burgos",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Christos Giagos",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Julianna Pena",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Marco Polo Reyes",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "JJ Aldrich",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jared Gordon",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Leandro Silva",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Nick Catone",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Vaughan Lee",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Dominick Reyes",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Marcus Brimage",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Douglas Silva de Andrade",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ryan Jensen",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Nick Hein",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jake Shields",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Justin Gaethje",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Joe Duffy",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Pete Williams",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Ion Cutelaba",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Russell Doane",
+    "numero_lutas": 8
+  },
+  {
+    "lutador": "Jorge Gurgel",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Justin Salas",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Cody McKenzie",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Vitor Miranda",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mike Rodriguez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Adriano Martins",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kajan Johnson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ricardo Ramos",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mitch Clarke",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Rodrigo Damm",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Yoshihiro Akiyama",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Arnold Allen",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Damir Hadzovic",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Andre Soukhamthath",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Brett Johns",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ildemar Alcantara",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Song Yadong",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Justin Ledet",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Aleksandar Rakic",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kailin Curran",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Maurice Greene",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Eric Spicely",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Elvis Sinosic",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Roland Delorme",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Nicolas Dalby",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mark De La Rosa",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Artem Lobov",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Lucas Martins",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jared Hamman",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Alexander Hernandez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Nasrat Haqparast",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mizuto Hirota",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Timothy Johnson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "George Sullivan",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Roosevelt Roberts",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Neil Seery",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ali Bagautinov",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Brock Lesnar",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jairzinho Rozenstruik",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Johnny Eduardo",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ben Nguyen",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Leslie Smith",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Cat Zingano",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Cristiane Justino",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Andre Ewell",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jonathan Martinez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Gary Goodridge",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Luke Sanders",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Montana De La Rosa",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jake O'Brien",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ricco Rodriguez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ivan Salaverry",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Andrew Craig",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Gregor Gillespie",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Markus Perez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Clint Hester",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Hannah Cifers",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Nina Ansaroff",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Oleg Taktarov",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jeff Monson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ryan Jimmo",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Sean O'Connell",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Eddie Alvarez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Gilbert Melendez",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Lucie Pudilova",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Trevin Giles",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kevin Casey",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Soa Palelei",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Davi Ramos",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Yaotzin Meza",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Bec Rawlings",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Ketlen Vieira",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kevin Randleman",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Drakkar Klose",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Frank Camacho",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Josh Thomson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Maurice Smith",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Merab Dvalishvili",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jason Brilz",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mike Easton",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Caio Magalhaes",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Tom Watson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Brandon Davis",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kyle Bochniak",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Kai Kara-France",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Justin Edwards",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Forrest Petz",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mike de la Torre",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mike Massenzio",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Chris Wade",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Juliana Lima",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Pete Spratt",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Dominick Cruz",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Casey Kenney",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Karl Roberson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Michihiro Omigawa",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mark Hominick",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Desmond Green",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Daniel Roberts",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Davey Grant",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Nam Phan",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Mara Romero Borella",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Reza Madadi",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Hyun Gyu Lim",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Rob Kimmons",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Matt Grice",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Julian Erosa",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Zubaira Tukhugov",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Drew Fickett",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Zach Makovsky",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Luke Cummo",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Phillipe Nover",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Eugene Jackson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Jerry Bohlander",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Rob Emerson",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Luis Pena",
+    "numero_lutas": 7
+  },
+  {
+    "lutador": "Abdul Razak Alhassan",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Shonie Carter",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Andy Ogle",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Akira Corassani",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Piotr Hallmann",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Jorge Santiago",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Richard Walsh",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Damien Brown",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Albert Morales",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Nicholas Musoke",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ramazan Emeev",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Matthew Lopez",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "John Phillips",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Bojan Velickovic",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Dean Lister",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Houston Alexander",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Edwin Figueroa",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Jimy Hettes",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "James Moontasri",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Song Kenan",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "KJ Noons",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Eric Shelton",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Jordan Espinosa",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ji Yeon Kim",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Thiago Moises",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Jennifer Maia",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Hugo Viana",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Amanda Cooper",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Mackenzie Dern",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Megan Anderson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Marina Rodriguez",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Travis Lutter",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Chris Gutierrez",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Nathaniel Wood",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Montel Jackson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Andre Winner",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Andrea Lee",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ian Freeman",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Paul Buentello",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Luke Barnatt",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Lyman Good",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Joaquim Silva",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Thibault Gouti",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Yan Xiaonan",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Todd Duffee",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Fabricio Camoes",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Johnny Case",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Rashid Magomedov",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Pat Healy",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Eddie Sanchez",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ian Heinisch",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Daniel Sarafian",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Scott Askham",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Molly McCann",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Shana Dobson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Luis Henrique",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Justine Kish",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Yana Kunitskaya",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Cathal Pendred",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Hakeem Dawodu",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Diego Nunes",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tsuyoshi Kohsaka",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Guido Cannetti",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Geoff Neal",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Brandon Thatch",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Gavin Tucker",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Carlos Newton",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Claudio Silva",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Zabit Magomedsharipov",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Eliot Marshall",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Brock Larson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Brian Johnston",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Damian Stasiak",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Steve Cantwell",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Shane Carwin",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Karlos Vemola",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Nick Ring",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Fabiano Iha",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Dooho Choi",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "David Teymur",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Dustin Pague",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Terry Martin",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Marcus Aurelio",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tatsuya Kawajiri",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Johnny Walker",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Magomed Ankalaev",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Mike Brown",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Dave Menne",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tomasz Drwal",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Marco Beltran",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Pablo Garza",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Rick Glenn",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Frank Trigg",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ryan Spann",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Sean Pierson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tarec Saffiedine",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tony DeSouza",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Valerie Letourneau",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Polyana Viana",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Mike Russow",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Magnus Cedenblad",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Gadzhimurad Antigulov",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Paulo Costa",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Oskar Piechota",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Jason Saggo",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Gina Mazany",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Macy Chiasson",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Henrique da Silva",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Tyson Pedro",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Shane Roller",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Pete Sell",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Marco Ruas",
+    "numero_lutas": 6
+  },
+  {
+    "lutador": "Ronny Markes",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jordan Rinaldi",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Chris Gruetzemacher",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Alex Chambers",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Kalib Starnes",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Manny Bermudez",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Remco Pardoel",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Emily Whitmire",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Junior Albini",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Viktor Pesta",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Garreth McLellan",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Oluwale Bamgbose",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Steven Peterson",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Livinha Souza",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Muslim Salikhov",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Maycee Barber",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tatiana Suarez",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Sabina Mazo",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Viviane Araujo",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Augusto Sakai",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Justin Willis",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Amanda Ribas",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Brad Blackburn",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Bryce Mitchell",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Charles Jourdain",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Sheymon Moraes",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Bartosz Fabinski",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Sean O'Malley",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Veronica Macedo",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tanner Boser",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Andrew Holbrook",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Anthony Birchak",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Yoshiyuki Yoshida",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jason High",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Christian Wellisch",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Vinny Magalhaes",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jess Liaudin",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Antonina Shevchenko",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Ariane Lipski",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dave Herman",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Heath Herring",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Matt Frevola",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dave Beneteau",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Aspen Ladd",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Blagoy Ivanov",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Austin Hubbard",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Youssef Zalal",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jessica-Rose Clark",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Curtis Millender",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Pannie Kianzad",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Sam Hoger",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Ian McCall",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Magomed Mustafaev",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dylan Andrews",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dongi Yang",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Edmen Shahbazyan",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Riki Fukuda",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Giga Chikadze",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "James Head",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Brian Foster",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jalin Turner",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Matheus Nicolau",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Johnny Bedford",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Josh Samman",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tim Credeur",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Maki Pitolo",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Serghei Spivac",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Raoni Barcelos",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jonathan Brookins",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Kevin Aguilar",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Daniel Teymur",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dustin Kimura",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Chris Beal",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Chris Clements",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Paddy Holohan",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tim Hague",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Ciryl Gane",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jessica Aguilar",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Shannon Gugerty",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Henry Briones",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Justin Buchholz",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "David Heath",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Dominique Steele",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Poliana Botelho",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Cyril Asker",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "John Maguire",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Damon Jackson",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Julio Arce",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Robert Whiteford",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Rich Attonito",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Kiichi Kunimoto",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Danielle Taylor",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Zhang Weili",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Paul Sass",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Michel Pereira",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Phil Harris",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Grant Dawson",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Kimo Leopoldo",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Junior Assuncao",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "David Mitchell",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Yan Cabral",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Naoyuki Kotani",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Katsunori Kikuno",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "John Alessio",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Marvin Eastman",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Nick Osipczak",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "John Albert",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Elias Silverio",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Shane Campbell",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Frank Shamrock",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Michal Oleksiejczuk",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Joby Sanchez",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jon Madsen",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Rafael Cavalcante",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Leandro Issa",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tyson Nam",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Jimmy Crute",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Michinori Tanaka",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Louis Gaudinot",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Patrick Smith",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tae Hyun Bang",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Tim Kennedy",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Philip De Fries",
+    "numero_lutas": 5
+  },
+  {
+    "lutador": "Mario Miranda",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "David Zawada",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tor Troeng",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris de la Rocha",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Adam Milstead",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jordan Johnson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Arjan Bhullar",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Aiemann Zahabi",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Vince Morales",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Akbarh Arreola",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tiago dos Santos e Silva",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Brendan O'Reilly",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Dwight Grant",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Matt Dwyer",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jim Alers",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alberto Mina",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Shinsho Anzai",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Patrick Williams",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Aleksandra Albu",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Aleksei Kunchenko",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Joaquin Buckley",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Martin Bravo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rolando Dy",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alex Nicholson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Will Brooks",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jeremy Kennedy",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Clay Collard",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rafael Fiziev",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Shane Young",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Joel Alvarez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Gan McGee",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Askar Askarov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Sarah Kaufman",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Geane Herrera",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Cody Gibson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alonzo Menifield",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Vinicius Moreira",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alptekin Ozkilic",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Darren Uyenoyama",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Devin Powell",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alvaro Herrera Mendoza",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Alvin Robinson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Amanda Lemos",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Felicia Spencer",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Martin Day",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Nad Narimani",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Sodiq Yusuff",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ron Waterman",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Su Mudaerji",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Justin Eilers",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marcio Cruz",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Wesley Correira",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marc-Andre Barriault",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ryan Janes",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marcelo Guimaraes",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Josh Grispi",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jodie Esquibel",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Daniel Spitz",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Anthony Hernandez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kevin Burns",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Justin McCully",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Deron Winn",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Miguel Torres",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Eddie Gordon",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Antonio Carvalho",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Juan Adams",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marcelo Golm",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Arman Tsarukyan",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ryan Hall",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Syuri Kondo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Austin Arnett",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Humberto Bandenay",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Bart Palaszewski",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Emil Meek",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Seo Hee Ham",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chance Rencountre",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Takashi Sato",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Fredy Serrano",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Papy Abedi",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jessamyn Duke",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Bevon Lewis",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Dequan Townsend",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jenel Lausa",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rogerio Bontorin",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Billy Quarantillo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kyle Nelson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tiki Ghosn",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Bobby Voelker",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Lance Benoist",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "William Macario",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Joachim Christensen",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Sultan Aliev",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Khalid Taha",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Edgar Garcia",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ryo Chonan",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Brad Katona",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tra Telligman",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Michael Kuiper",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Brendan Allen",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mike Wilkinson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Vik Grujic",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Zhang Lipeng",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris Tuchscherer",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Lavar Johnson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Brian Bowles",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Claude Patrick",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Viscardi Andrade",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Bruno Silva",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Goran Reljic",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Leonardo Mafra",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris Fishgold",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jason Dent",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Virna Jandiroba",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Carmelo Marrero",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Gasan Umalatov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Yosdenis Cedeno",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Trevor Prangley",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ismail Naurdiev",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Charles Byrd",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Edimilson Souza",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jordan Griffin",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tom Niinimaki",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rashad Coulter",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Che Mills",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris Kelades",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Dustin Jacoby",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Danny Martinez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Will Campuzano",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Keith Wisniewski",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris Dempsey",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jonathan Wilson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kyle Bradley",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Frankie Perez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Chris Wilson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Sean Brady",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Christian Morecraft",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Guy Mezger",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Murilo Bustamante",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "James Wilks",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ricardo Funch",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Cody Donovan",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Vagner Rocha",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Cody Pfister",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Terrion Ware",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Colton Smith",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mario Bautista",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Cristiano Marcello",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kazuki Tokudome",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Cung Le",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Khadis Ibragimov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mike Guymon",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Luke Jumeau",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Pingyuan Liu",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marcin Held",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mark Kerr",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mark Eddiva",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Danny Henry",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Daniel Rodriguez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mark Godbeer",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jessica Penne",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Richie Vaculik",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Igor Araujo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Darko Stosic",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jeremy Kimball",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mike Rio",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Darrell Horcher",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Willie Gates",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Zhang Tiequan",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jessin Ayari",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Norifumi Yamamoto",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Scott Ferrozzo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Gerald Harris",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Scott Smith",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jarred Brooks",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Nate Mohr",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Devonte Smith",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Justin Jaynes",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Diego Rivas",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Noad Lahat",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mark Hall",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Tony Fryklund",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ken Stone",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jason Gonzalez",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jon Delos Reyes",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Hector Sandoval",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jason Young",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Isaac Vallie-Flagg",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Elizabeth Phillips",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Keith Hackney",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Movsar Evloev",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Luan Chagas",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Taylor Lapilus",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jerrod Sanders",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kuniyoshi Hironaka",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Reuben Duran",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Renee Forte",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jesse Ronson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kevin Jackson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Yao Zhikui",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "SeungWoo Choi",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jay Hieron",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Saparbeg Safarov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mayra Bueno Silva",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rachael Ostovich",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Wu Yanan",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Guangyou Ning",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Laureano Staropoli",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Pascal Krauss",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Talita Bernardo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Vanessa Melo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Ivan Jorge",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Lauren Mueller",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Klidson Abreu",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Viviane Pereira",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Rory Singer",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Jeff Hughes",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Mike van Arsdale",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Walel Watson",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Josh Sampo",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Said Nurmagomedov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Raulian Paiva",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Seth Petruzelli",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Marcin Prachnio",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Kurt Holobaugh",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Priscila Cachoeira",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Stanislav Nedkov",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Teemu Packalen",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Waylon Lowe",
+    "numero_lutas": 4
+  },
+  {
+    "lutador": "Spike Carlyle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Aaron Phillips",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Matt Hobar",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Shane Nelson",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Aaron Rosa",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Khaos Williams",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bojan Mihajlovic",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Marcus LeVesseur",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Tony Sims",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Adam Wieczorek",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Gustavo Lopez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Reginaldo Vieira",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Aisling Daly",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Akihiro Gono",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Tom Aspinall",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Denis Kang",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason Day",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Garett Whiteley",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Benito Lopez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ian Entwistle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Loma Lookboonmee",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Chris Daukaus",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Julian Marquez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Makhmud Muradov",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Chase Hooper",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Cole Escovedo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Damacio Page",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mackens Semerzier",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Masanori Kanehara",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Masio Fullen",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Nadia Kassem",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Alex Da Silva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Brad Riddell",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Damir Ismagulov",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason Von Flue",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Alex Karalexis",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Carlo Pedersoli Jr.",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dan Moret",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Estevan Payan",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Heather Clark",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Yuki Kondo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Irwin Rivera",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Marcos Vinicius",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Sergei Pavlovich",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Augusto Mendes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Allen Crowder",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Angela Magana",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Miranda Granger",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Anderson Dos Santos",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jeremy Larsen",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rolando Delgado",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Wellington Turman",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Andy Enz",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Damian Grabowski",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Marcel Fortuna",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ruan Potts",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Junyong Park",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rodolfo Vieira",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Antonio Braga Neto",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Elvis Mutapcic",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Anton Kuivanen",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mads Burnell",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Tonya Evinger",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Assuerio Silva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Augusto Montano",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Hector Urbina",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Heili Alateng",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ben Alloway",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ben Askren",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Gilbert Yvel",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Benji Radach",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Steve Berger",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Henry Martinez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Simeon Thoresen",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bibulatov Magomed",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bobby Hoffman",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bobby Moffett",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bobby Nash",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Michael Graves",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Randy Costa",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Brad Imes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Hunter Azure",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Robert McDaniel",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Branden Lee Hinkle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Brandon Royval",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Brian Camozzi",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rodney Wallace",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rory Markham",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Brok Weaver",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Bruno Santos",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Matt Sayles",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason Miller",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Luke Zachrich",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Cal Worsham",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Callan Potter",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kyler Phillips",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Carlo Prater",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Carlos Eduardo Rocha",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kris McCray",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Carlos Felipe",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Justin Tafa",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Yorgan De Castro",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Renato Verissimo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kennedy Nzechukwu",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Charles McCarthy",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Gideon Ray",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Darrick Minner",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Sean Soriano",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ike Villanueva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Chris Cope",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mostapha Al-Turk",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Gil Castillo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Iliarde Santos",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Geraldo de Freitas",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Edwin DeWees",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jake Rosholt",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Steve Bruno",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Christian Colombo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Sean McCorkle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Don'Tale Mayes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Raphael Pessoa",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Claudio Puelles",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Felipe Silva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Clay Harvison",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Clifford Starks",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Tom Duquesnoy",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dan Lauzon",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Cole Smith",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Miles Johns",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason Witt",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mike Ricci",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dale Hartt",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Corey Hill",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Josh Stansbury",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Marcio Alexandre Junior",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Curt Warburton",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dmitrii Smoliakov",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Da-Un Jung",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Daichi Abe",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Daiju Takase",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kenichi Yamamoto",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dalcha Lungiambula",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Levan Makashvili",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Matt Arroyo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mike Santiago",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "John Salter",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Herbert Burns",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Justin Lawrence",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Greg Soto",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jesse Lennox",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "John Cholish",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Shamar Bailey",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Nathan Coy",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Zelim Imadaev",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jamahal Hill",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Darrell Montague",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Eduardo Garagorri",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Nate Landwehr",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "James McSweeney",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Royston Wee",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Steve Jennum",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Yoji Anjo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "David Bielkheden",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Johnny Rhodes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mark Weir",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "David Michaud",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "David Terrell",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Joseph Morales",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Khama Worthy",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Liana Jojua",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Diego Saraiva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Felipe Colares",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Journey Newson",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Dominic Waters",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Omar Morales",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jeff Hougland",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Lerone Murphy",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Genki Sudo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Paul Daley",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Maxim Grishin",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jared Papazian",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Sheldon Westcott",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason Reinhardt",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ernest Chavez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Roger Narvaez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Milana Dudieva",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jamie Moyle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Erick Montano",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rob MacDonald",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mike Rhodes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mikey Burnett",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Per Eklund",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Laverne Clark",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Hans Stringer",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Glaico Franca Moreira",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jerome Rivera",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Francisco Trevino",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Matt Veach",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Gabe Ruediger",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Khamzat Chimaev",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Lukasz Sajewski",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mike Davis",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Taila Santos",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Julia Avila",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jinh Yu Frey",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Michael Trizano",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mallory Martin",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Harold Howard",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Hector Aldana",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Miguel Baeza",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ian Loveland",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Issei Tamura",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Nick Pace",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jake Hecht",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jake Lindsey",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mike Kyle",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Valmir Lazaro",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ricardo Romero",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Steve Bosse",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Robert Sanchez",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jason DeLucia",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jeff Curran",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Tim Lajcik",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jesse Forbes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kalindra Faria",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Kamal Shalorus",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jocelyn Jones-Lybarger",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ron Stallings",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Roman Dolidze",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "John Gunderson",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Wuliji Buren",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Karol Rosa",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Ruslan Magomedov",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Josh Haynes",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Jumabieke Tuerxun",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rameau Thierry Sokoudjou",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Yui Chul Nam",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Salim Touahri",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Thiago Perpetuo",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Pawel Pawlak",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Roman Salazar",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Mickael Lebout",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Niklas Backstrom",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Rob Broughton",
+    "numero_lutas": 3
+  },
+  {
+    "lutador": "Aalon Cruz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jack Shore",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Brammer",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Charlie Ward",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mounir Lazzez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sabah Homasi",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Roger Bowling",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Adlan Amagov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Adrian Yanez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Juan Manuel Puig",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ericka Almeida",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ryan Couture",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sean Salmon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alan Omer",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anying Wang",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anthony Lapsley",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alberto Crane",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alberto Uda",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Aleksa Camur",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alen Amedovski",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Vedepo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Victor Valimaki",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Amaury Bitetti",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kevin Croom",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kron Gracie",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Motonobu Tezuka",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kazula Vargas",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ben Wall",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alex Hunter",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rhys McKee",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Carls John De Tomas",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jose Torres",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alex Ricci",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alex Soto",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Yusuke Kasuya",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alexandr Romanov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Roque Martinez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alexandre Dantas",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Manel Kape",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rosi Sexton",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Alexis Dufresne",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ali AlQaisi",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tony Kelley",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Gunther",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anna Elmose",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Inoue Mizuki",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Shayna Baszler",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sheila Gaff",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Amar Suloev",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Amilcar Alves",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Malcolm Gordon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Amir Albazi",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Zhalgas Zhumagulov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jorge Lopez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Andre Gusmao",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Antonio Arroyo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Andre Muniz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Andre Roberts",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Modestas Bukauskas",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Andreas Stahl",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Philipe Lins",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Andrei Semenov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Emily Kagan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ansar Chalangov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dileno Lopes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anthony Christodoulou",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anthony Ivy",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Christian Aguilera",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chad Reiner",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tommy Speer",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anthony Macias",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Guto Inocente",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nick Penner",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Leonardo Guimaraes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anthony Torres",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Anton Zafir",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Colin Robinson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Antonio Dos Santos",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Antonio Mendes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Luana Carolina",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Avila",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ashkan Mokhtarian",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Norma Dumont",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Heatherly",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Solecki",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kyle Prepolec",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mark Madsen",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jacob Kilburn",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Austin Lingo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Azamat Gashimov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Barb Honchak",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bas Rutten",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Batgerel Danaa",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bea Malecki",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Lisa Ellis",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brandon Wolff",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ryan Thomas",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ben Sosoli",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bernardo Magalhaes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Besam Yousef",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Julie Kedzie",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bill Algeo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Boston Salmon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brad Gumm",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dan Christison",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brad Kohler",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Judson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brad Morris",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jamie Mullarkey",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Fabiano Scherner",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Michael Patt",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Reese Andy",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kyle Daukaus",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chase Gormley",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kwan Ho Kwak",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tony Gravely",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brian Houston",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dan Bobish",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ode Osbourne",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ray Rodriguez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brian Melancon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brianna Van Buren",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bristol Marunde",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brock Jardine",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Brodie Farber",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "David Dvorak",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Ellenberger",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Bubba Bush",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Buddy Roberts",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Byron Bloodworth",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jay Silva",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jesse Taylor",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "CJ Keith",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "CM Punk",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Jackson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cain Carrizosa",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Denis Stojnic",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Carlos Huachin",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Naoki Inoue",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Carlton Minus",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Matthew Semelsberger",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cesar Arzamendia",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chad Griggs",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Galore Bofando",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chan-Mi Jeon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kyle Stewart",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Josh Culibao",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Eric Wisely",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Peter Barrett",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dan Evensen",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Gilbert Aldana",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Holdsworth",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tateki Matsuda",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Brennan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Josh Ferguson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Parker Porter",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rodrigo Nascimento",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cody Durden",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ryan MacDonald",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Indich",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Keith Rockel",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jason Gilliam",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Chris Price",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mehdi Baghdad",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jesse Bongfeldt",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jarjis Danho",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Christophe Leninger",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jorge de Oliveira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Paul Jones",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Vernon White",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Marcos Mariano",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cole Williams",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Samy Schiavo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cody East",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jonathan Meunier",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Wagner Silva",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Junie Browning",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "TJ O'Brien",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Colin Fletcher",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Justin Jones",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Matt Van Buren",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Veres",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Cristina Stanciu",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kay Hansen",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Crafton Wallace",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Craig White",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Curtis Stout",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Pearl Gonzalez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Hu Yaozong",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tom DeBlass",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ilia Topuria",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dan Cramer",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Matt Horwich",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Charles",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dan Stittgen",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Daniel Jolly",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Patrick Walsh",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Montgomery",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Pat Schilling",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Gabe Green",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danilo Belluardo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danilo Marques",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danny Abbadi",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danny Chavez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "TJ Brown",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danny Downes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sirwan Kakai",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Danny Mitchell",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sai Wang",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Oliver Enkamp",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Wendell Oliveira Marques",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dashon Johnson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Todd Medina",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jon Olav Einemo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dave Strasser",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Grigory Popov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sam Adkins",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Nelmark",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Travis Fulton",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "David Dodd",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "David Kaplan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "David Lee",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jason Novelli",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Melinda Fabian",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jordan Radev",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Xavier Foupa-Pokam",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Te Edwards",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tommy Hayden",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dusko Todorovic",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Derrick Krantz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jack May",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jesus Pinedo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Diana Belbita",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joey Gambino",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steven Graham",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dokonjonosuke Mishima",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Domingo Pilarte",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Don Madge",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Fares Ziam",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jason Tan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Donny Walker",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Roman Mitichyan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Doug Evans",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Punahele Soriano",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jose Maria",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Dwayne Cason",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Castaneda",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Eddie Yagin",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Edilberto de Oliveira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ednaldo Oliveira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Lullo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Edward Faaloloto",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rodrigo de Lima",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Eiji Mitsuoka",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Elias Garcia",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joao Zeferino",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Luigi Vendramini",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Horacio Gutierrez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Matt Bessette",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Enrique Marin",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Royce Alger",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Luis Ramos",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Takenori Sato",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tim Williams",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Justin Levens",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Lance Gibson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Valeri Ignatov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Roger Hollett",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Zarah Fairn",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Milton Vieira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Fernando Bruno",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Hector Ramirez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sammy Morgan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Wes Sims",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nolan Ticman",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kevin Jordan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Konstantin Erokhin",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Gabriel Silva",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joseph Gigliotti",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Larissa Pacheco",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jamall Emmers",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sarah Frota",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jeff Cox",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Gokhan Saki",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mariya Agapova",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Hayder Hassan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Hernani Perpetuo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kevin Ferguson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ramiro Hernandez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tedd Williams",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Todd Brown",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jordan Wright",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Slick",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Richardson Moreira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Wagner Prado",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Impa Kasanganay",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Leo Kuntz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rob Wilkinson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Josh Shockley",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "JC Cottrell",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nohelin Hernandez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Phil Hawes",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ronys Torres",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ricardo Abreu",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rostem Akman",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Vince Cachero",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "James Bochnovic",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Phillip Miller",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Michel Quinones",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "War Machine",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Josh Copeland",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jason Black",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jason Godsey",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Juan Espino",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Lewis",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jeremy Jackson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jessica Rakoczy",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jim Wallhead",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Lopez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jin Soo Son",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jonathan Pearce",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joe Moreira",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joey Gomez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Allan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Cofer",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mark Holst",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "John Halverson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Yasuhiro Urushitani",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kyle Watson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Pat Audinwood",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ulysses Gomez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nate Maness",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nate Loughran",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Johnny Rees",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Roldan Sangcha'an",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kai Kamaka",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jonavin Webb",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nassourdine Imavov",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Leonardo Morales",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joselyne Edwards",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Joseph Sandoval",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nick Denis",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Semmy Schilt",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Josh Clopton",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sean Woodson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nicco Montano",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Julija Stoliarenko",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Julio Paulino",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Jutaro Nakao",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nick Thompson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Lara Procopio",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Katsuhisa Fujii",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Quinn Mulhern",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kazuhiro Nakamura",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Keith Berish",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Kelly Faszholz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ottman Azaitar",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Luiz Dutra",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Koji Oishi",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Razak Al-Hassan",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Larry Cureton",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rin Nakai",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Lucio Linhares",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mats Nilsson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Luke Caudillo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Marcin Bandel",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Trevin Jones",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Moti Horenstein",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Timur Valiev",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Michael McBride",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Ciesnolevicz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Thomas Gifford",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Grundy",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Nickels",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Wes Combs",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Paul Bradley",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Mike Stumpf",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Townsend Saunders",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Paul Redmond",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tim Gorman",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ricky Rainey",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Nah-Shon Burrell",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Yuri Villefort",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Oli Thompson",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Orlando Wiet",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Shane Howell",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Shane del Rosario",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Scott Morris",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Troy Mandaloniz",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Kennedy",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Yoislandy Izquierdo",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Travis Wiuff",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Rob Yundt",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Ross Pointon",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Steve Steinbeiss",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Sergey Khandozhko",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Suman Mokhtarian",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Tracy Cortez",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Zarrukh Adashev",
+    "numero_lutas": 2
+  },
+  {
+    "lutador": "Uros Medic",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Aaron Brink",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Matt Lucas",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tim McKenzie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Aaron Wilkinson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Abdul-Kerim Edilov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Abner Lloveras",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Abu Azaitar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Abubakar Nurmagomedov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Adam Cella",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Adam Yandiev",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Spang",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Adrian Serrano",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Victor Rodriguez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tulio Palhares",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Adriano Santos",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Drako Rodriguez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alan Baudot",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jared Gooden",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Albert Cheng",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alberta Cerra Leon",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "William Knight",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Izabela Badurek",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Lee",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ron Faircloth",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Andrade",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Austin Springer",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Wang Guan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Gorgees",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Harry Moskowitz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sam Fulton",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Josh Rafferty",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joe Merritt",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Shavkat Rakhmonov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Reyes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Schoenauer",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mark Hughes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Stiebling",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alex Torres",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alexander Munoz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alexandre Barros",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alexandre Ferreira",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cindy Dandois",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Alfonso Alcarez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Allan Goes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Allan Zuniga",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Allen Berube",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Vernon Ramos Ho",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Andre Pederneiras",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Andreas Michailidis",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jon Hess",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Andy Anderson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Andy Wang",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ariane Carnelossi",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Anistavio Medeiros",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tom Blackledge",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Felipe Olivieri",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mike Wessel",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sherman Pendergarst",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Antonio Banuelos",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Antonio McKee",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Isabela de Padua",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ariel Beck",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Asbel Cancio",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Max Rohskopf",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Azunna Anyanwu",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joey Gilbert",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Paul Creighton",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Duda Santana",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Manuel Rodriguez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ben Earwood",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dan Barrera",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nick Serra",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bentley Syler",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bharat Kandare",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bill Mahood",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Billy Miles",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bob Cook",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bob Gilstrap",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mark Robinson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bobby Southworth",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Giboo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "CJ Fernandes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jay Cucciniello",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sean Gannon",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Brandon Melendez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Brendan Loughnane",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Brian Cobb",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Brian Gassaway",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Brian Geraghty",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Reza Nasri",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Scott Fiedler",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jesse Sanders",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Bruno Rodrigues",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "JP Buys",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tagir Ulanbekov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dustin Neace",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tyler Diamond",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Khalid Murtazaliev",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Zane Frazier",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cale Yarbrough",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cameron Dollar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cameron Else",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Carlos Barreto",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Carlos Ulberg",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Caros Fodor",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Casey O'Neill",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mike King",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcelo Rojo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Charlie Ontiveros",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Charlie Valencia",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cheyanne Buys",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Montserrat Conejo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Hammortree",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Condo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chuck O'Neil",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Haseman",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jason Thacker",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Liguori",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ronald Jhun",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Sanford",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Saunders",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Chris Tickle",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Scott Junk",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Christina Marks",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Noe Hernandez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tina Lahdemaki",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Justin James",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jimmy Flick",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Collin Hart",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cory Hendricks",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cory McKenna",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Cory Walmsley",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Maciej Jewtuszko",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Filip Pejic",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Michael Chandler",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcus Bossett",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nandor Guelmino",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Eddie Mendez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Daniel Spohn",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sung Bin Jo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Danillo Villefort",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dante Rivera",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Darrel Gholar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "TJ Laramie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Darrill Schoonover",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dave Galera",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Romie Aram",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Hugo Duarte",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Matua",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "David Baron",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tyrone Roberts",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Scott Bessac",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "David Hood",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "David Levicki",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcelo Mello",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "David Roberts",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Martin Svensson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "David Velasquez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "DeAnna Bennett",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Yuki Sasaki",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Delson Heleno",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Derek Downey",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Derrick Noble",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rodolfo Rubio Perez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Geza Kalman",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dieusel Berto",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dmitri Stepanov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dmitry Sosnovskiy",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Thomas Ramirez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Donnie Chappell",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dorian Price",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dricus Du Plessis",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Stevie Lynch",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Dustin Stoltzfus",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Houston Dorr",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jimmy Quinlan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ebenezer Fontes Braga",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Eddie Ruiz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mario Neto",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jules Bruchez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Emmanuel Yarborough",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Enson Inoue",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ernie Verdicia",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Keiichiro Yamamiya",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sanae Kikuta",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Eugenio Tadeu",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Homer Moore",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Phil Johns",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Fabio Gurgel",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Falaniko Vitale",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Felix Lee Mitchell",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Flavio Luiz Moura",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Floyd Sword",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Francisco Figueiredo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jai Herbert",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Frank Caracci",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Frank Hamaker",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Thaddeus Luster",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Frank Lester",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roberto Traven",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Igor Zinoviev",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Lober",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Fred Ettish",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Fredson Paixao",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Philip Rowe",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Humberto Brown Morrison",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Josh Hendricks",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Gaetano Pirrello",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Campetella",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mark Schultz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Paul Herrera",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Leigh Remedios",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Maiquel Falcao",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Gerald Strebendt",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Gerry Harris",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jamey Simmons",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Gilbert Smith",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Gloria de Paula",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Greg Stott",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jianping Yang",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Guilherme Vasconcelos",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mateusz Gamrot",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Guram Kutateladze",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jason Fairn",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Dowdy",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Yoshinori Horie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Hannah Goldy",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roland Payne",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Harry Hunsucker",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Hayato Sakurai",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joe Jordan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Richard Crunkilton",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Teixeira",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nate Schroeder",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Scott Adams",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tyler Toner",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tom Murphy",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Icho Larenas",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ikuhisa Minowa",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Pedro Nobre",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ivan Serati",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jack Nilson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Saeed Hosseini",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jacob Malkoun",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Josh Shockman",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kristof Midoux",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tom Gallicchio",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Mulheron",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Toney",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "James Zikic",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tafon Nchukwi",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jamie Pickett",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jamie Yager",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nick Roehrick",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jared Rollins",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jared Vanderaa",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Scott Baker",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Javier Vazquez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jeff Joslin",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jeff Newton",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joao Roque",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jermaine Andre",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nick Sanzo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rainy Martinez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Peggy Morgan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jesse Strader",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sarah Alpar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jim Mullen",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jiri Prochazka",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joao Pierini",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nazareno Malegarie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joe Giannetti",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Yuri Vaulin",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joe Pardo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joe Son",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rolles Gracie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sione Latu",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Joey Roberts",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tom Egan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Kolosci",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Lowell Anderson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Marsh",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "John Polakowski",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Johnny Munoz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Justin Wren",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jon Manley",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Paul Georgieff",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jonathan Wiezorek",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Wade Shipp",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jordan Leavitt",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jordan Williams",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Jorge Patino",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Lee Murray",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nissen Osterneck",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Josh Bryant",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Josh Parisian",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Justin Frazier",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcin Wrzosek",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Julian Sanchez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Leah Letson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "KB Bhullar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kanako Murata",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Karine Gevorgyan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roman Kopylov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Masutatsu Yano",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kazushi Sakuraba",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcus Silveira",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Keigo Kunihara",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Robert Drysdale",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kerry Schall",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mike Whitehead",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kelly Dullanty",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kit Cope",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Todd Butler",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kevin Natividad",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Shamil Gamzatov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Koji Kitao",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Kristian Rothaermel",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Shane Primm",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sako Chivitchian",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Shunichi Shimizu",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Liliya Shakirova",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Lewis Gonzalez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roman Bogatov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Miranda Maverick",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Lodune Sincaid",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Logan Clark",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Steve Byrnes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Louis Cosce",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sasha Palatnikov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ludovit Klein",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Solomon Hutcherson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Richie Smullen",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Steve Garcia",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Shanna Young",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Maia Stevenson",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Victoria Leonardo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Manon Fiorot",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcelo Aguiar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Wagner Campos",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ryan Roberts",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Stephen Bass",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Marcus Jones",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mark Scanlon",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mark Striegl",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Mason Jones",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rafael Carino",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Matt Andersen",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rex Holman",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Renzo Gracie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Michel Batista",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ramiz Brahimaj",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Will Chope",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Melton Bowen",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rick Davis",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tristan Connelly",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Neil Grove",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Steve Vigneault",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Minoki Ichihara",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rafa Garcia",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Neil Wain",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nick Agallar",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Nicolae Negumereanu",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Niklas Stolze",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Robert Lucarelli",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ray Wizard",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rudyard Moncayo",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Paul Rodriguez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Zach Light",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Stefan Sekulic",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tony Halme",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ryan Parker",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Richie Hightower",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Vinicius Queiroz",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rocky Lee",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Rodrigo Ruas",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roger Gracie",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Roger Zapata",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Satoshi Honma",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ron van Clief",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ronnie Lawrence",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ryan Madigan",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Ryan McGillivray",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sam Hughes",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sean Daugherty",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sean Alvarez",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Umar Nurmagomedov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Sergey Morozov",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Stephanie Egger",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tai Bowden",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Wes Albritton",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Tony Petarra",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Yoshiki Takahashi",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Wallid Ismail",
+    "numero_lutas": 1
+  },
+  {
+    "lutador": "Willamy Freire",
+    "numero_lutas": 1
+  }
+]

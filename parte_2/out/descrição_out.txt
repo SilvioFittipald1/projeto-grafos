@@ -1,0 +1,102 @@
+DESCRIÇÃO DAS SAÍDAS
+
+
+distribuicao_graus.png
+
+Esse gráfico mostra como os lutadores se distribuem em termos de conexões na rede. 
+No eixo horizontal, você vê quantas lutas um lutador teve (o "grau" dele no grafo). 
+No eixo vertical, quantos lutadores têm aquele número de lutas.
+Isso revela que a maioria dos lutadores tem poucas lutas (entre 1 e 10),
+formando uma cauda longa à esquerda. Mas existem alguns poucos muito conectados, 
+aqueles que lutaram 20, 30, 40 vezes ou mais. 
+Esses são os veteranos da organização.
+
+grafo_interativo.html
+
+Aqui está a rede completa do UFC em forma visual e interativa. Cada bolinha é um lutador, cada linha é uma luta entre eles. Você pode dar zoom, arrastar os nós, clicar para ver detalhes, é a forma mais direta de "sentir" como a rede se organiza.
+
+O que chama atenção? Primeiro, o tamanho: são milhares de lutadores e milhares de lutas. Segundo, a estrutura: dá pra ver claramente que existe um componente gigante (a maioria dos lutadores está conectada de alguma forma) e alguns grupos menores isolados (lutadores que só lutaram entre si e nunca cruzaram com o resto da rede).
+
+Os nós maiores são os lutadores mais conectados, aqueles que aparecem no centro da rede, com muitas linhas saindo deles. É uma forma de ver, literalmente, quem são as figuras centrais do UFC ao longo da história.
+
+
+graus.csv e graus_lutadores.csv
+
+Esses dois arquivos são basicamente a mesma coisa: uma lista de todos os lutadores e quantas lutas cada um teve. É a versão "crua" do gráfico de distribuição de graus.
+
+Útil se você quiser ordenar, filtrar, ou fazer suas próprias análises. Por exemplo: "quem são os 10 lutadores com mais lutas?", "quantos lutadores têm exatamente 5 lutas?", "qual a média de lutas por lutador?". Tudo isso sai direto desses CSVs.
+
+
+parte2_bfs.html
+
+Aqui você vê o resultado de rodar uma busca em largura (BFS) a partir de três lutadores muito conectados: Donald Cerrone, Jim Miller e Andrei Arlovski.
+
+O que o BFS faz? Ele explora a rede camada por camada. Começa no lutador escolhido, depois visita todos que lutaram diretamente com ele (distância 1), depois todos que lutaram com esses (distância 2), e assim por diante.
+
+A visualização mostra exatamente isso: as camadas de distância. Você consegue ver quantos lutadores estão a 1, 2, 3, 4 lutas de distância do ponto de partida. É uma forma de medir "quão longe" cada lutador está na rede, ignorando os pesos das lutas, o que importa aqui é só o número de arestas no caminho.
+
+
+parte2_dfs.html
+
+Esse é o resultado de uma busca em profundidade (DFS), também rodada a partir dos mesmos três lutadores.
+
+Diferente do BFS, o DFS não explora camada por camada, ele vai fundo em um caminho antes de voltar e tentar outro. É como se você seguisse uma trilha até o fim, depois voltasse e pegasse outra trilha.
+
+A visualização mostra a árvore de exploração: você vê por onde o algoritmo passou, quais lutadores foram visitados e em que ordem. É útil para entender a estrutura do grafo, detectar ciclos (arestas que "voltam" para nós já visitados), e ter uma noção da forma da rede a partir de um ponto específico.
+
+
+parte2_dijkstra.html
+
+Aqui estão os caminhos mínimos calculados pelo algoritmo de Dijkstra entre cinco pares de lutadores.
+
+O que isso significa? Dijkstra encontra o caminho de menor custo entre dois lutadores, levando em conta os pesos das lutas. No nosso modelo, nocautes e submissões têm peso menor (0.5), decisões unânimes têm peso médio (2.0), e decisões divididas têm peso maior (3.0).
+
+Então, quando você vê um caminho entre, digamos, Conor McGregor e Khabib Nurmagomedov, o que está sendo mostrado é a sequência de lutas (passando por outros lutadores) que minimiza o custo total. Um caminho cheio de nocautes vai ser mais "barato" que um caminho cheio de decisões divididas.
+
+É uma forma de responder: "qual é a rota mais eficiente entre esses dois lutadores, considerando o tipo de vitória em cada luta?"
+
+
+parte2_bellman_ford.html
+
+Esse arquivo mostra os resultados do algoritmo de Bellman Ford em três cenários diferentes.
+
+No primeiro cenário, temos um grafo pequeno com pesos negativos (sem ciclo). No segundo, um grafo pequeno com ciclo negativo (criado de propósito). E no terceiro, o grafo grande do UFC, partindo de Donald Cerrone.
+
+Por que Bellman Ford? Porque ele é o único algoritmo de caminho mínimo que funciona com pesos negativos e que consegue detectar ciclos negativos (situações onde você pode ficar dando voltas e reduzindo o custo infinitamente).
+
+No nosso grafo UFC real, não existem pesos negativos, então o Bellman Ford serve mais como demonstração e validação. Mas nos grafos sintéticos pequenos, ele mostra que a implementação está correta: encontra caminhos mínimos com pesos negativos e detecta quando existe um ciclo negativo.
+
+
+parte2_report.json
+
+Esse é o relatório de performance de todos os algoritmos executados no projeto. O objetivo principal é registrar o tempo de execução (em milissegundos) e o consumo de memória (em kilobytes) de cada tarefa realizada.
+
+O arquivo contém uma lista de execuções com os seguintes algoritmos: BFS rodado a partir de três lutadores diferentes (Donald Cerrone, Jim Miller, Andrei Arlovski), Dijkstra calculando caminhos mínimos entre cinco pares de lutadores, Bellman Ford em três cenários (grafo pequeno com pesos negativos, grafo com ciclo negativo, e grafo grande do UFC), e DFS também a partir dos três lutadores mencionados.
+
+Para cada execução, você encontra o algoritmo usado, a descrição da tarefa, o dataset utilizado, o tempo gasto em milissegundos e a memória consumida em kilobytes. Isso permite comparar a eficiência de cada algoritmo e entender o custo computacional de cada operação no grafo do UFC.
+
+
+ranking_lutas.json
+
+Esse é o ranking dos lutadores por número de lutas. Quem lutou mais vezes no UFC?
+
+A lista está ordenada do maior para o menor. No topo, você encontra os veteranos absolutos, aqueles que passaram anos e anos na organização, acumulando dezenas de lutas. São os "iron men" do UFC, os que mais vezes entraram no octógono.
+
+É interessante cruzar isso com o ranking de vitórias: nem sempre quem lutou mais foi quem ganhou mais. Alguns lutadores têm muitas lutas mas um cartel misto; outros têm menos lutas mas uma taxa de vitória altíssima.
+
+
+ranking_vitorias.json
+
+Esse é o ranking dos lutadores por número de vitórias no UFC. Quem ganhou mais lutas?
+
+Diferente do ranking de lutas (que conta todas as lutas, ganhas ou perdidas), esse aqui conta só as vitórias. É uma medida mais direta de sucesso: quem acumulou mais "Ws" na carreira.
+
+Os nomes no topo dessa lista são, geralmente, lendas da organização, lutadores que não só ficaram muito tempo no UFC, mas que também ganharam consistentemente. É o hall da fama dos vencedores.
+
+
+ufc_global.json
+
+Esse é um arquivo de metadados globais do g
+rafo. Ele contém informações gerais sobre a rede como um todo, coisas como o número total de lutadores, o número total de lutas, a densidade do grafo, o grau médio, etc.
+
+É um resumo executivo em JSON: se você quer saber "qual é o tamanho dessa rede?" ou "quão conectado é esse grafo?", as respostas estão aqui.

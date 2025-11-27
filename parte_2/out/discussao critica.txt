@@ -1,0 +1,105 @@
+BFS
+O BFS foi rodado a partir de três lutadores muito conectados (Donald Cerrone, Jim Miller, Andrei Arlovski) e ficou na casa de ~2 ms por execução, 
+com pouco uso de memória.
+Na prática, ele serve muito bem para:
+
+saber quem está a 1, 2, 3 lutas de distância de um lutador;
+entender quão grande são as camadas conectadas a partir de alguém;
+responder perguntas do tipo: “quantas lutas separam o lutador X do lutador Y, ignorando os pesos da luta”.
+
+
+Ou seja: quando o que importa é “quantas arestas tem no caminho”, e não o peso delas, BFS é a melhor escolha.
+O ponto fraco é justamente esse: ele não enxerga os pesos. Uma decisão dividida e um nocaute valem a mesma coisa (1 aresta).
+
+DFS
+O DFS também foi rodado das mesmas origens e ficou 
+ por volta de 6 ms, um pouco mais pesado que o BFS, mas ainda bem tranquilo.
+Ele é útil para:
+
+
+explorar as camadas inteiras, a partir de um lutador;
+detectar ciclos (via arestas de retorno);
+entender a “forma” do grafo e não o menor caminho.
+
+
+DFS não é feito pra achar caminho mínimo. Ele entra mais como ferramenta de análise estrutura, 
+para detectar ciclos e entender a arvore de profundidade partindo de um lutador.
+ 
+
+Dijkstra
+Dijkstra foi usado em cinco pares de lutadores, com tempos variados, de ~10 ms até algo em torno de 50 ms, dependendo do par. 
+Em compensação, ele traz uma informação que os outros não trazem: caminho mínimo levando em conta os pesos.
+No nosso grafo:
+
+
+cada aresta é uma luta;
+o peso depende do tipo de vitória 
+(0.5 pra nocaute/submissão, 2.0 pra decisão unânime, 3.0 pra decisão dividida, etc.).
+Então Dijkstra responde perguntas do tipo:
+
+“qual é o caminho de menor custo entre o lutador X e o lutador Y, considerando os pesos”
+
+Como os pesos são todos ≥ 0, ele é o algoritmo certo pra esse problema.
+É mais lento que BFS/DFS, mas em troca você ganha caminhos mínimos “de verdade” em cima do modelo de pesos.
+
+
+Bellman-Ford
+
+O Bellman-Ford entrou em cena em três cenários:
+Um grafo pequeno com pesos negativos.
+Um grafo pequeno com ciclo negativo (montado de propósito).
+O grafo grande do UFC, saindo de Donald Cerrone.
+
+
+Nos exemplos pequenos ele roda praticamente instantâneo (frações de ms).
+No grafo grande, fica em torno dos 40 ms, similar à parte mais pesada do Dijkstra.
+O papel dele aqui é mais:
+
+
+didático (mostrar pesos negativos e ciclos negativos),
+e de validação (rodar no grafo grande e confirmar que não há ciclo negativo).
+
+
+Como no nosso grafo UFC não tem peso negativo, não faz sentido usar Bellman-Ford para caminhos mínimos no dia a dia — Dijkstra é mais simples e mais eficiente. 
+Bellman-Ford seria realmente necessário se a gente passasse a usar pesos negativos no modelo.
+
+Simulação de pesos negativos
+Para testar o Bellman-Ford de forma adequada, foram criados grafos sintéticos pequenos com pesos negativos:
+
+1. Grafo com pesos negativos (sem ciclo): criamos um grafo de teste com 5 nós onde algumas arestas receberam pesos negativos (por exemplo, -1, -2). Isso permite que o algoritmo encontre caminhos mínimos onde passar por certas arestas "reduz" o custo total, algo impossível no grafo UFC real.
+
+2. Grafo com ciclo negativo: montamos um segundo grafo de teste onde existe um ciclo cuja soma dos pesos é negativa. Por exemplo, três nós A→B→C→A com pesos que somam -1. Isso permite validar que o Bellman-Ford detecta corretamente a presença de ciclos negativos, retornando None ou sinalizando o problema.
+
+Esses grafos sintéticos não têm relação com os dados do UFC — são estruturas artificiais criadas exclusivamente para demonstrar que a implementação do Bellman-Ford funciona corretamente em cenários com pesos negativos e ciclos negativos, que são os casos de uso específicos desse algoritmo.
+
+E os pesos, onde pegam?
+O nosso design de pesos é simples: cada luta vira um número baseado no tipo de resultado. Isso é legal porque:
+
+
+deixa o grafo mais rico que um simples “lutou / não lutou”;
+permite interpretar caminhos mínimos como “sequências de lutas com menor custo”.
+Mas tem alguns limites bem claros:
+
+
+
+
+Arestas simétricas
+A luta é modelada como algo não-direcionado: A–B é a mesma aresta de B–A.
+Na vida real, a relação não é simétrica: um ganhou, outro perdeu. Do jeito que está, o grafo não diferencia isso na estrutura
+ (só na interpretação do peso).
+
+
+
+Em resumo
+BFS e DFS: ótimos pra entender a forma do grafo, componentes, 
+camadas e ciclos, com desempenho excelente.
+
+Dijkstra:  Para esse grafo o dijkstra é o algoritmo mais indicado, porque os pesos são positivos 
+e queremos caminhos mínimos considerando o tipo de luta.
+
+
+Bellman-Ford: importante pra mostrar o caso geral (pesos negativos, ciclos negativos), 
+mas no grafo real UFC serve mais como demonstração do que como ferramenta principal.
+
+
+
