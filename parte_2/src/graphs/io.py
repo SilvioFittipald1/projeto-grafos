@@ -1,5 +1,7 @@
 import pandas as pd
 from .graph import Graph
+import os 
+import sys
 
 def processar_dados_ufc(caminho_entrada: str, caminho_saida: str) -> None:
     """Processa dados brutos do UFC, calcula pesos e remove duplicatas."""
@@ -51,8 +53,7 @@ def carregar_grafo_ufc(caminho_csv: str) -> Graph:
     return grafo
 
 if __name__ == "__main__":
-    import os
-    import sys
+    
     
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
     script_dir = os.path.dirname(os.path.abspath(__file__))

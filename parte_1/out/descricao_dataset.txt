@@ -54,4 +54,3 @@ A distribuição de graus mostra como os bairros do Recife estão conectados
 geograficamente. Bairros com maior grau são aqueles que fazem fronteira com
 muitos outros bairros, geralmente localizados em regiões centrais. Bairros
 com menor grau tendem a estar em regiões periféricas ou costeiras.
-

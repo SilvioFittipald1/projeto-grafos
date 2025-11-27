@@ -7,6 +7,8 @@ from .graphs.algorithms import bfs_arvore, dijkstra
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
 DATA_DIR = "data/"
 OUT_DIR = "out/"
@@ -516,10 +518,6 @@ def mapa_graus_html():
 
 def ranking_densidade_ego_microrregiao_png():
     """Gera gráfico de barras com ranking de densidade ego por microrregião."""
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    import os
     
     sns.set_theme(style="whitegrid")
     plt.rcParams['font.family'] = 'sans-serif'
@@ -2325,11 +2323,6 @@ def grafo_interativo_html():
         f.write(html)
 
 def gerar_histograma_graus():
-    import matplotlib.pyplot as plt
-    import pandas as pd
-    import seaborn as sns
-    import os
-    import numpy as np
     
     os.makedirs(OUT_DIR, exist_ok=True)
     

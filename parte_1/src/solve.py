@@ -164,111 +164,11 @@ def passo_6():
             json.dump(info_nd_setubal, f, ensure_ascii=False, indent=2)
 
 
-def gerar_descricao_dataset():
-    """Gera arquivo .txt com descrição completa do dataset conforme requisitos do projeto."""
-    grafo, bairro_para_micro = carregar_grafo_recife(
-        CAMINHO_BAIRROS_UNIQUE,
-        CAMINHO_ADJACENCIAS
-    )
-    
-    # Coleta informações básicas
-    ordem = grafo.ordem()  # |V|
-    tamanho = grafo.tamanho()  # |E|
-    densidade = grafo.densidade()
-    
-    # Coleta distribuição de graus
-    graus = []
-    for bairro in grafo.obter_nos():
-        graus.append(grafo.grau(bairro))
-    
-    graus_df = pd.Series(graus)
-    grau_min = graus_df.min()
-    grau_max = graus_df.max()
-    grau_medio = graus_df.mean()
-    grau_mediana = graus_df.median()
-    grau_desvio = graus_df.std()
-    
-    # Distribuição por faixas
-    faixas = {
-        "1-3 conexões": len([g for g in graus if 1 <= g <= 3]),
-        "4-6 conexões": len([g for g in graus if 4 <= g <= 6]),
-        "7-9 conexões": len([g for g in graus if 7 <= g <= 9]),
-        "10-12 conexões": len([g for g in graus if 10 <= g <= 12]),
-        "13+ conexões": len([g for g in graus if g >= 13])
-    }
-    
-    # Informações sobre microrregiões
-    microrregioes = sorted(set(bairro_para_micro.values()))
-    num_microrregioes = len(microrregioes)
-    
-    # Gera o conteúdo do arquivo
-    conteudo = f"""
-1. INFORMAÇÕES DO GRAFO
 
-|V| (Ordem - Número de Vértices): {ordem}
-|E| (Tamanho - Número de Arestas): {tamanho}
-
-Tipo de Grafo:
-  - Dirigido: NÃO
-  - Ponderado: NÃO
-  - Descrição: Grafo não-dirigido simples
-
-Cada vértice representa um bairro do Recife.
-Cada aresta representa uma adjacência geográfica entre dois bairros.
-O dataset contém {num_microrregioes} microrregiões administrativas.
-
-2. DENSIDADE DO GRAFO
-
-Densidade: {densidade:.6f}
-
-A densidade indica o quão conectado está o grafo. Um valor próximo de 0
-indica que poucos bairros são adjacentes entre si, enquanto um valor
-próximo de 1 indicaria que quase todos os bairros são adjacentes.
-
-3. DISTRIBUIÇÃO DE GRAUS
-
-Estatísticas Descritivas:
-  - Grau Mínimo: {grau_min}
-  - Grau Máximo: {grau_max}
-  - Grau Médio: {grau_medio:.2f}
-  - Grau Mediana: {grau_mediana:.2f}
-  - Desvio Padrão: {grau_desvio:.2f}
-
-O grau de um vértice representa o número de bairros adjacentes.
-
-Distribuição por Faixas:
-  - {faixas['1-3 conexões']:4d} bairros com 1-3 conexões ({faixas['1-3 conexões']/ordem*100:5.1f}%)
-  - {faixas['4-6 conexões']:4d} bairros com 4-6 conexões ({faixas['4-6 conexões']/ordem*100:5.1f}%)
-  - {faixas['7-9 conexões']:4d} bairros com 7-9 conexões ({faixas['7-9 conexões']/ordem*100:5.1f}%)
-  - {faixas['10-12 conexões']:4d} bairros com 10-12 conexões ({faixas['10-12 conexões']/ordem*100:5.1f}%)
-  - {faixas['13+ conexões']:4d} bairros com 13+ conexões ({faixas['13+ conexões']/ordem*100:5.1f}%)
-
-4. INTERPRETAÇÃO
-
-A distribuição de graus mostra como os bairros do Recife estão conectados
-geograficamente. Bairros com maior grau são aqueles que fazem fronteira com
-muitos outros bairros, geralmente localizados em regiões centrais. Bairros
-com menor grau tendem a estar em regiões periféricas ou costeiras.
-
-O histograma visual da distribuição de graus pode ser encontrado em:
-  - distribuicao_graus.png
-
-Dados detalhados dos graus por bairro estão disponíveis em:
-  - graus.csv
-  - ego_bairro.csv
-
-Informações sobre microrregiões estão disponíveis em:
-  - microrregioes.json
-"""
-    
-    # Salva o arquivo
-    caminho_saida = os.path.join(OUT_DIR, "descricao_dataset.txt")
-    with open(caminho_saida, "w", encoding="utf-8") as f:
-        f.write(conteudo)
 
 
 if __name__ == "__main__":
     passo_3()
     passo_4()
     passo_6()
-    gerar_descricao_dataset()
+    
