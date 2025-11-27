@@ -28,12 +28,12 @@
     "vitorias": 19
   },
   {
-    "lutador": "Dustin Poirier",
+    "lutador": "Rafael Dos Anjos",
     "vitorias": 18
   },
   {
-    "lutador": "Rafael Dos Anjos",
-    "vitorias": 18
+    "lutador": "Dustin Poirier",
+    "vitorias": 17
   },
   {
     "lutador": "Max Holloway",
@@ -676,6 +676,10 @@
     "vitorias": 9
   },
   {
+    "lutador": "Conor McGregor",
+    "vitorias": 9
+  },
+  {
     "lutador": "Henry Cejudo",
     "vitorias": 9
   },
@@ -872,10 +876,6 @@
     "vitorias": 8
   },
   {
-    "lutador": "Conor McGregor",
-    "vitorias": 8
-  },
-  {
     "lutador": "Jacare Souza",
     "vitorias": 8
   },
@@ -897,6 +897,10 @@
   },
   {
     "lutador": "Royce Gracie",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Matt Lindland",
     "vitorias": 8
   },
   {
@@ -1097,10 +1101,6 @@
   },
   {
     "lutador": "Ilir Latifi",
-    "vitorias": 7
-  },
-  {
-    "lutador": "Matt Lindland",
     "vitorias": 7
   },
   {
@@ -5304,10 +5304,6 @@
     "vitorias": 1
   },
   {
-    "lutador": "Falaniko Vitale",
-    "vitorias": 1
-  },
-  {
     "lutador": "Jerrod Sanders",
     "vitorias": 1
   },
@@ -7413,6 +7409,10 @@
   },
   {
     "lutador": "Roger Hollett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Falaniko Vitale",
     "vitorias": 0
   },
   {

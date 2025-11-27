@@ -6,9 +6,9 @@ import pandas as pd
 import webbrowser
 from collections import deque
 from pyvis.network import Network
-from graphs.io import carregar_grafo_ufc
-from graphs.algorithms import bfs_arvore, dfs_arvore, dfs_detectar_ciclo, dfs_classificar_arestas, dijkstra, bellman_ford, bellman_ford_caminho
-from graphs.graph import Graph
+from .graphs.io import carregar_grafo_ufc
+from .graphs.algorithms import bfs_arvore, dfs_arvore, dfs_detectar_ciclo, dfs_classificar_arestas, dijkstra, bellman_ford, bellman_ford_caminho
+from .graphs.graph import Graph
 from math import inf
 import matplotlib
 matplotlib.use("Agg")  
@@ -33,6 +33,18 @@ def grafo_interativo_ufc_html():
     total_lutadores = grafo.ordem()
     total_lutas = grafo.tamanho()
     densidade_media = grafo.densidade()
+    
+    df = pd.read_csv(caminho_ufc, sep=';', encoding='utf-8')
+    fight_types_map = {}
+    for _, row in df.iterrows():
+        r_fighter = row['R_fighter']
+        b_fighter = row['B_fighter']
+        fight_type = str(row['Fight_type']).replace(' Bout', '').replace(' Title', '').replace('UFC ', '').strip()
+        key = tuple(sorted([r_fighter, b_fighter]))
+        fight_types_map[key] = fight_type
+    
+    categorias_unicas = sorted(set(fight_types_map.values()))
+    categorias_principais = [c for c in categorias_unicas if any(peso in c for peso in ['Lightweight', 'Welterweight', 'Middleweight', 'Light Heavyweight', 'Heavyweight', 'Featherweight', 'Bantamweight', 'Flyweight'])]
 
     NODE_SIZE = 14
     net = Network(
@@ -169,6 +181,8 @@ def grafo_interativo_ufc_html():
     graph_data_js = json.dumps(graph_data, ensure_ascii=False)
     vitorias_map = {lutador: todas_vitorias.get(lutador, 0) for lutador in lutadores}
     vitorias_map_js = json.dumps(vitorias_map, ensure_ascii=False)
+    fight_types_map_js = json.dumps({f"{k[0]}||{k[1]}": v for k, v in fight_types_map.items()}, ensure_ascii=False)
+    categorias_principais_js = json.dumps(categorias_principais, ensure_ascii=False)
 
     controls_html = f"""
 <style>
@@ -385,6 +399,21 @@ def grafo_interativo_ufc_html():
             <div class="path-info-content" id="path-info-content"></div>
         </div>
         
+        <div class="section-title">Categorias de Peso</div>
+        <select id="categoria-select" onchange="destacarCategoria()">
+            <option value="">Selecione uma categoria...</option>
+            <option value="Lightweight">Lightweight</option>
+            <option value="Welterweight">Welterweight</option>
+            <option value="Middleweight">Middleweight</option>
+            <option value="Light Heavyweight">Light Heavyweight</option>
+            <option value="Heavyweight">Heavyweight</option>
+            <option value="Featherweight">Featherweight</option>
+            <option value="Bantamweight">Bantamweight</option>
+            <option value="Flyweight">Flyweight</option>
+            <option value="Strawweight">Strawweight</option>
+        </select>
+        <button onclick="limparCategoria()">Limpar Categoria</button>
+        
         <div class="section-title">Heatmap de Vitórias</div>
         <div class="legend-box">
             <div class="legend-item">
@@ -437,7 +466,9 @@ def grafo_interativo_ufc_html():
 <script type="text/javascript">
     var graphData = """ + graph_data_js + """;
     var vitoriasMap = """ + vitorias_map_js + """;
+    var fightTypesMap = """ + fight_types_map_js + """;
     var heatmapEnabled = true;
+    var categoriaAtiva = null;
     
     network.on("click", function(params) {
         if (params.nodes.length > 0) {
@@ -769,6 +800,89 @@ def grafo_interativo_ufc_html():
         } else {
             console.log('Física ativada - grafo irá se reorganizar');
         }
+    }
+    
+    function destacarCategoria() {
+        var select = document.getElementById('categoria-select');
+        if (!select) return;
+        
+        var categoria = select.value;
+        
+        if (!categoria) {
+            limparCategoria();
+            return;
+        }
+        
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') return;
+        
+        categoriaAtiva = categoria;
+        
+        var allEdges = edges.get();
+        var allNodes = nodes.get();
+        var nodosDestacados = new Set();
+        
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            var key = [e.from, e.to].sort().join("||");
+            var fightType = fightTypesMap[key] || "";
+            
+            if (fightType.includes(categoria)) {
+                if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
+                e.color = { color: '#FF6B6B' };
+                e.width = 3;
+                nodosDestacados.add(e.from);
+                nodosDestacados.add(e.to);
+            } else {
+                if (e._originalColor === undefined) e._originalColor = e.color;
+                if (e._originalWidth === undefined) e._originalWidth = e.width;
+                e.color = { color: '#e6e6e6', opacity: 0.2 };
+                e.width = 0.3;
+            }
+        }
+        edges.update(allEdges);
+        
+        for (var i = 0; i < allNodes.length; i++) {
+            var n = allNodes[i];
+            if (nodosDestacados.has(n.id)) {
+                if (n._originalColor === undefined) n._originalColor = n.color;
+                n.color = { background: '#FF6B6B', border: '#C92A2A' };
+            } else {
+                if (n._originalColor === undefined) n._originalColor = n.color;
+                n.color = { background: '#e0e0e0', border: '#999999' };
+            }
+        }
+        nodes.update(allNodes);
+    }
+    
+    function limparCategoria() {
+        var select = document.getElementById('categoria-select');
+        if (select) select.value = '';
+        
+        categoriaAtiva = null;
+        
+        if (typeof nodes === 'undefined' || typeof edges === 'undefined') return;
+        
+        var allEdges = edges.get();
+        for (var i = 0; i < allEdges.length; i++) {
+            var e = allEdges[i];
+            if (e._originalColor !== undefined) {
+                e.color = e._originalColor;
+            }
+            if (e._originalWidth !== undefined) {
+                e.width = e._originalWidth;
+            }
+        }
+        edges.update(allEdges);
+        
+        var allNodes = nodes.get();
+        for (var i = 0; i < allNodes.length; i++) {
+            var n = allNodes[i];
+            if (n._originalColor !== undefined) {
+                n.color = n._originalColor;
+            }
+        }
+        nodes.update(allNodes);
     }
     
     network.once('stabilizationIterationsDone', function() {

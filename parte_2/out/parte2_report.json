@@ -115,6 +115,238 @@
       "task": "DFS edge classification a partir de Andrei Arlovski",
       "dataset": "total_fight_data_processado.csv",
       "time_ms": 4.680100013501942
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 10.317699983716011,
+      "memory_kb": 261.0078125
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 5.483500077389181,
+      "memory_kb": 260.734375
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 9.041900048032403,
+      "memory_kb": 259.703125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Donald Cerrone -> Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 2.986700041219592,
+      "memory_kb": 93.0390625
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Jim Miller -> Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 20.086799981072545,
+      "memory_kb": 172.1953125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Andrei Arlovski -> Diego Sanchez",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 11.241700034588575,
+      "memory_kb": 109.0703125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Diego Sanchez -> Demian Maia",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 9.537299978546798,
+      "memory_kb": 93.0390625
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Demian Maia -> Jeremy Stephens",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 17.304500099271536,
+      "memory_kb": 111.1796875
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case1: neg weights, no neg cycle (expected)",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 0.12670003343373537,
+      "memory_kb": 0.4453125
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case2: negative cycle",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 0.10089995339512825,
+      "memory_kb": 0.3828125
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case3: large graph from Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 92.23269997164607,
+      "memory_kb": 163.0234375
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 17.125100013799965,
+      "memory_kb": 299.8359375
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 9.069400024600327
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 13.752700062468648,
+      "memory_kb": 295.875
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 9.282000013627112
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 13.211999903433025,
+      "memory_kb": 295.875
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 12.224899954162538
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 4.97380003798753,
+      "memory_kb": 261.0078125
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 3.942999988794327,
+      "memory_kb": 260.734375
+    },
+    {
+      "algorithm": "BFS",
+      "task": "BFS a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 5.260000005364418,
+      "memory_kb": 259.703125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Donald Cerrone -> Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 3.8207999896258116,
+      "memory_kb": 93.0390625
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Jim Miller -> Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 14.936299994587898,
+      "memory_kb": 172.1953125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Andrei Arlovski -> Diego Sanchez",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 7.720499997958541,
+      "memory_kb": 109.0703125
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Diego Sanchez -> Demian Maia",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 5.270699970424175,
+      "memory_kb": 93.0390625
+    },
+    {
+      "algorithm": "DIJKSTRA",
+      "task": "DIJKSTRA Demian Maia -> Jeremy Stephens",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 12.027399963699281,
+      "memory_kb": 111.1796875
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case1: neg weights, no neg cycle (expected)",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 0.20899996161460876,
+      "memory_kb": 0.4453125
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case2: negative cycle",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 0.07750000804662704,
+      "memory_kb": 0.3828125
+    },
+    {
+      "algorithm": "BELLMAN_FORD",
+      "task": "BF case3: large graph from Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 66.17709994316101,
+      "memory_kb": 163.0234375
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 12.375800055451691,
+      "memory_kb": 299.8359375
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Donald Cerrone",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 11.092799948528409
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 12.462700018659234,
+      "memory_kb": 295.875
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Jim Miller",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 11.007599998265505
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 11.944400030188262,
+      "memory_kb": 295.875
+    },
+    {
+      "algorithm": "DFS",
+      "task": "DFS edge classification a partir de Andrei Arlovski",
+      "dataset": "total_fight_data_processado.csv",
+      "time_ms": 10.282599949277937
     }
   ]
 }

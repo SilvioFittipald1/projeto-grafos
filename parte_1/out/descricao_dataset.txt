@@ -6,8 +6,17 @@
 
 Tipo de Grafo:
   - Dirigido: NÃO
-  - Ponderado: NÃO
+  - Ponderado: SIM
   - Descrição: Grafo não-dirigido simples
+
+OBS: Os graus foram definidos, usando os logradouros que conectam dois bairros, onde:
+
+rua: peso 1
+estrada: peso 2
+rodovia: peso 3
+outros: peso 3.5
+avenida: peso 4
+ponte: peso 5
 
 Cada vértice representa um bairro do Recife.
 Cada aresta representa uma adjacência geográfica entre dois bairros.
@@ -46,12 +55,3 @@ geograficamente. Bairros com maior grau são aqueles que fazem fronteira com
 muitos outros bairros, geralmente localizados em regiões centrais. Bairros
 com menor grau tendem a estar em regiões periféricas ou costeiras.
 
-O histograma visual da distribuição de graus pode ser encontrado em:
-  - distribuicao_graus.png
-
-Dados detalhados dos graus por bairro estão disponíveis em:
-  - graus.csv
-  - ego_bairro.csv
-
-Informações sobre microrregiões estão disponíveis em:
-  - microrregioes.json

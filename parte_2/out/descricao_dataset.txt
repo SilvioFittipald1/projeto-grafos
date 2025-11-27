@@ -52,7 +52,3 @@ poucos nós são altamente conectados (hubs) e a maioria tem poucas conexões.
 
 O histograma visual da distribuição de graus pode ser encontrado em:
   - distribuicao_graus.png
-
-Dados detalhados dos graus por lutador estão disponíveis em:
-  - graus_lutadores.csv
-  - graus.csv

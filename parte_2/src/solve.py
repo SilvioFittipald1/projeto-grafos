@@ -1,8 +1,8 @@
 import os
 import json
 import pandas as pd
-from graphs.io import carregar_grafo_ufc
-from graphs.graph import Graph
+from .graphs.io import carregar_grafo_ufc
+from .graphs.graph import Graph
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -13,7 +13,6 @@ CAMINHO_UFC = os.path.join(DATA_DIR, "total_fight_data_processado.csv")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 def calcular_metricas_globais(grafo: Graph) -> dict:
-    """Calcula ordem, tamanho e densidade do grafo de lutadores."""
     return {
         "ordem": grafo.ordem(),
         "tamanho": grafo.tamanho(),
@@ -21,27 +20,14 @@ def calcular_metricas_globais(grafo: Graph) -> dict:
     }
 
 def gerar_metricas_ufc():
-    """Carrega o grafo UFC e gera métricas globais e graus por lutador."""
     grafo = carregar_grafo_ufc(CAMINHO_UFC)
 
     metricas_globais = calcular_metricas_globais(grafo)
     with open(os.path.join(OUT_DIR, "ufc_global.json"), "w", encoding="utf-8") as f:
         json.dump(metricas_globais, f, ensure_ascii=False, indent=2)
 
-    linhas = []
-    for lutador in grafo.obter_nos():
-        linhas.append({
-            "lutador": lutador,
-            "grau": grafo.grau(lutador),
-        })
-
-    df_graus = pd.DataFrame(linhas)
-    df_graus = df_graus.sort_values(by="grau", ascending=False)
-    df_graus.to_csv(os.path.join(OUT_DIR, "graus.csv"), index=False)
-
 
 def gerar_ranking_vitorias():
-    """Gera um ranking dos lutadores por número de vitórias."""
     grafo = carregar_grafo_ufc(CAMINHO_UFC)
 
     todas_vitorias = grafo.obter_todas_vitorias()
@@ -60,7 +46,6 @@ def gerar_ranking_vitorias():
 
 
 def gerar_ranking_lutas():
-    """Gera um ranking dos lutadores por número de lutas (grau)."""
     grafo = carregar_grafo_ufc(CAMINHO_UFC)
 
     ranking = []
@@ -77,15 +62,12 @@ def gerar_ranking_lutas():
 
 
 def gerar_descricao_dataset():
-    """Gera arquivo .txt com descrição completa do dataset conforme requisitos do projeto."""
     grafo = carregar_grafo_ufc(CAMINHO_UFC)
     
-    # Coleta informações básicas
-    ordem = grafo.ordem()  # |V|
-    tamanho = grafo.tamanho()  # |E|
+    ordem = grafo.ordem()
+    tamanho = grafo.tamanho()
     densidade = grafo.densidade()
     
-    # Coleta distribuição de graus
     graus = []
     for lutador in grafo.obter_nos():
         graus.append(grafo.grau(lutador))
@@ -97,7 +79,6 @@ def gerar_descricao_dataset():
     grau_mediana = graus_df.median()
     grau_desvio = graus_df.std()
     
-    # Distribuição por faixas
     faixas = {
         "1-5 lutas": len([g for g in graus if 1 <= g <= 5]),
         "6-10 lutas": len([g for g in graus if 6 <= g <= 10]),
@@ -105,8 +86,6 @@ def gerar_descricao_dataset():
         "16-20 lutas": len([g for g in graus if 16 <= g <= 20]),
         "21+ lutas": len([g for g in graus if g >= 21])
     }
-    
-    # Gera o conteúdo do arquivo
     conteudo = f"""
 1. INFORMAÇÕES DO GRAFO
 
@@ -161,13 +140,8 @@ poucos nós são altamente conectados (hubs) e a maioria tem poucas conexões.
 
 O histograma visual da distribuição de graus pode ser encontrado em:
   - distribuicao_graus.png
-
-Dados detalhados dos graus por lutador estão disponíveis em:
-  - graus_lutadores.csv
-  - graus.csv
 """
     
-    # Salva o arquivo
     caminho_saida = os.path.join(OUT_DIR, "descricao_dataset.txt")
     with open(caminho_saida, "w", encoding="utf-8") as f:
         f.write(conteudo)

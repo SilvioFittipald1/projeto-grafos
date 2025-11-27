@@ -1693,21 +1693,6 @@ def grafo_interativo_html():
             <button onclick="zoomOut()">➖</button>
             <button onclick="resetView()">Reverter</button>
         </div>
-        
-        <div class="section-title">Navegação</div>
-        <div class="navigation-controls">
-            <div style="display: flex; justify-content: center; margin-bottom: 4px;">
-                <button onclick="moveView('up')" class="nav-btn">⬆️</button>
-            </div>
-            <div style="display: flex; justify-content: space-between; gap: 4px;">
-                <button onclick="moveView('left')" class="nav-btn">⬅️</button>
-                <button onclick="moveView('center')" class="nav-btn" style="font-size: 10px;"></button>
-                <button onclick="moveView('right')" class="nav-btn">➡️</button>
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 4px;">
-                <button onclick="moveView('down')" class="nav-btn">⬇️</button>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -2344,26 +2329,59 @@ def gerar_histograma_graus():
     import pandas as pd
     import seaborn as sns
     import os
+    import numpy as np
     
     os.makedirs(OUT_DIR, exist_ok=True)
     
     df_graus = pd.read_csv(os.path.join(OUT_DIR, 'graus.csv'))
     
-    plt.figure(figsize=(12, 6))
+    grau_min = df_graus['grau'].min()
+    grau_max = df_graus['grau'].max()
+    bins = np.arange(grau_min, grau_max + 2) - 0.5
+    
+    plt.figure(figsize=(14, 7))
     sns.set_style("whitegrid")
+    plt.rcParams['font.family'] = 'sans-serif'
+    plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
     
-    ax = sns.histplot(data=df_graus, x='grau', bins=15, kde=True, color='#1f77b4')
+    ax = sns.histplot(
+        data=df_graus, 
+        x='grau', 
+        bins=bins,
+        kde=True,
+        color='#667eea',
+        edgecolor='#2d3436',
+        linewidth=1.2,
+        alpha=0.85,
+        line_kws={'linewidth': 2.5, 'color': '#ff6b6b'}
+    )
     
-    plt.title('Distribuição dos Graus dos Bairros', fontsize=16, pad=20)
-    plt.xlabel('Grau do Vértice (Número de Coneexões)', fontsize=12)
-    plt.ylabel('Frequência', fontsize=12)
+    plt.title('Distribuição dos Graus dos Bairros do Recife', 
+              fontsize=18, 
+              pad=25, 
+              fontweight='bold',
+              color='#2d3436')
+    plt.xlabel('Grau do Vértice (Número de Conexões)', fontsize=14, fontweight='600', color='#2d3436')
+    plt.ylabel('Frequência', fontsize=14, fontweight='600', color='#2d3436')
     
-    plt.grid(True, linestyle='--', alpha=0.7)
+    ax.set_xticks(range(grau_min, grau_max + 1))
+    ax.set_xticklabels(range(grau_min, grau_max + 1), fontsize=11)
+    ax.tick_params(axis='y', labelsize=11)
+    
+    plt.grid(True, linestyle='--', alpha=0.4, color='#95a5a6')
+    ax.set_facecolor('#f8f9fa')
+    
+    media = df_graus['grau'].mean()
+    mediana = df_graus['grau'].median()
+    plt.axvline(media, color='#e74c3c', linestyle='--', linewidth=2.5, label=f'Média: {media:.1f}', alpha=0.8)
+    plt.axvline(mediana, color='#27ae60', linestyle='--', linewidth=2.5, label=f'Mediana: {mediana:.1f}', alpha=0.8)
+    
+    plt.legend(fontsize=12, frameon=True, shadow=True, fancybox=True, loc='upper right')
     
     plt.tight_layout()
     
     caminho_saida = os.path.join(OUT_DIR, 'distribuicao_graus.png')
-    plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
+    plt.savefig(caminho_saida, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
 if __name__ == "__main__":

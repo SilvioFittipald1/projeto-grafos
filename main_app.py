@@ -44,14 +44,21 @@ def pagina_parte1():
 def pagina_parte2():
     st.header("Parte 2 – Grafo de Network dos Lutadores do UFC")
     st.write(
-        """Visualização interativa do grafo de lutadores do UFC, construída a partir
+        """Visualizações interativas do grafo de lutadores do UFC, construídas a partir
         do arquivo raw_total_fight_data.csv. Cada nó é um lutador e as arestas
         representam lutas realizadas entre eles."""
     )
 
-    caminho = os.path.join(PARTE2_OUT, "grafo_interativo.html")
+    htmls = listar_htmls(PARTE2_OUT)
+    if not htmls:
+        st.info("Nenhum arquivo HTML encontrado ainda em parte_2/out.")
+        st.code("Rode os scripts da parte_2 para gerar as visualizações.")
+        return
 
-    st.subheader(f"Visualização do Grafo")
+    escolha = st.selectbox("Escolha uma visualização da Parte 2:", htmls)
+    caminho = os.path.join(PARTE2_OUT, escolha)
+
+    st.subheader(f"Visualização: {escolha}")
     mostrar_html(caminho)
 
 
