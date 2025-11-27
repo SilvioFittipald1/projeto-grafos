@@ -2,14 +2,14 @@ import os
 import json
 import pandas as pd
 from pyvis.network import Network
-from graphs.io import carregar_grafo_recife
+from graphs.io import carregar_grafo_recife, carregar_grafo_ufc
 from graphs.algorithms import bfs_arvore, dijkstra
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
 
 DATA_DIR = "data/"
-OUT_DIR = "out/parte1"
+OUT_DIR = "out/parte2"
 
 
 def percurso_nova_descoberta_setubal(caminho_json: str | None = None):
@@ -42,20 +42,24 @@ def arvore_percurso_html(
     caminho_json: str | None = None,
     caminho_saida: str | None = None
 ):
-    """Gera HTML interativo mostrando o caminho de Nova Descoberta até Setúbal."""
+    """Gera HTML interativo mostrando um percurso no grafo da UFC.
 
-    # carrega o grafo completo e calcula o percurso com Dijkstra
-    caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
-    caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
+    A origem e o destino são definidos a partir da primeira linha de luta
+    em ufc_arquivo_processado.csv (R_fighter como origem e B_fighter como destino).
+    """
 
-    grafo, _ = carregar_grafo_recife(
-        caminho_bairros_unique,
-        caminho_adjacencias
-    )
+    caminho_csv_ufc = os.path.join(DATA_DIR, "ufc_arquivo_processado.csv")
 
-    origem = "Nova Descoberta"
-    destino = "Boa Viagem"
-    destino_rotulo = "Boa Viagem (Setúbal)"
+    grafo = carregar_grafo_ufc(caminho_csv_ufc)
+
+    df = pd.read_csv(caminho_csv_ufc, sep=";")
+    if df.empty:
+        raise ValueError("O arquivo ufc_arquivo_processado.csv está vazio.")
+
+    primeira_linha = df.iloc[0]
+    origem = str(primeira_linha["R_fighter"]).strip()
+    destino = str(primeira_linha["B_fighter"]).strip()
+    destino_rotulo = destino
 
     _dist, caminho = dijkstra(grafo, origem, destino)
     if not caminho:
@@ -64,7 +68,7 @@ def arvore_percurso_html(
         )
 
     if caminho_saida is None:
-        caminho_saida = os.path.join("out/parte1", "arvore_percurso.html")
+        caminho_saida = os.path.join(OUT_DIR, "arvore_percurso.html")
 
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -2487,11 +2491,268 @@ def gerar_histograma_graus():
     
     print("Notas explicativas salvas em:", os.path.join(OUT_DIR, 'notas_visuais.txt'))
     return caminho_saida
+ 
+def mapa_graus_html_ufc():
+    """Gera mapa de graus para o grafo da UFC em out/parte2/mapa_graus.html."""
+    if Network is None:
+        print("Pyvis não está disponível (Network é None). Verifique pyvis/jinja2 no ambiente.")
+        return
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    from graphs.io import carregar_grafo_ufc
+
+    caminho_csv_ufc = os.path.join(DATA_DIR, "ufc_arquivo_processado.csv")
+    grafo = carregar_grafo_ufc(caminho_csv_ufc)
+
+    lutadores = grafo.obter_nos()
+    graus = {l: grafo.grau(l) for l in lutadores}
+
+    gmin = min(graus.values()) if graus else 0
+    gmax = max(graus.values()) if graus else 0
+
+    NODE_SIZE = 14
+    FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
+
+    net = Network(
+        height="700px",
+        width="100%",
+        bgcolor="#ffffff",
+        font_color="#000000"
+    )
+    net.barnes_hut()
+
+    net.set_options('''{
+        "nodes": { "font": { "size": 14, "face": "Arial" } },
+        "edges": { "smooth": false },
+        "physics": { "stabilization": { "enabled": true, "iterations": 1000 } }
+    }''')
+
+    try:
+        cmap = plt.get_cmap('YlOrRd')
+        norm = matplotlib.colors.Normalize(vmin=gmin, vmax=gmax)
+
+        def map_color(v):
+            return matplotlib.colors.to_hex(cmap(norm(v)))
+    except Exception:
+        def map_color(v):
+            return "#97c2fc"
+
+    for lutador in lutadores:
+        grau = graus[lutador]
+        cor = map_color(grau)
+        title = f"{lutador}<br>Grau: {grau}"
+
+        net.add_node(
+            lutador,
+            label=lutador,
+            title=title,
+            color={"background": cor, "border": "#222222"},
+            size=NODE_SIZE,
+            font=FONT,
+        )
+
+    arestas_adicionadas = set()
+    for l in lutadores:
+        for vizinho, _peso in grafo.vizinhos(l):
+            if vizinho not in graus:
+                continue
+            aresta = tuple(sorted((l, vizinho)))
+            if aresta in arestas_adicionadas:
+                continue
+            net.add_edge(l, vizinho, color="#dcdcdc", width=2)
+            arestas_adicionadas.add(aresta)
+
+    caminho_saida = os.path.join(OUT_DIR, "mapa_graus.html")
+    net.show(caminho_saida, notebook=False)
+    print(caminho_saida)
+
+
+def arvore_bfs_boaviagem_html_ufc():
+    """Gera árvore BFS a partir do lutador da primeira linha do CSV UFC."""
+    if Network is None:
+        print("Pyvis (Network) não está disponível. Verifique a instalação de pyvis/jinja2.")
+        return
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    from graphs.io import carregar_grafo_ufc
+
+    caminho_csv_ufc = os.path.join(DATA_DIR, "ufc_arquivo_processado.csv")
+    grafo = carregar_grafo_ufc(caminho_csv_ufc)
+
+    df = pd.read_csv(caminho_csv_ufc, sep=";")
+    if df.empty:
+        print("Arquivo UFC vazio.")
+        return
+
+    primeira_linha = df.iloc[0]
+    origem = str(primeira_linha["R_fighter"]).strip()
+
+    if origem not in grafo.obter_nos():
+        raise ValueError(f"O lutador de origem '{origem}' não existe no grafo UFC.")
+
+    pai, nivel = bfs_arvore(grafo, origem)
+
+    net = Network(
+        height="700px",
+        width="100%",
+        bgcolor="#ffffff",
+        font_color="#000000",
+        directed=True,
+    )
+
+    cores_nivel = [
+        "#ff6b6b",
+        "#4ecdc4",
+        "#45b7d1",
+        "#96ceb4",
+        "#ffeaa7",
+        "#dfe6e9",
+        "#a29bfe",
+    ]
+
+    for lutador, nv in nivel.items():
+        if lutador == origem:
+            cor = {"background": "#ff6b6b", "border": "#ee5a52"}
+        else:
+            cor_idx = min(nv, len(cores_nivel) - 1)
+            cor_bg = cores_nivel[cor_idx]
+            cor = {"background": cor_bg, "border": "#2d3436"}
+
+        titulo = f"<b>{lutador}</b><br>Nível BFS: {nv}"
+        if pai[lutador] is not None:
+            titulo += f"<br>Pai: {pai[lutador]}"
+
+        net.add_node(
+            lutador,
+            label=lutador,
+            title=titulo,
+            level=nv,
+            color=cor,
+            size=25,
+            font={"size": 12, "face": "Arial", "color": "#2d3436"},
+        )
+
+    for lutador, p in pai.items():
+        if p is None:
+            continue
+        net.add_edge(
+            p,
+            lutador,
+            color={"color": "#95a5a6", "highlight": "#3498db"},
+            width=2,
+            arrows={"to": {"enabled": True, "scaleFactor": 0.5}},
+        )
+
+    net.set_options(
+        """
+    {
+        "layout": {
+            "hierarchical": {
+            "enabled": true,
+            "sortMethod": "directed",
+            "direction": "UD"
+            }
+        },
+        "physics": {
+            "enabled": false
+        }
+    }
+    """
+    )
+
+    caminho_saida = os.path.join(OUT_DIR, "arvore_bfs_boaviagem.html")
+    net.show(caminho_saida, notebook=False)
+    print(caminho_saida)
+
+
+def grafo_interativo_html_ufc():
+    """Gera grafo interativo completo dos lutadores do UFC."""
+    if Network is None:
+        print("Pyvis (Network) nao esta disponivel. Verifique a instalacao de pyvis/jinja2.")
+        return
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    from graphs.io import carregar_grafo_ufc
+
+    caminho_csv_ufc = os.path.join(DATA_DIR, "ufc_arquivo_processado.csv")
+    grafo = carregar_grafo_ufc(caminho_csv_ufc)
+
+    lutadores = grafo.obter_nos()
+
+    net = Network(
+        height="800px",
+        width="100%",
+        bgcolor="#ffffff",
+        font_color="#000000",
+    )
+    net.barnes_hut()
+
+    net.set_options('''{
+        "nodes": { "font": { "size": 14, "face": "Arial" } },
+        "edges": { "smooth": false },
+        "physics": { "stabilization": { "enabled": true, "iterations": 1000 } }
+    }''')
+
+    for lutador in lutadores:
+        grau = grafo.grau(lutador)
+        title = f"Lutador: {lutador}<br>Grau: {grau}"
+        net.add_node(
+            lutador,
+            label=lutador,
+            title=title,
+            size=14,
+            font={"size": 14, "face": "Arial", "strokeWidth": 0},
+        )
+
+    arestas_adicionadas = set()
+    for l in lutadores:
+        for vizinho, _peso in grafo.vizinhos(l):
+            aresta = tuple(sorted((l, vizinho)))
+            if aresta in arestas_adicionadas:
+                continue
+            net.add_edge(l, vizinho, color="#cfcfcf", width=2)
+            arestas_adicionadas.add(aresta)
+
+    caminho_saida = os.path.join(OUT_DIR, "grafo_interativo.html")
+    net.show(caminho_saida, notebook=False)
+    print(caminho_saida)
+
+
+def gerar_histograma_graus_ufc():
+    """Gera histograma dos graus dos lutadores (out/parte2/distribuicao_graus_ufc.png)."""
+    import seaborn as sns
+
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    caminho_graus = os.path.join(OUT_DIR, "graus.csv")
+    df_graus = pd.read_csv(caminho_graus)
+
+    plt.figure(figsize=(12, 6))
+    sns.set_style("whitegrid")
+
+    ax = sns.histplot(data=df_graus, x="grau", bins=15, kde=True, color="#1f77b4")
+
+    plt.title("Distribuição dos Graus dos Lutadores", fontsize=16, pad=20)
+    plt.xlabel("Grau (número de conexões/lutas)", fontsize=12)
+    plt.ylabel("Frequência", fontsize=12)
+
+    plt.grid(True, linestyle="--", alpha=0.7)
+    plt.tight_layout()
+
+    caminho_saida = os.path.join(OUT_DIR, "distribuicao_graus_ufc.png")
+    plt.savefig(caminho_saida, dpi=300, bbox_inches="tight")
+    plt.close()
+
+    print(caminho_saida)
+    return caminho_saida
+
 
 if __name__ == "__main__":
     arvore_percurso_html()
-    mapa_graus_html()
-    ranking_densidade_ego_microrregiao_png()
-    arvore_bfs_boaviagem_html()
-    grafo_interativo_html()
-    gerar_histograma_graus()
+    mapa_graus_html_ufc()
+    arvore_bfs_boaviagem_html_ufc()
+    grafo_interativo_html_ufc()
+    gerar_histograma_graus_ufc()
