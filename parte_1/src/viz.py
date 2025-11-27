@@ -27,8 +27,8 @@ def percurso_nova_descoberta_setubal(caminho_json: str | None = None):
         dados = json.load(f)
 
     origem = dados.get("origem")
-    destino_rotulo = dados.get("destino")  # ex.: "Boa Viagem (Setúbal)"
-    caminho = dados.get("caminho", [])     # lista de bairros (nós do grafo)
+    destino_rotulo = dados.get("destino") 
+    caminho = dados.get("caminho", [])    
 
     if not caminho:
         raise ValueError(
@@ -44,7 +44,6 @@ def arvore_percurso_html(
 ):
     """Gera HTML interativo mostrando o caminho de Nova Descoberta até Setúbal."""
 
-    # carrega o grafo completo e calcula o percurso com Dijkstra
     caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
     caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
 
@@ -118,7 +117,6 @@ def arvore_percurso_html(
         }
     }""")
 
-    # adiciona cada ponto do caminho
     for i, label in enumerate(labels):
         titulo = f"<b>{label}</b><br>Posição no caminho: {i + 1}/{len(labels)}"
         
@@ -345,13 +343,11 @@ def mapa_graus_html():
     caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
     caminho_graus = os.path.join(OUT_DIR, "graus.csv")
 
-    # 1) Carrega o grafo (para ter as arestas)
     grafo, _ = carregar_grafo_recife(
         caminho_bairros_unique,
         caminho_adjacencias
     )
 
-    # 2) Lê o CSV de graus já calculado
     if not os.path.exists(caminho_graus):
         raise FileNotFoundError(
             f"Arquivo de graus não encontrado: {caminho_graus}. "
@@ -364,16 +360,13 @@ def mapa_graus_html():
     if not {"bairro", "grau"}.issubset(df_graus.columns):
         raise ValueError("O arquivo graus.csv deve ter as colunas 'bairro' e 'grau'.")
 
-    # Mapeia bairro -> grau
     graus = {row["bairro"]: int(row["grau"]) for _, row in df_graus.iterrows()}
 
-    # Podemos pegar os bairros diretamente do CSV de graus
     bairros = list(graus.keys())
 
     gmin = min(graus.values())
     gmax = max(graus.values())
 
-    # 3) Cria a rede pyvis (usar tamanhos e fontes consistentes com o grafo interativo)
     NODE_SIZE = 14
     FONT = {"size": 14, "face": "Arial", "strokeWidth": 0}
 
@@ -385,25 +378,21 @@ def mapa_graus_html():
     )
     net.barnes_hut()
 
-    # aplica opções de vis.js para uniformidade e legibilidade
     net.set_options('''{
         "nodes": { "font": { "size": 14, "face": "Arial" } },
         "edges": { "smooth": false },
         "physics": { "stabilization": { "enabled": true, "iterations": 1000 } }
     }''')
 
-    # usa um colormap tipo 'YlOrRd' para representar calor (mais conexoes = mais quente)
     try:
         cmap = plt.get_cmap('YlOrRd')
         norm = matplotlib.colors.Normalize(vmin=gmin, vmax=gmax)
         def map_color(v):
             return matplotlib.colors.to_hex(cmap(norm(v)))
     except Exception:
-        # fallback para a paleta antiga
         def map_color(v):
             return cor_por_grau(v, gmin, gmax)
 
-    # 4) Adiciona nós com cor baseada no grau (heatmap) e tamanho uniforme
     for bairro in bairros:
         grau = graus[bairro]
         cor = map_color(grau)
@@ -418,7 +407,6 @@ def mapa_graus_html():
             font=FONT
         )
 
-    # 5) Adiciona arestas (sem duplicar, grafo não dirigido) com largura uniforme
     arestas_adicionadas = set()
     for b in bairros:
         for vizinho, peso in grafo.vizinhos(b):
@@ -430,25 +418,20 @@ def mapa_graus_html():
             net.add_edge(b, vizinho, color="#dcdcdc", width=2)
             arestas_adicionadas.add(aresta)
 
-    # 6) Salva o HTML
     caminho_saida = os.path.join("out", "mapa_graus.html")
-    net.show(caminho_saida, notebook=False)  # notebook=False para evitar o bug do template
+    net.show(caminho_saida, notebook=False)  
     print(caminho_saida)
 
-    # 7) Pos-processa HTML para adicionar uma legenda de cores (heatmap) no canto superior direito
     try:
         with open(caminho_saida, "r", encoding="utf-8") as f:
             html = f.read()
 
-        # cria gradiente com varios pontos (0%,25%,50%,75%,100%) usando o colormap
         try:
             stops = [gmin, gmin + 0.25 * (gmax - gmin), gmin + 0.5 * (gmax - gmin), gmin + 0.75 * (gmax - gmin), gmax]
             colors_stops = [map_color(s) for s in stops]
             gradient_css = ", ".join([f"{c} {i*25}%" for i, c in enumerate(colors_stops)])
         except Exception:
             gradient_css = f"{map_color(gmin)} 0%, {map_color(gmax)} 100%"
-        
-        # Removido controles de zoom e navegação
         
         legenda_html = f"""
 {_estilo_global_dark()}
@@ -529,7 +512,6 @@ def mapa_graus_html():
         with open(caminho_saida, "w", encoding="utf-8") as f:
             f.write(html)
     except Exception:
-        # não interrompe caso falhe a inserção da legenda
         pass
 
 def ranking_densidade_ego_microrregiao_png():
@@ -539,17 +521,14 @@ def ranking_densidade_ego_microrregiao_png():
     import seaborn as sns
     import os
     
-    # Configurações iniciais
     sns.set_theme(style="whitegrid")
     plt.rcParams['font.family'] = 'sans-serif'
     plt.rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans']
     
     try:
-        # 1) Lê os dados
         df_ego = pd.read_csv(os.path.join(OUT_DIR, 'ego_bairro.csv'))
         df_bairros = pd.read_csv(os.path.join(DATA_DIR, 'bairros_unique.csv'))
         
-        # 2) Mescla os dados
         df = pd.merge(
             df_ego[['bairro', 'densidade_ego']],
             df_bairros[['bairro', 'microrregiao']],
@@ -557,15 +536,12 @@ def ranking_densidade_ego_microrregiao_png():
             how='inner'
         )
         
-        # 3) Calcula a média por microrregião
         df_media = (df.groupby('microrregiao', as_index=False)['densidade_ego']
                    .mean()
                    .sort_values('densidade_ego', ascending=False))
         
-        # 4) Cria a figura
         plt.figure(figsize=(10, 6))
         
-        # 5) Gera o gráfico de barras
         ax = sns.barplot(
             data=df_media,
             x='microrregiao',
@@ -575,7 +551,6 @@ def ranking_densidade_ego_microrregiao_png():
             linewidth=0.5
         )
         
-        # 6) Adiciona os valores nas barras
         for p in ax.patches:
             ax.annotate(
                 f"{p.get_height():.2f}",
@@ -587,7 +562,6 @@ def ranking_densidade_ego_microrregiao_png():
                 fontweight='bold'
             )
         
-        # 7) Configurações do gráfico
         plt.title('Densidade Média das Redes Ego por Microrregião', 
                  fontsize=14, 
                  pad=20,
@@ -596,10 +570,8 @@ def ranking_densidade_ego_microrregiao_png():
         plt.xlabel('Microrregião', fontsize=12)
         plt.ylabel('Densidade Média', fontsize=12)
         
-        # Rotaciona os rótulos do eixo x para melhor legibilidade
         plt.xticks(rotation=45, ha='right')
         
-        # 8) Ajusta o layout e salva
         plt.tight_layout()
         
         caminho_saida = os.path.join(OUT_DIR, 'ranking_densidade_ego_microrregiao.png')
@@ -624,7 +596,6 @@ def arvore_bfs_boaviagem_html():
     caminho_bairros_unique = os.path.join(DATA_DIR, "bairros_unique.csv")
     caminho_adjacencias = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
 
-    # 1) Carrega o grafo completo
     grafo, _ = carregar_grafo_recife(
         caminho_bairros_unique,
         caminho_adjacencias
@@ -637,44 +608,34 @@ def arvore_bfs_boaviagem_html():
             "Verifique a grafia em bairros_unique.csv."
         )
 
-    # 2) Executa a BFS e obtém pai e nível de cada bairro alcançado
     pai, nivel = bfs_arvore(grafo, origem)
     
-    # Calcula estatísticas da árvore
     total_nos = len(nivel)
     profundidade_max = max(nivel.values()) if nivel else 0
     
-    # Conta nós por nível
     nos_por_nivel = {}
     for bairro, nv in nivel.items():
         nos_por_nivel[nv] = nos_por_nivel.get(nv, 0) + 1
 
-    # 3) Cria a rede pyvis com layout hierárquico
     net = Network(
         height="700px",
         width="100%",
         bgcolor="#ffffff",
         font_color="#000000",
-        directed=True  # árvore tem direção pai -> filho
+        directed=True  
     )
 
-    # Vamos usar as microrregiões como tooltip extra (se quiser pegar depois),
-    # mas o essencial aqui é nível + conexões.
-
-    # 4) Adiciona nós com cores por nível (gradiente)
-    # Define paleta de cores profissional por nível
     cores_nivel = [
-        "#ff6b6b",  # Vermelho (nível 0 - origem)
-        "#4ecdc4",  # Turquesa (nível 1)
-        "#45b7d1",  # Azul claro (nível 2)
-        "#96ceb4",  # Verde água (nível 3)
-        "#ffeaa7",  # Amarelo claro (nível 4)
-        "#dfe6e9",  # Cinza claro (nível 5)
-        "#a29bfe",  # Roxo claro (nível 6+)
+        "#ff6b6b", 
+        "#4ecdc4",  
+        "#45b7d1", 
+        "#96ceb4",  
+        "#ffeaa7",  
+        "#dfe6e9",  
+        "#a29bfe",  
     ]
     
     for bairro, nv in nivel.items():
-        # Escolhe cor baseada no nível
         if bairro == origem:
             cor = {"background": "#ff6b6b", "border": "#ee5a52"}
         else:
@@ -690,16 +651,15 @@ def arvore_bfs_boaviagem_html():
             bairro,
             label=bairro,
             title=titulo,
-            level=nv,   # nível da BFS para layout hierárquico
+            level=nv,  
             color=cor,
-            size=25,  # Todos os vértices com o mesmo tamanho
+            size=25,  
             font={"size": 12, "face": "Arial", "color": "#2d3436"}
         )
 
-    # 5) Adiciona arestas pai -> filho com estilo
     for bairro, p in pai.items():
         if p is None:
-            continue  # origem não tem pai
+            continue 
         net.add_edge(
             p, 
             bairro,
@@ -709,7 +669,6 @@ def arvore_bfs_boaviagem_html():
             smooth={"type": "cubicBezier", "forceDirection": "vertical"}
         )
 
-    # 6) Configura layout hierárquico no vis.js com opções melhoradas
     net.set_options("""
     {
     "layout": {
@@ -761,16 +720,13 @@ def arvore_bfs_boaviagem_html():
     net.show(caminho_saida, notebook=False)
     print(caminho_saida)
     
-    # Adiciona controles, legenda e informações
     with open(caminho_saida, "r", encoding="utf-8") as f:
         html = f.read()
     
-    # Prepara lista de nós por nível para exibição
     nos_por_nivel_html = ""
     for nv in sorted(nos_por_nivel.keys()):
         nos_por_nivel_html += f'<div>Nível {nv}: {nos_por_nivel[nv]} bairro(s)</div>'
     
-    # Prepara opções de destaque de nível
     opcoes_nivel = ""
     for nv in sorted(nos_por_nivel.keys()):
         opcoes_nivel += f'<option value="{nv}">Nível {nv}</option>'
@@ -1021,7 +977,6 @@ function moveView(direction) {{
 </script>
 """
     
-    # Prepara dados JSON para JavaScript
     nivel_data_js = json.dumps(nivel, ensure_ascii=False)
     info_html = info_html.replace("__NIVEL_DATA__", nivel_data_js)
     
@@ -1033,7 +988,6 @@ function moveView(direction) {{
 
 
 def grafo_interativo_html():
-    """Gera grafo interativo completo com busca, filtros e cálculo de caminhos."""
     if Network is None:
         print("Pyvis (Network) nao esta disponivel. Verifique a instalacao de pyvis/jinja2.")
         return
@@ -1050,7 +1004,6 @@ def grafo_interativo_html():
 
     bairros = grafo.obter_nos()
 
-    # --- Verificação: leia data/bairros_unique.csv e compare com o mapeamento do grafo
     issues = []
     try:
         if os.path.exists(caminho_bairros_unique):
@@ -1058,15 +1011,12 @@ def grafo_interativo_html():
             df_bairros_unique.columns = df_bairros_unique.columns.str.strip().str.lower()
             if {"bairro", "microrregiao"}.issubset(df_bairros_unique.columns):
                 csv_map = {row["bairro"]: str(row["microrregiao"]) for _, row in df_bairros_unique.iterrows()}
-                # bairros no grafo que nao estao no csv
                 missing_in_csv = [b for b in bairros if b not in csv_map]
                 if missing_in_csv:
                     issues.append(f"Bairros no grafo ausentes em bairros_unique.csv: {missing_in_csv}")
-                # bairros no csv que nao estao no grafo (informativo)
                 missing_in_graph = [b for b in csv_map.keys() if b not in bairros]
                 if missing_in_graph:
                     issues.append(f"Bairros no CSV ausentes no grafo: {missing_in_graph[:10]}{'...' if len(missing_in_graph)>10 else ''}")
-                # divergências de microrregiao
                 mismatches = []
                 for b in bairros:
                     if b in csv_map:
@@ -1083,7 +1033,6 @@ def grafo_interativo_html():
     except Exception as e:
         issues.append(f"Erro ao validar bairros_unique.csv: {e}")
 
-    # --- 2) Carrega grau por bairro (mantemos apenas para tooltip, mas nao usaremos para tamanho) ---
     caminho_graus = os.path.join(OUT_DIR, "graus.csv")
     if not os.path.exists(caminho_graus):
         raise FileNotFoundError(
@@ -1098,7 +1047,6 @@ def grafo_interativo_html():
 
     graus = {row["bairro"]: int(row["grau"]) for _, row in df_graus.iterrows()}
 
-    # --- 3) Carrega densidade_ego por bairro (out/parte1/ego_bairro.csv) ---
     caminho_ego = os.path.join(OUT_DIR, "ego_bairro.csv")
     if not os.path.exists(caminho_ego):
         raise FileNotFoundError(
@@ -1115,11 +1063,9 @@ def grafo_interativo_html():
 
     dens_ego = {row["bairro"]: float(row["densidade_ego"]) for _, row in df_ego.iterrows()}
 
-    # --- 4) Prepara variáveis para armazenar o caminho calculado ---
     path_nodes = []
     path_edges = []
 
-    # Caminho específico solicitado: Nova Descoberta -> Boa Viagem (via Dijkstra no grafo Python)
     origem_especial = "Nova Descoberta"
     destino_especial = "Boa Viagem"
 
@@ -1133,18 +1079,16 @@ def grafo_interativo_html():
                     v = caminho_especial[i + 1]
                     path_edges.append((u, v))
     except Exception:
-        # Se der qualquer erro, mantemos path_nodes/path_edges vazios para o JS tratar
         path_nodes = []
         path_edges = []
 
-    # --- 5) Paleta por microrregiao (até 6 esperadas) ---
     palette = [
-        "#1f77b4",  # azul
-        "#ff7f0e",  # laranja
-        "#2ca02c",  # verde
-        "#d62728",  # vermelho
-        "#9467bd",  # roxo
-        "#8c564b"   # marrom
+        "#1f77b4",  
+        "#ff7f0e",  
+        "#2ca02c",  
+        "#d62728",  
+        "#9467bd",  
+        "#8c564b"   
     ]
 
     unique_micros = []
@@ -1156,15 +1100,12 @@ def grafo_interativo_html():
     micro_to_color = {m: palette[i % len(palette)] for i, m in enumerate(unique_micros)}
     default_node_color = "#97c2fc"
     
-    # --- 5.1) Calcula estatísticas do grafo ---
     total_bairros = grafo.ordem()
     total_conexoes = grafo.tamanho()
     densidade_media = grafo.densidade()
     
-    # Ordena microrregiões para legenda
     unique_micros_sorted = sorted(unique_micros, key=lambda x: int(x) if x.isdigit() else 999)
 
-    # --- 6) Cria a rede pyvis com opções para rótulos maiores ---
     net = Network(
         height="800px",
         width="100%",
@@ -1173,7 +1114,6 @@ def grafo_interativo_html():
     )
     net.barnes_hut()
 
-    # força fonte e tamanho de nó padrão via opções do vis.js para legibilidade
     net.set_options('''{
         "nodes": { "font": { "size": 14, "face": "Arial" } },
         "edges": { "smooth": false },
@@ -1187,7 +1127,6 @@ def grafo_interativo_html():
         }
     }''')
 
-    # --- 7) Adiciona nos com tooltip (GRAU apenas no tooltip; tamanho UNIFORME) ---
     NODE_SIZE = 14
     for bairro in bairros:
         grau = graus.get(bairro, grafo.grau(bairro))
@@ -1219,7 +1158,6 @@ def grafo_interativo_html():
             font=font
         )
 
-    # --- 8) Adiciona arestas do grafo (sem duplicar), coloridas por microrregiao quando possível ---
     arestas_adicionadas = set()
     for b in bairros:
         for vizinho, peso in grafo.vizinhos(b):
@@ -1234,47 +1172,37 @@ def grafo_interativo_html():
             else:
                 edge_color = "#cfcfcf"
 
-            # largura uniforme para todas as arestas
-            # removemos 'value' para evitar que o vis.js escale larguras
             net.add_edge(b, vizinho, color=edge_color, width=2)
             arestas_adicionadas.add(aresta)
 
-    # --- 9) Gera o HTML base com pyvis ---
     caminho_saida = os.path.join("out", "grafo_interativo.html")
     net.show(caminho_saida, notebook=False)
     print(caminho_saida)
 
-    # --- 10) Pos-processa o HTML para adicionar busca + botoes + JS de destaque ---
     with open(caminho_saida, "r", encoding="utf-8") as f:
         html = f.read()
 
-    # Prepara controles do grafo
     issues_html = ""
     if issues:
         items = "<br>".join([f"- {i}" for i in issues])
         issues_html = f"<div style='padding:8px;border:1px solid #faa; background:#fff0f0;margin-bottom:8px;'><strong>Atenção:</strong><br>{items}</div>"
 
-    # Lista de bairros para os selects
     bairros_sorted = sorted(bairros)
     bairros_options = "\n".join([f"                <option value='{b}'>{b}</option>" for b in bairros_sorted])
     
-    # Prepara os dados do grafo para o JavaScript
     graph_data = {}
     for bairro in bairros:
         graph_data[bairro] = {}
         for vizinho, peso in grafo.vizinhos(bairro):
             graph_data[bairro][vizinho] = float(peso)
     
-    # Converte para JSON
     graph_data_js = json.dumps(graph_data, ensure_ascii=False)
     
-    # Legenda de cores por microrregião
     legend_items = "\n".join([
         f'            <div class="legend-item"><span class="legend-color" style="background-color: {micro_to_color.get(m, default_node_color)}"></span> Microrregião {m}</div>'
         for m in unique_micros_sorted
     ])
     
-    # Checkboxes para filtrar microrregiões
     filter_checkboxes = "\n".join([
         f'            <label class="filter-item"><input type="checkbox" class="micro-filter" value="{m}" checked onchange="toggleMicrorregiao(\'{m}\')"><span class="filter-color" style="background-color: {micro_to_color.get(m, default_node_color)}"></span> Microrregião {m}</label>'
         for m in unique_micros_sorted
@@ -1797,8 +1725,6 @@ def grafo_interativo_html():
     if "<body>" in html:
         html = html.replace("<body>", "<body>\n" + controls_html, 1)
 
-    # --- 10.3) Prepara dados para cálculo de menor caminho ---
-    # Cria um dicionário com os dados do grafo para uso no JavaScript
     graph_data = {
         'nodes': list(bairros),
         'edges': []
@@ -1814,7 +1740,6 @@ def grafo_interativo_html():
     path_nodes_js = json.dumps(path_nodes, ensure_ascii=False)
     path_edges_js = json.dumps(path_edges, ensure_ascii=False)
 
-    # Prepara dados de microrregiões para JavaScript
     micro_to_color_js = json.dumps(micro_to_color, ensure_ascii=False)
     bairro_to_micro_js = json.dumps({b: str(m) for b, m in bairro_para_micro.items()}, ensure_ascii=False)
     
@@ -2408,7 +2333,6 @@ def grafo_interativo_html():
 </script>
 """
     
-    # Injeta o JavaScript extra antes do fechamento do body
     if "</body>" in html:
         html = html.replace("</body>", extra_js + "\n</body>", 1)
 
@@ -2421,31 +2345,23 @@ def gerar_histograma_graus():
     import seaborn as sns
     import os
     
-    # Garante que o diretório de saída existe
     os.makedirs(OUT_DIR, exist_ok=True)
     
-    # Lê os dados de grau
     df_graus = pd.read_csv(os.path.join(OUT_DIR, 'graus.csv'))
     
-    # Configura o estilo do gráfico
     plt.figure(figsize=(12, 6))
     sns.set_style("whitegrid")
     
-    # Cria o histograma com KDE
     ax = sns.histplot(data=df_graus, x='grau', bins=15, kde=True, color='#1f77b4')
     
-    # Configurações do gráfico
     plt.title('Distribuição dos Graus dos Bairros', fontsize=16, pad=20)
     plt.xlabel('Grau do Vértice (Número de Coneexões)', fontsize=12)
     plt.ylabel('Frequência', fontsize=12)
     
-    # Adiciona linhas de grade para melhor leitura
     plt.grid(True, linestyle='--', alpha=0.7)
     
-    # Ajusta o layout
     plt.tight_layout()
     
-    # Salva a figura
     caminho_saida = os.path.join(OUT_DIR, 'distribuicao_graus.png')
     plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
     plt.close()
