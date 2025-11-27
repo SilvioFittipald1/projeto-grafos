@@ -1,12 +1,12 @@
 import os
 import json
 import pandas as pd
-from graphs.io import carregar_grafo_ufc
-from graphs.graph import Graph
+from .graphs.io import carregar_grafo_ufc
+from .graphs.graph import Graph
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-OUT_DIR = os.path.join(BASE_DIR, "out", "parte2")
+OUT_DIR = os.path.join(BASE_DIR, "out")
 
 CAMINHO_UFC = os.path.join(DATA_DIR, "total_fight_data_processado.csv")
 

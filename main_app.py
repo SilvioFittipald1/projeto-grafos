@@ -3,8 +3,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PARTE1_OUT = os.path.join(BASE_DIR, "parte_1", "out", "parte1")
-PARTE2_OUT = os.path.join(BASE_DIR, "parte_2", "out", "parte2")
+PARTE1_OUT = os.path.join(BASE_DIR, "parte_1", "out")
+PARTE2_OUT = os.path.join(BASE_DIR, "parte_2", "out")
 
 def listar_htmls(diretorio: str):
     if not os.path.exists(diretorio):

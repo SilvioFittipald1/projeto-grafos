@@ -1,8 +1,15 @@
 import os
 import json
+import time
+import tracemalloc
 import pandas as pd
+import webbrowser
+from collections import deque
 from pyvis.network import Network
-from graphs.io import carregar_grafo_ufc
+from .graphs.io import carregar_grafo_ufc
+from .graphs.algorithms import bfs_arvore, dfs_arvore, dfs_detectar_ciclo, dfs_classificar_arestas, dijkstra, bellman_ford, bellman_ford_caminho
+from .graphs.graph import Graph
+from math import inf
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
@@ -10,12 +17,12 @@ import seaborn as sns
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-OUT_DIR = os.path.join(BASE_DIR, "out", "parte2")
+OUT_DIR = os.path.join(BASE_DIR, "out")
+OUT_HTML_DIR = os.path.join(BASE_DIR, "out")
+REPORT_PATH = os.path.join(OUT_DIR, "parte2_report.json")
 
 def grafo_interativo_ufc_html():
-    """Gera grafo interativo dos lutadores do UFC com busca, filtros e estatísticas."""
     if Network is None:
-        print("Pyvis (Network) não está disponível. Verifique a instalação de pyvis/jinja2.")
         return
 
     os.makedirs(OUT_DIR, exist_ok=True)
@@ -146,7 +153,6 @@ def grafo_interativo_ufc_html():
 
     caminho_saida = os.path.join(OUT_DIR, "grafo_interativo.html")
     net.show(caminho_saida, notebook=False)
-    print(f"Grafo interativo salvo em: {caminho_saida}")
 
     with open(caminho_saida, "r", encoding="utf-8") as f:
         html = f.read()
@@ -784,7 +790,6 @@ def grafo_interativo_ufc_html():
         f.write(html)
 
 def gerar_histograma_graus():
-    """Gera histograma da distribuição de graus dos lutadores do UFC."""
     os.makedirs(OUT_DIR, exist_ok=True)
 
     caminho_ufc = os.path.join(DATA_DIR, "total_fight_data_processado.csv")
@@ -800,7 +805,6 @@ def gerar_histograma_graus():
 
     caminho_csv = os.path.join(OUT_DIR, 'graus_lutadores.csv')
     df_graus.to_csv(caminho_csv, index=False)
-    print(f"Dados de graus salvos em: {caminho_csv}")
 
     plt.figure(figsize=(12, 6))
     sns.set_style("whitegrid")
@@ -825,9 +829,923 @@ def gerar_histograma_graus():
     plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"Histograma de distribuição de graus salvo em: {caminho_saida}")
-    print(f"Estatísticas: Média = {media:.2f}, Mediana = {mediana:.2f}, Min = {df_graus['grau'].min()}, Max = {df_graus['grau'].max()}")
+
+def registrar_metricas(algorithm: str, task: str, time_ms: float, memory_kb: float = None,
+                       dataset: str = "total_fight_data_processado.csv"):
+    os.makedirs(OUT_DIR, exist_ok=True)
+    
+    data = {"runs": []}
+    if os.path.exists(REPORT_PATH):
+        try:
+            with open(REPORT_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            data = {"runs": []}
+    
+    registro = {
+        "algorithm": algorithm,
+        "task": task,
+        "dataset": dataset,
+        "time_ms": float(time_ms),
+    }
+    if memory_kb is not None:
+        registro["memory_kb"] = float(memory_kb)
+    
+    data["runs"].append(registro)
+    
+    with open(REPORT_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def medir_e_registrar(algorithm: str, task: str, func, *args, medir_memoria: bool = True, **kwargs):
+    dataset = "total_fight_data_processado.csv"
+    
+    if medir_memoria:
+        tracemalloc.start()
+    
+    start = time.perf_counter()
+    result = func(*args, **kwargs)
+    end = time.perf_counter()
+    
+    time_ms = (end - start) * 1000.0
+    
+    memory_kb = None
+    if medir_memoria:
+        current, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+        memory_kb = peak / 1024.0
+    
+    registrar_metricas(algorithm, task, time_ms, memory_kb, dataset=dataset)
+    return result
+
+
+def carregar_grafo_parte2():
+    caminho_ufc = os.path.join(DATA_DIR, "total_fight_data_processado.csv")
+    return carregar_grafo_ufc(caminho_ufc)
+
+
+def _obter_vertices_mais_conectados(grafo: Graph, n: int = 3):
+    vertices_com_grau = [(v, grafo.grau(v)) for v in grafo.obter_nos()]
+    vertices_com_grau.sort(key=lambda x: x[1], reverse=True)
+    return [v for v, _ in vertices_com_grau[:n]]
+
+
+def _detectar_ciclos_bfs(grafo: Graph, origem: str, pai: dict, nivel: dict):
+    vertices_alcancados = set(pai.keys())
+    for u in vertices_alcancados:
+        for v, _ in grafo.vizinhos(u):
+            if v in vertices_alcancados:
+                if pai.get(u) != v and pai.get(v) != u:
+                    return True
+    return False
+
+
+def gerar_html_bfs(out_path: str = None):
+    if out_path is None:
+        os.makedirs(OUT_HTML_DIR, exist_ok=True)
+        out_path = os.path.join(OUT_HTML_DIR, "parte2_bfs.html")
+    else:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    
+    grafo = carregar_grafo_parte2()
+    origens = _obter_vertices_mais_conectados(grafo, 3)
+    
+    html_parts = []
+    html_parts.append("""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização BFS - Parte 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .resumo {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .ciclo-detectado {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .sem-ciclo {
+            color: #388e3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualização do Algoritmo BFS (Breadth-First Search)</h1>
+""")
+    
+    for origem in origens:
+        pai, nivel = medir_e_registrar(
+            algorithm="BFS",
+            task=f"BFS a partir de {origem}",
+            func=bfs_arvore,
+            grafo=grafo,
+            origem=origem
+        )
+        
+        vertices_ordenados = []
+        ordem_visita = {}
+        contador = 0
+        fila = [origem]
+        visitado_ordem = {origem: contador}
+        contador += 1
+        
+        while fila:
+            atual = fila.pop(0)
+            for vizinho, _ in grafo.vizinhos(atual):
+                if vizinho in pai and pai[vizinho] == atual and vizinho not in visitado_ordem:
+                    visitado_ordem[vizinho] = contador
+                    contador += 1
+                    fila.append(vizinho)
+        
+        vertices_info = []
+        for v in pai.keys():
+            vertices_info.append({
+                'vertice': v,
+                'nivel': nivel[v],
+                'ordem': visitado_ordem.get(v, -1)
+            })
+        
+        vertices_info.sort(key=lambda x: (x['nivel'], x['ordem']))
+        tem_ciclo = _detectar_ciclos_bfs(grafo, origem, pai, nivel)
+        
+        html_parts.append(f"""
+    <h2>BFS a partir de {origem}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Nível</th>
+                <th>Ordem de Visita</th>
+            </tr>
+        </thead>
+        <tbody>
+""")
+        
+        for info in vertices_info:
+            html_parts.append(f"""
+            <tr>
+                <td>{info['vertice']}</td>
+                <td>{info['nivel']}</td>
+                <td>{info['ordem']}</td>
+            </tr>
+""")
+        
+        html_parts.append("""        </tbody>
+    </table>
+    <div class="resumo">
+""")
+        
+        if tem_ciclo:
+            html_parts.append(f"""
+        <p><span class="ciclo-detectado">Ciclos detectados:</span> Sim, foram detectados ciclos na componente alcançada a partir de {origem}.</p>
+""")
+        else:
+            html_parts.append(f"""
+        <p><span class="sem-ciclo">Ciclos detectados:</span> Não, não foram detectados ciclos na componente alcançada a partir de {origem}.</p>
+""")
+        
+        html_parts.append(f"""
+        <p><strong>Total de vértices alcançados:</strong> {len(pai)}</p>
+        <p><strong>Nível máximo:</strong> {max(nivel.values()) if nivel else 0}</p>
+    </div>
+""")
+    
+    html_parts.append("""
+</body>
+</html>
+""")
+    
+    html_content = "".join(html_parts)
+    
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    abs_path = os.path.abspath(out_path)
+    if os.name == 'nt':
+        file_url = f"file:///{abs_path.replace(os.sep, '/')}"
+    else:
+        file_url = f"file://{abs_path}"
+    webbrowser.open(file_url)
+    
+    return out_path
+
+
+def gerar_html_dfs(out_path: str = None):
+    if out_path is None:
+        os.makedirs(OUT_HTML_DIR, exist_ok=True)
+        out_path = os.path.join(OUT_HTML_DIR, "parte2_dfs.html")
+    else:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    
+    grafo = carregar_grafo_parte2()
+    origens = _obter_vertices_mais_conectados(grafo, 3)
+    
+    html_parts = []
+    html_parts.append("""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização DFS - Parte 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #fce4ec;
+            border-left: 4px solid #e91e63;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f5576c;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .resumo {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .ciclo-detectado {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .sem-ciclo {
+            color: #388e3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualização do Algoritmo DFS (Depth-First Search)</h1>
+""")
+    
+    for origem in origens:
+        pai, descoberta = medir_e_registrar(
+            algorithm="DFS",
+            task=f"DFS a partir de {origem}",
+            func=dfs_arvore,
+            grafo=grafo,
+            origem=origem
+        )
+        
+        def calcular_profundidade(vertice, pai_dict, origem):
+            if vertice == origem:
+                return 0
+            if vertice not in pai_dict or pai_dict[vertice] is None:
+                return 0
+            
+            cache_profundidade = {origem: 0}
+            
+            def calcular_recursivo(v):
+                if v in cache_profundidade:
+                    return cache_profundidade[v]
+                if v not in pai_dict or pai_dict[v] is None:
+                    return 0
+                pai_v = pai_dict[v]
+                if pai_v == origem:
+                    cache_profundidade[v] = 1
+                    return 1
+                prof_pai = calcular_recursivo(pai_v)
+                cache_profundidade[v] = prof_pai + 1
+                return prof_pai + 1
+            
+            return calcular_recursivo(vertice)
+        
+        vertices_info = []
+        for v in pai.keys():
+            profundidade = calcular_profundidade(v, pai, origem)
+            vertices_info.append({
+                'vertice': v,
+                'ordem': descoberta.get(v, -1),
+                'profundidade': profundidade
+            })
+        
+        vertices_info.sort(key=lambda x: x['ordem'])
+        classificacao_arestas = medir_e_registrar(
+            algorithm="DFS",
+            task=f"DFS edge classification a partir de {origem}",
+            func=dfs_classificar_arestas,
+            grafo=grafo,
+            medir_memoria=False
+        )
+        tem_ciclo = any(tipo == "back" for tipo in classificacao_arestas.values())
+        
+        html_parts.append(f"""
+    <h2>DFS a partir de {origem}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Nível</th>
+                <th>Ordem de Visita</th>
+            </tr>
+        </thead>
+        <tbody>
+""")
+        
+        for info in vertices_info:
+            html_parts.append(f"""
+            <tr>
+                <td>{info['vertice']}</td>
+                <td>{info['profundidade']}</td>
+                <td>{info['ordem']}</td>
+            </tr>
+""")
+        
+        html_parts.append("""        </tbody>
+    </table>
+    <div class="resumo">
+""")
+        
+        if tem_ciclo:
+            html_parts.append(f"""
+        <p><span class="ciclo-detectado">Ciclos detectados:</span> Sim, foram encontrados ciclos na travessia em profundidade a partir de {origem} (arestas de retorno detectadas).</p>
+""")
+        else:
+            html_parts.append(f"""
+        <p><span class="sem-ciclo">Ciclos detectados:</span> Não, não foram encontrados ciclos na travessia em profundidade a partir de {origem}.</p>
+""")
+        
+        profundidade_max = max([info['profundidade'] for info in vertices_info]) if vertices_info else 0
+        html_parts.append(f"""
+        <p><strong>Total de vértices alcançados:</strong> {len(pai)}</p>
+        <p><strong>Profundidade máxima:</strong> {profundidade_max}</p>
+    </div>
+""")
+    
+    html_parts.append("""
+</body>
+</html>
+""")
+    
+    html_content = "".join(html_parts)
+    
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    abs_path = os.path.abspath(out_path)
+    if os.name == 'nt':
+        file_url = f"file:///{abs_path.replace(os.sep, '/')}"
+    else:
+        file_url = f"file://{abs_path}"
+    webbrowser.open(file_url)
+    
+    return out_path
+
+
+def gerar_html_dijkstra(out_path: str = None):
+    if out_path is None:
+        os.makedirs(OUT_HTML_DIR, exist_ok=True)
+        out_path = os.path.join(OUT_HTML_DIR, "parte2_dijkstra.html")
+    else:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    
+    grafo = carregar_grafo_parte2()
+    vertices_conectados = _obter_vertices_mais_conectados(grafo, 10)
+    
+    pares = []
+    for i in range(min(5, len(vertices_conectados))):
+        origem = vertices_conectados[i]
+        destino = None
+        for j in range(i + 1, len(vertices_conectados)):
+            candidato = vertices_conectados[j]
+            visitado = set()
+            fila = deque([origem])
+            visitado.add(origem)
+            encontrou = False
+            
+            while fila:
+                atual = fila.popleft()
+                if atual == candidato:
+                    encontrou = True
+                    break
+                for vizinho, _ in grafo.vizinhos(atual):
+                    if vizinho not in visitado:
+                        visitado.add(vizinho)
+                        fila.append(vizinho)
+            
+            if encontrou:
+                destino = candidato
+                break
+        
+        if destino:
+            pares.append((origem, destino))
+    
+    if len(pares) < 5:
+        todos_vertices = grafo.obter_nos()
+        for origem in vertices_conectados[:5]:
+            if len(pares) >= 5:
+                break
+            for destino in todos_vertices:
+                if origem != destino and (origem, destino) not in pares and (destino, origem) not in pares:
+                    visitado = set()
+                    fila = deque([origem])
+                    visitado.add(origem)
+                    encontrou = False
+                    
+                    while fila:
+                        atual = fila.popleft()
+                        if atual == destino:
+                            encontrou = True
+                            break
+                        for vizinho, _ in grafo.vizinhos(atual):
+                            if vizinho not in visitado:
+                                visitado.add(vizinho)
+                                fila.append(vizinho)
+                    
+                    if encontrou:
+                        pares.append((origem, destino))
+                        break
+    
+    pares = pares[:5]
+    
+    html_parts = []
+    html_parts.append("""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização Dijkstra - Parte 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .caminho {
+            font-family: 'Courier New', monospace;
+            color: #1976d2;
+        }
+        .explicacao {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualização do Algoritmo Dijkstra</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Origem</th>
+                <th>Destino</th>
+                <th>Caminho</th>
+                <th>Distância Total</th>
+            </tr>
+        </thead>
+        <tbody>
+""")
+    
+    for origem, destino in pares:
+        distancia, caminho = medir_e_registrar(
+            algorithm="DIJKSTRA",
+            task=f"DIJKSTRA {origem} -> {destino}",
+            func=dijkstra,
+            grafo=grafo,
+            origem=origem,
+            destino=destino
+        )
+        
+        if distancia == inf or not caminho:
+            caminho_str = "Sem caminho"
+            distancia_str = "∞"
+        else:
+            caminho_str = " → ".join(caminho)
+            distancia_str = f"{distancia:.2f}"
+        
+        html_parts.append(f"""
+            <tr>
+                <td>{origem}</td>
+                <td>{destino}</td>
+                <td class="caminho">{caminho_str}</td>
+                <td>{distancia_str}</td>
+            </tr>
+""")
+    
+    html_parts.append("""        </tbody>
+    </table>
+    <div class="explicacao">
+        <h3>Explicação</h3>
+        <p>A distância total representa a soma dos pesos das arestas no caminho mínimo entre origem e destino.</p>
+        <p>No contexto deste grafo de lutadores do UFC, os pesos das arestas indicam a importância/tipo da vitória:</p>
+        <ul>
+            <li>Nocaute/Submissão: peso 0.5</li>
+            <li>Decisão Unânime: peso 2.0</li>
+            <li>Decisão Dividida/Majoritária: peso 3.0</li>
+            <li>Outros: peso 1.0</li>
+        </ul>
+        <p>O algoritmo Dijkstra encontra o caminho com menor soma de pesos entre dois lutadores.</p>
+    </div>
+</body>
+</html>
+""")
+    
+    html_content = "".join(html_parts)
+    
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    abs_path = os.path.abspath(out_path)
+    if os.name == 'nt':
+        file_url = f"file:///{abs_path.replace(os.sep, '/')}"
+    else:
+        file_url = f"file://{abs_path}"
+    webbrowser.open(file_url)
+    
+    return out_path
+
+
+def gerar_html_bellman_ford(out_path: str = None):
+    if out_path is None:
+        os.makedirs(OUT_HTML_DIR, exist_ok=True)
+        out_path = os.path.join(OUT_HTML_DIR, "parte2_bellman_ford.html")
+    else:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    
+    html_parts = []
+    html_parts.append("""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização Bellman-Ford - Parte 2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #ff9800;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .resumo {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .ciclo-negativo {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #c62828;
+            font-weight: bold;
+        }
+        .sem-ciclo {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualização do Algoritmo Bellman-Ford</h1>
+""")
+    
+    grafo_sem_ciclo = Graph()
+    grafo_sem_ciclo.adicionar_aresta("A", "B", 1.0)
+    grafo_sem_ciclo.adicionar_aresta("A", "C", 4.0)
+    grafo_sem_ciclo.adicionar_aresta("B", "C", -2.0)
+    grafo_sem_ciclo.adicionar_aresta("B", "D", 3.0)
+    grafo_sem_ciclo.adicionar_aresta("C", "D", 2.0)
+    grafo_sem_ciclo.adicionar_aresta("D", "E", -1.0)
+    
+    origem_caso1 = "A"
+    dist, anterior, tem_ciclo = medir_e_registrar(
+        algorithm="BELLMAN_FORD",
+        task="BF case1: neg weights, no neg cycle (expected)",
+        func=bellman_ford,
+        grafo=grafo_sem_ciclo,
+        origem=origem_caso1
+    )
+    
+    html_parts.append(f"""
+    <h2>Caso 1: Grafo com Pesos Negativos (Sem Ciclo Negativo)</h2>
+    <p><strong>Origem:</strong> {origem_caso1}</p>
+    <p><strong>Estrutura do grafo:</strong></p>
+    <ul>
+        <li>A → B (peso 1.0)</li>
+        <li>A → C (peso 4.0)</li>
+        <li>B → C (peso -2.0) <strong>Peso negativo</strong></li>
+        <li>B → D (peso 3.0)</li>
+        <li>C → D (peso 2.0)</li>
+        <li>D → E (peso -1.0) <strong>Peso negativo</strong></li>
+    </ul>
+    <p><strong>Análise:</strong> Este grafo contém arestas com pesos negativos, mas não possui ciclos negativos. 
+    Todos os ciclos possíveis têm soma de pesos positiva ou zero.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Distância</th>
+                <th>Predecessor</th>
+            </tr>
+        </thead>
+        <tbody>
+""")
+    
+    for vertice in sorted(dist.keys()):
+        distancia_val = dist[vertice]
+        pred = anterior[vertice]
+        distancia_str = f"{distancia_val:.2f}" if distancia_val != inf else "∞"
+        pred_str = pred if pred else "-"
+        
+        html_parts.append(f"""
+            <tr>
+                <td>{vertice}</td>
+                <td>{distancia_str}</td>
+                <td>{pred_str}</td>
+            </tr>
+""")
+    
+    html_parts.append("""        </tbody>
+    </table>
+""")
+    
+    if tem_ciclo:
+        html_parts.append("""
+    <div class="ciclo-negativo">
+        <p>Ciclo negativo detectado!</p>
+    </div>
+""")
+    else:
+        html_parts.append("""
+    <div class="sem-ciclo">
+        <p>Nao foi detectado ciclo negativo.</p>
+    </div>
+""")
+    
+    grafo_com_ciclo = Graph()
+    grafo_com_ciclo.adicionar_aresta("X", "Y", 1.0)
+    grafo_com_ciclo.adicionar_aresta("Y", "Z", 2.0)
+    grafo_com_ciclo.adicionar_aresta("Z", "X", -5.0)
+    
+    origem_caso2 = "X"
+    dist2, anterior2, tem_ciclo2 = medir_e_registrar(
+        algorithm="BELLMAN_FORD",
+        task="BF case2: negative cycle",
+        func=bellman_ford,
+        grafo=grafo_com_ciclo,
+        origem=origem_caso2
+    )
+    
+    html_parts.append(f"""
+    <h2>Caso 2: Grafo com Ciclo Negativo (Detectado)</h2>
+    <p><strong>Origem:</strong> {origem_caso2}</p>
+    <p><strong>Estrutura do grafo:</strong></p>
+    <ul>
+        <li>X → Y (peso 1.0)</li>
+        <li>Y → Z (peso 2.0)</li>
+        <li>Z → X (peso -5.0) <strong>Peso negativo</strong></li>
+    </ul>
+    <p><strong>Ciclo negativo:</strong> X → Y → Z → X</p>
+    <p><strong>Soma dos pesos do ciclo:</strong> 1.0 + 2.0 + (-5.0) = <strong>-2.0</strong> (negativo!)</p>
+    <p><strong>Análise:</strong> Este grafo contém um ciclo com soma de pesos negativa. 
+    O algoritmo Bellman-Ford deve detectar este ciclo negativo após |V|-1 iterações, 
+    quando ainda é possível relaxar arestas.</p>
+""")
+    
+    if tem_ciclo2:
+        html_parts.append("""
+    <div class="ciclo-negativo">
+        <p><strong>Ciclo negativo detectado!</strong></p>
+        <p>O algoritmo Bellman-Ford identificou a existência de um ciclo com soma de pesos negativa.</p>
+        <p>Neste caso, as distâncias calculadas podem não ser confiáveis, pois é possível reduzir infinitamente o custo do caminho percorrendo o ciclo negativo repetidamente.</p>
+    </div>
+""")
+    else:
+        html_parts.append("""
+    <div class="sem-ciclo">
+        <p>Nao foi detectado ciclo negativo.</p>
+    </div>
+""")
+    
+    grafo_grande = carregar_grafo_parte2()
+    origem_grande = _obter_vertices_mais_conectados(grafo_grande, 1)[0]
+    dist3, anterior3, tem_ciclo3 = medir_e_registrar(
+        algorithm="BELLMAN_FORD",
+        task=f"BF case3: large graph from {origem_grande}",
+        func=bellman_ford,
+        grafo=grafo_grande,
+        origem=origem_grande
+    )
+    vertices_ordenados = sorted(dist3.items(), key=lambda x: x[1] if x[1] != inf else float('inf'))
+    vertices_amostra = vertices_ordenados[:20]
+    
+    html_parts.append(f"""
+    <h2>Caso 3: Grafo Grande da Parte 2 (Pesos Positivos)</h2>
+    <p><strong>Origem:</strong> {origem_grande}</p>
+    <p><strong>Total de vértices no grafo:</strong> {grafo_grande.ordem()}</p>
+    <p><em>Mostrando os 20 vértices mais próximos da origem:</em></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Vértice</th>
+                <th>Distância</th>
+            </tr>
+        </thead>
+        <tbody>
+""")
+    
+    for vertice, distancia_val in vertices_amostra:
+        distancia_str = f"{distancia_val:.2f}" if distancia_val != inf else "∞"
+        html_parts.append(f"""
+            <tr>
+                <td>{vertice}</td>
+                <td>{distancia_str}</td>
+            </tr>
+""")
+    
+    html_parts.append("""        </tbody>
+    </table>
+""")
+    
+    if tem_ciclo3:
+        html_parts.append("""
+    <div class="ciclo-negativo">
+        <p>Ciclo negativo detectado!</p>
+    </div>
+""")
+    else:
+        html_parts.append(f"""
+    <div class="sem-ciclo">
+        <p>Nao foi detectado ciclo negativo.</p>
+        <p>O algoritmo Bellman-Ford funcionou corretamente no grafo grande com pesos positivos.</p>
+        <p><strong>Vértices alcançáveis:</strong> {sum(1 for d in dist3.values() if d != inf)}</p>
+    </div>
+""")
+    
+    html_parts.append("""
+</body>
+</html>
+""")
+    
+    html_content = "".join(html_parts)
+    
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    abs_path = os.path.abspath(out_path)
+    if os.name == 'nt':
+        file_url = f"file:///{abs_path.replace(os.sep, '/')}"
+    else:
+        file_url = f"file://{abs_path}"
+    webbrowser.open(file_url)
+    
+    return out_path
+
+
+
 
 if __name__ == "__main__":
     grafo_interativo_ufc_html()
     gerar_histograma_graus()
+    gerar_html_bfs()
+    gerar_html_dijkstra()
+    gerar_html_bellman_ford()
+    gerar_html_dfs()
