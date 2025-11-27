@@ -25,7 +25,7 @@ def mostrar_html(caminho_html: str, height: int = 800):
 def pagina_parte1():
     st.header("Parte 1 – Grafos de Recife")
     st.write(
-        """Explorações de grafos com dados de bairros de Recife.\n\n"""
+        """Exploração de outpus gerados com dados de bairros do Recife.\n\n"""
     )
 
     htmls = listar_htmls(PARTE1_OUT)
@@ -42,47 +42,74 @@ def pagina_parte1():
 
 
 def pagina_parte2():
-    st.header("Parte 2 – Grafos do UFC")
+    st.header("Parte 2 – Grafo de Network dos Lutadores do UFC")
     st.write(
         """Visualização interativa do grafo de lutadores do UFC, construída a partir
-        do arquivo ufc_arquivo_processado.csv. Cada nó é um lutador e as arestas
+        do arquivo raw_total_fight_data.csv. Cada nó é um lutador e as arestas
         representam lutas realizadas entre eles."""
     )
 
-    htmls = listar_htmls(PARTE2_OUT)
-    if not htmls:
-        st.info("Nenhum arquivo HTML encontrado ainda em parte_2/out/parte2.")
-        st.code("Rode python parte_2/src/viz.py para gerar grafo_interativo.html.")
-        return
+    caminho = os.path.join(PARTE2_OUT, "grafo_interativo.html")
 
-    # hoje só existe um HTML, mas deixo genérico
-    escolha = st.selectbox("Escolha uma visualização da Parte 2:", htmls)
-    caminho = os.path.join(PARTE2_OUT, escolha)
-
-    st.subheader(f"Visualização: {escolha}")
+    st.subheader(f"Visualização do Grafo")
     mostrar_html(caminho)
 
 
 def main():
     st.set_page_config(
-        page_title="Projeto Grafos – Navegação",
+        page_title="Projeto Grafos",
         layout="wide",
     )
+    
+    # Aplicar paleta de cores customizada apenas na sidebar
+    st.markdown("""
+        <style>
+        /* Sidebar com paleta similar ao viz.py */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+        }
+        
+        /* Títulos e textos da sidebar */
+        [data-testid="stSidebar"] h1, 
+        [data-testid="stSidebar"] h2, 
+        [data-testid="stSidebar"] h3,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] div,
+        [data-testid="stSidebar"] span,
+        [data-testid="stSidebar"] label {
+            color: #ffffff !important;
+        }
+        
+        /* Botões de rádio na sidebar */
+        [data-testid="stSidebar"] .stRadio > label {
+            color: #4fc3f7 !important;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        [data-testid="stSidebar"] [role="radiogroup"] label {
+            background: rgba(255,255,255,0.05);
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        [data-testid="stSidebar"] [role="radiogroup"] label:hover {
+            background: rgba(79, 195, 247, 0.15);
+            border-color: #4fc3f7;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-    st.title("Projeto Grafos – Hub de Visualizações")
-    st.markdown(
-        """\
-        Esta interface serve apenas como *ponto de entrada* para as visualizações
-        já geradas pelas Partes 1 e 2 do projeto.
-
-        - *Parte 1*: grafos com dados de bairros de Recife (análises diversas).
-        - *Parte 2*: grafo interativo de lutadores do UFC.
-        """
-    )
+    st.title("Hub de Visualizações do Projeto de Teoria dos Grafos")
 
     aba = st.sidebar.radio(
-        "Ir para:",
-        ("Parte 1 – Recife", "Parte 2 – UFC"),
+        "Navegação:",
+        ("Parte 1", "Parte 2"),
     )
 
     if aba.startswith("Parte 1"):

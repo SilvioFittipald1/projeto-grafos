@@ -6,9 +6,11 @@ from graphs.io import carregar_grafo_ufc
 import matplotlib
 matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-DATA_DIR = "data"
-OUT_DIR = "out/parte2"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+OUT_DIR = os.path.join(BASE_DIR, "out", "parte2")
 
 def grafo_interativo_ufc_html():
     """Gera grafo interativo dos lutadores do UFC com busca, filtros e estatísticas."""
@@ -781,5 +783,51 @@ def grafo_interativo_ufc_html():
     with open(caminho_saida, "w", encoding="utf-8") as f:
         f.write(html)
 
+def gerar_histograma_graus():
+    """Gera histograma da distribuição de graus dos lutadores do UFC."""
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    caminho_ufc = os.path.join(DATA_DIR, "total_fight_data_processado.csv")
+    grafo = carregar_grafo_ufc(caminho_ufc)
+    lutadores = grafo.obter_nos()
+
+    graus = []
+    for lutador in lutadores:
+        grau = grafo.grau(lutador)
+        graus.append({'lutador': lutador, 'grau': grau})
+    
+    df_graus = pd.DataFrame(graus)
+
+    caminho_csv = os.path.join(OUT_DIR, 'graus_lutadores.csv')
+    df_graus.to_csv(caminho_csv, index=False)
+    print(f"Dados de graus salvos em: {caminho_csv}")
+
+    plt.figure(figsize=(12, 6))
+    sns.set_style("whitegrid")
+
+    ax = sns.histplot(data=df_graus, x='grau', bins=30, kde=True, color='#667eea')
+
+    plt.title('Distribuição dos Graus dos Lutadores do UFC', fontsize=16, pad=20, fontweight='bold')
+    plt.xlabel('Grau do Vértice (Número de Lutas)', fontsize=12)
+    plt.ylabel('Frequência', fontsize=12)
+
+    plt.grid(True, linestyle='--', alpha=0.7)
+
+    media = df_graus['grau'].mean()
+    mediana = df_graus['grau'].median()
+    plt.axvline(media, color='red', linestyle='--', linewidth=2, label=f'Média: {media:.1f}')
+    plt.axvline(mediana, color='green', linestyle='--', linewidth=2, label=f'Mediana: {mediana:.1f}')
+    plt.legend()
+
+    plt.tight_layout()
+
+    caminho_saida = os.path.join(OUT_DIR, 'distribuicao_graus.png')
+    plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"Histograma de distribuição de graus salvo em: {caminho_saida}")
+    print(f"Estatísticas: Média = {media:.2f}, Mediana = {mediana:.2f}, Min = {df_graus['grau'].min()}, Max = {df_graus['grau'].max()}")
+
 if __name__ == "__main__":
     grafo_interativo_ufc_html()
+    gerar_histograma_graus()
