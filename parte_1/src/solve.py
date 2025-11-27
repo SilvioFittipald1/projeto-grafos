@@ -1,13 +1,13 @@
 import os
 import json
 import pandas as pd
-from graphs.io import carregar_grafo_recife, tratar_setubal 
-from graphs.graph import Graph
-from graphs.algorithms import dijkstra
+from .graphs.io import carregar_grafo_recife, tratar_setubal 
+from .graphs.graph import Graph
+from .graphs.algorithms import dijkstra
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-OUT_DIR = os.path.join(BASE_DIR, "out", "parte1")
+OUT_DIR = os.path.join(BASE_DIR, "out")
 
 CAMINHO_BAIRROS_UNIQUE = os.path.join(DATA_DIR, "bairros_unique.csv")
 CAMINHO_ADJACENCIAS = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
