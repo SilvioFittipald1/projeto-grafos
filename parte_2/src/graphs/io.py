@@ -1,173 +1,65 @@
 import pandas as pd
 from .graph import Graph
 
-
-def normalizar_bairro(nome: str) -> str:
-    """Normaliza o nome de um bairro removendo espaços extras."""
-    if not isinstance(nome, str):
-        return nome
-
-    nome = nome.strip()
-    nome = " ".join(nome.split())
-    return nome
-
-def tratar_setubal(nome: str):
-    """Aplica regra especial para Setúbal, retornando (rótulo, nó_grafo)."""
-    if not isinstance(nome, str):
-        return nome, nome
-
-    nome_norm = normalizar_bairro(nome)
-    nome_lower = nome_norm.lower()
-
-    if nome_lower == "setúbal" or nome_lower == "setubal":
-        rotulo_saida = "Boa Viagem (Setúbal)"
-        nome_no_grafo = "Boa Viagem"
-        return rotulo_saida, nome_no_grafo
-
-    return nome_norm, nome_norm
-
-
-def carregar_grafo_bairros(caminho_bairros_unique: str) -> Graph:
-    """Carrega grafo com nós de bairros a partir do CSV."""
-    df = pd.read_csv(caminho_bairros_unique)
-
-    colunas_necessarias = {"bairro", "microrregiao"}
-    if not colunas_necessarias.issubset(df.columns):
-        raise ValueError(
-            "O arquivo bairros_unique.csv deve ter as colunas 'bairro' e 'microrregiao'."
-        )
-
-    df["bairro"] = df["bairro"].map(normalizar_bairro)
-    grafo = Graph()
-
-    for bairro in df["bairro"]:
-        grafo.adicionar_no(bairro)
-
-    return grafo
-
-def carregar_mapa_bairro_microrregiao(caminho_bairros_unique: str) -> dict:
-    """Retorna dicionário mapeando bairro para microrregião."""
-    df = pd.read_csv(caminho_bairros_unique)
-
-    colunas_necessarias = {"bairro", "microrregiao"}
-    if not colunas_necessarias.issubset(df.columns):
-        raise ValueError(
-            "O arquivo bairros_unique.csv deve ter as colunas 'bairro' e 'microrregiao'."
-        )
-
-    df["bairro"] = df["bairro"].map(normalizar_bairro)
-
-    return dict(zip(df["bairro"], df["microrregiao"]))
-
-def carregar_grafo_recife(
-    caminho_bairros_unique: str,
-    caminho_adjacencias: str
-):
-    """Carrega grafo completo com nós e arestas dos bairros do Recife."""
-    bairro_para_microrregiao = carregar_mapa_bairro_microrregiao(caminho_bairros_unique)
-
-    grafo = Graph()
-    for bairro in bairro_para_microrregiao.keys():
-        grafo.adicionar_no(bairro)
-
-    df_adj = pd.read_csv(caminho_adjacencias)
-    df_adj.columns = df_adj.columns.str.strip()
-
-    colunas_necessarias = {"bairro_origem", "bairro_destino", "peso"}
-    if not colunas_necessarias.issubset(df_adj.columns):
-        raise ValueError(
-            f"O arquivo de adjacências deve ter as colunas "
-            f"'bairro_origem', 'bairro_destino' e 'peso'. "
-            f"Colunas encontradas: {list(df_adj.columns)}"
-        )
-
-    df_adj["bairro_origem"] = df_adj["bairro_origem"].map(normalizar_bairro)
-    df_adj["bairro_destino"] = df_adj["bairro_destino"].map(normalizar_bairro)
-
-    for _, linha in df_adj.iterrows():
-        origem = linha["bairro_origem"]
-        destino = linha["bairro_destino"]
-
-        if origem not in bairro_para_microrregiao or destino not in bairro_para_microrregiao:
-            continue
-
-        peso = float(linha["peso"])
-        grafo.adicionar_aresta(origem, destino, peso)
-
-    return grafo, bairro_para_microrregiao
-
-
-def derreter_bairros(caminho_entrada: str, caminho_saida: str) -> None:
-    """Derrete CSV de microrregiões em lista de bairros únicos."""
-    df = pd.read_csv(caminho_entrada)
-
-    df_derretido = df.melt(
-        var_name="microrregiao_coluna",
-        value_name="bairro"
+def processar_dados_ufc(caminho_entrada: str, caminho_saida: str) -> None:
+    """Processa dados brutos do UFC, calcula pesos e remove duplicatas."""
+    df = pd.read_csv(caminho_entrada, sep=';', encoding='utf-8')
+    
+    colunas_necessarias = ['R_fighter', 'B_fighter', 'Fight_type', 'win_by', 'Winner']
+    df_processado = df[colunas_necessarias].copy()
+    df_processado = df_processado.dropna(subset=['R_fighter', 'B_fighter', 'Fight_type', 'win_by'])
+    
+    def calcular_peso(metodo_vitoria):
+        metodo = str(metodo_vitoria).strip()
+        if 'KO' in metodo or 'TKO' in metodo or 'Submission' in metodo:
+            return 0.5
+        elif 'Decision - Unanimous' in metodo or 'Unanimous' in metodo:
+            return 2.0
+        elif 'Decision - Split' in metodo or 'Split' in metodo or 'Decision - Majority' in metodo:
+            return 3.0
+        else:
+            return 1.0
+    
+    df_processado['peso'] = df_processado['win_by'].apply(calcular_peso)
+    df_processado['par_lutadores'] = df_processado.apply(
+        lambda row: tuple(sorted([row['R_fighter'], row['B_fighter']])), 
+        axis=1
     )
-
-    df_derretido = df_derretido.dropna(subset=["bairro"])
-
-    df_derretido["microrregiao"] = (
-        df_derretido["microrregiao_coluna"]
-        .astype(str)
-        .str.split(".")
-        .str[0]
-    )
-
-    df_derretido["bairro"] = df_derretido["bairro"].map(normalizar_bairro)
-
-    df_bairros_unicos = (
-        df_derretido[["bairro", "microrregiao"]]
-        .drop_duplicates()
-        .sort_values(["microrregiao", "bairro"])
-        .reset_index(drop=True)
-    )
-
-    df_bairros_unicos.to_csv(caminho_saida, index=False)
-
+    df_processado = df_processado.sort_values('peso').groupby('par_lutadores', as_index=False).first()
+    df_processado = df_processado.drop(columns=['par_lutadores'])
+    df_processado.to_csv(caminho_saida, sep=';', index=False, encoding='utf-8')
 
 def carregar_grafo_ufc(caminho_csv: str) -> Graph:
-    """Carrega um grafo de lutadores a partir do CSV da UFC.
-
-    Nós: lutadores (R_fighter e B_fighter).
-    Arestas: lutas entre dois lutadores, com peso acumulado de "peso_forca_vitoria".
-    """
-    df = pd.read_csv(caminho_csv, sep=";")
-
-    colunas_necessarias = {"R_fighter", "B_fighter", "peso_forca_vitoria"}
-    if not colunas_necessarias.issubset(df.columns):
-        raise ValueError(
-            "O arquivo UFC deve ter as colunas 'R_fighter', 'B_fighter' e 'peso_forca_vitoria'."
-        )
-
+    """Carrega grafo de lutadores do UFC a partir do CSV processado."""
+    df = pd.read_csv(caminho_csv, sep=';', encoding='utf-8')
     grafo = Graph()
-    pesos_acumulados = {}
-
+    
     for _, linha in df.iterrows():
-        r = str(linha["R_fighter"]).strip()
-        b = str(linha["B_fighter"]).strip()
-
-        if not r or not b:
-            continue
-
-        try:
-            peso = float(linha["peso_forca_vitoria"])
-        except (TypeError, ValueError):
-            continue
-
-        chave = tuple(sorted((r, b)))
-        pesos_acumulados[chave] = pesos_acumulados.get(chave, 0.0) + peso
-
-    for (u, v), peso in pesos_acumulados.items():
-        grafo.adicionar_aresta(u, v, peso)
-
+        lutador_r = linha['R_fighter']
+        lutador_b = linha['B_fighter']
+        peso = linha['peso']
+        vencedor = linha.get('Winner', None)
+        
+        grafo.adicionar_no(lutador_r)
+        grafo.adicionar_no(lutador_b)
+        grafo.adicionar_aresta(lutador_r, lutador_b, peso)
+        
+        if pd.notna(vencedor) and str(vencedor).strip() != '':
+            vencedor_str = str(vencedor).strip()
+            grafo.registrar_vitoria(vencedor_str)
+    
     return grafo
 
-
 if __name__ == "__main__":
-    derreter_bairros(
-        "data/bairros_recife.csv",
-        "data/bairros_unique.csv"
-    )
-
+    import os
+    import sys
+    
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    parte2_dir = os.path.join(script_dir, '..', '..')
+    data_dir = os.path.join(parte2_dir, 'data')
+    
+    caminho_entrada = os.path.join(data_dir, 'raw_total_fight_data.csv')
+    caminho_saida = os.path.join(data_dir, 'total_fight_data_processado.csv')
+    
+    processar_dados_ufc(caminho_entrada, caminho_saida)

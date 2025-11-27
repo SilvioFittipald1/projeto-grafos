@@ -12,6 +12,7 @@ __pycache__
 *.pyc
 *.pyo
 *.py[cod]
+.pytest_cache/
 
 *.log
 *.tmp

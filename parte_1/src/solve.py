@@ -13,7 +13,6 @@ CAMINHO_ADJACENCIAS = os.path.join(DATA_DIR, "adjacencias_bairros.csv")
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
-
 def calcular_metricas_globais(grafo: Graph) -> dict:
     """Calcula ordem, tamanho e densidade do grafo completo."""
     return {
@@ -21,7 +20,6 @@ def calcular_metricas_globais(grafo: Graph) -> dict:
         "tamanho": grafo.tamanho(),
         "densidade": grafo.densidade()
     }
-
 
 def calcular_metricas_microrregioes(grafo: Graph, bairro_para_micro: dict):
     """Calcula ordem, tamanho e densidade para cada microrregião."""
@@ -40,7 +38,6 @@ def calcular_metricas_microrregioes(grafo: Graph, bairro_para_micro: dict):
         })
 
     return resultados
-
 
 def calcular_ego_por_bairro(grafo: Graph):
     """Calcula métricas da ego-subrede para cada bairro."""
@@ -62,7 +59,6 @@ def calcular_ego_por_bairro(grafo: Graph):
         linhas.append(linha)
 
     return linhas
-
 
 def passo_3():
     """Gera métricas globais, por microrregião e ego-subrede."""

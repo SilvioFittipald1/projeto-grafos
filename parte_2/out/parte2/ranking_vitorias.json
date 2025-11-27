@@ -1,0 +1,8558 @@
+[
+  {
+    "lutador": "Donald Cerrone",
+    "vitorias": 23
+  },
+  {
+    "lutador": "Demian Maia",
+    "vitorias": 22
+  },
+  {
+    "lutador": "Andrei Arlovski",
+    "vitorias": 19
+  },
+  {
+    "lutador": "Diego Sanchez",
+    "vitorias": 19
+  },
+  {
+    "lutador": "Michael Bisping",
+    "vitorias": 19
+  },
+  {
+    "lutador": "Jim Miller",
+    "vitorias": 19
+  },
+  {
+    "lutador": "Jon Jones",
+    "vitorias": 19
+  },
+  {
+    "lutador": "Dustin Poirier",
+    "vitorias": 18
+  },
+  {
+    "lutador": "Rafael Dos Anjos",
+    "vitorias": 18
+  },
+  {
+    "lutador": "Max Holloway",
+    "vitorias": 17
+  },
+  {
+    "lutador": "Neil Magny",
+    "vitorias": 17
+  },
+  {
+    "lutador": "Charles Oliveira",
+    "vitorias": 17
+  },
+  {
+    "lutador": "Gleison Tibau",
+    "vitorias": 16
+  },
+  {
+    "lutador": "Francisco Trinaldo",
+    "vitorias": 16
+  },
+  {
+    "lutador": "Derrick Lewis",
+    "vitorias": 16
+  },
+  {
+    "lutador": "Clay Guida",
+    "vitorias": 16
+  },
+  {
+    "lutador": "Tony Ferguson",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Joe Lauzon",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Thiago Alves",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Glover Teixeira",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Darren Elkins",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Nate Diaz",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Anderson Silva",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Josh Koscheck",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Edson Barboza",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Jeremy Stephens",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Frankie Edgar",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Georges St-Pierre",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Matt Hughes",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Matt Brown",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Lyoto Machida",
+    "vitorias": 15
+  },
+  {
+    "lutador": "Frank Mir",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Junior Dos Santos",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Nik Lentz",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Ryan Bader",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Rashad Evans",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Randy Couture",
+    "vitorias": 14
+  },
+  {
+    "lutador": "Brad Tavares",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Ed Herman",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Khabib Nurmagomedov",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Jon Fitch",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Yushin Okami",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Thiago Santos",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Thales Leites",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Alex Caceres",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Tim Means",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Joseph Benavidez",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Beneil Dariush",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Stefan Struve",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Kamaru Usman",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Demetrious Johnson",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Stipe Miocic",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Dong Hyun Kim",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Johny Hendricks",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Derek Brunson",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Nate Marquardt",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Vitor Belfort",
+    "vitorias": 13
+  },
+  {
+    "lutador": "Ross Pearson",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Chris Leben",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Jorge Masvidal",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Gilbert Burns",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Alistair Overeem",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Kenny Florian",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Anthony Johnson",
+    "vitorias": 12
+  },
+  {
+    "lutador": "John Lineker",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Aljamain Sterling",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Ovince Saint Preux",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Amanda Nunes",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Rich Franklin",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Dennis Siver",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Tim Boetsch",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Cub Swanson",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Gabriel Gonzaga",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Robert Whittaker",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Rick Story",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Rani Yahya",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Melvin Guillard",
+    "vitorias": 12
+  },
+  {
+    "lutador": "Robbie Lawler",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Kevin Lee",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Michael Chiesa",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Fabricio Werdum",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Urijah Faber",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Alex Oliveira",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Vicente Luque",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Chuck Liddell",
+    "vitorias": 11
+  },
+  {
+    "lutador": "CB Dollaway",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Michael Johnson",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Jessica Andrade",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Stephen Thompson",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Cheick Kongo",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Colby Covington",
+    "vitorias": 11
+  },
+  {
+    "lutador": "BJ Penn",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Evan Dunham",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Ricardo Lamas",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Kelvin Gastelum",
+    "vitorias": 11
+  },
+  {
+    "lutador": "Tito Ortiz",
+    "vitorias": 11
+  },
+  {
+    "lutador": "John Makdessi",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Rustam Khabilov",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Jake Matthews",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Yves Edwards",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Dan Hooker",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Patrick Cote",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Leon Edwards",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Mike Pyle",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Iuri Alcantara",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Chris Weidman",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Cole Miller",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Mike Swick",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Anthony Pettis",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Sam Alvey",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Alexander Gustafsson",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Jan Blachowicz",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Matt Hamill",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Martin Kampmann",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Marlon Vera",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Dennis Bermudez",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Benson Henderson",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Li Jingliang",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Michel Prazeres",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Chris Lytle",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Jake Ellenberger",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Thiago Tavares",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Evan Tanner",
+    "vitorias": 10
+  },
+  {
+    "lutador": "TJ Dillashaw",
+    "vitorias": 10
+  },
+  {
+    "lutador": "John Dodson",
+    "vitorias": 10
+  },
+  {
+    "lutador": "Mark Munoz",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Mike Pierce",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Omari Akhmedov",
+    "vitorias": 9
+  },
+  {
+    "lutador": "James Vick",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Curtis Blaydes",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Alan Belcher",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Belal Muhammad",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Ben Saunders",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Anthony Smith",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Travis Browne",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Krzysztof Jotko",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Zak Cummings",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Sergio Pettis",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Sean Strickland",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Carlos Condit",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Jussier Formiga",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Anthony Rocco Martin",
+    "vitorias": 9
+  },
+  {
+    "lutador": "James Krause",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Daniel Cormier",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Mauricio Rua",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Phil Davis",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Drew Dober",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Chad Mendes",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Jose Aldo",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Roy Nelson",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Gray Maynard",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Francis Ngannou",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Pedro Munhoz",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Raphael Assuncao",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Valentina Shevchenko",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Israel Adesanya",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Andre Fili",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Santiago Ponzinibbio",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Cezar Ferreira",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Rafael Natal",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Cain Velasquez",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Rory MacDonald",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Matt Mitrione",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Marcus Davis",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Yoel Romero",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Matt Wiman",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Chris Camozzi",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Joanna Jedrzejczyk",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Tyron Woodley",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Henry Cejudo",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Gegard Mousasi",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Corey Anderson",
+    "vitorias": 9
+  },
+  {
+    "lutador": "Spencer Fisher",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Islam Makhachev",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Al Iaquinta",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Rousimar Palhares",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Alan Jouban",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Gunnar Nelson",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Warlley Alves",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Bobby Green",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Elizeu Zaleski dos Santos",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Aleksei Oleinik",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Mark Hunt",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Kevin Holland",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Yair Rodriguez",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Court McGee",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Jack Hermansson",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Deiveson Figueiredo",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Paul Felder",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Carla Esparza",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Alexander Volkanovski",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Dustin Ortiz",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Katlyn Chookagian",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Ben Rothwell",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Renan Barao",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Takeya Mizugaki",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Dan Henderson",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Louis Smolka",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Mark Bocek",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Raquel Pennington",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Forrest Griffin",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Uriah Hall",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Myles Jury",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Pat Miletich",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Marcin Tybura",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Pedro Rizzo",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Tecia Torres",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Diego Ferreira",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Sergio Moraes",
+    "vitorias": 8
+  },
+  {
+    "lutador": "John Moraga",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Brandon Vera",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Joe Stevenson",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Sean Sherk",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Tyson Griffin",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Elias Theodorou",
+    "vitorias": 8
+  },
+  {
+    "lutador": "David Abbott",
+    "vitorias": 8
+  },
+  {
+    "lutador": "TJ Grant",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Sam Stout",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Conor McGregor",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Jacare Souza",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Jorge Rivera",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Karo Parisyan",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Quinton Jackson",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Nikita Krylov",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Royce Gracie",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Rob Font",
+    "vitorias": 8
+  },
+  {
+    "lutador": "Aaron Simpson",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Leonardo Santos",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Kendall Grove",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Mike Perry",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Arnold Allen",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Mairbek Taisumov",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Scott Holtzman",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Stevie Ray",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Alejandro Perez",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Kurt Pellegrino",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Ryan LaFlare",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Alex Morono",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Thiago Silva",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Vladimir Matyushenko",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Olivier Aubin-Mercier",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Alexander Volkov",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Alexandre Pantoja",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Wilson Reis",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Kyoji Horiguchi",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Cory Sandhagen",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Petr Yan",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Germaine de Randamie",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Don Frye",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Chael Sonnen",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Nick Diaz",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Stephan Bonnar",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Joanne Calderwood",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Josh Barnett",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Tim Sylvia",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Angela Hill",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Claudia Gadelha",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Dan Severn",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Danny Castillo",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Gian Villante",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Antonio Carlos Junior",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Cody Garbrandt",
+    "vitorias": 7
+  },
+  {
+    "lutador": "George Sotiropoulos",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Chas Skelly",
+    "vitorias": 7
+  },
+  {
+    "lutador": "John Howard",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Mark Coleman",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Brian Ortega",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Erik Perez",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Dan Ige",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Erick Silva",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Ray Borg",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Matthew Riddle",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Chris Cariaso",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Nordine Taleb",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Ilir Latifi",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Matt Lindland",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Josh Emmett",
+    "vitorias": 7
+  },
+  {
+    "lutador": "John Hathaway",
+    "vitorias": 7
+  },
+  {
+    "lutador": "Tom Lawlor",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Niko Price",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Abel Trujillo",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Marcos Rogerio de Lima",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Daron Cruickshank",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Randa Markos",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Dan Hardy",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jason MacDonald",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Wilson Gouveia",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Roger Huerta",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Marvin Vettori",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Eddie Wineland",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Aleksandar Rakic",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Devin Clark",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jimi Manuwa",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jared Rosholt",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Walt Harris",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Brian Stann",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Alessio Sakara",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Kyung Ho Kang",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Joshua Burkman",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Kyle Noke",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Misha Cirkunov",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Yancy Medeiros",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Alex Perez",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Michael McDonald",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Brandon Moreno",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Alexis Davis",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Ronda Rousey",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Sara McMann",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Tim Elliott",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Bryan Caraway",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jimmie Rivera",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Paul Craig",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Cynthia Calvillo",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Cristiane Justino",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Holly Holm",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Amir Sadollah",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jared Cannonier",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Calvin Kattar",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Gabriel Benitez",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Krzysztof Soszynski",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Lauren Murphy",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Brendan Schaub",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Ricardo Almeida",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Gregor Gillespie",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Makwan Amirkhani",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Michelle Waterson",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Yan Xiaonan",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Bryan Barberena",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Rogerio Nogueira",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Vinc Pichel",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Daniel Kelly",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Patrick Cummins",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jacob Volkmann",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Matt Serra",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Randy Brown",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Enrique Barzola",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Danny Roberts",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Darren Till",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Zabit Magomedsharipov",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Keith Jardine",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Chad Laprise",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Terry Etim",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Brian Kelleher",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Ricky Simon",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Chan Sung Jung",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Diego Brandao",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Renato Moicano",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Sage Northcutt",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Francis Carmont",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Shane Burgos",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Hermes Franca",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Julianna Pena",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Dan Miller",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Jeremy Horn",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Renato Sobral",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Mirsad Bektic",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Shawn Jordan",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Dominick Reyes",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Manvel Gamburyan",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Constantinos Philippou",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Gillian Robertson",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Josh Neer",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Nate Quarry",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Gerald Meerschaert",
+    "vitorias": 6
+  },
+  {
+    "lutador": "Sam Sicilia",
+    "vitorias": 5
+  },
+  {
+    "lutador": "James Te Huna",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ricardo Ramos",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Albert Tumenov",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Seth Baczynski",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Alan Patrick",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Brett Johns",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Thomas Almeida",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Lorenz Larkin",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ramazan Emeev",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Cody Stamann",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jose Quinonez",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Song Yadong",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Volkan Oezdemir",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Paige VanZant",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Alex Garcia",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jordan Mein",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Max Griffin",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Alexa Grasso",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Felice Herrig",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Karolina Kowalkiewicz",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Tatiana Suarez",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Nasrat Haqparast",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Matt Schnell",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jessica Eye",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Liz Carmouche",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Marion Reneau",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jens Pulver",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jairzinho Rozenstruik",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Marlon Moraes",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Mackenzie Dern",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Miesha Tate",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Bryce Mitchell",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Felipe Arantes",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Godofredo Pepey",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ricco Rodriguez",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Shamil Abdurakhimov",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Tai Tuivasa",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ramsey Nijem",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Andrew Sanchez",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Trevor Smith",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Cortney Casey",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Maryna Moroz",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Rose Namajunas",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Rich Clementi",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Oleg Taktarov",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Anthony Perosh",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Rashid Magomedov",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Pat Barry",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Trevin Giles",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Antonio Rodrigo Nogueira",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ketlen Vieira",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Frankie Saenz",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Hakeem Dawodu",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Din Thomas",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Geoff Neal",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Joe Riggs",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Drakkar Klose",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Bethe Correia",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Irene Aldana",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Darren Stewart",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Erik Koch",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Merab Dvalishvili",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Brad Pickett",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Yves Jabouin",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Claudio Silva",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Giga Chikadze",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Kai Kara-France",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Paulo Thiago",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Tom Breese",
+    "vitorias": 5
+  },
+  {
+    "lutador": "George Roop",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Brian Ebersole",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ken Shamrock",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Wanderlei Silva",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Mickey Gall",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Chris Wade",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Raoni Barcelos",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Dominick Cruz",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Casey Kenney",
+    "vitorias": 5
+  },
+  {
+    "lutador": "JJ Aldrich",
+    "vitorias": 5
+  },
+  {
+    "lutador": "David Teymur",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Efrain Escudero",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jared Gordon",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Luke Rockhold",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ciryl Gane",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Mac Danzig",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Steven Siler",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Norman Parke",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Fabio Maldonado",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Magomed Ankalaev",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Marc Diakiese",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Zhang Weili",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Eryk Anders",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Grant Dawson",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Paul Kelly",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Ryan Spann",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Dustin Hazelett",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Justin Gaethje",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Jerry Bohlander",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Frank Shamrock",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Paulo Costa",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Macy Chiasson",
+    "vitorias": 5
+  },
+  {
+    "lutador": "Kenny Robertson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jordan Johnson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "TJ Waldburger",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Adriano Martins",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Kajan Johnson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Tamdan McCrory",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Maximo Blanco",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Robert Peralta",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ildemar Alcantara",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jake Collier",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Scott Jorgensen",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Francimar Barroso",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Daniel Omielanczuk",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Maurice Greene",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Alessio Di Chirico",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Dean Lister",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Drew McFedries",
+    "vitorias": 4
+  },
+  {
+    "lutador": "James Irvin",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Francisco Rivera",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jason Knight",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Muslim Salikhov",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Keita Nakamura",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Song Kenan",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Zak Ottow",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Peter Sobotta",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Alex White",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Lucas Martins",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Cyrille Diabate",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Alexander Hernandez",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Thiago Moises",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Greg Hardy",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Timothy Johnson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Roosevelt Roberts",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Yuta Sasaki",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Viviane Araujo",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ali Bagautinov",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Augusto Sakai",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Justin Willis",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ben Nguyen",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Leslie Smith",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Amanda Ribas",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Charlie Brenneman",
+    "vitorias": 4
+  },
+  {
+    "lutador": "DaMarques Johnson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Duane Ludwig",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Andre Ewell",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Chris Gutierrez",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jonathan Martinez",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Nathaniel Wood",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Sodiq Yusuff",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Gary Goodridge",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Montel Jackson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Sean O'Malley",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Montana De La Rosa",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Roxanne Modafferi",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jake O'Brien",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Joaquim Silva",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Khalil Rountree Jr.",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Clint Hester",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Nina Ansaroff",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Luigi Fioravanti",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jeff Monson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Mirko Filipovic",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Eddie Alvarez",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Johnny Case",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Antoni Hardonk",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Daniel Pineda",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Soa Palelei",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Davi Ramos",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ryan Hall",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Aspen Ladd",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Lina Lansberg",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Sijara Eubanks",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Yana Kunitskaya",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Cathal Pendred",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ivan Menjivar",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Kevin Randleman",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Dhiego Lima",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Dennis Hallman",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Gavin Tucker",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Maurice Smith",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Caio Magalhaes",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Edmen Shahbazyan",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jason Lambert",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Siyar Bahadurzada",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Shane Carwin",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Matheus Nicolau",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Joe Proctor",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Mitch Gagnon",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Charles Rosa",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Paul Varelans",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Christos Giagos",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Marco Polo Reyes",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Karl Roberson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Desmond Green",
+    "vitorias": 4
+  },
+  {
+    "lutador": "David Loiseau",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Luiz Cane",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Nick Catone",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Davey Grant",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Paul Taylor",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Sean Brady",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Guy Mezger",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Takanori Gomi",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Marcus Brimage",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Douglas Silva de Andrade",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Johnny Walker",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jon Tuck",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Nick Hein",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Rony Jason",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Mark Kerr",
+    "vitorias": 4
+  },
+  {
+    "lutador": "David Branch",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jake Shields",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Roan Carneiro",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Sean Pierson",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Zubaira Tukhugov",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Drew Fickett",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jonathan Goulet",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Justin Scoggins",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Joe Duffy",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Movsar Evloev",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Igor Pokrajac",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Kyle Kingsbury",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Mike Russow",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Magnus Cedenblad",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Ion Cutelaba",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jon Madsen",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jimmy Crute",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Patrick Smith",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Marco Ruas",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Luis Pena",
+    "vitorias": 4
+  },
+  {
+    "lutador": "Jorge Gurgel",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Justin Salas",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Joey Beltran",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Eric Schafer",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ronny Markes",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Cody McKenzie",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Abdul Razak Alhassan",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jamie Varner",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Vitor Miranda",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Anthony Hamilton",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Arjan Bhullar",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Shonie Carter",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Akira Corassani",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rodrigo Damm",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tom Aspinall",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Damir Hadzovic",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Manny Bermudez",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Nicholas Musoke",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Remco Pardoel",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Alberto Mina",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Justin Ledet",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Chris Daukaus",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Makhmud Muradov",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jimy Hettes",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Roland Delorme",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Livinha Souza",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Alexander Yakovlev",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brad Riddell",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Sean Spencer",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Damir Ismagulov",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Nicolas Dalby",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jeremy Kennedy",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rafael Fiziev",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ji Yeon Kim",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Maycee Barber",
+    "vitorias": 3
+  },
+  {
+    "lutador": "George Sullivan",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Joel Alvarez",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Askar Askarov",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Neil Seery",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jennifer Maia",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Sabina Mazo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Sarah Moras",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Antonio Silva",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brock Lesnar",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Hugo Viana",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Johnny Eduardo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ashley Yoder",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Amanda Lemos",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Cat Zingano",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Megan Anderson",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Marina Rodriguez",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Phil Baroni",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brad Blackburn",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Hacran Dias",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Bartosz Fabinski",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Luke Sanders",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Su Mudaerji",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Anthony Njokuani",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ashlee Evans-Smith",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Andrea Lee",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ian Freeman",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Paul Buentello",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tanner Boser",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ivan Salaverry",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Andrew Craig",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Luke Barnatt",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Lyman Good",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Joe Soto",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Todd Duffee",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ryan Jimmo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Hector Lombard",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Eddie Sanchez",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Antonina Shevchenko",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ian Heinisch",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jack Marshman",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Molly McCann",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Arman Tsarukyan",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Teruto Ishihara",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Dave Beneteau",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ryan Benoit",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Justine Kish",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Chase Sherman",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Youssef Zalal",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Caol Uno",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Diego Nunes",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Hatsu Hioki",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tsuyoshi Kohsaka",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jessica-Rose Clark",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Curtis Millender",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Josh Thomson",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Pannie Kianzad",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Billy Quarantillo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Carlos Newton",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Lando Vannata",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jason Brilz",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Chico Camus",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Mike Easton",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Magomed Mustafaev",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brad Scott",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Eliot Marshall",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brendan Allen",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Dong Hyun Ma",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Claude Patrick",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brian Foster",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Brock Larson",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Viscardi Andrade",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jalin Turner",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Josh Samman",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Nick Ring",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tim Credeur",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Kyler Phillips",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Juliana Lima",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Serghei Spivac",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Pete Spratt",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Mark Hominick",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Dooho Choi",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Daniel Roberts",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Leandro Silva",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Edimilson Souza",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Vaughan Lee",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Paddy Holohan",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Murilo Bustamante",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tatsuya Kawajiri",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Reza Madadi",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Poliana Botelho",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Hyun Gyu Lim",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Julio Arce",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rob Kimmons",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rich Attonito",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Daniel Rodriguez",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Kiichi Kunimoto",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Paul Sass",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Michel Pereira",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Gerald Harris",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tomasz Drwal",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Marco Beltran",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Pablo Garza",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rick Glenn",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Devonte Smith",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Julian Erosa",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tony DeSouza",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Zach Makovsky",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Luke Cummo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Elias Silverio",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Valerie Letourneau",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Polyana Viana",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Taylor Lapilus",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Eugene Jackson",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Laverne Clark",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Pete Williams",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Khamzat Chimaev",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jason Saggo",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Rob Emerson",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Miguel Baeza",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tyson Pedro",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Russell Doane",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Karol Rosa",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Ruslan Magomedov",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Said Nurmagomedov",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Tim Kennedy",
+    "vitorias": 3
+  },
+  {
+    "lutador": "Jack Shore",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Aaron Riley",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shane Nelson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Khaos Williams",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jordan Rinaldi",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chris Gruetzemacher",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Rodriguez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Adam Wieczorek",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Adlan Amagov",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Adrian Yanez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Aiemann Zahabi",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Aisling Daly",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tiago dos Santos e Silva",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mitch Clarke",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Piotr Hallmann",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kalib Starnes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Yoshihiro Akiyama",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dwight Grant",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Richard Walsh",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Damien Brown",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Andre Soukhamthath",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Benito Lopez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shinsho Anzai",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Matthew Lopez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Aleksandra Albu",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Emily Whitmire",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Loma Lookboonmee",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Aleksei Kunchenko",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Bojan Velickovic",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Eric Spicely",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Joaquin Buckley",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Julian Marquez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Houston Alexander",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chase Hooper",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Edwin Figueroa",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Steven Peterson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Alex Hunter",
+    "vitorias": 2
+  },
+  {
+    "lutador": "James Moontasri",
+    "vitorias": 2
+  },
+  {
+    "lutador": "KJ Noons",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Eric Shelton",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jordan Espinosa",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mark De La Rosa",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Artem Lobov",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jared Hamman",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shane Young",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Alexandr Romanov",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Gan McGee",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Sergei Pavlovich",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Alonzo Menifield",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Darren Uyenoyama",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Amanda Cooper",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Felicia Spencer",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Amir Albazi",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Nad Narimani",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Travis Lutter",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Charles Jourdain",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Sheymon Moraes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Andre Muniz",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ron Waterman",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Andre Winner",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Rafaello Oliveira",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Marcio Cruz",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Wesley Correira",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Andrew Holbrook",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Markus Perez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ryan Janes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Marcelo Guimaraes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Hannah Cifers",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Anthony Birchak",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Junyong Park",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Anthony Hernandez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Rodolfo Vieira",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kevin Burns",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Yoshiyuki Yoshida",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jason High",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Christian Wellisch",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Sean O'Connell",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jess Liaudin",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Justin McCully",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ariane Lipski",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Lucie Pudilova",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Deron Winn",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Miguel Torres",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Antonio Carvalho",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Daniel Sarafian",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Scott Askham",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Heath Herring",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shana Dobson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Luis Henrique",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Matt Frevola",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Yaotzin Meza",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Bec Rawlings",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Blagoy Ivanov",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Austin Hubbard",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Joe Solecki",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mark Madsen",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Bas Rutten",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Guido Cannetti",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Heili Alateng",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Bea Malecki",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chance Rencountre",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Takashi Sato",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Frank Camacho",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brandon Thatch",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Fredy Serrano",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Rogerio Bontorin",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Sam Hoger",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Lance Benoist",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Michael Graves",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Sultan Aliev",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Randy Costa",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brad Katona",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Hunter Azure",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ian McCall",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dylan Andrews",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dongi Yang",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Riki Fukuda",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tom Watson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brandon Davis",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kyle Bochniak",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brandon Royval",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Justin Edwards",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Wilkinson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Zhang Lipeng",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Lavar Johnson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brian Bowles",
+    "vitorias": 2
+  },
+  {
+    "lutador": "James Head",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Forrest Petz",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Brian Johnston",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Damian Stasiak",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike de la Torre",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Massenzio",
+    "vitorias": 2
+  },
+  {
+    "lutador": "David Dvorak",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Johnny Bedford",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Joe Doerksen",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Karlos Vemola",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Fabiano Iha",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Virna Jandiroba",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Carlos Felipe",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kennedy Nzechukwu",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Matthew Semelsberger",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Trevor Prangley",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ismail Naurdiev",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jonathan Brookins",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Darrick Minner",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kevin Aguilar",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Che Mills",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chris Holdsworth",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dustin Kimura",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chris Kelades",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chris Beal",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dustin Jacoby",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Chris Clements",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Terry Martin",
+    "vitorias": 2
+  },
+  {
+    "lutador": "James Wilks",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Claudio Puelles",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Marcus Aurelio",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shannon Gugerty",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tom Duquesnoy",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Nam Phan",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Miles Johns",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mara Romero Borella",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mario Bautista",
+    "vitorias": 2
+  },
+  {
+    "lutador": "David Heath",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ryan Jensen",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Cung Le",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Cyril Asker",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Da-Un Jung",
+    "vitorias": 2
+  },
+  {
+    "lutador": "John Maguire",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Luke Jumeau",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kenichi Yamamoto",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dalcha Lungiambula",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Pingyuan Liu",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ilia Topuria",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Danny Henry",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Herbert Burns",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Brown",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Robert Whiteford",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mark Godbeer",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Danielle Taylor",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Danilo Marques",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Igor Araujo",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jamahal Hill",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Royston Wee",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Dave Menne",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kimo Leopoldo",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Scott Ferrozzo",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Steve Jennum",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Junior Assuncao",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Johnny Rhodes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Yan Cabral",
+    "vitorias": 2
+  },
+  {
+    "lutador": "David Terrell",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Jarred Brooks",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Matt Grice",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Frank Trigg",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Khama Worthy",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Katsunori Kikuno",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Diego Rivas",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Noad Lahat",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mark Hall",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Don Madge",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tarec Saffiedine",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Omar Morales",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tony Fryklund",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ken Stone",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Lerone Murphy",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Genki Sudo",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Nick Osipczak",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Punahele Soriano",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Paul Daley",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Hector Sandoval",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Keith Hackney",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mikey Burnett",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Kevin Jackson",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Gadzhimurad Antigulov",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Michal Oleksiejczuk",
+    "vitorias": 2
+  },
+  {
+    "lutador": "SeungWoo Choi",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Oskar Piechota",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Davis",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mayra Bueno Silva",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Taila Santos",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Julia Avila",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Gina Mazany",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Henrique da Silva",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Michael Trizano",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Guangyou Ning",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Laureano Staropoli",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Pascal Krauss",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Leandro Issa",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ivan Jorge",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Phil Hawes",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Shane Roller",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike Kyle",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Steve Bosse",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Phillip Miller",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Viviane Pereira",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Rory Singer",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Juan Espino",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tyson Nam",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Mike van Arsdale",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Michinori Tanaka",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Roman Dolidze",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Nate Maness",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tae Hyun Bang",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Pete Sell",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Raulian Paiva",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Ottman Azaitar",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Philip De Fries",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Waylon Lowe",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Tracy Cortez",
+    "vitorias": 2
+  },
+  {
+    "lutador": "Spike Carlyle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Uros Medic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Matt Hobar",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Aaron Rosa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mario Miranda",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mounir Lazzez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Abdul-Kerim Edilov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcus LeVesseur",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tony Sims",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Abu Azaitar",
+    "vitorias": 1
+  },
+  {
+    "lutador": "David Zawada",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tor Troeng",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris de la Rocha",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Adam Milstead",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gustavo Lopez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tulio Palhares",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Reginaldo Vieira",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Vince Morales",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alex Chambers",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Akbarh Arreola",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Akihiro Gono",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Andy Ogle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Denis Kang",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Day",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jorge Santiago",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Brendan O'Reilly",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Matt Dwyer",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jim Alers",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Anying Wang",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Albert Morales",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ian Entwistle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Patrick Williams",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Aleksa Camur",
+    "vitorias": 1
+  },
+  {
+    "lutador": "William Knight",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kailin Curran",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Junior Albini",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Viktor Pesta",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Phillips",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Garreth McLellan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Oluwale Bamgbose",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Elvis Sinosic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Amaury Bitetti",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kron Gracie",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mackens Semerzier",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Martin Bravo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Masanori Kanehara",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Masio Fullen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rolando Dy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Wang Guan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nadia Kassem",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alex Da Silva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Von Flue",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alex Karalexis",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alex Nicholson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Carlo Pedersoli Jr.",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Shavkat Rakhmonov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Will Brooks",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jose Torres",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mark Hughes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Clay Collard",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Heather Clark",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mizuto Hirota",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yuki Kondo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sarah Kaufman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Irwin Rivera",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tony Kelley",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Geane Herrera",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcos Vinicius",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Augusto Mendes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cody Gibson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Gunther",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Leonard Garcia",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Allen Crowder",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alptekin Ozkilic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Devin Powell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alvaro Herrera Mendoza",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Alvin Robinson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Inoue Mizuki",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Miranda Granger",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Anderson Dos Santos",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Andre Roberts",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rolando Delgado",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Veronica Macedo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Modestas Bukauskas",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Justin Eilers",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Andrei Semenov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Thibault Gouti",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Wellington Turman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jon Hess",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Daniel Spitz",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcel Fortuna",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Christian Aguilera",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Vinny Magalhaes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gilbert Melendez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Fabricio Camoes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Antonio Braga Neto",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Anthony Torres",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Anton Kuivanen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Eddie Gordon",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kevin Casey",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dave Herman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Luana Carolina",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Juan Adams",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcelo Golm",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mads Burnell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Norma Dumont",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Syuri Kondo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Augusto Montano",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Austin Arnett",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Humberto Bandenay",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Austin Lingo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bart Palaszewski",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Emil Meek",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Hector Urbina",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Batgerel Danaa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Seo Hee Ham",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ben Alloway",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ben Askren",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ben Earwood",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Benji Radach",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Henry Martinez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Papy Abedi",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Simeon Thoresen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jessamyn Duke",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bevon Lewis",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jenel Lausa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bibulatov Magomed",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bill Algeo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kyle Nelson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bob Cook",
+    "vitorias": 1
+  },
+  {
+    "lutador": "William Macario",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joachim Christensen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Khalid Taha",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ryo Chonan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dan Christison",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Brad Kohler",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tra Telligman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Michael Kuiper",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Robert McDaniel",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Branden Lee Hinkle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kyle Daukaus",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Vik Grujic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris Tuchscherer",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tony Gravely",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dan Bobish",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ode Osbourne",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Brian Melancon",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Steve Cantwell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Brianna Van Buren",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rory Markham",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Brok Weaver",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bruno Santos",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Bruno Silva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tagir Ulanbekov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joe Ellenberger",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Matt Sayles",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Buddy Roberts",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Goran Reljic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jesse Taylor",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Khalid Murtazaliev",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Leonardo Mafra",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Luke Zachrich",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cal Worsham",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Callan Potter",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Maki Pitolo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris Fishgold",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Dent",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Carlo Prater",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Carlos Eduardo Rocha",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Justin Tafa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yorgan De Castro",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Renato Verissimo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Naoki Inoue",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Carmelo Marrero",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Casey O'Neill",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gasan Umalatov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Galore Bofando",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yosdenis Cedeno",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Michihiro Omigawa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Charles Byrd",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Charles McCarthy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jordan Griffin",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tom Niinimaki",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Daniel Teymur",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ike Villanueva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rashad Coulter",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris Cope",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Montserrat Conejo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dustin Pague",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gil Castillo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Danny Martinez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Parker Porter",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rodrigo Nascimento",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris Dempsey",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jonathan Wilson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Geraldo de Freitas",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jake Rosholt",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Keith Rockel",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kyle Bradley",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tim Hague",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Frankie Perez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Chris Wilson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Steve Bruno",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Christian Morecraft",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sean McCorkle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Paul Jones",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Don'Tale Mayes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Raphael Pessoa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jessica Aguilar",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Felipe Silva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Clay Harvison",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Clifford Starks",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cody Donovan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jimmy Flick",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Henry Briones",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Vagner Rocha",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cody Pfister",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jonathan Meunier",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Junie Browning",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cole Smith",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Witt",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Ricci",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Colton Smith",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dale Hartt",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Corey Hill",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Justin Buchholz",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Josh Stansbury",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kay Hansen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cory McKenna",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dominique Steele",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Cristiano Marcello",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kazuki Tokudome",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Curt Warburton",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Guymon",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Daichi Abe",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcin Held",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Damon Jackson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Levan Makashvili",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dan Cramer",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Matt Arroyo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mark Eddiva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Michael Chandler",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Salter",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Patrick Walsh",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Justin Lawrence",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Greg Soto",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gabe Green",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jessica Penne",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jesse Lennox",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Cholish",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Shamar Bailey",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Danny Chavez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Richie Vaculik",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sirwan Kakai",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sai Wang",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nathan Coy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Darko Stosic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jeremy Kimball",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Rio",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Darrell Horcher",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Willie Gates",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Eduardo Garagorri",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nate Landwehr",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Zhang Tiequan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jessin Ayari",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Phil Harris",
+    "vitorias": 1
+  },
+  {
+    "lutador": "James McSweeney",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Todd Medina",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dave Strasser",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Steve Nelmark",
+    "vitorias": 1
+  },
+  {
+    "lutador": "David Bielkheden",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Travis Fulton",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tyrone Roberts",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Scott Bessac",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mark Weir",
+    "vitorias": 1
+  },
+  {
+    "lutador": "David Michaud",
+    "vitorias": 1
+  },
+  {
+    "lutador": "David Mitchell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcelo Mello",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Scott Smith",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joseph Morales",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nate Mohr",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dusko Todorovic",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jesus Pinedo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Justin Jaynes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Liana Jojua",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Geza Kalman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Steven Graham",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dmitry Sosnovskiy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Felipe Colares",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Fares Ziam",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jeff Hougland",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Roman Mitichyan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Gonzalez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marvin Eastman",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dricus Du Plessis",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Maxim Grishin",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jon Delos Reyes",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Albert",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason Young",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Dwayne Cason",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ebenezer Fontes Braga",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Castaneda",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Eddie Yagin",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sheldon Westcott",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Phillipe Nover",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ernest Chavez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Isaac Vallie-Flagg",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Shane Campbell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Roger Narvaez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Elizabeth Phillips",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Milana Dudieva",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Luigi Vendramini",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jamie Moyle",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Erick Montano",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Enson Inoue",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rob MacDonald",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Luan Chagas",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sanae Kikuta",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Per Eklund",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Lance Gibson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Hans Stringer",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Falaniko Vitale",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jerrod Sanders",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Glaico Franca Moreira",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kuniyoshi Hironaka",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Francisco Figueiredo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Reuben Duran",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Francisco Trevino",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Renee Forte",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Frank Hamaker",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Matt Veach",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yao Zhikui",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mark Schultz",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joby Sanchez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Maiquel Falcao",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Saparbeg Safarov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jamall Emmers",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rachael Ostovich",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Wu Yanan",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jinh Yu Frey",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Gokhan Saki",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Guram Kutateladze",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mallory Martin",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mariya Agapova",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Harold Howard",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kevin Ferguson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Scott Adams",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tedd Williams",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ian Loveland",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tom Murphy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rafael Cavalcante",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jordan Wright",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ikuhisa Minowa",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joe Slick",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Impa Kasanganay",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Talita Bernardo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Vanessa Melo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Issei Tamura",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nick Pace",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Lauren Mueller",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jack Nilson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ricardo Abreu",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jake Hecht",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Klidson Abreu",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Valmir Lazaro",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ricardo Romero",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tafon Nchukwi",
+    "vitorias": 1
+  },
+  {
+    "lutador": "War Machine",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Robert Sanchez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jason DeLucia",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Javier Vazquez",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Lewis",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jiri Prochazka",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jonathan Pearce",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joe Moreira",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ron Stallings",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sione Latu",
+    "vitorias": 1
+  },
+  {
+    "lutador": "John Gunderson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Louis Gaudinot",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kyle Watson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nate Loughran",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kai Kamaka",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jonathan Wiezorek",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jordan Leavitt",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nassourdine Imavov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Lee Murray",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Joselyne Edwards",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nick Denis",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Walel Watson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Semmy Schilt",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Josh Sampo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sean Woodson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nicco Montano",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Leah Letson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Jutaro Nakao",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kanako Murata",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nick Thompson",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Lara Procopio",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Katsuhisa Fujii",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rameau Thierry Sokoudjou",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yui Chul Nam",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Kazushi Sakuraba",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Thiago Perpetuo",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Marcin Prachnio",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Shamil Gamzatov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Pawel Pawlak",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Miranda Maverick",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Logan Clark",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sasha Palatnikov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Priscila Cachoeira",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ludovit Klein",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Stanislav Nedkov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Manon Fiorot",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Teemu Packalen",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Trevin Jones",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Timur Valiev",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rafael Carino",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Tristan Connelly",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mickael Lebout",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Ciesnolevicz",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Grundy",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Mike Nickels",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Niklas Backstrom",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Nah-Shon Burrell",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Orlando Wiet",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Scott Morris",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Troy Mandaloniz",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Rob Broughton",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Ronnie Lawrence",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Sergey Khandozhko",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Umar Nurmagomedov",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Yoshiki Takahashi",
+    "vitorias": 1
+  },
+  {
+    "lutador": "Aalon Cruz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Aaron Brink",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Aaron Phillips",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Brammer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Matt Lucas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tim McKenzie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Aaron Wilkinson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Charlie Ward",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sabah Homasi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bojan Mihajlovic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roger Bowling",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Abner Lloveras",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Abubakar Nurmagomedov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Adam Cella",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Adam Yandiev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Spang",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Adrian Serrano",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Victor Rodriguez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Juan Manuel Puig",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Adriano Santos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Drako Rodriguez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ericka Almeida",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan Couture",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alan Baudot",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sean Salmon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jared Gooden",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alan Omer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Garett Whiteley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Albert Cheng",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anthony Lapsley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alberta Cerra Leon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alberto Crane",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alberto Uda",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Izabela Badurek",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alen Amedovski",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Lee",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Vedepo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ron Faircloth",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Victor Valimaki",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Andrade",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Austin Springer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cole Escovedo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Damacio Page",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kevin Croom",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Motonobu Tezuka",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kazula Vargas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ben Wall",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Gorgees",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Harry Moskowitz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sam Fulton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Rafferty",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rhys McKee",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Merritt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Carls John De Tomas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Reyes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Ricci",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Schoenauer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Soto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Stiebling",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alex Torres",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dan Moret",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Estevan Payan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alexander Munoz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yusuke Kasuya",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roque Martinez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alexandre Barros",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alexandre Dantas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alexandre Ferreira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Manel Kape",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cindy Dandois",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rosi Sexton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alexis Dufresne",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Alfonso Alcarez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ali AlQaisi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Allan Goes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Allan Zuniga",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Allen Berube",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Vinicius Moreira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Vernon Ramos Ho",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Angela Magana",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anna Elmose",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shayna Baszler",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sheila Gaff",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Amar Suloev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Amilcar Alves",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Malcolm Gordon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zhalgas Zhumagulov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jorge Lopez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Martin Day",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeremy Larsen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andre Gusmao",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Antonio Arroyo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andre Pederneiras",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andreas Michailidis",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andreas Stahl",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Philipe Lins",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marc-Andre Barriault",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andy Anderson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andy Enz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Grispi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Andy Wang",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ariane Carnelossi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Emily Kagan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jodie Esquibel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anistavio Medeiros",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ansar Chalangov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dileno Lopes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anthony Christodoulou",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Damian Grabowski",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ruan Potts",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anthony Ivy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chad Reiner",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tommy Speer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anthony Macias",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Guto Inocente",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nick Penner",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tom Blackledge",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Felipe Olivieri",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Elvis Mutapcic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Leonardo Guimaraes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Pat Healy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Anton Zafir",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Colin Robinson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Wessel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sherman Pendergarst",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Antonio Banuelos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Antonio Dos Santos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Antonio McKee",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Antonio Mendes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Isabela de Padua",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ariel Beck",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Avila",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Asbel Cancio",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ashkan Mokhtarian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tonya Evinger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Assuerio Silva",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Heatherly",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kyle Prepolec",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Max Rohskopf",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jacob Kilburn",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Azamat Gashimov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Azunna Anyanwu",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joey Gilbert",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Creighton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Barb Honchak",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Duda Santana",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lisa Ellis",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Manuel Rodriguez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gilbert Yvel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brandon Wolff",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dan Barrera",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan Thomas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ben Sosoli",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nick Serra",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Berger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bentley Syler",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bernardo Magalhaes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Besam Yousef",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Julie Kedzie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dequan Townsend",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bharat Kandare",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bill Mahood",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Billy Miles",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tiki Ghosn",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bob Gilstrap",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bobby Hoffman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mark Robinson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bobby Moffett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bobby Nash",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bobby Southworth",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bobby Voelker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Boston Salmon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Edgar Garcia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Giboo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brad Gumm",
+    "vitorias": 0
+  },
+  {
+    "lutador": "CJ Fernandes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brad Imes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jay Cucciniello",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Judson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brad Morris",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jamie Mullarkey",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sean Gannon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brandon Melendez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Fabiano Scherner",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Michael Patt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Reese Andy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brendan Loughnane",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chase Gormley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kwan Ho Kwak",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brian Camozzi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brian Cobb",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brian Gassaway",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brian Geraghty",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brian Houston",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Reza Nasri",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Scott Fiedler",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ray Rodriguez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rodney Wallace",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bristol Marunde",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brock Jardine",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jesse Sanders",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Brodie Farber",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bruno Rodrigues",
+    "vitorias": 0
+  },
+  {
+    "lutador": "JP Buys",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dustin Neace",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tyler Diamond",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Bubba Bush",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Byron Bloodworth",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Miller",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jay Silva",
+    "vitorias": 0
+  },
+  {
+    "lutador": "CJ Keith",
+    "vitorias": 0
+  },
+  {
+    "lutador": "CM Punk",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Jackson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cain Carrizosa",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Denis Stojnic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zane Frazier",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cale Yarbrough",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cameron Dollar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cameron Else",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Carlos Barreto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kris McCray",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Carlos Huachin",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Carlos Ulberg",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Carlton Minus",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Caros Fodor",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike King",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cesar Arzamendia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chad Griggs",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chan-Mi Jeon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kyle Stewart",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Culibao",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcelo Rojo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gideon Ray",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Eric Wisely",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sean Soriano",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Charlie Ontiveros",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Charlie Valencia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Peter Barrett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dan Evensen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gilbert Aldana",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mostapha Al-Turk",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cheyanne Buys",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tateki Matsuda",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Brennan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Hammortree",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Iliarde Santos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Ferguson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Will Campuzano",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Keith Wisniewski",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Condo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chuck O'Neil",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cody Durden",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan MacDonald",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Haseman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Indich",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Edwin DeWees",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Thacker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Liguori",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Gilliam",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ronald Jhun",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Price",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Sanford",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Saunders",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Chris Tickle",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mehdi Baghdad",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jesse Bongfeldt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jarjis Danho",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Christian Colombo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Scott Junk",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Christina Marks",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Christophe Leninger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jorge de Oliveira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Noe Hernandez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Vernon White",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ricardo Funch",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tina Lahdemaki",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcos Mariano",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cole Williams",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Justin James",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Samy Schiavo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cody East",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Terrion Ware",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wagner Silva",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dan Lauzon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "TJ O'Brien",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Colin Fletcher",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Collin Hart",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Justin Jones",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Matt Van Buren",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Veres",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cristina Stanciu",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cory Hendricks",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Cory Walmsley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcio Alexandre Junior",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Crafton Wallace",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Craig White",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Maciej Jewtuszko",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Curtis Stout",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Pearl Gonzalez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dmitrii Smoliakov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hu Yaozong",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tom DeBlass",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Khadis Ibragimov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Daiju Takase",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Filip Pejic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Santiago",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Matt Horwich",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Charles",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcus Bossett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dan Stittgen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Daniel Jolly",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Montgomery",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nandor Guelmino",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Pat Schilling",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Eddie Mendez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Daniel Spohn",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sung Bin Jo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Danillo Villefort",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Danilo Belluardo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Danny Abbadi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "TJ Brown",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Danny Downes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Danny Mitchell",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Oliver Enkamp",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zelim Imadaev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dante Rivera",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Darrel Gholar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Darrell Montague",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wendell Oliveira Marques",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Norifumi Yamamoto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "TJ Laramie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Darrill Schoonover",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dashon Johnson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dave Galera",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jon Olav Einemo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Romie Aram",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Grigory Popov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hugo Duarte",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Matua",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sam Adkins",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yoji Anjo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Baron",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Dodd",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Hood",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Kaplan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Lee",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Levicki",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Roberts",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Novelli",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Martin Svensson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "David Velasquez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "DeAnna Bennett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Melinda Fabian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jordan Radev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yuki Sasaki",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Delson Heleno",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Xavier Foupa-Pokam",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Te Edwards",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tommy Hayden",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Naoyuki Kotani",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Derek Downey",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Derrick Krantz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jack May",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Derrick Noble",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Diana Belbita",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joey Gambino",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rodolfo Rubio Perez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Alessio",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Diego Saraiva",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dieusel Berto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dmitri Stepanov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dokonjonosuke Mishima",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Domingo Pilarte",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Journey Newson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dominic Waters",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Thomas Ramirez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Tan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Donnie Chappell",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Donny Walker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dorian Price",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Doug Evans",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Stevie Lynch",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jose Maria",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jared Papazian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Dustin Stoltzfus",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Houston Dorr",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jimmy Quinlan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Eddie Ruiz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mario Neto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Edilberto de Oliveira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ednaldo Oliveira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Lullo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Edward Faaloloto",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Reinhardt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rodrigo de Lima",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Eiji Mitsuoka",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Elias Garcia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joao Zeferino",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jules Bruchez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Emmanuel Yarborough",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Horacio Gutierrez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Matt Bessette",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Enrique Marin",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Royce Alger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Luis Ramos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Rhodes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Takenori Sato",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ernie Verdicia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tim Williams",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Keiichiro Yamamiya",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Eugenio Tadeu",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Homer Moore",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Justin Levens",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Valeri Ignatov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Phil Johns",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Fabio Gurgel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roger Hollett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zarah Fairn",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Milton Vieira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Felix Lee Mitchell",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Fernando Bruno",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Flavio Luiz Moura",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Floyd Sword",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hector Ramirez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sammy Morgan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jerome Rivera",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jai Herbert",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jesse Ronson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Frank Caracci",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Thaddeus Luster",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Frank Lester",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roberto Traven",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wes Sims",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Igor Zinoviev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Lober",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nolan Ticman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Fred Ettish",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Fredson Paixao",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Philip Rowe",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gabe Ruediger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Humberto Brown Morrison",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Hendricks",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kevin Jordan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Konstantin Erokhin",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gabriel Silva",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gaetano Pirrello",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Campetella",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Herrera",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Leigh Remedios",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jay Hieron",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joseph Gigliotti",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gerald Strebendt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Larissa Pacheco",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gerry Harris",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jamey Simmons",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lukasz Sajewski",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gilbert Smith",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sarah Frota",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeff Cox",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Gloria de Paula",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Greg Stott",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jianping Yang",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Guilherme Vasconcelos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mateusz Gamrot",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Fairn",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Dowdy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yoshinori Horie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hannah Goldy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roland Payne",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Harry Hunsucker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hayato Sakurai",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hayder Hassan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hector Aldana",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Jordan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Richard Crunkilton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Hernani Perpetuo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Teixeira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ramiro Hernandez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nate Schroeder",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tyler Toner",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Icho Larenas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Todd Brown",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Richardson Moreira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wagner Prado",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Leo Kuntz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rob Wilkinson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Pedro Nobre",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Shockley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ivan Serati",
+    "vitorias": 0
+  },
+  {
+    "lutador": "JC Cottrell",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Saeed Hosseini",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nohelin Hernandez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jacob Malkoun",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ronys Torres",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jake Lindsey",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rostem Akman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Shockman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kristof Midoux",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Vince Cachero",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Bochnovic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tom Gallicchio",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Mulheron",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Toney",
+    "vitorias": 0
+  },
+  {
+    "lutador": "James Zikic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jamie Pickett",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jamie Yager",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nick Roehrick",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Michel Quinones",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jared Rollins",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Copeland",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jared Vanderaa",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Black",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Scott Baker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jason Godsey",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeff Curran",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeff Hughes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeff Joslin",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tim Lajcik",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeff Newton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joao Roque",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jeremy Jackson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jermaine Andre",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nick Sanzo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rainy Martinez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Peggy Morgan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jesse Forbes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jesse Strader",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kalindra Faria",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jessica Rakoczy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sarah Alpar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jim Wallhead",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kamal Shalorus",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Lopez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jim Mullen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jin Soo Son",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joao Pierini",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nazareno Malegarie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jocelyn Jones-Lybarger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Giannetti",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yuri Vaulin",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Pardo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joe Son",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rolles Gracie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joey Gomez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joey Roberts",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Allan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Cofer",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mark Holst",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Halverson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tom Egan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Kolosci",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lowell Anderson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yasuhiro Urushitani",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Pat Audinwood",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Marsh",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ulysses Gomez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "John Polakowski",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Johnny Munoz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Johnny Rees",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roldan Sangcha'an",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Justin Wren",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jon Manley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Georgieff",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wuliji Buren",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wade Shipp",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jonavin Webb",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jordan Williams",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jorge Patino",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nissen Osterneck",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Leonardo Morales",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Joseph Sandoval",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Bryant",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Clopton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Haynes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Josh Parisian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Justin Frazier",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcin Wrzosek",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Julian Sanchez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Julija Stoliarenko",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Julio Paulino",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Jumabieke Tuerxun",
+    "vitorias": 0
+  },
+  {
+    "lutador": "KB Bhullar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Karine Gevorgyan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roman Kopylov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Seth Petruzelli",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Masutatsu Yano",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Quinn Mulhern",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kazuhiro Nakamura",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcus Silveira",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Keigo Kunihara",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Salim Touahri",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Robert Drysdale",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Keith Berish",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kerry Schall",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Whitehead",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kelly Dullanty",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kelly Faszholz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kit Cope",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Todd Butler",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kevin Natividad",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Luiz Dutra",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Koji Kitao",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Koji Oishi",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kristian Rothaermel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shane Primm",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Kurt Holobaugh",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Razak Al-Hassan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sako Chivitchian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shunichi Shimizu",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Larry Cureton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Liliya Shakirova",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lewis Gonzalez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roman Bogatov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rin Nakai",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lodune Sincaid",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Byrnes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Louis Cosce",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Lucio Linhares",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Solomon Hutcherson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Richie Smullen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Garcia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mats Nilsson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Luke Caudillo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shanna Young",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Maia Stevenson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcin Bandel",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Victoria Leonardo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcelo Aguiar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wagner Campos",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan Roberts",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Stephen Bass",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Marcus Jones",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Moti Horenstein",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mark Scanlon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mark Striegl",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roman Salazar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mason Jones",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Matt Andersen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rex Holman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Renzo Gracie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Michel Batista",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ramiz Brahimaj",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Will Chope",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Melton Bowen",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rick Davis",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Michael McBride",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Neil Grove",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Thomas Gifford",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wes Combs",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Bradley",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Mike Stumpf",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Vigneault",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Townsend Saunders",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Minoki Ichihara",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Redmond",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tim Gorman",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ricky Rainey",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yuri Villefort",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rafa Garcia",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Neil Wain",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nick Agallar",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Nicolae Negumereanu",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Niklas Stolze",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Oli Thompson",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Robert Lucarelli",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shane Howell",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Shane del Rosario",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ray Wizard",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rudyard Moncayo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Paul Rodriguez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zach Light",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Kennedy",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Yoislandy Izquierdo",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Stefan Sekulic",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tony Halme",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan Parker",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Travis Wiuff",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rob Yundt",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ross Pointon",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Richie Hightower",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Vinicius Queiroz",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Steve Steinbeiss",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rocky Lee",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Rodrigo Ruas",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roger Gracie",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Roger Zapata",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Satoshi Honma",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ron van Clief",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan Madigan",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Ryan McGillivray",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sam Hughes",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sean Daugherty",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sean Alvarez",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Sergey Morozov",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Suman Mokhtarian",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Stephanie Egger",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tai Bowden",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Zarrukh Adashev",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wes Albritton",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Tony Petarra",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Wallid Ismail",
+    "vitorias": 0
+  },
+  {
+    "lutador": "Willamy Freire",
+    "vitorias": 0
+  }
+]

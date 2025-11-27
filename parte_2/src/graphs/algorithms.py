@@ -56,8 +56,7 @@ def dijkstra(grafo: Graph, origem: str, destino: str):
 
 def bfs_arvore(grafo: Graph, origem: str):
     """Constrói a árvore BFS a partir da origem."""
-    if origem not in grafo.adjacencia:
-        raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
+
 
     visitado = set()
     pai = {}
@@ -126,8 +125,6 @@ def bfs_caminho(grafo: Graph, origem: str, destino: str):
 
 def dfs_arvore(grafo: Graph, origem: str):
     """Constrói a árvore DFS a partir da origem."""
-    if origem not in grafo.adjacencia:
-        raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
     
     visitado = set()
     pai = {}
@@ -250,8 +247,7 @@ def dfs_classificar_arestas(grafo: Graph):
 
 def bellman_ford(grafo: Graph, origem: str):
     """Encontra caminhos mínimos a partir da origem e detecta ciclos negativos."""
-    if origem not in grafo.adjacencia:
-        raise ValueError(f"Bairro de origem '{origem}' não existe no grafo.")
+
     
     nos = list(grafo.obter_nos())
     dist = {no: inf for no in nos}
