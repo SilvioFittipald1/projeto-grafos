@@ -2449,44 +2449,6 @@ def gerar_histograma_graus():
     caminho_saida = os.path.join(OUT_DIR, 'distribuicao_graus.png')
     plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
     plt.close()
-    
-    # Gera um arquivo de notas explicativas
-    notas = """
-    NOTAS EXPLICATIVAS DAS VISUALIZAÇÕES
-    
-    1. MAPA DE GRAUS (mapa_graus.html)
-       - Visualização interativa onde cada nó representa um bairro
-       - A intensidade da cor indica o grau do vértice (número de conexões)
-       - Bairros mais conectados aparecem em azul mais escuro
-       
-    2. RANKING DE DENSIDADE POR MICRORREGIÃO (ranking_densidade_ego_microrregiao.png)
-       - Gráfico de barras mostrando a densidade média das redes ego por microrregião
-       - Ajuda a identificar quais regiões têm bairros com redes mais coesas
-       
-    3. GRAFO DOS BAIRROS
-       - Visualização interativa dos bairros
-       - Permite explorar as conexões entre os bairros da rede
-       
-    4. DISTRIBUIÇÃO DOS GRAUS (distribuicao_graus.png)
-       - Histograma mostrando a frequência de cada grau na rede
-       - A linha azul suave ajuda a visualizar a distribuição
-       - Revela se a rede segue uma distribuição livre de escala ou se há uma concentração em determinados graus
-       
-    5. ÁRVORE BFS A PARTIR DE BOA VIAGEM (arvore_bfs_boaviagem.html)
-       - Mostra os níveis de distância (em saltos) a partir de Boa Viagem
-       - Cada camada representa um nível de distância
-       - Útil para entender a conectividade e acessibilidade dos bairros
-       
-    6. PERCURSO NOVA DESCOBERTA -> SETÚBAL (arvore_percurso.html)
-       - Visualização do caminho mínimo entre Nova Descoberta e Setúbal
-       - Destaque para o percurso encontrado pelo algoritmo
-    """
-    
-    with open(os.path.join(OUT_DIR, 'notas_visuais.txt'), 'w', encoding='utf-8') as f:
-        f.write(notas)
-    
-    print("Notas explicativas salvas em:", os.path.join(OUT_DIR, 'notas_visuais.txt'))
-    return caminho_saida
 
 if __name__ == "__main__":
     arvore_percurso_html()

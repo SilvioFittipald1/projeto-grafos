@@ -1,0 +1,57 @@
+
+1. INFORMAÇÕES DO GRAFO
+
+|V| (Ordem - Número de Vértices): 94
+|E| (Tamanho - Número de Arestas): 218
+
+Tipo de Grafo:
+  - Dirigido: NÃO
+  - Ponderado: NÃO
+  - Descrição: Grafo não-dirigido simples
+
+Cada vértice representa um bairro do Recife.
+Cada aresta representa uma adjacência geográfica entre dois bairros.
+O dataset contém 6 microrregiões administrativas.
+
+2. DENSIDADE DO GRAFO
+
+Densidade: 0.049874
+
+A densidade indica o quão conectado está o grafo. Um valor próximo de 0
+indica que poucos bairros são adjacentes entre si, enquanto um valor
+próximo de 1 indicaria que quase todos os bairros são adjacentes.
+
+3. DISTRIBUIÇÃO DE GRAUS
+
+Estatísticas Descritivas:
+  - Grau Mínimo: 1
+  - Grau Máximo: 10
+  - Grau Médio: 4.64
+  - Grau Mediana: 4.00
+  - Desvio Padrão: 2.04
+
+O grau de um vértice representa o número de bairros adjacentes.
+
+Distribuição por Faixas:
+  -   27 bairros com 1-3 conexões ( 28.7%)
+  -   51 bairros com 4-6 conexões ( 54.3%)
+  -   13 bairros com 7-9 conexões ( 13.8%)
+  -    3 bairros com 10-12 conexões (  3.2%)
+  -    0 bairros com 13+ conexões (  0.0%)
+
+4. INTERPRETAÇÃO
+
+A distribuição de graus mostra como os bairros do Recife estão conectados
+geograficamente. Bairros com maior grau são aqueles que fazem fronteira com
+muitos outros bairros, geralmente localizados em regiões centrais. Bairros
+com menor grau tendem a estar em regiões periféricas ou costeiras.
+
+O histograma visual da distribuição de graus pode ser encontrado em:
+  - distribuicao_graus.png
+
+Dados detalhados dos graus por bairro estão disponíveis em:
+  - graus.csv
+  - ego_bairro.csv
+
+Informações sobre microrregiões estão disponíveis em:
+  - microrregioes.json

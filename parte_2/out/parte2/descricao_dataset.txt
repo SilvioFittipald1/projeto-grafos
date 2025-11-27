@@ -1,0 +1,58 @@
+
+1. INFORMAÇÕES DO GRAFO
+
+|V| (Ordem - Número de Vértices): 2139
+|E| (Tamanho - Número de Arestas): 5864
+
+Tipo de Grafo:
+  - Dirigido: NÃO
+  - Ponderado: SIM
+  - Descrição: Grafo não-dirigido ponderado
+
+Cada vértice representa um lutador do UFC.
+Cada aresta representa uma luta entre dois lutadores.
+O peso das arestas indica a importância/tipo da vitória:
+  - Nocaute/Submissão: peso 4.0
+  - Decisão Unânime: peso 2.0
+  - Decisão Dividida/Majoritária: peso 3.0
+  - Outros: peso 1.0
+
+2. DENSIDADE DO GRAFO
+
+Densidade: 0.002565
+
+A densidade indica o quão conectado está o grafo. Um valor próximo de 0
+indica que poucos lutadores enfrentaram-se mutuamente, enquanto um valor
+próximo de 1 indicaria que quase todos os lutadores já lutaram entre si.
+
+3. DISTRIBUIÇÃO DE GRAUS
+
+Estatísticas Descritivas:
+  - Grau Mínimo: 1
+  - Grau Máximo: 34
+  - Grau Médio: 5.48
+  - Grau Mediana: 4.00
+  - Desvio Padrão: 5.20
+
+O grau de um vértice representa o número de lutas que o lutador participou.
+
+Distribuição por Faixas:
+  - 1390 lutadores com 1-5 lutas ( 65.0%)
+  -  433 lutadores com 6-10 lutas ( 20.2%)
+  -  193 lutadores com 11-15 lutas (  9.0%)
+  -   74 lutadores com 16-20 lutas (  3.5%)
+  -   49 lutadores com 21+ lutas (  2.3%)
+
+4. INTERPRETAÇÃO
+
+A distribuição de graus mostra que a maioria dos lutadores tem poucas lutas
+registradas no dataset, enquanto alguns lutadores veteranos possuem um número
+significativamente maior de lutas. Isso é típico de redes do mundo real, onde
+poucos nós são altamente conectados (hubs) e a maioria tem poucas conexões.
+
+O histograma visual da distribuição de graus pode ser encontrado em:
+  - distribuicao_graus.png
+
+Dados detalhados dos graus por lutador estão disponíveis em:
+  - graus_lutadores.csv
+  - graus.csv
